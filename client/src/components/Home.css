@@ -1,0 +1,90 @@
+.home-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.home-content {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.buttons-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.create-button,
+.toggle-join-button,
+.join-button {
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.create-button {
+  background-color: #2196f3;
+  color: white;
+}
+
+.create-button:hover {
+  background-color: #1976d2;
+}
+
+.create-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.toggle-join-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.toggle-join-button:hover {
+  background-color: #388e3c;
+}
+
+.join-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.join-button {
+  background-color: #ff9800;
+  color: white;
+}
+
+.join-button:hover {
+  background-color: #f57c00;
+}
+
+.join-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+} 
