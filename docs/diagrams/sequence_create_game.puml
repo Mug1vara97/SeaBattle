@@ -1,0 +1,18 @@
+@startuml SequenceCreateGame
+actor Player
+participant "Client (React)" as Client
+participant "GameHub (SignalR)" as Hub
+participant "GameService" as Service
+participant "Database" as DB
+
+Player -> Client : Нажимает "Создать игру"
+Client -> Hub : createGame(playerName)
+Hub -> Service : CreateGameAsync(playerName)
+Service -> DB : Сохраняет новую игру
+DB --> Service : Новая игра
+Service --> Hub : Game создан
+Hub --> Client : gameCreated(gameData)
+Client -> Player : Показывает ID игры
+
+Player -> Client : Ждёт присоединения соперника
+@enduml 

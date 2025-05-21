@@ -1,0 +1,52 @@
+@startuml UseCaseDiagram
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Пользователь (Игрок)" as Player
+
+rectangle "Система 'Морской Бой'" {
+  usecase "Управление аккаунтом" as UC_Account
+  usecase "Регистрация" as UC_Register
+  usecase "Аутентификация" as UC_Login
+  usecase "Выход из системы" as UC_Logout
+
+  usecase "Управление игрой" as UC_GamePlay
+  usecase "Создать игру" as UC_CreateGame
+  usecase "Присоединиться к игре" as UC_JoinGame
+  usecase "Просмотр списка игр" as UC_ViewGames
+  usecase "Расставить корабли" as UC_PlaceShips
+  usecase "Сделать ход" as UC_MakeMove
+  usecase "Просмотр игровых досок" as UC_ViewBoards
+  usecase "Получить результат игры" as UC_GetGameResult
+  usecase "Покинуть игру" as UC_LeaveGame
+
+  usecase "Просмотр статистики" as UC_Stats
+  usecase "Просмотр истории своих игр" as UC_ViewHistory
+  usecase "Просмотр таблицы лидеров" as UC_ViewLeaderboard
+}
+
+Player --|> UC_Account
+UC_Account <|.. UC_Register : extends
+UC_Account <|.. UC_Login : extends
+UC_Account <|.. UC_Logout : extends
+
+Player --|> UC_GamePlay
+UC_GamePlay <|.. UC_CreateGame : extends
+UC_GamePlay <|.. UC_JoinGame : extends
+UC_GamePlay <|.. UC_ViewGames : extends
+UC_GamePlay <|.. UC_PlaceShips : extends
+UC_GamePlay <|.. UC_MakeMove : extends
+UC_GamePlay <|.. UC_ViewBoards : extends
+UC_GamePlay <|.. UC_GetGameResult : extends
+UC_GamePlay <|.. UC_LeaveGame : extends
+
+Player --|> UC_Stats
+UC_Stats <|.. UC_ViewHistory : extends
+UC_Stats <|.. UC_ViewLeaderboard : extends
+
+UC_CreateGame .> UC_PlaceShips : <<include>>
+UC_JoinGame .> UC_PlaceShips : <<include>>
+UC_PlaceShips .> UC_ViewBoards : <<include>> ' Отображение своей доски при расстановке
+UC_MakeMove .> UC_ViewBoards : <<include>> ' Отображение обеих досок во время хода
+
+@enduml 

@@ -1,89 +1,375 @@
-.game-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  text-align: center;
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background-color: #f0f2f5;
+    color: #333;
+    margin: 0;
+    line-height: 1.6;
 }
 
-.game-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+.game-page-container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.back-button {
-  padding: 8px 16px;
-  background-color: #f44336;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s;
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease-in-out;
 }
 
-.back-button:hover {
-  background-color: #d32f2f;
+.card:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
-.game-status {
-  margin: 20px 0;
-  font-size: 1.2em;
+.page-loading-container,
+.error-page {
+    min-height: calc(100vh - 40px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-.message {
-  color: #2196f3;
-  font-weight: bold;
-  margin: 10px 0;
+.loading-spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border-left-color: #007bff;
+    animation: spin 1s infinite linear;
+    margin-bottom: 15px;
 }
 
-.winner {
-  color: #4caf50;
-  font-size: 1.4em;
-  font-weight: bold;
-  margin: 20px 0;
+.loading-spinner-small {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(0,0,0,0.1);
+    border-left-color: #007bff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-right: 8px;
+    vertical-align: middle;
 }
 
-.boards-container {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 40px;
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.game-main-header h1 {
+    margin: 0 0 5px 0;
+    font-size: 1.8em;
+    color: #2c3e50;
+}
+
+.game-title-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+.game-id-display {
+    font-size: 0.9em;
+    color: #7f8c8d;
+    background-color: #ecf0f1;
+    padding: 5px 10px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.game-info-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    font-size: 0.95em;
+}
+
+.game-info-bar span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #34495e;
+}
+
+.game-info-bar span strong {
+    color: #2980b9;
+}
+
+.turn-indicator.my-turn strong {
+    color: #27ae60;
+}
+
+.turn-indicator.opponent-turn {
+    color: #e74c3c;
+}
+
+.game-error-banner,
+.game-status-banner {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.game-error-banner {
+    background-color: #ffebee;
+    color: #c62828;
+    border-left: 5px solid #c62828;
+}
+
+.game-error-banner p, .game-status-banner p {
+    margin: 0;
+    flex-grow: 1;
+}
+
+.game-error-banner .close-error-button {
+    background: none;
+    border: none;
+    color: #c62828;
+    font-size: 1.8em;
+    cursor: pointer;
+    padding: 0 5px;
+    line-height: 1;
+}
+
+.game-error-banner .close-error-button:hover {
+    color: #b71c1c;
+}
+
+.game-status-banner.info {
+    background-color: #e8f4fd;
+    color: #1e88e5;
+    border-left: 5px solid #1e88e5;
+}
+
+.game-status-banner.actions {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.game-status-banner.actions p {
+    margin-bottom: 10px;
+}
+
+.game-boards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
 .board-section {
-  text-align: center;
+    flex: 1;
+    min-width: 300px;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .board-section h2 {
-  margin-bottom: 15px;
-  color: #333;
+    margin: 0;
+    font-size: 1.3em;
+    color: #34495e;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
-.join-game {
-  margin: 20px 0;
-  padding: 20px;
-  background-color: #f5f5f5;
-  border-radius: 8px;
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    aspect-ratio: 1 / 1;
+    border: 1px solid #ccc;
+    background-color: #fdfdfd;
 }
 
-.join-game input {
-  padding: 8px;
-  margin-right: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.board-placeholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    color: #7f8c8d;
+    font-style: italic;
+    gap: 10px;
+    aspect-ratio: 1 / 1;
+    width: 100%;
 }
 
-.join-game button {
-  padding: 8px 16px;
-  background-color: #2196f3;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s;
+.game-cell {
+    border: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    background-color: #fff;
 }
 
-.join-game button:hover {
-  background-color: #1976d2;
+.game-board.clickable-board .game-cell.clickable:hover {
+    background-color: #e0f7fa;
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.game-board.clickable-board .game-cell.clickable:active {
+    transform: scale(0.95);
+}
+
+.game-cell.ship {
+    background-color: #7f8c8d;
+}
+
+.game-cell.hit {
+    background-color: #e74c3c !important;
+}
+
+.game-cell.hit::before {
+    content: '💥';
+    font-size: 1em;
+}
+
+.game-cell.miss {
+    background-color: #a6d1f8 !important;
+}
+
+.game-cell.miss::before {
+    content: '●';
+    font-size: 0.8em;
+    color: #2980b9;
+}
+
+.game-footer {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.game-finished-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+    padding: 20px;
+}
+
+.game-finished-overlay .modal-content {
+    text-align: center;
+    min-width: 300px;
+    max-width: 450px;
+}
+
+.game-finished-overlay .modal-content h2 {
+    font-size: 1.8em;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.game-result-message {
+    font-size: 1.3em;
+    margin-bottom: 1.5rem;
+}
+
+.game-result-message.winner {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.game-result-message.loser {
+    color: #c0392b;
+    font-weight: bold;
+}
+
+.primary-button, .secondary-button, .lobby-button, .ready-button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    color: white;
+}
+
+.primary-button, .ready-button {
+    background-color: #007bff;
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
+}
+
+.primary-button:hover, .ready-button:hover {
+    background-color: #0069d9;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.primary-button:active, .ready-button:active {
+    transform: translateY(1px);
+}
+
+.secondary-button, .lobby-button {
+    background-color: #6c757d;
+    box-shadow: 0 2px 4px rgba(108, 117, 125, 0.2);
+}
+
+.secondary-button:hover, .lobby-button:hover {
+    background-color: #5a6268;
+    box-shadow: 0 4px 8px rgba(108, 117, 125, 0.3);
+}
+
+.secondary-button:active, .lobby-button:active {
+    transform: translateY(1px);
+}
+
+.ship-placement-active .card {
+    margin-top: 0;
+}
+
+span[role="img"] {
+    display: inline-block;
+    margin-right: 0.1em;
+    font-size: 1.1em;
+}
+
+.error-page .game-error-banner {
+    width: 100%;
+    max-width: 500px;
+}
+
+.error-page .game-error-banner h3 {
+    margin: 0 0 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 } 

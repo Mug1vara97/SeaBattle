@@ -1,383 +1,264 @@
-import { useState, useEffect, useRef } from 'react';
-import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr';
-import GameBoard from './GameBoard';
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
+import { useGame } from '../contexts/GameContext';
+import ShipPlacement from './ShipPlacement';
+import GameHeader from './game/GameHeader';
+import GameBoard from './game/GameBoard';
+import GameErrorBanners from './game/GameErrorBanners';
+import GameStatusBanners from './game/GameStatusBanners';
+import { BackToLobbyIcon, StatusIcon, ErrorIcon } from './game/GameIcons';
 import './Game.css';
 
-const SHIP_SIZES = [4, 3, 3, 2, 2, 2, 1, 1, 1, 1];
+const Game = () => {
+    const { gameId } = useParams();
+    const navigate = useNavigate();
+    const { user } = useAuth();
+    const {
+        currentGame,
+        isMyTurn,
+        setReady,
+        makeShot,
+        getGameState,
+        leaveGame,
+        submitBoardPlacement,
+        error: gameContextError,
+        clearError: clearGameContextError
+    } = useGame();
 
-function Game({ playerName, gameId: initialGameId, onBack }) {
-  const [gameState, setGameState] = useState({
-    gameId: initialGameId,
-    isMyTurn: false,
-    gameStarted: false,
-    winner: null,
-    isPlacingShips: true,
-    currentShipIndex: 0,
-    ships: Array(10).fill().map(() => Array(10).fill(0)),
-    opponentBoard: Array(10).fill().map(() => Array(10).fill(0)),
-    opponentName: '',
-    message: '',
-    isConnected: false,
-    isGameInitialized: false,
-    isPlayer1: false
-  });
+    const [localError, setLocalError] = useState(null);
 
-  const connectionRef = useRef(null);
-  const isGameReady = useRef(false);
-  const gameIdRef = useRef(initialGameId);
+    const playerIsCreator = currentGame?.creatorName === user?.username;
+    const playerIsJoiner = currentGame?.joinerName === user?.username;
 
-  useEffect(() => {
-    const newConnection = new HubConnectionBuilder()
-      .withUrl('http://localhost:5183/gamehub')
-      .withAutomaticReconnect([0, 2000, 5000, 10000, 20000])
-      .configureLogging(LogLevel.Information)
-      .build();
+    const myBoardData = playerIsCreator ? currentGame?.creatorBoard : currentGame?.joinerBoard;
+    const opponentBoardData = playerIsCreator ? currentGame?.joinerBoard : currentGame?.creatorBoard;
 
-    connectionRef.current = newConnection;
+    const showPlacementUI = currentGame && user && (
+        (playerIsCreator && !currentGame.creatorBoardSet) ||
+        (playerIsJoiner && !currentGame.joinerBoardSet)
+    );
 
-    return () => {
-      if (newConnection) {
-        newConnection.stop();
-      }
-    };
-  }, []);
+    const isGameInProgress = currentGame?.state === 2;
+    const isGameFinished = currentGame?.state === 3;
 
-  useEffect(() => {
-    if (!connectionRef.current) return;
+    useEffect(() => {
+        if (!user) {
+            navigate('/login');
+            return;
+        }
+        if (!gameId) {
+            navigate('/');
+            return;
+        }
 
-    const setupConnection = async () => {
-      try {
-        if (connectionRef.current.state === 'Disconnected') {
-          await connectionRef.current.start();
-          console.log('Connected to SignalR');
-          setGameState(prev => ({ ...prev, isConnected: true }));
-
-          if (gameIdRef.current) {
-            console.log('Joining existing game:', gameIdRef.current);
-            await connectionRef.current.invoke('JoinGame', playerName, gameIdRef.current);
-            isGameReady.current = true;
-            setGameState(prev => ({ 
-              ...prev, 
-              isGameInitialized: true,
-              isPlayer1: false,
-              message: 'Подключено к существующей игре. Разместите корабли.'
-            }));
-          } else {
-            console.log('Creating new game');
-            setGameState(prev => ({
-              ...prev,
-              message: 'Создание новой игры...'
-            }));
-            const newGameId = await connectionRef.current.invoke('CreateGame', playerName);
-            if (!newGameId) {
-              console.error('Failed to create game: received null gameId');
-              setGameState(prev => ({
-                ...prev,
-                message: 'Ошибка при создании игры. Попробуйте еще раз.'
-              }));
-              return;
+        const fetchGameState = async () => {
+            try {
+                setLocalError(null);
+                if (typeof clearGameContextError === 'function') {
+                    clearGameContextError();
+                } else {
+                    console.warn('clearGameContextError is not a function during fetchGameState initial call');
+                }
+                await getGameState(gameId, user.username);
+            } catch (err) {
+                console.error('Error fetching game state:', err);
+                setLocalError('Ошибка при получении состояния игры: ' + (err.message || 'Неизвестная ошибка'));
             }
-            console.log('Created new game with ID:', newGameId);
-            gameIdRef.current = newGameId;
-            setGameState(prev => ({ 
-              ...prev, 
-              gameId: newGameId,
-              isGameInitialized: true,
-              isPlayer1: true,
-              message: `Игра создана. ID игры: ${newGameId}. Ожидание второго игрока...`
-            }));
-            isGameReady.current = true;
-          }
+        };
+
+        fetchGameState();
+    }, [gameId, user, getGameState, navigate, clearGameContextError]);
+
+    const handlePlacementConfirmed = async (placedBoard) => {
+        if (!gameId || !user?.username) {
+            setLocalError('Ошибка: ID игры или имя пользователя отсутствуют для подтверждения расстановки.');
+            return;
         }
-      } catch (err) {
-        console.error('SignalR Connection Error: ', err);
-        setGameState(prev => ({ 
-          ...prev, 
-          isConnected: false,
-          message: 'Ошибка подключения к серверу. Попытка переподключения...'
-        }));
-        setTimeout(setupConnection, 2000);
-      }
-    };
-
-    const setupHandlers = () => {
-      if (!connectionRef.current) return;
-
-      connectionRef.current.on('ReceiveMessage', (message) => {
-        console.log('Received message from server:', message);
-        setGameState(prev => ({
-          ...prev,
-          message
-        }));
-      });
-
-      connectionRef.current.on('Error', (errorMessage) => {
-        console.error('Received error from server:', errorMessage);
-        setGameState(prev => ({
-          ...prev,
-          message: errorMessage
-        }));
-      });
-
-      connectionRef.current.on('ReceiveShot', (row, col, result) => {
-        console.log('Received shot at opponent:', { row, col, result });
-        setGameState(prev => {
-          const newOpponentBoard = [...prev.opponentBoard];
-          newOpponentBoard[row][col] = result === 'hit' ? 2 : 3;
-          return { ...prev, opponentBoard: newOpponentBoard };
-        });
-      });
-
-      connectionRef.current.on('ReceiveHit', (row, col, result) => {
-        console.log('Received hit on own ships:', { row, col, result });
-        setGameState(prev => {
-          const newShips = [...prev.ships];
-          newShips[row][col] = result === 'hit' ? 2 : 3;
-          return { ...prev, ships: newShips };
-        });
-      });
-
-      connectionRef.current.on('GameStarted', () => {
-        setGameState(prev => ({ 
-          ...prev, 
-          gameStarted: true, 
-          isPlacingShips: false,
-          opponentBoard: Array(10).fill().map(() => Array(10).fill(0))
-        }));
-      });
-
-      connectionRef.current.on('TurnChanged', (isPlayer1Turn) => {
-        console.log('Turn changed:', isPlayer1Turn);
-        setGameState(prev => ({ 
-          ...prev, 
-          isMyTurn: isPlayer1Turn === prev.isPlayer1 
-        }));
-      });
-
-      connectionRef.current.on('GameCreated', (newGameId) => {
-        if (!newGameId) {
-          console.error('Received null gameId in GameCreated event');
-          setGameState(prev => ({
-            ...prev,
-            message: 'Ошибка при создании игры. Попробуйте еще раз.'
-          }));
-          return;
-        }
-        console.log('Game created with ID:', newGameId);
-        gameIdRef.current = newGameId;
-        setGameState(prev => ({ 
-          ...prev, 
-          gameId: newGameId,
-          isGameInitialized: true,
-          message: `Игра создана. ID игры: ${newGameId}. Ожидание второго игрока...` 
-        }));
-        isGameReady.current = true;
-      });
-
-      connectionRef.current.on('PlayerJoined', (opponentName) => {
-        console.log('Player joined:', opponentName);
-        setGameState(prev => ({ 
-          ...prev, 
-          opponentName, 
-          message: 'Второй игрок присоединился. Разместите корабли.' 
-        }));
-      });
-
-      connectionRef.current.on('PlayerReady', (playerName) => {
-        console.log('Player ready:', playerName);
-        setGameState(prev => ({
-          ...prev,
-          message: `${playerName} разместил корабли. ${prev.isPlacingShips ? 'Разместите ваши корабли.' : 'Ожидание размещения кораблей противником.'}`
-        }));
-      });
-
-      connectionRef.current.on('InvalidShipsPlacement', () => {
-        console.log('Invalid ships placement');
-        setGameState(prev => ({
-          ...prev,
-          message: 'Неправильное размещение кораблей. Попробуйте еще раз.',
-          ships: Array(10).fill().map(() => Array(10).fill(0)),
-          currentShipIndex: 0
-        }));
-      });
-
-      connectionRef.current.on('GameOver', (winner) => {
-        console.log('Game over, winner:', winner);
-        setGameState(prev => ({ ...prev, winner, message: `Игра окончена. Победитель: ${winner}` }));
-      });
-
-      connectionRef.current.onreconnecting((error) => {
-        console.log('Reconnecting to SignalR...', error);
-        setGameState(prev => ({
-          ...prev,
-          isConnected: false,
-          message: 'Переподключение к серверу...'
-        }));
-      });
-
-      connectionRef.current.onreconnected((connectionId) => {
-        console.log('Reconnected to SignalR with connection ID:', connectionId);
-        setGameState(prev => ({
-          ...prev,
-          isConnected: true,
-          message: 'Соединение восстановлено'
-        }));
-        if (gameIdRef.current) {
-          connectionRef.current.invoke('JoinGame', playerName, gameIdRef.current);
-        }
-      });
-    };
-
-    setupConnection();
-    setupHandlers();
-
-    return () => {
-      if (connectionRef.current) {
-        connectionRef.current.off('ReceiveMessage');
-        connectionRef.current.off('Error');
-        connectionRef.current.off('ReceiveShot');
-        connectionRef.current.off('ReceiveHit');
-        connectionRef.current.off('GameStarted');
-        connectionRef.current.off('TurnChanged');
-        connectionRef.current.off('GameCreated');
-        connectionRef.current.off('PlayerJoined');
-        connectionRef.current.off('PlayerReady');
-        connectionRef.current.off('InvalidShipsPlacement');
-        connectionRef.current.off('GameOver');
-        connectionRef.current.off('reconnecting');
-        connectionRef.current.off('reconnected');
-      }
-    };
-  }, [playerName]);
-
-  const handleCellClick = async (row, col) => {
-    if (!gameState.gameStarted || !gameState.isMyTurn || !connectionRef.current || !gameState.isConnected) return;
-
-    try {
-      if (!gameIdRef.current) {
-        console.error('Game ID is missing');
-        return;
-      }
-      await connectionRef.current.invoke('MakeShot', gameIdRef.current, row, col);
-    } catch (err) {
-      console.error('Error making shot: ', err);
-    }
-  };
-
-  const handlePlaceShip = async (row, col) => {
-    if (
-      !gameState.isPlacingShips ||
-      gameState.currentShipIndex >= SHIP_SIZES.length ||
-      !gameState.isConnected ||
-      !gameState.isGameInitialized
-    ) {
-      return;
-    }
-
-    const shipSize = SHIP_SIZES[gameState.currentShipIndex];
-    const newShips = [...gameState.ships];
-
-    if (canPlaceShip(newShips, row, col, shipSize)) {
-      for (let i = 0; i < shipSize; i++) {
-        newShips[row][col + i] = 1;
-      }
-
-      const isLastShip = gameState.currentShipIndex + 1 >= SHIP_SIZES.length;
-
-      setGameState(prev => ({
-        ...prev,
-        ships: newShips,
-        currentShipIndex: prev.currentShipIndex + 1
-      }));
-
-      if (isLastShip) {
-        const currentGameId = gameState.gameId || gameIdRef.current;
-        
-        if (!currentGameId) {
-          setGameState(prev => ({
-            ...prev,
-            message: 'Ошибка: ID игры отсутствует. Попробуйте еще раз.',
-            ships: Array(10).fill().map(() => Array(10).fill(0)),
-            currentShipIndex: 0
-          }));
-          return;
-        }
-
         try {
-          const flatShips = newShips.flat();
-          await connectionRef.current.invoke('PlaceShips', currentGameId, flatShips);
-          setGameState(prev => ({
-            ...prev,
-            message: 'Корабли размещены. Ожидание противника...'
-          }));
-        } catch (error) {
-          console.error('Error placing ships:', error);
-          setGameState(prev => ({
-            ...prev,
-            message: 'Ошибка при размещении кораблей. Попробуйте еще раз.',
-            ships: Array(10).fill().map(() => Array(10).fill(0)),
-            currentShipIndex: 0
-          }));
+            setLocalError(null);
+            if (typeof clearGameContextError === 'function') {
+                clearGameContextError();
+            }
+            const success = await submitBoardPlacement(gameId, user.username, placedBoard);
+            if (success) {
+                console.log('Расстановка успешно отправлена, ожидаем обновления состояния игры...');
+            } else {
+                if (!gameContextError) {
+                    setLocalError('Не удалось подтвердить расстановку. Попробуйте снова.');
+                }
+            }
+        } catch (err) {
+            console.error('Error confirming placement:', err);
+            setLocalError('Ошибка при подтверждении расстановки: ' + (err.message || 'Неизвестная ошибка'));
         }
-      }
-    }
-  };
+    };
 
-  const canPlaceShip = (board, row, col, size) => {
-    if (col + size > 10) return false;
-
-    for (let i = -1; i <= 1; i++) {
-      for (let j = -1; j <= size; j++) {
-        const newRow = row + i;
-        const newCol = col + j;
-        if (newRow >= 0 && newRow < 10 && newCol >= 0 && newCol < 10) {
-          if (board[newRow][newCol] === 1) return false;
+    const handleReadyClick = async () => {
+        try {
+            setLocalError(null);
+            if (typeof clearGameContextError === 'function') {
+                clearGameContextError();
+            }
+            await setReady(gameId, user.username);
+        } catch (err) {
+            console.error('Error setting ready:', err);
+            setLocalError('Ошибка при установке статуса готовности: ' + (err.message || 'Проверьте консоль'));
         }
-      }
+    };
+
+    const handleCellClick = async (row, col) => {
+        if (!isMyTurn || isGameFinished || !isGameInProgress) return;
+        try {
+            setLocalError(null);
+            if (typeof clearGameContextError === 'function') {
+                clearGameContextError();
+            }
+            const position = { row, col };
+            await makeShot(gameId, user.username, position);
+        } catch (err) {
+            console.error('Error making shot:', err);
+            if (!gameContextError) {
+                setLocalError('Ошибка при совершении выстрела: ' + (err.message || 'Неизвестная ошибка'));
+            }
+        }
+    };
+
+    const handleReturnToLobby = () => {
+        leaveGame();
+        navigate('/home');
+    };
+
+    if (!user || !gameId) {
+        return <div className="page-loading-container"><div className="loading-spinner"></div>Загрузка...</div>;
     }
 
-    return true;
-  };
+    if (showPlacementUI) {
+        return (
+            <div className="game-page-container ship-placement-active">
+                <ShipPlacement
+                    gameId={gameId}
+                    playerName={user.username}
+                    onPlacementConfirmed={handlePlacementConfirmed}
+                />
+            </div>
+        );
+    }
 
-  return (
-    <div className="game-container">
-      <div className="game-header">
-        <h1>Морской бой</h1>
-        <button className="back-button" onClick={onBack}>Вернуться в меню</button>
-      </div>
-      <div className="game-status">
-        {!gameState.isConnected && (
-          <p className="error">Отсутствует соединение с сервером. Попытка переподключения...</p>
-        )}
-        {!gameState.isGameInitialized && (
-          <p className="message">Инициализация игры...</p>
-        )}
-        {gameState.message && <p className="message">{gameState.message}</p>}
-        {gameState.gameStarted && (
-          <p>{gameState.isMyTurn ? 'Ваш ход' : 'Ход противника'}</p>
-        )}
-        {gameState.winner && <p className="winner">Победитель: {gameState.winner}</p>}
-      </div>
-      <div className="boards-container">
-        <div className="board-section">
-          <h2>Ваше поле</h2>
-          <GameBoard
-            isOpponent={false}
-            onCellClick={handlePlaceShip}
-            board={gameState.ships}
-          />
-        </div>
-        <div className="board-section">
-          <h2>Поле противника</h2>
-          <GameBoard
-            isOpponent={true}
-            onCellClick={handleCellClick}
-            board={gameState.opponentBoard}
-          />
-        </div>
-      </div>
-    </div>
-  );
-}
+    if (!currentGame && localError) {
+        return (
+            <div className="game-page-container error-page">
+                <div className="game-error-banner card">
+                    <h3><ErrorIcon /> Не удалось загрузить данные игры</h3>
+                    <p>{localError}</p>
+                    <button onClick={handleReturnToLobby} className="lobby-button secondary-button">
+                        <BackToLobbyIcon /> Вернуться в лобби
+                    </button>
+                </div>
+            </div>
+        );
+    }
 
-export default Game; 
+    if (!currentGame && !isGameFinished) {
+        return <div className="page-loading-container"><div className="loading-spinner"></div>Загрузка состояния игры...</div>;
+    }
+
+    if (!currentGame) {
+        return (
+            <div className="game-page-container error-page">
+                <div className="game-error-banner card">
+                    <h3><ErrorIcon /> Критическая ошибка</h3>
+                    <p>Не удалось получить данные об игре. Возможно, она была удалена или не существует.</p>
+                    <button onClick={handleReturnToLobby} className="lobby-button secondary-button">
+                        <BackToLobbyIcon /> Вернуться в лобби
+                    </button>
+                </div>
+            </div>
+        );
+    }
+
+    if (isGameFinished) {
+        return (
+            <div className="game-finished-overlay">
+                <div className="modal-content card">
+                    <h2><StatusIcon /> Игра Завершена!</h2>
+                    <p className={`game-result-message ${currentGame.winner === user.username ? 'winner' : 'loser'}`}>
+                        {currentGame.winner === user.username ? '🎉 Вы победили! 🎉' : '😔 Вы проиграли. 😔'}
+                    </p>
+                    <p>Победитель: <strong>{currentGame.winner || "Не определен"}</strong></p>
+                    <button onClick={handleReturnToLobby} className="lobby-button primary-button">
+                        <BackToLobbyIcon /> Вернуться в лобби
+                    </button>
+                </div>
+            </div>
+        );
+    }
+
+    return (
+        <div className="game-page-container">
+            <GameHeader
+                gameId={gameId}
+                user={user}
+                currentGame={currentGame}
+                playerIsCreator={playerIsCreator}
+                isGameInProgress={isGameInProgress}
+                isMyTurn={isMyTurn}
+            />
+
+            <GameErrorBanners
+                localError={localError}
+                gameContextError={gameContextError}
+                setLocalError={setLocalError}
+                clearGameContextError={clearGameContextError}
+            />
+
+            <GameStatusBanners
+                currentGame={currentGame}
+                playerIsCreator={playerIsCreator}
+                playerIsJoiner={playerIsJoiner}
+                handleReadyClick={handleReadyClick}
+            />
+
+            {(!showPlacementUI && !isGameFinished && currentGame.state !== 0 && !(currentGame.state === 1 && !(currentGame.creatorBoardSet && currentGame.joinerBoardSet))) && (
+                <div className="game-boards-container">
+                    <div className="board-section my-board-section">
+                        <h2>Ваше поле ({user?.username})</h2>
+                        <GameBoard
+                            isMyBoard={true}
+                            boardData={myBoardData}
+                            currentGame={currentGame}
+                            user={user}
+                            playerIsCreator={playerIsCreator}
+                            isGameInProgress={isGameInProgress}
+                            isGameFinished={isGameFinished}
+                            isMyTurn={isMyTurn}
+                            handleCellClick={handleCellClick}
+                        />
+                    </div>
+                    <div className="board-section opponent-board-section">
+                        <h2>Поле противника ({playerIsCreator ? (currentGame.joinerName || 'Ожидание...') : (currentGame.creatorName || 'Ожидание...')})</h2>
+                        <GameBoard
+                            isMyBoard={false}
+                            boardData={opponentBoardData}
+                            currentGame={currentGame}
+                            user={user}
+                            playerIsCreator={playerIsCreator}
+                            isGameInProgress={isGameInProgress}
+                            isGameFinished={isGameFinished}
+                            isMyTurn={isMyTurn}
+                            handleCellClick={handleCellClick}
+                        />
+                    </div>
+                </div>
+            )}
+
+            <div className="game-footer">
+                <button onClick={handleReturnToLobby} className="lobby-button secondary-button">
+                    <BackToLobbyIcon /> Вернуться в лобби
+                </button>
+            </div>
+        </div>
+    );
+};
+
+export default Game;

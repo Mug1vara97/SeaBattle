@@ -1,0 +1,205 @@
+.ship-placement-container.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.placement-title {
+    font-size: 1.6em;
+    color: #2c3e50;
+    margin: 0 0 10px 0;
+    text-align: center;
+    width: 100%;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.game-id-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #f8f9fa;
+    padding: 4px 12px;
+    border-radius: 6px;
+    border: 1px solid #e9ecef;
+}
+
+.game-id-section span {
+    font-size: 0.9em;
+    color: #7f8c8d;
+}
+
+.game-id-section .game-id {
+    font-family: monospace;
+    font-size: 1.1em;
+    color: #2c3e50;
+    background-color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+}
+
+.copy-button {
+    background: none;
+    border: none;
+    color: #2980b9;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: background-color 0.2s;
+}
+
+.copy-button:hover {
+    background-color: #e3f2fd;
+}
+
+.copy-button:active {
+    transform: scale(0.95);
+}
+
+.copy-button.copied {
+    color: #27ae60;
+}
+
+.placement-main-content {
+    display: flex;
+    flex-direction: row; 
+    gap: 25px;
+    width: 100%;
+    flex-wrap: wrap; 
+    justify-content: center;
+}
+
+.placement-controls-area {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+    min-width: 280px;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.control-group h4 {
+    margin: 0 0 8px 0;
+    font-size: 1.1em;
+    color: #34495e;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.buttons-group.horizontal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.ship-count-badge {
+    background-color: #e9ecef;
+    color: #495057;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    margin-left: 8px;
+}
+
+.secondary-button.active .ship-count-badge {
+    background-color: rgba(255,255,255,0.2);
+    color: white;
+}
+
+.placement-board-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.placement-board {
+    display: grid;
+    grid-template-columns: repeat(10, 32px);
+    grid-template-rows: repeat(10, 32px);
+    border: 2px solid #34495e;
+    width: calc(32px * 10 + 2px);
+    height: calc(32px * 10 + 2px);
+    background-color: #fff; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+}
+
+.board-cell {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #dde1e2;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.board-cell:hover {
+    background-color: #e0f7fa; 
+    transform: scale(1.05);
+}
+.board-cell:active {
+    transform: scale(0.95);
+}
+
+.board-cell.cell-ship {
+    background-color: #7f8c8d;
+}
+
+.ship-placement-container .game-error-banner {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.placement-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    justify-content: center;
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.primary-button:disabled,
+.secondary-button:disabled {
+    background-color: #adb5bd;
+    color: #6c757d;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+@media (max-width: 680px) {
+    .placement-main-content {
+        flex-direction: column; 
+        align-items: center; 
+    }
+    .placement-controls-area {
+        width: 100%;
+        max-width: 450px; 
+    }
+    .placement-board-area {
+        width: 100%;
+        max-width: calc(32px * 10 + 4px); 
+    }
+} 

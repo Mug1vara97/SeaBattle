@@ -1,0 +1,29 @@
+@startuml ComponentOverview
+package "Frontend (React)" {
+  [App] --> [Lobby]
+  [App] --> [Game]
+  [Lobby] --> [GameContext]
+  [Game] --> [GameContext]
+  [Game] --> [ShipPlacement]
+  [Game] --> [Board]
+}
+
+package "Backend (ASP.NET Core)" {
+  [GameController]
+  [AuthController]
+  [GameHub]
+  [GameService]
+  [ApplicationDbContext]
+}
+
+[Database]
+
+[App] ..> [GameHub] : SignalR (WebSockets)
+[App] ..> [GameController] : REST API
+[App] ..> [AuthController] : REST API
+
+[GameHub] --> [GameService]
+[GameController] --> [GameService]
+[GameService] --> [ApplicationDbContext]
+[ApplicationDbContext] --> [Database]
+@enduml 

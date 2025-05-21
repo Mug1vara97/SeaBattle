@@ -1,57 +1,31 @@
-import React, { useState } from 'react'
-import Home from './components/Home'
-import Game from './components/Game'
-import Auth from './components/Auth'
-import './App.css'
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
+import { SignalRProvider } from './contexts/SignalRContext';
+import { GameProvider } from './contexts/GameContext';
+import Login from './components/Login'; 
+import Register from './components/Register'; 
+import Home from './components/Home';
+import Game from './components/Game';
 
-export default function App() {
-  const [gameState, setGameState] = useState({
-    isInGame: false,
-    gameId: null
-  });
+const App = () => {
+    return (
+        <AuthProvider>
+            <SignalRProvider>
+                <GameProvider>
+                    <div className="app">
+                        <Routes>
+                            <Route path="/login" element={<Login />} />
+                            <Route path="/register" element={<Register />} />
+                            <Route path="/home" element={<Home />} />
+                            <Route path="/game/:gameId" element={<Game />} />
+                            <Route path="*" element={<Navigate to="/login" replace />} />
+                        </Routes>
+                    </div>
+                </GameProvider>
+            </SignalRProvider>
+        </AuthProvider>
+    );
+};
 
-  const [username, setUsername] = useState(null);
-
-  const handleCreateGame = () => {
-    setGameState({
-      isInGame: true,
-      gameId: null
-    });
-  };
-
-  const handleJoinGame = (gameId) => {
-    setGameState({
-      isInGame: true,
-      gameId
-    });
-  };
-
-  const handleBackToMenu = () => {
-    setGameState({
-      isInGame: false,
-      gameId: null
-    });
-  };
-
-  if (!username) {
-    return <Auth onAuth={setUsername} />;
-  }
-
-  return (
-    <div className="app">
-      {!gameState.isInGame ? (
-        <Home 
-          onCreateGame={handleCreateGame}
-          onJoinGame={handleJoinGame}
-          username={username}
-        />
-      ) : (
-        <Game 
-          playerName={username}
-          gameId={gameState.gameId}
-          onBack={handleBackToMenu}
-        />
-      )}
-    </div>
-  )
-}
+export default App;

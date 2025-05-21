@@ -1,0 +1,238 @@
+@startuml ClassDiagram
+
+' --- Стилизация ---
+skinparam classAttributeIconSize 0
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam roundcorner 10
+skinparam class {
+  BackgroundColor PaleTurquoise
+  ArrowColor RoyalBlue
+  BorderColor RoyalBlue
+  Shadowing false
+}
+skinparam note {
+  BackgroundColor LightYellow
+  BorderColor OrangeRed
+}
+
+package "Server (ASP.NET Core)" {
+  package "Models" {
+    class Game {
+      + GameId: string
+      + CreatorId: string
+      + CreatorName: string
+      + JoinerId: string (nullable)
+      + JoinerName: string (nullable)
+      + CreatorBoard: CellState[,] (nullable)
+      + JoinerBoard: CellState[,] (nullable)
+      + CreatorBoardSet: bool
+      + JoinerBoardSet: bool
+      + CurrentTurnPlayerId: string (nullable)
+      + WinnerId: string (nullable)
+      + GameState: GameStatus (Created, WaitingForOpponent, PlacingShips,InProgress, Finished)
+      + CreatedAt: DateTime
+      + FinishedAt: DateTime (nullable)
+    }
+
+    class PlayerRanking {
+      + PlayerUsername: string <<PK>>
+      + Rating: int
+      + Wins: int
+      + Losses: int
+      + TotalGames: int
+    }
+
+    class GameHistory {
+      + Id: int <<PK>>
+      + GameId: string
+      + PlayerOneName: string
+      + PlayerTwoName: string
+      + WinnerName: string (nullable)
+      + GameDate: DateTime
+    }
+
+    enum CellState {
+      Empty
+      Ship
+      Hit
+      Miss
+      ShipSunk
+      Forbidden
+    }
+
+    class ApplicationUser {
+      + UserName: string
+      ' ... other IdentityUser properties
+    }
+  }
+
+  package "Data" {
+    class ApplicationDbContext {
+      + Games: DbSet<Game>
+      + PlayerRankings: DbSet<PlayerRanking>
+      + GameHistories: DbSet<GameHistory>
+      + OnModelCreating(ModelBuilder modelBuilder)
+    }
+  }
+
+  package "Services" {
+    interface IGameService {
+      + CreateGameAsync(string creatorId, string creatorName): Task<Game>
+      + JoinGameAsync(string gameId, string joinerId, string joinerName): Task<Game?>
+      + GetGameAsync(string gameId): Task<Game?>
+      + PlaceShipsAsync(string gameId, string playerName, CellState[,] board): Task<Game?>
+      + MakeMoveAsync(string gameId, string playerId, int row, int col): Task<Game?>
+      + AddGameToHistory(Game game): Task
+      + GetPlayerGameHistory(string playerName, int count): Task<List<GameHistory>>
+      + GetLeaderboardAsync(int topN): Task<List<PlayerRanking>>
+    }
+
+    class GameService {
+      - _dbContext: ApplicationDbContext
+      - _userManager: UserManager<ApplicationUser>
+      + CreateGameAsync(...)
+      + JoinGameAsync(...)
+      + GetGameAsync(...)
+      + PlaceShipsAsync(...)
+      + MakeMoveAsync(...)
+      - UpdatePlayerRankingAsync(string playerName, bool isWinner): Task
+      ' ... implementation of IGameService
+    }
+  }
+
+  package "Hubs" {
+    class GameHub {
+      - _gameService: IGameService
+      - _userManager: UserManager<ApplicationUser>
+      + OnConnectedAsync()
+      + OnDisconnectedAsync(Exception exception)
+      + CreateGame(string playerName): Task
+      + JoinGame(string gameId, string playerName): Task
+      + SubmitBoardPlacement(string gameId, string playerName, int[][] clientBoard): Task
+      + MakeMove(string gameId, string playerName, int row, int col): Task
+      + GetMyGameHistory(string playerName, int count): Task
+      ' ... client invokable methods
+      ' --- Server-to-client methods (example) ---
+      ' + Clients.Group(gameId).SendAsync("GameUpdated", gameDto)
+      ' + Clients.Caller.SendAsync("ReceiveGameHistory", history)
+    }
+  }
+
+  package "Controllers" {
+    class AuthController {
+      + Register(RegisterModel model): Task<IActionResult>
+      + Login(LoginModel model): Task<IActionResult>
+    }
+    class GameController {
+      + GetGameHistory(string playerName, int count): Task<IActionResult>
+      + GetLeaderboard(int topN): Task<IActionResult>
+      + GetOpenGames(): Task<IActionResult> ' Example for lobby
+    }
+  }
+}
+
+package "Client (React)" {
+  class App_jsx {
+    ' Manages routing (BrowserRouter)
+    ' Renders Lobby, Game, Auth components
+  }
+
+  package "Components" {
+    class Lobby_jsx {
+      ' UI for creating/joining games
+      ' Displays open games list
+      ' Displays Leaderboard
+      ' Displays GameHistory
+      ' Uses GameContext, AuthContext
+    }
+    class Game_jsx {
+      ' Main game interface
+      ' Renders player/opponent boards (Board_jsx)
+      ' Handles ShipPlacement_jsx
+      ' Game logic interaction via GameContext
+      ' Shows game state, whose turn, etc.
+    }
+    class ShipPlacement_jsx {
+      ' UI for ship placement grid
+      ' Handles ship selection, orientation
+      ' Client-side validation
+      ' Calls onPlacementConfirmed prop
+    }
+    class Board_jsx {
+      ' Renders a 10x10 game board (player or opponent)
+      ' Handles cell click for making moves
+    }
+    class Leaderboard_jsx { 
+      ' (Now integrated into Lobby_jsx)
+      ' Fetches and displays player rankings
+    }
+    class GameHistory_jsx {
+      ' (Likely part of Lobby_jsx or separate component)
+      ' Fetches and displays player game history
+    }
+  }
+
+  package "Contexts" {
+    class AuthContext_jsx {
+      ' Manages user authentication state (user, token)
+      ' Provides login(), register(), logout() functions
+      ' Handles auth token persistence
+      ' Provides authLoading state
+    }
+    class GameContext_jsx {
+      ' Manages SignalR connection for game events
+      ' Provides functions to interact with GameHub (createGame, joinGame, submitBoard, makeMove)
+      ' Stores current game state (currentGame)
+      ' Provides game related data to components
+    }
+  }
+
+  package "Services (API calls)" {
+    class apiService_js { 
+      ' Optional: Centralized API call functions (fetch)
+      ' getGameHistory(playerName, count): Promise<GameHistory[]>
+      ' getLeaderboard(topN): Promise<PlayerRanking[]>
+    }
+  }
+}
+
+ApplicationDbContext ..> Game
+ApplicationDbContext ..> PlayerRanking
+ApplicationDbContext ..> GameHistory
+ApplicationDbContext ..> ApplicationUser
+
+GameService ..|> IGameService
+GameService *-- ApplicationDbContext
+GameService *-- "UserManager<ApplicationUser>"
+
+GameHub *-- IGameService
+GameHub *-- "UserManager<ApplicationUser>"
+
+AuthController *-- "SignInManager<ApplicationUser>"
+AuthController *-- "UserManager<ApplicationUser>"
+GameController *-- IGameService
+
+App_jsx --> Lobby_jsx
+App_jsx --> Game_jsx
+
+Lobby_jsx ..> GameContext_jsx : uses
+Lobby_jsx ..> AuthContext_jsx : uses
+Lobby_jsx ..> apiService_js : uses (for history/leaderboard)
+
+Game_jsx ..> GameContext_jsx : uses
+Game_jsx ..> AuthContext_jsx : uses
+Game_jsx --> ShipPlacement_jsx
+Game_jsx --> Board_jsx
+
+ShipPlacement_jsx ..> GameContext_jsx : (indirectly via props from Game_jsx)
+
+GameHub .. "Client (React)" : "SignalR (WebSockets)"
+GameController .. "Client (React)" : "HTTP API (REST)"
+AuthController .. "Client (React)" : "HTTP API (REST)"
+
+Game o-- "CreatorBoard: CellState[,]"
+Game o-- "JoinerBoard: CellState[,]"
+Game "1" *-- "0..2" Player : (creator, joiner) - концептуально
+
+@enduml 

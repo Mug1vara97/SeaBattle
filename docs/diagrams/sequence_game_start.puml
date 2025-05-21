@@ -1,0 +1,50 @@
+@startuml SequenceGameStart
+
+title Диаграмма последовательности: Начало игры
+
+actor "Игрок А (Создатель)" as PlayerA
+participant "Клиент А (React)" as ClientA
+participant "GameHub (SignalR)" as Hub
+participant "IGameService" as GameService
+participant "База данных" as DB
+actor "Игрок Б (Присоединяющийся)" as PlayerB
+participant "Клиент Б (React)" as ClientB
+
+== Сценарий 1: Игрок А создает игру ==
+
+PlayerA -> ClientA: Нажимает "Создать игру"
+ClientA -> Hub: Invoke("CreateGame", playerA_Name)
+Hub -> GameService: CreateGameAsync(playerA_Id, playerA_Name)
+GameService -> DB: Сохранить новую игру (GameId, CreatorId, GameState=WaitingForOpponent)
+DB --> GameService: Возвращает созданную игру
+GameService --> Hub: Возвращает игру
+Hub -> ClientA: SendAsync("GameCreated", gameDto)
+Hub -> Hub: AddToGroupAsync(Context.ConnectionId, gameId)
+ClientA -> PlayerA: Отображает ID игры, ожидает оппонента
+
+== Сценарий 2: Игрок Б присоединяется к игре ==
+
+PlayerB -> ClientB: Вводит ID игры, нажимает "Присоединиться"
+ClientB -> Hub: Invoke("JoinGame", gameId, playerB_Name)
+Hub -> GameService: JoinGameAsync(gameId, playerB_Id, playerB_Name)
+GameService -> DB: Найти игру по gameId
+DB --> GameService: Возвращает игру (если найдена и свободна)
+GameService -> DB: Обновить игру (JoinerId, GameState=PlacingShips)
+DB --> GameService: Возвращает обновленную игру
+GameService --> Hub: Возвращает игру
+Hub -> Hub: AddToGroupAsync(Context.ConnectionId, gameId)
+
+Hub -> ClientA: SendAsync("PlayerJoined", personalizedGameDto_ForA)
+note right of ClientA: Игрок А видит, что Игрок Б присоединился.
+Hub -> ClientB: SendAsync("GameJoined", personalizedGameDto_ForB)
+note right of ClientB: Игрок Б успешно присоединился к игре.
+
+Hub -> ClientA: SendAsync("GameUpdated", personalizedGameDto_ForA_PlacingShips)
+ClientA -> PlayerA: Переход к интерфейсу расстановки кораблей
+
+Hub -> ClientB: SendAsync("GameUpdated", personalizedGameDto_ForB_PlacingShips)
+ClientB -> PlayerB: Переход к интерфейсу расстановки кораблей
+
+== Оба игрока на этапе расстановки кораблей ==
+
+@enduml 
