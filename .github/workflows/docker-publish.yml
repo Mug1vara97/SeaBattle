@@ -41,6 +41,6 @@ jobs:
       - name: Build and push server Docker image
         uses: docker/build-push-action@v5
         with:
-          context: ./server
+          context: ./Server
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME_SERVER }}:latest 
