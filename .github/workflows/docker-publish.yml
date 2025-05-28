@@ -35,12 +35,14 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./client
+          file: ./client/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME_CLIENT }}:latest
 
       - name: Build and push server Docker image
         uses: docker/build-push-action@v5
         with:
-          context: ./Server
+          context: ./Server/SeaBattle
+          file: ./Server/SeaBattle/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME_SERVER }}:latest 
