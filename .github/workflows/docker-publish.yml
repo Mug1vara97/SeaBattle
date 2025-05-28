@@ -36,7 +36,7 @@ jobs:
           context: ./client
           file: ./client/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.REPOSITORY_NAME }}:client
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.REPOSITORY_NAME }}:client-latest
 
       - name: Build and push server Docker image
         uses: docker/build-push-action@v5
@@ -44,4 +44,4 @@ jobs:
           context: ./Server/SeaBattle
           file: ./Server/SeaBattle/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.REPOSITORY_NAME }}:server 
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.REPOSITORY_NAME }}:server-latest
