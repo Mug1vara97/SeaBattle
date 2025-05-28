@@ -8,8 +8,7 @@ on:
 
 env:
   REGISTRY: docker.io
-  IMAGE_NAME_CLIENT: seabattle-client
-  IMAGE_NAME_SERVER: seabattle-server
+  REPOSITORY_NAME: seabattle
 
 jobs:
   build-and-push:
@@ -37,7 +36,7 @@ jobs:
           context: ./client
           file: ./client/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME_CLIENT }}:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.REPOSITORY_NAME }}:client
 
       - name: Build and push server Docker image
         uses: docker/build-push-action@v5
@@ -45,4 +44,4 @@ jobs:
           context: ./Server/SeaBattle
           file: ./Server/SeaBattle/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME_SERVER }}:latest 
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.REPOSITORY_NAME }}:server 
