@@ -1,0 +1,676 @@
+{
+  "source_base_path": "C:/BD/Project/Server/SeaBattle",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Controllers.AuthController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Controllers.AuthController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Controllers.AuthController",
+      "Summary": "<p sourcefile=\"api/SeaBattle.Controllers.AuthController.yml\" sourcestartlinenumber=\"1\">Контроллер для управления аутентификацией и регистрацией пользователей</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Controllers.CreateGameRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Controllers.CreateGameRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Controllers.CreateGameRequest",
+      "Summary": "<p sourcefile=\"api/SeaBattle.Controllers.CreateGameRequest.yml\" sourcestartlinenumber=\"1\">Модель запроса для создания новой игры</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Controllers.GameController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Controllers.GameController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Controllers.GameController",
+      "Summary": "<p sourcefile=\"api/SeaBattle.Controllers.GameController.yml\" sourcestartlinenumber=\"1\">Контроллер для управления игровым процессом морского боя</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Controllers.JoinGameRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Controllers.JoinGameRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Controllers.JoinGameRequest",
+      "Summary": "<p sourcefile=\"api/SeaBattle.Controllers.JoinGameRequest.yml\" sourcestartlinenumber=\"1\">Модель запроса для присоединения к игре</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Controllers.LoginRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Controllers.LoginRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Controllers.LoginRequest",
+      "Summary": "<p sourcefile=\"api/SeaBattle.Controllers.LoginRequest.yml\" sourcestartlinenumber=\"1\">Модель запроса для входа в систему</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Controllers.ReadyRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Controllers.ReadyRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Controllers.ReadyRequest",
+      "Summary": "<p sourcefile=\"api/SeaBattle.Controllers.ReadyRequest.yml\" sourcestartlinenumber=\"1\">Модель запроса для установки готовности игрока</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Controllers.RegisterRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Controllers.RegisterRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Controllers.RegisterRequest",
+      "Summary": "<p sourcefile=\"api/SeaBattle.Controllers.RegisterRequest.yml\" sourcestartlinenumber=\"1\">Модель запроса для регистрации нового пользователя</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Controllers.ShotRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Controllers.ShotRequest.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Controllers.ShotRequest",
+      "Summary": "<p sourcefile=\"api/SeaBattle.Controllers.ShotRequest.yml\" sourcestartlinenumber=\"1\">Модель запроса для выполнения выстрела</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Controllers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Controllers.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Controllers",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Data.ApplicationDbContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Data.ApplicationDbContext.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Data.ApplicationDbContext",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Data.DesignTimeDbContextFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Data.DesignTimeDbContextFactory.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Data.DesignTimeDbContextFactory",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Data.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Data",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Hubs.GameHub.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Hubs.GameHub.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Hubs.GameHub",
+      "Summary": "<p sourcefile=\"api/SeaBattle.Hubs.GameHub.yml\" sourcestartlinenumber=\"1\">SignalR хаб для обработки real-time взаимодействия в игре морской бой</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Hubs.LobbyHub.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Hubs.LobbyHub.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Hubs.LobbyHub",
+      "Summary": "<p sourcefile=\"api/SeaBattle.Hubs.LobbyHub.yml\" sourcestartlinenumber=\"1\">SignalR хаб для управления игровыми лобби</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Hubs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Hubs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Hubs",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Migrations.GameHistory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Migrations.GameHistory.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Migrations.GameHistory",
+      "Summary": "<p sourcefile=\"api/SeaBattle.Migrations.GameHistory.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Migrations.Initial.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Migrations.Initial.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Migrations.Initial",
+      "Summary": "<p sourcefile=\"api/SeaBattle.Migrations.Initial.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Migrations.New.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Migrations.New.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Migrations.New",
+      "Summary": "<p sourcefile=\"api/SeaBattle.Migrations.New.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Migrations.PlayerRanking.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Migrations.PlayerRanking.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Migrations.PlayerRanking",
+      "Summary": "<p sourcefile=\"api/SeaBattle.Migrations.PlayerRanking.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Migrations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Migrations.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Migrations",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Models.CellState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Models.CellState.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Models.CellState",
+      "Summary": "<p sourcefile=\"api/SeaBattle.Models.CellState.yml\" sourcestartlinenumber=\"1\">Перечисление возможных состояний клетки игрового поля</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Models.Converters.BoardConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Models.Converters.BoardConverter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Models.Converters.BoardConverter",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Models.Converters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Models.Converters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Models.Converters",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Models.Game.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Models.Game.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Models.Game",
+      "Summary": "<p sourcefile=\"api/SeaBattle.Models.Game.yml\" sourcestartlinenumber=\"1\">Представляет игровую сессию морского боя</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Models.GameHistory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Models.GameHistory.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Models.GameHistory",
+      "Summary": "<p sourcefile=\"api/SeaBattle.Models.GameHistory.yml\" sourcestartlinenumber=\"1\">Представляет историю игры морского боя</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Models.GameState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Models.GameState.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Models.GameState",
+      "Summary": "<p sourcefile=\"api/SeaBattle.Models.GameState.yml\" sourcestartlinenumber=\"1\">Перечисление возможных состояний игры</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Models.GameStateInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Models.GameStateInfo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Models.GameStateInfo",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Models.GameStateManager.GameState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Models.GameStateManager.GameState.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Models.GameStateManager.GameState",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Models.GameStateManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Models.GameStateManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Models.GameStateManager",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Models.GameStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Models.GameStatus.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Models.GameStatus",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Models.LobbyInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Models.LobbyInfo.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Models.LobbyInfo",
+      "Summary": "<p sourcefile=\"api/SeaBattle.Models.LobbyInfo.yml\" sourcestartlinenumber=\"1\">Представляет информацию о игровом лобби</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Models.PlayerRanking.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Models.PlayerRanking.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Models.PlayerRanking",
+      "Summary": "<p sourcefile=\"api/SeaBattle.Models.PlayerRanking.yml\" sourcestartlinenumber=\"1\">Представляет рейтинг игрока в таблице лидеров</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Models.Position.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Models.Position.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Models.Position",
+      "Summary": "<p sourcefile=\"api/SeaBattle.Models.Position.yml\" sourcestartlinenumber=\"1\">Представляет позицию на игровом поле</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Models.ShotResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Models.ShotResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Models.ShotResult",
+      "Summary": "<p sourcefile=\"api/SeaBattle.Models.ShotResult.yml\" sourcestartlinenumber=\"1\">Перечисление возможных результатов выстрела</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Models.ShotResultResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Models.ShotResultResponse.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Models.ShotResultResponse",
+      "Summary": "<p sourcefile=\"api/SeaBattle.Models.ShotResultResponse.yml\" sourcestartlinenumber=\"1\">Представляет ответ на выполненный выстрел</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Models.User.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Models.User.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Models.User",
+      "Summary": "<p sourcefile=\"api/SeaBattle.Models.User.yml\" sourcestartlinenumber=\"1\">Представляет пользователя в системе</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Models.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Models",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Services.GameService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Services.GameService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Services.GameService",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Services.IGameService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Services.IGameService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Services.IGameService",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Services.IUserService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Services.IUserService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Services.IUserService",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Services.UserService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Services.UserService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Services.UserService",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SeaBattle.Services.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SeaBattle.Services.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SeaBattle.Services",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

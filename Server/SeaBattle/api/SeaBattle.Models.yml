@@ -1,0 +1,160 @@
+### YamlMime:ManagedReference
+items:
+- uid: SeaBattle.Models
+  commentId: N:SeaBattle.Models
+  id: SeaBattle.Models
+  children:
+  - SeaBattle.Models.CellState
+  - SeaBattle.Models.Game
+  - SeaBattle.Models.GameHistory
+  - SeaBattle.Models.GameState
+  - SeaBattle.Models.GameStateInfo
+  - SeaBattle.Models.GameStateManager
+  - SeaBattle.Models.GameStateManager.GameState
+  - SeaBattle.Models.GameStatus
+  - SeaBattle.Models.LobbyInfo
+  - SeaBattle.Models.PlayerRanking
+  - SeaBattle.Models.Position
+  - SeaBattle.Models.ShotResult
+  - SeaBattle.Models.ShotResultResponse
+  - SeaBattle.Models.User
+  langs:
+  - csharp
+  - vb
+  name: SeaBattle.Models
+  nameWithType: SeaBattle.Models
+  fullName: SeaBattle.Models
+  type: Namespace
+  assemblies:
+  - SeaBattle
+references:
+- uid: SeaBattle.Models.CellState
+  commentId: T:SeaBattle.Models.CellState
+  parent: SeaBattle.Models
+  href: SeaBattle.Models.CellState.html
+  name: CellState
+  nameWithType: CellState
+  fullName: SeaBattle.Models.CellState
+- uid: SeaBattle.Models.Game
+  commentId: T:SeaBattle.Models.Game
+  parent: SeaBattle.Models
+  href: SeaBattle.Models.Game.html
+  name: Game
+  nameWithType: Game
+  fullName: SeaBattle.Models.Game
+- uid: SeaBattle.Models.GameHistory
+  commentId: T:SeaBattle.Models.GameHistory
+  href: SeaBattle.Models.GameHistory.html
+  name: GameHistory
+  nameWithType: GameHistory
+  fullName: SeaBattle.Models.GameHistory
+- uid: SeaBattle.Models.GameState
+  commentId: T:SeaBattle.Models.GameState
+  parent: SeaBattle.Models
+  href: SeaBattle.Models.GameState.html
+  name: GameState
+  nameWithType: GameState
+  fullName: SeaBattle.Models.GameState
+- uid: SeaBattle.Models.GameStateInfo
+  commentId: T:SeaBattle.Models.GameStateInfo
+  parent: SeaBattle.Models
+  href: SeaBattle.Models.GameStateInfo.html
+  name: GameStateInfo
+  nameWithType: GameStateInfo
+  fullName: SeaBattle.Models.GameStateInfo
+- uid: SeaBattle.Models.GameStateManager
+  commentId: T:SeaBattle.Models.GameStateManager
+  href: SeaBattle.Models.GameStateManager.html
+  name: GameStateManager
+  nameWithType: GameStateManager
+  fullName: SeaBattle.Models.GameStateManager
+- uid: SeaBattle.Models.GameStateManager.GameState
+  commentId: T:SeaBattle.Models.GameStateManager.GameState
+  parent: SeaBattle.Models
+  href: SeaBattle.Models.GameStateManager.html
+  name: GameStateManager.GameState
+  nameWithType: GameStateManager.GameState
+  fullName: SeaBattle.Models.GameStateManager.GameState
+  spec.csharp:
+  - uid: SeaBattle.Models.GameStateManager
+    name: GameStateManager
+    href: SeaBattle.Models.GameStateManager.html
+  - name: .
+  - uid: SeaBattle.Models.GameStateManager.GameState
+    name: GameState
+    href: SeaBattle.Models.GameStateManager.GameState.html
+  spec.vb:
+  - uid: SeaBattle.Models.GameStateManager
+    name: GameStateManager
+    href: SeaBattle.Models.GameStateManager.html
+  - name: .
+  - uid: SeaBattle.Models.GameStateManager.GameState
+    name: GameState
+    href: SeaBattle.Models.GameStateManager.GameState.html
+- uid: SeaBattle.Models.GameStatus
+  commentId: T:SeaBattle.Models.GameStatus
+  parent: SeaBattle.Models
+  href: SeaBattle.Models.GameStatus.html
+  name: GameStatus
+  nameWithType: GameStatus
+  fullName: SeaBattle.Models.GameStatus
+- uid: SeaBattle.Models.LobbyInfo
+  commentId: T:SeaBattle.Models.LobbyInfo
+  href: SeaBattle.Models.LobbyInfo.html
+  name: LobbyInfo
+  nameWithType: LobbyInfo
+  fullName: SeaBattle.Models.LobbyInfo
+- uid: SeaBattle.Models.PlayerRanking
+  commentId: T:SeaBattle.Models.PlayerRanking
+  href: SeaBattle.Models.PlayerRanking.html
+  name: PlayerRanking
+  nameWithType: PlayerRanking
+  fullName: SeaBattle.Models.PlayerRanking
+- uid: SeaBattle.Models.Position
+  commentId: T:SeaBattle.Models.Position
+  parent: SeaBattle.Models
+  href: SeaBattle.Models.Position.html
+  name: Position
+  nameWithType: Position
+  fullName: SeaBattle.Models.Position
+- uid: SeaBattle.Models.ShotResult
+  commentId: T:SeaBattle.Models.ShotResult
+  parent: SeaBattle.Models
+  href: SeaBattle.Models.ShotResult.html
+  name: ShotResult
+  nameWithType: ShotResult
+  fullName: SeaBattle.Models.ShotResult
+- uid: SeaBattle.Models.ShotResultResponse
+  commentId: T:SeaBattle.Models.ShotResultResponse
+  href: SeaBattle.Models.ShotResultResponse.html
+  name: ShotResultResponse
+  nameWithType: ShotResultResponse
+  fullName: SeaBattle.Models.ShotResultResponse
+- uid: SeaBattle.Models.User
+  commentId: T:SeaBattle.Models.User
+  href: SeaBattle.Models.User.html
+  name: User
+  nameWithType: User
+  fullName: SeaBattle.Models.User
+- uid: SeaBattle.Models
+  commentId: N:SeaBattle.Models
+  href: SeaBattle.html
+  name: SeaBattle.Models
+  nameWithType: SeaBattle.Models
+  fullName: SeaBattle.Models
+  spec.csharp:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Models
+    name: Models
+    href: SeaBattle.Models.html
+  spec.vb:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Models
+    name: Models
+    href: SeaBattle.Models.html

@@ -1,0 +1,44 @@
+### YamlMime:ManagedReference
+items:
+- uid: SeaBattle.Migrations
+  commentId: N:SeaBattle.Migrations
+  id: SeaBattle.Migrations
+  children:
+  - SeaBattle.Migrations.GameHistory
+  - SeaBattle.Migrations.Initial
+  - SeaBattle.Migrations.New
+  - SeaBattle.Migrations.PlayerRanking
+  langs:
+  - csharp
+  - vb
+  name: SeaBattle.Migrations
+  nameWithType: SeaBattle.Migrations
+  fullName: SeaBattle.Migrations
+  type: Namespace
+  assemblies:
+  - SeaBattle
+references:
+- uid: SeaBattle.Migrations.Initial
+  commentId: T:SeaBattle.Migrations.Initial
+  href: SeaBattle.Migrations.Initial.html
+  name: Initial
+  nameWithType: Initial
+  fullName: SeaBattle.Migrations.Initial
+- uid: SeaBattle.Migrations.GameHistory
+  commentId: T:SeaBattle.Migrations.GameHistory
+  href: SeaBattle.Migrations.GameHistory.html
+  name: GameHistory
+  nameWithType: GameHistory
+  fullName: SeaBattle.Migrations.GameHistory
+- uid: SeaBattle.Migrations.PlayerRanking
+  commentId: T:SeaBattle.Migrations.PlayerRanking
+  href: SeaBattle.Migrations.PlayerRanking.html
+  name: PlayerRanking
+  nameWithType: PlayerRanking
+  fullName: SeaBattle.Migrations.PlayerRanking
+- uid: SeaBattle.Migrations.New
+  commentId: T:SeaBattle.Migrations.New
+  href: SeaBattle.Migrations.New.html
+  name: New
+  nameWithType: New
+  fullName: SeaBattle.Migrations.New

@@ -1,0 +1,136 @@
+### YamlMime:TableOfContent
+items:
+- uid: SeaBattle.Controllers
+  name: SeaBattle.Controllers
+  type: Namespace
+  items:
+  - uid: SeaBattle.Controllers.AuthController
+    name: AuthController
+    type: Class
+  - uid: SeaBattle.Controllers.CreateGameRequest
+    name: CreateGameRequest
+    type: Class
+  - uid: SeaBattle.Controllers.GameController
+    name: GameController
+    type: Class
+  - uid: SeaBattle.Controllers.JoinGameRequest
+    name: JoinGameRequest
+    type: Class
+  - uid: SeaBattle.Controllers.LoginRequest
+    name: LoginRequest
+    type: Class
+  - uid: SeaBattle.Controllers.ReadyRequest
+    name: ReadyRequest
+    type: Class
+  - uid: SeaBattle.Controllers.RegisterRequest
+    name: RegisterRequest
+    type: Class
+  - uid: SeaBattle.Controllers.ShotRequest
+    name: ShotRequest
+    type: Class
+- uid: SeaBattle.Data
+  name: SeaBattle.Data
+  type: Namespace
+  items:
+  - uid: SeaBattle.Data.ApplicationDbContext
+    name: ApplicationDbContext
+    type: Class
+  - uid: SeaBattle.Data.DesignTimeDbContextFactory
+    name: DesignTimeDbContextFactory
+    type: Class
+- uid: SeaBattle.Hubs
+  name: SeaBattle.Hubs
+  type: Namespace
+  items:
+  - uid: SeaBattle.Hubs.GameHub
+    name: GameHub
+    type: Class
+  - uid: SeaBattle.Hubs.LobbyHub
+    name: LobbyHub
+    type: Class
+- uid: SeaBattle.Migrations
+  name: SeaBattle.Migrations
+  type: Namespace
+  items:
+  - uid: SeaBattle.Migrations.GameHistory
+    name: GameHistory
+    type: Class
+  - uid: SeaBattle.Migrations.Initial
+    name: Initial
+    type: Class
+  - uid: SeaBattle.Migrations.New
+    name: New
+    type: Class
+  - uid: SeaBattle.Migrations.PlayerRanking
+    name: PlayerRanking
+    type: Class
+- uid: SeaBattle.Models
+  name: SeaBattle.Models
+  type: Namespace
+  items:
+  - uid: SeaBattle.Models.CellState
+    name: CellState
+    type: Enum
+  - uid: SeaBattle.Models.Game
+    name: Game
+    type: Class
+  - uid: SeaBattle.Models.GameHistory
+    name: GameHistory
+    type: Class
+  - uid: SeaBattle.Models.GameState
+    name: GameState
+    type: Enum
+  - uid: SeaBattle.Models.GameStateInfo
+    name: GameStateInfo
+    type: Class
+  - uid: SeaBattle.Models.GameStateManager
+    name: GameStateManager
+    type: Class
+  - uid: SeaBattle.Models.GameStateManager.GameState
+    name: GameStateManager.GameState
+    type: Enum
+  - uid: SeaBattle.Models.GameStatus
+    name: GameStatus
+    type: Enum
+  - uid: SeaBattle.Models.LobbyInfo
+    name: LobbyInfo
+    type: Class
+  - uid: SeaBattle.Models.PlayerRanking
+    name: PlayerRanking
+    type: Class
+  - uid: SeaBattle.Models.Position
+    name: Position
+    type: Class
+  - uid: SeaBattle.Models.ShotResult
+    name: ShotResult
+    type: Enum
+  - uid: SeaBattle.Models.ShotResultResponse
+    name: ShotResultResponse
+    type: Class
+  - uid: SeaBattle.Models.User
+    name: User
+    type: Class
+- uid: SeaBattle.Models.Converters
+  name: SeaBattle.Models.Converters
+  type: Namespace
+  items:
+  - uid: SeaBattle.Models.Converters.BoardConverter
+    name: BoardConverter
+    type: Class
+- uid: SeaBattle.Services
+  name: SeaBattle.Services
+  type: Namespace
+  items:
+  - uid: SeaBattle.Services.GameService
+    name: GameService
+    type: Class
+  - uid: SeaBattle.Services.IGameService
+    name: IGameService
+    type: Interface
+  - uid: SeaBattle.Services.IUserService
+    name: IUserService
+    type: Interface
+  - uid: SeaBattle.Services.UserService
+    name: UserService
+    type: Class
+memberLayout: SamePage

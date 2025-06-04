@@ -1,0 +1,182 @@
+### YamlMime:ManagedReference
+items:
+- uid: SeaBattle.Models.GameStateManager.GameState
+  commentId: T:SeaBattle.Models.GameStateManager.GameState
+  id: GameStateManager.GameState
+  parent: SeaBattle.Models
+  children:
+  - SeaBattle.Models.GameStateManager.GameState.Finished
+  - SeaBattle.Models.GameStateManager.GameState.InProgress
+  - SeaBattle.Models.GameStateManager.GameState.WaitingForOpponent
+  - SeaBattle.Models.GameStateManager.GameState.WaitingForReady
+  langs:
+  - csharp
+  - vb
+  name: GameStateManager.GameState
+  nameWithType: GameStateManager.GameState
+  fullName: SeaBattle.Models.GameStateManager.GameState
+  type: Enum
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameState.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: GameState
+    path: Models/GameState.cs
+    startLine: 113
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  syntax:
+    content: public enum GameStateManager.GameState
+    content.vb: Public Enum GameStateManager.GameState
+- uid: SeaBattle.Models.GameStateManager.GameState.WaitingForOpponent
+  commentId: F:SeaBattle.Models.GameStateManager.GameState.WaitingForOpponent
+  id: WaitingForOpponent
+  parent: SeaBattle.Models.GameStateManager.GameState
+  langs:
+  - csharp
+  - vb
+  name: WaitingForOpponent
+  nameWithType: GameStateManager.GameState.WaitingForOpponent
+  fullName: SeaBattle.Models.GameStateManager.GameState.WaitingForOpponent
+  type: Field
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameState.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: WaitingForOpponent
+    path: Models/GameState.cs
+    startLine: 115
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  syntax:
+    content: WaitingForOpponent = 0
+    return:
+      type: SeaBattle.Models.GameStateManager.GameState
+- uid: SeaBattle.Models.GameStateManager.GameState.WaitingForReady
+  commentId: F:SeaBattle.Models.GameStateManager.GameState.WaitingForReady
+  id: WaitingForReady
+  parent: SeaBattle.Models.GameStateManager.GameState
+  langs:
+  - csharp
+  - vb
+  name: WaitingForReady
+  nameWithType: GameStateManager.GameState.WaitingForReady
+  fullName: SeaBattle.Models.GameStateManager.GameState.WaitingForReady
+  type: Field
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameState.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: WaitingForReady
+    path: Models/GameState.cs
+    startLine: 116
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  syntax:
+    content: WaitingForReady = 1
+    return:
+      type: SeaBattle.Models.GameStateManager.GameState
+- uid: SeaBattle.Models.GameStateManager.GameState.InProgress
+  commentId: F:SeaBattle.Models.GameStateManager.GameState.InProgress
+  id: InProgress
+  parent: SeaBattle.Models.GameStateManager.GameState
+  langs:
+  - csharp
+  - vb
+  name: InProgress
+  nameWithType: GameStateManager.GameState.InProgress
+  fullName: SeaBattle.Models.GameStateManager.GameState.InProgress
+  type: Field
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameState.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: InProgress
+    path: Models/GameState.cs
+    startLine: 117
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  syntax:
+    content: InProgress = 2
+    return:
+      type: SeaBattle.Models.GameStateManager.GameState
+- uid: SeaBattle.Models.GameStateManager.GameState.Finished
+  commentId: F:SeaBattle.Models.GameStateManager.GameState.Finished
+  id: Finished
+  parent: SeaBattle.Models.GameStateManager.GameState
+  langs:
+  - csharp
+  - vb
+  name: Finished
+  nameWithType: GameStateManager.GameState.Finished
+  fullName: SeaBattle.Models.GameStateManager.GameState.Finished
+  type: Field
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameState.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: Finished
+    path: Models/GameState.cs
+    startLine: 118
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  syntax:
+    content: Finished = 3
+    return:
+      type: SeaBattle.Models.GameStateManager.GameState
+references:
+- uid: SeaBattle.Models
+  commentId: N:SeaBattle.Models
+  href: SeaBattle.html
+  name: SeaBattle.Models
+  nameWithType: SeaBattle.Models
+  fullName: SeaBattle.Models
+  spec.csharp:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Models
+    name: Models
+    href: SeaBattle.Models.html
+  spec.vb:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Models
+    name: Models
+    href: SeaBattle.Models.html
+- uid: SeaBattle.Models.GameStateManager.GameState
+  commentId: T:SeaBattle.Models.GameStateManager.GameState
+  parent: SeaBattle.Models
+  href: SeaBattle.Models.GameStateManager.html
+  name: GameStateManager.GameState
+  nameWithType: GameStateManager.GameState
+  fullName: SeaBattle.Models.GameStateManager.GameState
+  spec.csharp:
+  - uid: SeaBattle.Models.GameStateManager
+    name: GameStateManager
+    href: SeaBattle.Models.GameStateManager.html
+  - name: .
+  - uid: SeaBattle.Models.GameStateManager.GameState
+    name: GameState
+    href: SeaBattle.Models.GameStateManager.GameState.html
+  spec.vb:
+  - uid: SeaBattle.Models.GameStateManager
+    name: GameStateManager
+    href: SeaBattle.Models.GameStateManager.html
+  - name: .
+  - uid: SeaBattle.Models.GameStateManager.GameState
+    name: GameState
+    href: SeaBattle.Models.GameStateManager.GameState.html

@@ -1,0 +1,176 @@
+### YamlMime:ManagedReference
+items:
+- uid: SeaBattle.Models.CellState
+  commentId: T:SeaBattle.Models.CellState
+  id: CellState
+  parent: SeaBattle.Models
+  children:
+  - SeaBattle.Models.CellState.Empty
+  - SeaBattle.Models.CellState.Hit
+  - SeaBattle.Models.CellState.Miss
+  - SeaBattle.Models.CellState.Ship
+  langs:
+  - csharp
+  - vb
+  name: CellState
+  nameWithType: CellState
+  fullName: SeaBattle.Models.CellState
+  type: Enum
+  source:
+    remote:
+      path: Server/SeaBattle/Models/CellState.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: CellState
+    path: Models/CellState.cs
+    startLine: 5
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Перечисление возможных состояний клетки игрового поля
+  example: []
+  syntax:
+    content: public enum CellState
+    content.vb: Public Enum CellState
+- uid: SeaBattle.Models.CellState.Empty
+  commentId: F:SeaBattle.Models.CellState.Empty
+  id: Empty
+  parent: SeaBattle.Models.CellState
+  langs:
+  - csharp
+  - vb
+  name: Empty
+  nameWithType: CellState.Empty
+  fullName: SeaBattle.Models.CellState.Empty
+  type: Field
+  source:
+    remote:
+      path: Server/SeaBattle/Models/CellState.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: Empty
+    path: Models/CellState.cs
+    startLine: 10
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Пустая клетка
+  example: []
+  syntax:
+    content: Empty = 0
+    return:
+      type: SeaBattle.Models.CellState
+- uid: SeaBattle.Models.CellState.Ship
+  commentId: F:SeaBattle.Models.CellState.Ship
+  id: Ship
+  parent: SeaBattle.Models.CellState
+  langs:
+  - csharp
+  - vb
+  name: Ship
+  nameWithType: CellState.Ship
+  fullName: SeaBattle.Models.CellState.Ship
+  type: Field
+  source:
+    remote:
+      path: Server/SeaBattle/Models/CellState.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: Ship
+    path: Models/CellState.cs
+    startLine: 15
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Клетка с кораблем
+  example: []
+  syntax:
+    content: Ship = 1
+    return:
+      type: SeaBattle.Models.CellState
+- uid: SeaBattle.Models.CellState.Hit
+  commentId: F:SeaBattle.Models.CellState.Hit
+  id: Hit
+  parent: SeaBattle.Models.CellState
+  langs:
+  - csharp
+  - vb
+  name: Hit
+  nameWithType: CellState.Hit
+  fullName: SeaBattle.Models.CellState.Hit
+  type: Field
+  source:
+    remote:
+      path: Server/SeaBattle/Models/CellState.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: Hit
+    path: Models/CellState.cs
+    startLine: 20
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Клетка с попаданием
+  example: []
+  syntax:
+    content: Hit = 2
+    return:
+      type: SeaBattle.Models.CellState
+- uid: SeaBattle.Models.CellState.Miss
+  commentId: F:SeaBattle.Models.CellState.Miss
+  id: Miss
+  parent: SeaBattle.Models.CellState
+  langs:
+  - csharp
+  - vb
+  name: Miss
+  nameWithType: CellState.Miss
+  fullName: SeaBattle.Models.CellState.Miss
+  type: Field
+  source:
+    remote:
+      path: Server/SeaBattle/Models/CellState.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: Miss
+    path: Models/CellState.cs
+    startLine: 25
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Клетка с промахом
+  example: []
+  syntax:
+    content: Miss = 3
+    return:
+      type: SeaBattle.Models.CellState
+references:
+- uid: SeaBattle.Models
+  commentId: N:SeaBattle.Models
+  href: SeaBattle.html
+  name: SeaBattle.Models
+  nameWithType: SeaBattle.Models
+  fullName: SeaBattle.Models
+  spec.csharp:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Models
+    name: Models
+    href: SeaBattle.Models.html
+  spec.vb:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Models
+    name: Models
+    href: SeaBattle.Models.html
+- uid: SeaBattle.Models.CellState
+  commentId: T:SeaBattle.Models.CellState
+  parent: SeaBattle.Models
+  href: SeaBattle.Models.CellState.html
+  name: CellState
+  nameWithType: CellState
+  fullName: SeaBattle.Models.CellState

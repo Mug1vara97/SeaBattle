@@ -1,0 +1,68 @@
+### YamlMime:ManagedReference
+items:
+- uid: SeaBattle.Services
+  commentId: N:SeaBattle.Services
+  id: SeaBattle.Services
+  children:
+  - SeaBattle.Services.GameService
+  - SeaBattle.Services.IGameService
+  - SeaBattle.Services.IUserService
+  - SeaBattle.Services.UserService
+  langs:
+  - csharp
+  - vb
+  name: SeaBattle.Services
+  nameWithType: SeaBattle.Services
+  fullName: SeaBattle.Services
+  type: Namespace
+  assemblies:
+  - SeaBattle
+references:
+- uid: SeaBattle.Services.GameService
+  commentId: T:SeaBattle.Services.GameService
+  href: SeaBattle.Services.GameService.html
+  name: GameService
+  nameWithType: GameService
+  fullName: SeaBattle.Services.GameService
+- uid: SeaBattle.Services.IGameService
+  commentId: T:SeaBattle.Services.IGameService
+  parent: SeaBattle.Services
+  href: SeaBattle.Services.IGameService.html
+  name: IGameService
+  nameWithType: IGameService
+  fullName: SeaBattle.Services.IGameService
+- uid: SeaBattle.Services.IUserService
+  commentId: T:SeaBattle.Services.IUserService
+  parent: SeaBattle.Services
+  href: SeaBattle.Services.IUserService.html
+  name: IUserService
+  nameWithType: IUserService
+  fullName: SeaBattle.Services.IUserService
+- uid: SeaBattle.Services.UserService
+  commentId: T:SeaBattle.Services.UserService
+  href: SeaBattle.Services.UserService.html
+  name: UserService
+  nameWithType: UserService
+  fullName: SeaBattle.Services.UserService
+- uid: SeaBattle.Services
+  commentId: N:SeaBattle.Services
+  href: SeaBattle.html
+  name: SeaBattle.Services
+  nameWithType: SeaBattle.Services
+  fullName: SeaBattle.Services
+  spec.csharp:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Services
+    name: Services
+    href: SeaBattle.Services.html
+  spec.vb:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Services
+    name: Services
+    href: SeaBattle.Services.html

@@ -1,0 +1,53 @@
+### YamlMime:ManagedReference
+items:
+- uid: SeaBattle.Data
+  commentId: N:SeaBattle.Data
+  id: SeaBattle.Data
+  children:
+  - SeaBattle.Data.ApplicationDbContext
+  - SeaBattle.Data.DesignTimeDbContextFactory
+  langs:
+  - csharp
+  - vb
+  name: SeaBattle.Data
+  nameWithType: SeaBattle.Data
+  fullName: SeaBattle.Data
+  type: Namespace
+  assemblies:
+  - SeaBattle
+references:
+- uid: SeaBattle.Data.ApplicationDbContext
+  commentId: T:SeaBattle.Data.ApplicationDbContext
+  parent: SeaBattle.Data
+  href: SeaBattle.Data.ApplicationDbContext.html
+  name: ApplicationDbContext
+  nameWithType: ApplicationDbContext
+  fullName: SeaBattle.Data.ApplicationDbContext
+- uid: SeaBattle.Data.DesignTimeDbContextFactory
+  commentId: T:SeaBattle.Data.DesignTimeDbContextFactory
+  href: SeaBattle.Data.DesignTimeDbContextFactory.html
+  name: DesignTimeDbContextFactory
+  nameWithType: DesignTimeDbContextFactory
+  fullName: SeaBattle.Data.DesignTimeDbContextFactory
+- uid: SeaBattle.Data
+  commentId: N:SeaBattle.Data
+  href: SeaBattle.html
+  name: SeaBattle.Data
+  nameWithType: SeaBattle.Data
+  fullName: SeaBattle.Data
+  spec.csharp:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Data
+    name: Data
+    href: SeaBattle.Data.html
+  spec.vb:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Data
+    name: Data
+    href: SeaBattle.Data.html

@@ -1,0 +1,100 @@
+### YamlMime:ManagedReference
+items:
+- uid: SeaBattle.Controllers
+  commentId: N:SeaBattle.Controllers
+  id: SeaBattle.Controllers
+  children:
+  - SeaBattle.Controllers.AuthController
+  - SeaBattle.Controllers.CreateGameRequest
+  - SeaBattle.Controllers.GameController
+  - SeaBattle.Controllers.JoinGameRequest
+  - SeaBattle.Controllers.LoginRequest
+  - SeaBattle.Controllers.ReadyRequest
+  - SeaBattle.Controllers.RegisterRequest
+  - SeaBattle.Controllers.ShotRequest
+  langs:
+  - csharp
+  - vb
+  name: SeaBattle.Controllers
+  nameWithType: SeaBattle.Controllers
+  fullName: SeaBattle.Controllers
+  type: Namespace
+  assemblies:
+  - SeaBattle
+references:
+- uid: SeaBattle.Controllers.AuthController
+  commentId: T:SeaBattle.Controllers.AuthController
+  href: SeaBattle.Controllers.AuthController.html
+  name: AuthController
+  nameWithType: AuthController
+  fullName: SeaBattle.Controllers.AuthController
+- uid: SeaBattle.Controllers.RegisterRequest
+  commentId: T:SeaBattle.Controllers.RegisterRequest
+  parent: SeaBattle.Controllers
+  href: SeaBattle.Controllers.RegisterRequest.html
+  name: RegisterRequest
+  nameWithType: RegisterRequest
+  fullName: SeaBattle.Controllers.RegisterRequest
+- uid: SeaBattle.Controllers.LoginRequest
+  commentId: T:SeaBattle.Controllers.LoginRequest
+  parent: SeaBattle.Controllers
+  href: SeaBattle.Controllers.LoginRequest.html
+  name: LoginRequest
+  nameWithType: LoginRequest
+  fullName: SeaBattle.Controllers.LoginRequest
+- uid: SeaBattle.Controllers.GameController
+  commentId: T:SeaBattle.Controllers.GameController
+  href: SeaBattle.Controllers.GameController.html
+  name: GameController
+  nameWithType: GameController
+  fullName: SeaBattle.Controllers.GameController
+- uid: SeaBattle.Controllers.CreateGameRequest
+  commentId: T:SeaBattle.Controllers.CreateGameRequest
+  parent: SeaBattle.Controllers
+  href: SeaBattle.Controllers.CreateGameRequest.html
+  name: CreateGameRequest
+  nameWithType: CreateGameRequest
+  fullName: SeaBattle.Controllers.CreateGameRequest
+- uid: SeaBattle.Controllers.JoinGameRequest
+  commentId: T:SeaBattle.Controllers.JoinGameRequest
+  parent: SeaBattle.Controllers
+  href: SeaBattle.Controllers.JoinGameRequest.html
+  name: JoinGameRequest
+  nameWithType: JoinGameRequest
+  fullName: SeaBattle.Controllers.JoinGameRequest
+- uid: SeaBattle.Controllers.ReadyRequest
+  commentId: T:SeaBattle.Controllers.ReadyRequest
+  parent: SeaBattle.Controllers
+  href: SeaBattle.Controllers.ReadyRequest.html
+  name: ReadyRequest
+  nameWithType: ReadyRequest
+  fullName: SeaBattle.Controllers.ReadyRequest
+- uid: SeaBattle.Controllers.ShotRequest
+  commentId: T:SeaBattle.Controllers.ShotRequest
+  parent: SeaBattle.Controllers
+  href: SeaBattle.Controllers.ShotRequest.html
+  name: ShotRequest
+  nameWithType: ShotRequest
+  fullName: SeaBattle.Controllers.ShotRequest
+- uid: SeaBattle.Controllers
+  commentId: N:SeaBattle.Controllers
+  href: SeaBattle.html
+  name: SeaBattle.Controllers
+  nameWithType: SeaBattle.Controllers
+  fullName: SeaBattle.Controllers
+  spec.csharp:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Controllers
+    name: Controllers
+    href: SeaBattle.Controllers.html
+  spec.vb:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Controllers
+    name: Controllers
+    href: SeaBattle.Controllers.html

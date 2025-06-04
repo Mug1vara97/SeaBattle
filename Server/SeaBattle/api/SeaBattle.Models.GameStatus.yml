@@ -1,0 +1,166 @@
+### YamlMime:ManagedReference
+items:
+- uid: SeaBattle.Models.GameStatus
+  commentId: T:SeaBattle.Models.GameStatus
+  id: GameStatus
+  parent: SeaBattle.Models
+  children:
+  - SeaBattle.Models.GameStatus.Finished
+  - SeaBattle.Models.GameStatus.InProgress
+  - SeaBattle.Models.GameStatus.WaitingForOpponent
+  - SeaBattle.Models.GameStatus.WaitingForReady
+  langs:
+  - csharp
+  - vb
+  name: GameStatus
+  nameWithType: GameStatus
+  fullName: SeaBattle.Models.GameStatus
+  type: Enum
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameStatus.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: GameStatus
+    path: Models/GameStatus.cs
+    startLine: 2
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  syntax:
+    content: public enum GameStatus
+    content.vb: Public Enum GameStatus
+- uid: SeaBattle.Models.GameStatus.WaitingForOpponent
+  commentId: F:SeaBattle.Models.GameStatus.WaitingForOpponent
+  id: WaitingForOpponent
+  parent: SeaBattle.Models.GameStatus
+  langs:
+  - csharp
+  - vb
+  name: WaitingForOpponent
+  nameWithType: GameStatus.WaitingForOpponent
+  fullName: SeaBattle.Models.GameStatus.WaitingForOpponent
+  type: Field
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameStatus.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: WaitingForOpponent
+    path: Models/GameStatus.cs
+    startLine: 4
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  syntax:
+    content: WaitingForOpponent = 0
+    return:
+      type: SeaBattle.Models.GameStatus
+- uid: SeaBattle.Models.GameStatus.WaitingForReady
+  commentId: F:SeaBattle.Models.GameStatus.WaitingForReady
+  id: WaitingForReady
+  parent: SeaBattle.Models.GameStatus
+  langs:
+  - csharp
+  - vb
+  name: WaitingForReady
+  nameWithType: GameStatus.WaitingForReady
+  fullName: SeaBattle.Models.GameStatus.WaitingForReady
+  type: Field
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameStatus.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: WaitingForReady
+    path: Models/GameStatus.cs
+    startLine: 5
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  syntax:
+    content: WaitingForReady = 1
+    return:
+      type: SeaBattle.Models.GameStatus
+- uid: SeaBattle.Models.GameStatus.InProgress
+  commentId: F:SeaBattle.Models.GameStatus.InProgress
+  id: InProgress
+  parent: SeaBattle.Models.GameStatus
+  langs:
+  - csharp
+  - vb
+  name: InProgress
+  nameWithType: GameStatus.InProgress
+  fullName: SeaBattle.Models.GameStatus.InProgress
+  type: Field
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameStatus.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: InProgress
+    path: Models/GameStatus.cs
+    startLine: 6
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  syntax:
+    content: InProgress = 2
+    return:
+      type: SeaBattle.Models.GameStatus
+- uid: SeaBattle.Models.GameStatus.Finished
+  commentId: F:SeaBattle.Models.GameStatus.Finished
+  id: Finished
+  parent: SeaBattle.Models.GameStatus
+  langs:
+  - csharp
+  - vb
+  name: Finished
+  nameWithType: GameStatus.Finished
+  fullName: SeaBattle.Models.GameStatus.Finished
+  type: Field
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameStatus.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: Finished
+    path: Models/GameStatus.cs
+    startLine: 7
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  syntax:
+    content: Finished = 3
+    return:
+      type: SeaBattle.Models.GameStatus
+references:
+- uid: SeaBattle.Models
+  commentId: N:SeaBattle.Models
+  href: SeaBattle.html
+  name: SeaBattle.Models
+  nameWithType: SeaBattle.Models
+  fullName: SeaBattle.Models
+  spec.csharp:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Models
+    name: Models
+    href: SeaBattle.Models.html
+  spec.vb:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Models
+    name: Models
+    href: SeaBattle.Models.html
+- uid: SeaBattle.Models.GameStatus
+  commentId: T:SeaBattle.Models.GameStatus
+  parent: SeaBattle.Models
+  href: SeaBattle.Models.GameStatus.html
+  name: GameStatus
+  nameWithType: GameStatus
+  fullName: SeaBattle.Models.GameStatus

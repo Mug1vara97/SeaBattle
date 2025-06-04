@@ -1,0 +1,1080 @@
+### YamlMime:ManagedReference
+items:
+- uid: SeaBattle.Models.Game
+  commentId: T:SeaBattle.Models.Game
+  id: Game
+  parent: SeaBattle.Models
+  children:
+  - SeaBattle.Models.Game.CreatorBoard
+  - SeaBattle.Models.Game.CreatorBoardSet
+  - SeaBattle.Models.Game.CreatorName
+  - SeaBattle.Models.Game.CreatorReady
+  - SeaBattle.Models.Game.CreatorShots
+  - SeaBattle.Models.Game.CurrentTurn
+  - SeaBattle.Models.Game.Id
+  - SeaBattle.Models.Game.IsGameEnded
+  - SeaBattle.Models.Game.IsOpenLobby
+  - SeaBattle.Models.Game.JoinerBoard
+  - SeaBattle.Models.Game.JoinerBoardSet
+  - SeaBattle.Models.Game.JoinerName
+  - SeaBattle.Models.Game.JoinerReady
+  - SeaBattle.Models.Game.JoinerShots
+  - SeaBattle.Models.Game.State
+  - SeaBattle.Models.Game.Winner
+  langs:
+  - csharp
+  - vb
+  name: Game
+  nameWithType: Game
+  fullName: SeaBattle.Models.Game
+  type: Class
+  source:
+    remote:
+      path: Server/SeaBattle/Models/Game.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: Game
+    path: Models/Game.cs
+    startLine: 8
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Представляет игровую сессию морского боя
+  example: []
+  syntax:
+    content: public class Game
+    content.vb: Public Class Game
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: SeaBattle.Models.Game.Id
+  commentId: P:SeaBattle.Models.Game.Id
+  id: Id
+  parent: SeaBattle.Models.Game
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: Game.Id
+  fullName: SeaBattle.Models.Game.Id
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/Game.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: Id
+    path: Models/Game.cs
+    startLine: 13
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Уникальный идентификатор игры
+  example: []
+  syntax:
+    content: public string Id { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Id As String
+  overload: SeaBattle.Models.Game.Id*
+- uid: SeaBattle.Models.Game.CreatorName
+  commentId: P:SeaBattle.Models.Game.CreatorName
+  id: CreatorName
+  parent: SeaBattle.Models.Game
+  langs:
+  - csharp
+  - vb
+  name: CreatorName
+  nameWithType: Game.CreatorName
+  fullName: SeaBattle.Models.Game.CreatorName
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/Game.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: CreatorName
+    path: Models/Game.cs
+    startLine: 18
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Имя создателя игры
+  example: []
+  syntax:
+    content: public string CreatorName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CreatorName As String
+  overload: SeaBattle.Models.Game.CreatorName*
+- uid: SeaBattle.Models.Game.JoinerName
+  commentId: P:SeaBattle.Models.Game.JoinerName
+  id: JoinerName
+  parent: SeaBattle.Models.Game
+  langs:
+  - csharp
+  - vb
+  name: JoinerName
+  nameWithType: Game.JoinerName
+  fullName: SeaBattle.Models.Game.JoinerName
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/Game.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: JoinerName
+    path: Models/Game.cs
+    startLine: 23
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Имя присоединившегося игрока
+  example: []
+  syntax:
+    content: public string? JoinerName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property JoinerName As String
+  overload: SeaBattle.Models.Game.JoinerName*
+- uid: SeaBattle.Models.Game.CreatorBoard
+  commentId: P:SeaBattle.Models.Game.CreatorBoard
+  id: CreatorBoard
+  parent: SeaBattle.Models.Game
+  langs:
+  - csharp
+  - vb
+  name: CreatorBoard
+  nameWithType: Game.CreatorBoard
+  fullName: SeaBattle.Models.Game.CreatorBoard
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/Game.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: CreatorBoard
+    path: Models/Game.cs
+    startLine: 28
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Игровое поле создателя игры
+  example: []
+  syntax:
+    content: >-
+      [JsonConverter(typeof(BoardConverter))]
+
+      public CellState[,]? CreatorBoard { get; set; }
+    parameters: []
+    return:
+      type: SeaBattle.Models.CellState[,]
+    content.vb: >-
+      <JsonConverter(GetType(BoardConverter))>
+
+      Public Property CreatorBoard As CellState(,)
+  overload: SeaBattle.Models.Game.CreatorBoard*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonConverterAttribute
+    ctor: System.Text.Json.Serialization.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: SeaBattle.Models.Converters.BoardConverter
+- uid: SeaBattle.Models.Game.JoinerBoard
+  commentId: P:SeaBattle.Models.Game.JoinerBoard
+  id: JoinerBoard
+  parent: SeaBattle.Models.Game
+  langs:
+  - csharp
+  - vb
+  name: JoinerBoard
+  nameWithType: Game.JoinerBoard
+  fullName: SeaBattle.Models.Game.JoinerBoard
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/Game.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: JoinerBoard
+    path: Models/Game.cs
+    startLine: 34
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Игровое поле присоединившегося игрока
+  example: []
+  syntax:
+    content: >-
+      [JsonConverter(typeof(BoardConverter))]
+
+      public CellState[,]? JoinerBoard { get; set; }
+    parameters: []
+    return:
+      type: SeaBattle.Models.CellState[,]
+    content.vb: >-
+      <JsonConverter(GetType(BoardConverter))>
+
+      Public Property JoinerBoard As CellState(,)
+  overload: SeaBattle.Models.Game.JoinerBoard*
+  attributes:
+  - type: System.Text.Json.Serialization.JsonConverterAttribute
+    ctor: System.Text.Json.Serialization.JsonConverterAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: SeaBattle.Models.Converters.BoardConverter
+- uid: SeaBattle.Models.Game.State
+  commentId: P:SeaBattle.Models.Game.State
+  id: State
+  parent: SeaBattle.Models.Game
+  langs:
+  - csharp
+  - vb
+  name: State
+  nameWithType: Game.State
+  fullName: SeaBattle.Models.Game.State
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/Game.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: State
+    path: Models/Game.cs
+    startLine: 40
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Текущее состояние игры
+  example: []
+  syntax:
+    content: public GameState State { get; set; }
+    parameters: []
+    return:
+      type: SeaBattle.Models.GameState
+    content.vb: Public Property State As GameState
+  overload: SeaBattle.Models.Game.State*
+- uid: SeaBattle.Models.Game.CurrentTurn
+  commentId: P:SeaBattle.Models.Game.CurrentTurn
+  id: CurrentTurn
+  parent: SeaBattle.Models.Game
+  langs:
+  - csharp
+  - vb
+  name: CurrentTurn
+  nameWithType: Game.CurrentTurn
+  fullName: SeaBattle.Models.Game.CurrentTurn
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/Game.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: CurrentTurn
+    path: Models/Game.cs
+    startLine: 45
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Имя игрока, чей ход сейчас
+  example: []
+  syntax:
+    content: public string? CurrentTurn { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CurrentTurn As String
+  overload: SeaBattle.Models.Game.CurrentTurn*
+- uid: SeaBattle.Models.Game.Winner
+  commentId: P:SeaBattle.Models.Game.Winner
+  id: Winner
+  parent: SeaBattle.Models.Game
+  langs:
+  - csharp
+  - vb
+  name: Winner
+  nameWithType: Game.Winner
+  fullName: SeaBattle.Models.Game.Winner
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/Game.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: Winner
+    path: Models/Game.cs
+    startLine: 50
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Имя победителя игры
+  example: []
+  syntax:
+    content: public string? Winner { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Winner As String
+  overload: SeaBattle.Models.Game.Winner*
+- uid: SeaBattle.Models.Game.IsOpenLobby
+  commentId: P:SeaBattle.Models.Game.IsOpenLobby
+  id: IsOpenLobby
+  parent: SeaBattle.Models.Game
+  langs:
+  - csharp
+  - vb
+  name: IsOpenLobby
+  nameWithType: Game.IsOpenLobby
+  fullName: SeaBattle.Models.Game.IsOpenLobby
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/Game.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: IsOpenLobby
+    path: Models/Game.cs
+    startLine: 55
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Флаг, указывающий является ли лобби открытым для присоединения
+  example: []
+  syntax:
+    content: public bool IsOpenLobby { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsOpenLobby As Boolean
+  overload: SeaBattle.Models.Game.IsOpenLobby*
+- uid: SeaBattle.Models.Game.CreatorReady
+  commentId: P:SeaBattle.Models.Game.CreatorReady
+  id: CreatorReady
+  parent: SeaBattle.Models.Game
+  langs:
+  - csharp
+  - vb
+  name: CreatorReady
+  nameWithType: Game.CreatorReady
+  fullName: SeaBattle.Models.Game.CreatorReady
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/Game.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: CreatorReady
+    path: Models/Game.cs
+    startLine: 60
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Флаг готовности создателя игры
+  example: []
+  syntax:
+    content: public bool CreatorReady { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property CreatorReady As Boolean
+  overload: SeaBattle.Models.Game.CreatorReady*
+- uid: SeaBattle.Models.Game.JoinerReady
+  commentId: P:SeaBattle.Models.Game.JoinerReady
+  id: JoinerReady
+  parent: SeaBattle.Models.Game
+  langs:
+  - csharp
+  - vb
+  name: JoinerReady
+  nameWithType: Game.JoinerReady
+  fullName: SeaBattle.Models.Game.JoinerReady
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/Game.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: JoinerReady
+    path: Models/Game.cs
+    startLine: 65
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Флаг готовности присоединившегося игрока
+  example: []
+  syntax:
+    content: public bool JoinerReady { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property JoinerReady As Boolean
+  overload: SeaBattle.Models.Game.JoinerReady*
+- uid: SeaBattle.Models.Game.CreatorBoardSet
+  commentId: P:SeaBattle.Models.Game.CreatorBoardSet
+  id: CreatorBoardSet
+  parent: SeaBattle.Models.Game
+  langs:
+  - csharp
+  - vb
+  name: CreatorBoardSet
+  nameWithType: Game.CreatorBoardSet
+  fullName: SeaBattle.Models.Game.CreatorBoardSet
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/Game.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: CreatorBoardSet
+    path: Models/Game.cs
+    startLine: 70
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Флаг, указывающий установлены ли корабли создателем
+  example: []
+  syntax:
+    content: public bool CreatorBoardSet { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property CreatorBoardSet As Boolean
+  overload: SeaBattle.Models.Game.CreatorBoardSet*
+- uid: SeaBattle.Models.Game.JoinerBoardSet
+  commentId: P:SeaBattle.Models.Game.JoinerBoardSet
+  id: JoinerBoardSet
+  parent: SeaBattle.Models.Game
+  langs:
+  - csharp
+  - vb
+  name: JoinerBoardSet
+  nameWithType: Game.JoinerBoardSet
+  fullName: SeaBattle.Models.Game.JoinerBoardSet
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/Game.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: JoinerBoardSet
+    path: Models/Game.cs
+    startLine: 75
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Флаг, указывающий установлены ли корабли присоединившимся игроком
+  example: []
+  syntax:
+    content: public bool JoinerBoardSet { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property JoinerBoardSet As Boolean
+  overload: SeaBattle.Models.Game.JoinerBoardSet*
+- uid: SeaBattle.Models.Game.CreatorShots
+  commentId: P:SeaBattle.Models.Game.CreatorShots
+  id: CreatorShots
+  parent: SeaBattle.Models.Game
+  langs:
+  - csharp
+  - vb
+  name: CreatorShots
+  nameWithType: Game.CreatorShots
+  fullName: SeaBattle.Models.Game.CreatorShots
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/Game.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: CreatorShots
+    path: Models/Game.cs
+    startLine: 80
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Список выстрелов создателя игры
+  example: []
+  syntax:
+    content: public List<Position> CreatorShots { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{SeaBattle.Models.Position}
+    content.vb: Public Property CreatorShots As List(Of Position)
+  overload: SeaBattle.Models.Game.CreatorShots*
+- uid: SeaBattle.Models.Game.JoinerShots
+  commentId: P:SeaBattle.Models.Game.JoinerShots
+  id: JoinerShots
+  parent: SeaBattle.Models.Game
+  langs:
+  - csharp
+  - vb
+  name: JoinerShots
+  nameWithType: Game.JoinerShots
+  fullName: SeaBattle.Models.Game.JoinerShots
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/Game.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: JoinerShots
+    path: Models/Game.cs
+    startLine: 85
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Список выстрелов присоединившегося игрока
+  example: []
+  syntax:
+    content: public List<Position> JoinerShots { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{SeaBattle.Models.Position}
+    content.vb: Public Property JoinerShots As List(Of Position)
+  overload: SeaBattle.Models.Game.JoinerShots*
+- uid: SeaBattle.Models.Game.IsGameEnded
+  commentId: P:SeaBattle.Models.Game.IsGameEnded
+  id: IsGameEnded
+  parent: SeaBattle.Models.Game
+  langs:
+  - csharp
+  - vb
+  name: IsGameEnded
+  nameWithType: Game.IsGameEnded
+  fullName: SeaBattle.Models.Game.IsGameEnded
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/Game.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: IsGameEnded
+    path: Models/Game.cs
+    startLine: 87
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  syntax:
+    content: public bool IsGameEnded { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsGameEnded As Boolean
+  overload: SeaBattle.Models.Game.IsGameEnded*
+references:
+- uid: SeaBattle.Models
+  commentId: N:SeaBattle.Models
+  href: SeaBattle.html
+  name: SeaBattle.Models
+  nameWithType: SeaBattle.Models
+  fullName: SeaBattle.Models
+  spec.csharp:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Models
+    name: Models
+    href: SeaBattle.Models.html
+  spec.vb:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Models
+    name: Models
+    href: SeaBattle.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SeaBattle.Models.Game.Id*
+  commentId: Overload:SeaBattle.Models.Game.Id
+  href: SeaBattle.Models.Game.html#SeaBattle_Models_Game_Id
+  name: Id
+  nameWithType: Game.Id
+  fullName: SeaBattle.Models.Game.Id
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: SeaBattle.Models.Game.CreatorName*
+  commentId: Overload:SeaBattle.Models.Game.CreatorName
+  href: SeaBattle.Models.Game.html#SeaBattle_Models_Game_CreatorName
+  name: CreatorName
+  nameWithType: Game.CreatorName
+  fullName: SeaBattle.Models.Game.CreatorName
+- uid: SeaBattle.Models.Game.JoinerName*
+  commentId: Overload:SeaBattle.Models.Game.JoinerName
+  href: SeaBattle.Models.Game.html#SeaBattle_Models_Game_JoinerName
+  name: JoinerName
+  nameWithType: Game.JoinerName
+  fullName: SeaBattle.Models.Game.JoinerName
+- uid: SeaBattle.Models.Game.CreatorBoard*
+  commentId: Overload:SeaBattle.Models.Game.CreatorBoard
+  href: SeaBattle.Models.Game.html#SeaBattle_Models_Game_CreatorBoard
+  name: CreatorBoard
+  nameWithType: Game.CreatorBoard
+  fullName: SeaBattle.Models.Game.CreatorBoard
+- uid: SeaBattle.Models.CellState[,]
+  isExternal: true
+  href: SeaBattle.Models.CellState.html
+  name: CellState[,]
+  nameWithType: CellState[,]
+  fullName: SeaBattle.Models.CellState[,]
+  nameWithType.vb: CellState(,)
+  fullName.vb: SeaBattle.Models.CellState(,)
+  name.vb: CellState(,)
+  spec.csharp:
+  - uid: SeaBattle.Models.CellState
+    name: CellState
+    href: SeaBattle.Models.CellState.html
+  - name: '['
+  - name: ','
+  - name: ']'
+  spec.vb:
+  - uid: SeaBattle.Models.CellState
+    name: CellState
+    href: SeaBattle.Models.CellState.html
+  - name: (
+  - name: ','
+  - name: )
+- uid: SeaBattle.Models.Game.JoinerBoard*
+  commentId: Overload:SeaBattle.Models.Game.JoinerBoard
+  href: SeaBattle.Models.Game.html#SeaBattle_Models_Game_JoinerBoard
+  name: JoinerBoard
+  nameWithType: Game.JoinerBoard
+  fullName: SeaBattle.Models.Game.JoinerBoard
+- uid: SeaBattle.Models.Game.State*
+  commentId: Overload:SeaBattle.Models.Game.State
+  href: SeaBattle.Models.Game.html#SeaBattle_Models_Game_State
+  name: State
+  nameWithType: Game.State
+  fullName: SeaBattle.Models.Game.State
+- uid: SeaBattle.Models.GameState
+  commentId: T:SeaBattle.Models.GameState
+  parent: SeaBattle.Models
+  href: SeaBattle.Models.GameState.html
+  name: GameState
+  nameWithType: GameState
+  fullName: SeaBattle.Models.GameState
+- uid: SeaBattle.Models.Game.CurrentTurn*
+  commentId: Overload:SeaBattle.Models.Game.CurrentTurn
+  href: SeaBattle.Models.Game.html#SeaBattle_Models_Game_CurrentTurn
+  name: CurrentTurn
+  nameWithType: Game.CurrentTurn
+  fullName: SeaBattle.Models.Game.CurrentTurn
+- uid: SeaBattle.Models.Game.Winner*
+  commentId: Overload:SeaBattle.Models.Game.Winner
+  href: SeaBattle.Models.Game.html#SeaBattle_Models_Game_Winner
+  name: Winner
+  nameWithType: Game.Winner
+  fullName: SeaBattle.Models.Game.Winner
+- uid: SeaBattle.Models.Game.IsOpenLobby*
+  commentId: Overload:SeaBattle.Models.Game.IsOpenLobby
+  href: SeaBattle.Models.Game.html#SeaBattle_Models_Game_IsOpenLobby
+  name: IsOpenLobby
+  nameWithType: Game.IsOpenLobby
+  fullName: SeaBattle.Models.Game.IsOpenLobby
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: SeaBattle.Models.Game.CreatorReady*
+  commentId: Overload:SeaBattle.Models.Game.CreatorReady
+  href: SeaBattle.Models.Game.html#SeaBattle_Models_Game_CreatorReady
+  name: CreatorReady
+  nameWithType: Game.CreatorReady
+  fullName: SeaBattle.Models.Game.CreatorReady
+- uid: SeaBattle.Models.Game.JoinerReady*
+  commentId: Overload:SeaBattle.Models.Game.JoinerReady
+  href: SeaBattle.Models.Game.html#SeaBattle_Models_Game_JoinerReady
+  name: JoinerReady
+  nameWithType: Game.JoinerReady
+  fullName: SeaBattle.Models.Game.JoinerReady
+- uid: SeaBattle.Models.Game.CreatorBoardSet*
+  commentId: Overload:SeaBattle.Models.Game.CreatorBoardSet
+  href: SeaBattle.Models.Game.html#SeaBattle_Models_Game_CreatorBoardSet
+  name: CreatorBoardSet
+  nameWithType: Game.CreatorBoardSet
+  fullName: SeaBattle.Models.Game.CreatorBoardSet
+- uid: SeaBattle.Models.Game.JoinerBoardSet*
+  commentId: Overload:SeaBattle.Models.Game.JoinerBoardSet
+  href: SeaBattle.Models.Game.html#SeaBattle_Models_Game_JoinerBoardSet
+  name: JoinerBoardSet
+  nameWithType: Game.JoinerBoardSet
+  fullName: SeaBattle.Models.Game.JoinerBoardSet
+- uid: SeaBattle.Models.Game.CreatorShots*
+  commentId: Overload:SeaBattle.Models.Game.CreatorShots
+  href: SeaBattle.Models.Game.html#SeaBattle_Models_Game_CreatorShots
+  name: CreatorShots
+  nameWithType: Game.CreatorShots
+  fullName: SeaBattle.Models.Game.CreatorShots
+- uid: System.Collections.Generic.List{SeaBattle.Models.Position}
+  commentId: T:System.Collections.Generic.List{SeaBattle.Models.Position}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Position>
+  nameWithType: List<Position>
+  fullName: System.Collections.Generic.List<SeaBattle.Models.Position>
+  nameWithType.vb: List(Of Position)
+  fullName.vb: System.Collections.Generic.List(Of SeaBattle.Models.Position)
+  name.vb: List(Of Position)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SeaBattle.Models.Position
+    name: Position
+    href: SeaBattle.Models.Position.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SeaBattle.Models.Position
+    name: Position
+    href: SeaBattle.Models.Position.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: SeaBattle.Models.Game.JoinerShots*
+  commentId: Overload:SeaBattle.Models.Game.JoinerShots
+  href: SeaBattle.Models.Game.html#SeaBattle_Models_Game_JoinerShots
+  name: JoinerShots
+  nameWithType: Game.JoinerShots
+  fullName: SeaBattle.Models.Game.JoinerShots
+- uid: SeaBattle.Models.Game.IsGameEnded*
+  commentId: Overload:SeaBattle.Models.Game.IsGameEnded
+  href: SeaBattle.Models.Game.html#SeaBattle_Models_Game_IsGameEnded
+  name: IsGameEnded
+  nameWithType: Game.IsGameEnded
+  fullName: SeaBattle.Models.Game.IsGameEnded

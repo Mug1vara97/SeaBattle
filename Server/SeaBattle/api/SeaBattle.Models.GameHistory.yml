@@ -1,0 +1,881 @@
+### YamlMime:ManagedReference
+items:
+- uid: SeaBattle.Models.GameHistory
+  commentId: T:SeaBattle.Models.GameHistory
+  id: GameHistory
+  parent: SeaBattle.Models
+  children:
+  - SeaBattle.Models.GameHistory.#ctor
+  - SeaBattle.Models.GameHistory.CreatorName
+  - SeaBattle.Models.GameHistory.DurationMinutes
+  - SeaBattle.Models.GameHistory.GameFinishedAt
+  - SeaBattle.Models.GameHistory.GameId
+  - SeaBattle.Models.GameHistory.Id
+  - SeaBattle.Models.GameHistory.JoinerName
+  - SeaBattle.Models.GameHistory.OpponentUsername
+  - SeaBattle.Models.GameHistory.PlayerUsername
+  - SeaBattle.Models.GameHistory.Result
+  - SeaBattle.Models.GameHistory.StartedAt
+  - SeaBattle.Models.GameHistory.TotalMoves
+  - SeaBattle.Models.GameHistory.Winner
+  langs:
+  - csharp
+  - vb
+  name: GameHistory
+  nameWithType: GameHistory
+  fullName: SeaBattle.Models.GameHistory
+  type: Class
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameHistory.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: GameHistory
+    path: Models/GameHistory.cs
+    startLine: 9
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Представляет историю игры морского боя
+  example: []
+  syntax:
+    content: public class GameHistory
+    content.vb: Public Class GameHistory
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: SeaBattle.Models.GameHistory.Id
+  commentId: P:SeaBattle.Models.GameHistory.Id
+  id: Id
+  parent: SeaBattle.Models.GameHistory
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: GameHistory.Id
+  fullName: SeaBattle.Models.GameHistory.Id
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameHistory.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: Id
+    path: Models/GameHistory.cs
+    startLine: 14
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Уникальный идентификатор записи истории
+  example: []
+  syntax:
+    content: >-
+      [Key]
+
+      public Guid Id { get; set; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: >-
+      <Key>
+
+      Public Property Id As Guid
+  overload: SeaBattle.Models.GameHistory.Id*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.KeyAttribute
+    ctor: System.ComponentModel.DataAnnotations.KeyAttribute.#ctor
+    arguments: []
+- uid: SeaBattle.Models.GameHistory.PlayerUsername
+  commentId: P:SeaBattle.Models.GameHistory.PlayerUsername
+  id: PlayerUsername
+  parent: SeaBattle.Models.GameHistory
+  langs:
+  - csharp
+  - vb
+  name: PlayerUsername
+  nameWithType: GameHistory.PlayerUsername
+  fullName: SeaBattle.Models.GameHistory.PlayerUsername
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameHistory.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: PlayerUsername
+    path: Models/GameHistory.cs
+    startLine: 17
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  syntax:
+    content: >-
+      [Required]
+
+      public string PlayerUsername { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <Required>
+
+      Public Property PlayerUsername As String
+  overload: SeaBattle.Models.GameHistory.PlayerUsername*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+- uid: SeaBattle.Models.GameHistory.GameId
+  commentId: P:SeaBattle.Models.GameHistory.GameId
+  id: GameId
+  parent: SeaBattle.Models.GameHistory
+  langs:
+  - csharp
+  - vb
+  name: GameId
+  nameWithType: GameHistory.GameId
+  fullName: SeaBattle.Models.GameHistory.GameId
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameHistory.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: GameId
+    path: Models/GameHistory.cs
+    startLine: 23
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Идентификатор игры
+  example: []
+  syntax:
+    content: >-
+      [Required]
+
+      public string GameId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <Required>
+
+      Public Property GameId As String
+  overload: SeaBattle.Models.GameHistory.GameId*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+- uid: SeaBattle.Models.GameHistory.OpponentUsername
+  commentId: P:SeaBattle.Models.GameHistory.OpponentUsername
+  id: OpponentUsername
+  parent: SeaBattle.Models.GameHistory
+  langs:
+  - csharp
+  - vb
+  name: OpponentUsername
+  nameWithType: GameHistory.OpponentUsername
+  fullName: SeaBattle.Models.GameHistory.OpponentUsername
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameHistory.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: OpponentUsername
+    path: Models/GameHistory.cs
+    startLine: 26
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  syntax:
+    content: public string? OpponentUsername { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property OpponentUsername As String
+  overload: SeaBattle.Models.GameHistory.OpponentUsername*
+- uid: SeaBattle.Models.GameHistory.GameFinishedAt
+  commentId: P:SeaBattle.Models.GameHistory.GameFinishedAt
+  id: GameFinishedAt
+  parent: SeaBattle.Models.GameHistory
+  langs:
+  - csharp
+  - vb
+  name: GameFinishedAt
+  nameWithType: GameHistory.GameFinishedAt
+  fullName: SeaBattle.Models.GameHistory.GameFinishedAt
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameHistory.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: GameFinishedAt
+    path: Models/GameHistory.cs
+    startLine: 31
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Дата и время завершения игры
+  example: []
+  syntax:
+    content: public DateTime GameFinishedAt { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property GameFinishedAt As Date
+  overload: SeaBattle.Models.GameHistory.GameFinishedAt*
+- uid: SeaBattle.Models.GameHistory.Result
+  commentId: P:SeaBattle.Models.GameHistory.Result
+  id: Result
+  parent: SeaBattle.Models.GameHistory
+  langs:
+  - csharp
+  - vb
+  name: Result
+  nameWithType: GameHistory.Result
+  fullName: SeaBattle.Models.GameHistory.Result
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameHistory.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: Result
+    path: Models/GameHistory.cs
+    startLine: 33
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  syntax:
+    content: >-
+      [Required]
+
+      public string Result { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <Required>
+
+      Public Property Result As String
+  overload: SeaBattle.Models.GameHistory.Result*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+- uid: SeaBattle.Models.GameHistory.CreatorName
+  commentId: P:SeaBattle.Models.GameHistory.CreatorName
+  id: CreatorName
+  parent: SeaBattle.Models.GameHistory
+  langs:
+  - csharp
+  - vb
+  name: CreatorName
+  nameWithType: GameHistory.CreatorName
+  fullName: SeaBattle.Models.GameHistory.CreatorName
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameHistory.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: CreatorName
+    path: Models/GameHistory.cs
+    startLine: 39
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Имя создателя игры
+  example: []
+  syntax:
+    content: public string CreatorName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CreatorName As String
+  overload: SeaBattle.Models.GameHistory.CreatorName*
+- uid: SeaBattle.Models.GameHistory.JoinerName
+  commentId: P:SeaBattle.Models.GameHistory.JoinerName
+  id: JoinerName
+  parent: SeaBattle.Models.GameHistory
+  langs:
+  - csharp
+  - vb
+  name: JoinerName
+  nameWithType: GameHistory.JoinerName
+  fullName: SeaBattle.Models.GameHistory.JoinerName
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameHistory.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: JoinerName
+    path: Models/GameHistory.cs
+    startLine: 44
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Имя присоединившегося игрока
+  example: []
+  syntax:
+    content: public string JoinerName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property JoinerName As String
+  overload: SeaBattle.Models.GameHistory.JoinerName*
+- uid: SeaBattle.Models.GameHistory.Winner
+  commentId: P:SeaBattle.Models.GameHistory.Winner
+  id: Winner
+  parent: SeaBattle.Models.GameHistory
+  langs:
+  - csharp
+  - vb
+  name: Winner
+  nameWithType: GameHistory.Winner
+  fullName: SeaBattle.Models.GameHistory.Winner
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameHistory.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: Winner
+    path: Models/GameHistory.cs
+    startLine: 49
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Имя победителя игры
+  example: []
+  syntax:
+    content: public string Winner { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Winner As String
+  overload: SeaBattle.Models.GameHistory.Winner*
+- uid: SeaBattle.Models.GameHistory.TotalMoves
+  commentId: P:SeaBattle.Models.GameHistory.TotalMoves
+  id: TotalMoves
+  parent: SeaBattle.Models.GameHistory
+  langs:
+  - csharp
+  - vb
+  name: TotalMoves
+  nameWithType: GameHistory.TotalMoves
+  fullName: SeaBattle.Models.GameHistory.TotalMoves
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameHistory.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: TotalMoves
+    path: Models/GameHistory.cs
+    startLine: 54
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Количество ходов в игре
+  example: []
+  syntax:
+    content: public int TotalMoves { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property TotalMoves As Integer
+  overload: SeaBattle.Models.GameHistory.TotalMoves*
+- uid: SeaBattle.Models.GameHistory.StartedAt
+  commentId: P:SeaBattle.Models.GameHistory.StartedAt
+  id: StartedAt
+  parent: SeaBattle.Models.GameHistory
+  langs:
+  - csharp
+  - vb
+  name: StartedAt
+  nameWithType: GameHistory.StartedAt
+  fullName: SeaBattle.Models.GameHistory.StartedAt
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameHistory.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: StartedAt
+    path: Models/GameHistory.cs
+    startLine: 59
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Дата и время начала игры
+  example: []
+  syntax:
+    content: public DateTime StartedAt { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property StartedAt As Date
+  overload: SeaBattle.Models.GameHistory.StartedAt*
+- uid: SeaBattle.Models.GameHistory.DurationMinutes
+  commentId: P:SeaBattle.Models.GameHistory.DurationMinutes
+  id: DurationMinutes
+  parent: SeaBattle.Models.GameHistory
+  langs:
+  - csharp
+  - vb
+  name: DurationMinutes
+  nameWithType: GameHistory.DurationMinutes
+  fullName: SeaBattle.Models.GameHistory.DurationMinutes
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameHistory.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: DurationMinutes
+    path: Models/GameHistory.cs
+    startLine: 64
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Продолжительность игры в минутах
+  example: []
+  syntax:
+    content: public double DurationMinutes { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property DurationMinutes As Double
+  overload: SeaBattle.Models.GameHistory.DurationMinutes*
+- uid: SeaBattle.Models.GameHistory.#ctor
+  commentId: M:SeaBattle.Models.GameHistory.#ctor
+  id: '#ctor'
+  parent: SeaBattle.Models.GameHistory
+  langs:
+  - csharp
+  - vb
+  name: GameHistory()
+  nameWithType: GameHistory.GameHistory()
+  fullName: SeaBattle.Models.GameHistory.GameHistory()
+  type: Constructor
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameHistory.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: .ctor
+    path: Models/GameHistory.cs
+    startLine: 66
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  syntax:
+    content: public GameHistory()
+    content.vb: Public Sub New()
+  overload: SeaBattle.Models.GameHistory.#ctor*
+  nameWithType.vb: GameHistory.New()
+  fullName.vb: SeaBattle.Models.GameHistory.New()
+  name.vb: New()
+references:
+- uid: SeaBattle.Models
+  commentId: N:SeaBattle.Models
+  href: SeaBattle.html
+  name: SeaBattle.Models
+  nameWithType: SeaBattle.Models
+  fullName: SeaBattle.Models
+  spec.csharp:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Models
+    name: Models
+    href: SeaBattle.Models.html
+  spec.vb:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Models
+    name: Models
+    href: SeaBattle.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SeaBattle.Models.GameHistory.Id*
+  commentId: Overload:SeaBattle.Models.GameHistory.Id
+  href: SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_Id
+  name: Id
+  nameWithType: GameHistory.Id
+  fullName: SeaBattle.Models.GameHistory.Id
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: SeaBattle.Models.GameHistory.PlayerUsername*
+  commentId: Overload:SeaBattle.Models.GameHistory.PlayerUsername
+  href: SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_PlayerUsername
+  name: PlayerUsername
+  nameWithType: GameHistory.PlayerUsername
+  fullName: SeaBattle.Models.GameHistory.PlayerUsername
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: SeaBattle.Models.GameHistory.GameId*
+  commentId: Overload:SeaBattle.Models.GameHistory.GameId
+  href: SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_GameId
+  name: GameId
+  nameWithType: GameHistory.GameId
+  fullName: SeaBattle.Models.GameHistory.GameId
+- uid: SeaBattle.Models.GameHistory.OpponentUsername*
+  commentId: Overload:SeaBattle.Models.GameHistory.OpponentUsername
+  href: SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_OpponentUsername
+  name: OpponentUsername
+  nameWithType: GameHistory.OpponentUsername
+  fullName: SeaBattle.Models.GameHistory.OpponentUsername
+- uid: SeaBattle.Models.GameHistory.GameFinishedAt*
+  commentId: Overload:SeaBattle.Models.GameHistory.GameFinishedAt
+  href: SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_GameFinishedAt
+  name: GameFinishedAt
+  nameWithType: GameHistory.GameFinishedAt
+  fullName: SeaBattle.Models.GameHistory.GameFinishedAt
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: SeaBattle.Models.GameHistory.Result*
+  commentId: Overload:SeaBattle.Models.GameHistory.Result
+  href: SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_Result
+  name: Result
+  nameWithType: GameHistory.Result
+  fullName: SeaBattle.Models.GameHistory.Result
+- uid: SeaBattle.Models.GameHistory.CreatorName*
+  commentId: Overload:SeaBattle.Models.GameHistory.CreatorName
+  href: SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_CreatorName
+  name: CreatorName
+  nameWithType: GameHistory.CreatorName
+  fullName: SeaBattle.Models.GameHistory.CreatorName
+- uid: SeaBattle.Models.GameHistory.JoinerName*
+  commentId: Overload:SeaBattle.Models.GameHistory.JoinerName
+  href: SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_JoinerName
+  name: JoinerName
+  nameWithType: GameHistory.JoinerName
+  fullName: SeaBattle.Models.GameHistory.JoinerName
+- uid: SeaBattle.Models.GameHistory.Winner*
+  commentId: Overload:SeaBattle.Models.GameHistory.Winner
+  href: SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_Winner
+  name: Winner
+  nameWithType: GameHistory.Winner
+  fullName: SeaBattle.Models.GameHistory.Winner
+- uid: SeaBattle.Models.GameHistory.TotalMoves*
+  commentId: Overload:SeaBattle.Models.GameHistory.TotalMoves
+  href: SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_TotalMoves
+  name: TotalMoves
+  nameWithType: GameHistory.TotalMoves
+  fullName: SeaBattle.Models.GameHistory.TotalMoves
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: SeaBattle.Models.GameHistory.StartedAt*
+  commentId: Overload:SeaBattle.Models.GameHistory.StartedAt
+  href: SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_StartedAt
+  name: StartedAt
+  nameWithType: GameHistory.StartedAt
+  fullName: SeaBattle.Models.GameHistory.StartedAt
+- uid: SeaBattle.Models.GameHistory.DurationMinutes*
+  commentId: Overload:SeaBattle.Models.GameHistory.DurationMinutes
+  href: SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_DurationMinutes
+  name: DurationMinutes
+  nameWithType: GameHistory.DurationMinutes
+  fullName: SeaBattle.Models.GameHistory.DurationMinutes
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: SeaBattle.Models.GameHistory.#ctor*
+  commentId: Overload:SeaBattle.Models.GameHistory.#ctor
+  href: SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory__ctor
+  name: GameHistory
+  nameWithType: GameHistory.GameHistory
+  fullName: SeaBattle.Models.GameHistory.GameHistory
+  nameWithType.vb: GameHistory.New
+  fullName.vb: SeaBattle.Models.GameHistory.New
+  name.vb: New

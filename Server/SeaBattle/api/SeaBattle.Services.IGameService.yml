@@ -1,0 +1,828 @@
+### YamlMime:ManagedReference
+items:
+- uid: SeaBattle.Services.IGameService
+  commentId: T:SeaBattle.Services.IGameService
+  id: IGameService
+  parent: SeaBattle.Services
+  children:
+  - SeaBattle.Services.IGameService.CreateGame(System.String,System.Boolean)
+  - SeaBattle.Services.IGameService.GetGame(System.String)
+  - SeaBattle.Services.IGameService.GetLeaderboardAsync(System.Int32)
+  - SeaBattle.Services.IGameService.GetOpenLobbies
+  - SeaBattle.Services.IGameService.GetPlayerGameHistory(System.String,System.Int32)
+  - SeaBattle.Services.IGameService.JoinGame(System.String,System.String)
+  - SeaBattle.Services.IGameService.MakeShot(System.String,System.String,SeaBattle.Models.Position)
+  - SeaBattle.Services.IGameService.PlaceShipsAsync(System.String,System.String,SeaBattle.Models.CellState[0:,0:])
+  - SeaBattle.Services.IGameService.SetReady(System.String,System.String)
+  langs:
+  - csharp
+  - vb
+  name: IGameService
+  nameWithType: IGameService
+  fullName: SeaBattle.Services.IGameService
+  type: Interface
+  source:
+    remote:
+      path: Server/SeaBattle/Services/IGameService.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: IGameService
+    path: Services/IGameService.cs
+    startLine: 4
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Services
+  syntax:
+    content: public interface IGameService
+    content.vb: Public Interface IGameService
+- uid: SeaBattle.Services.IGameService.CreateGame(System.String,System.Boolean)
+  commentId: M:SeaBattle.Services.IGameService.CreateGame(System.String,System.Boolean)
+  id: CreateGame(System.String,System.Boolean)
+  parent: SeaBattle.Services.IGameService
+  langs:
+  - csharp
+  - vb
+  name: CreateGame(string, bool)
+  nameWithType: IGameService.CreateGame(string, bool)
+  fullName: SeaBattle.Services.IGameService.CreateGame(string, bool)
+  type: Method
+  source:
+    remote:
+      path: Server/SeaBattle/Services/IGameService.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: CreateGame
+    path: Services/IGameService.cs
+    startLine: 6
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Services
+  syntax:
+    content: Task<Game> CreateGame(string creatorName, bool isOpenLobby)
+    parameters:
+    - id: creatorName
+      type: System.String
+    - id: isOpenLobby
+      type: System.Boolean
+    return:
+      type: System.Threading.Tasks.Task{SeaBattle.Models.Game}
+    content.vb: Function CreateGame(creatorName As String, isOpenLobby As Boolean) As Task(Of Game)
+  overload: SeaBattle.Services.IGameService.CreateGame*
+  nameWithType.vb: IGameService.CreateGame(String, Boolean)
+  fullName.vb: SeaBattle.Services.IGameService.CreateGame(String, Boolean)
+  name.vb: CreateGame(String, Boolean)
+- uid: SeaBattle.Services.IGameService.JoinGame(System.String,System.String)
+  commentId: M:SeaBattle.Services.IGameService.JoinGame(System.String,System.String)
+  id: JoinGame(System.String,System.String)
+  parent: SeaBattle.Services.IGameService
+  langs:
+  - csharp
+  - vb
+  name: JoinGame(string, string)
+  nameWithType: IGameService.JoinGame(string, string)
+  fullName: SeaBattle.Services.IGameService.JoinGame(string, string)
+  type: Method
+  source:
+    remote:
+      path: Server/SeaBattle/Services/IGameService.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: JoinGame
+    path: Services/IGameService.cs
+    startLine: 7
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Services
+  syntax:
+    content: Task<Game?> JoinGame(string gameId, string joinerName)
+    parameters:
+    - id: gameId
+      type: System.String
+    - id: joinerName
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task{SeaBattle.Models.Game}
+    content.vb: Function JoinGame(gameId As String, joinerName As String) As Task(Of Game)
+  overload: SeaBattle.Services.IGameService.JoinGame*
+  nameWithType.vb: IGameService.JoinGame(String, String)
+  fullName.vb: SeaBattle.Services.IGameService.JoinGame(String, String)
+  name.vb: JoinGame(String, String)
+- uid: SeaBattle.Services.IGameService.SetReady(System.String,System.String)
+  commentId: M:SeaBattle.Services.IGameService.SetReady(System.String,System.String)
+  id: SetReady(System.String,System.String)
+  parent: SeaBattle.Services.IGameService
+  langs:
+  - csharp
+  - vb
+  name: SetReady(string, string)
+  nameWithType: IGameService.SetReady(string, string)
+  fullName: SeaBattle.Services.IGameService.SetReady(string, string)
+  type: Method
+  source:
+    remote:
+      path: Server/SeaBattle/Services/IGameService.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: SetReady
+    path: Services/IGameService.cs
+    startLine: 8
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Services
+  syntax:
+    content: Task<Game?> SetReady(string gameId, string playerName)
+    parameters:
+    - id: gameId
+      type: System.String
+    - id: playerName
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task{SeaBattle.Models.Game}
+    content.vb: Function SetReady(gameId As String, playerName As String) As Task(Of Game)
+  overload: SeaBattle.Services.IGameService.SetReady*
+  nameWithType.vb: IGameService.SetReady(String, String)
+  fullName.vb: SeaBattle.Services.IGameService.SetReady(String, String)
+  name.vb: SetReady(String, String)
+- uid: SeaBattle.Services.IGameService.GetGame(System.String)
+  commentId: M:SeaBattle.Services.IGameService.GetGame(System.String)
+  id: GetGame(System.String)
+  parent: SeaBattle.Services.IGameService
+  langs:
+  - csharp
+  - vb
+  name: GetGame(string)
+  nameWithType: IGameService.GetGame(string)
+  fullName: SeaBattle.Services.IGameService.GetGame(string)
+  type: Method
+  source:
+    remote:
+      path: Server/SeaBattle/Services/IGameService.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: GetGame
+    path: Services/IGameService.cs
+    startLine: 9
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Services
+  syntax:
+    content: Task<Game?> GetGame(string gameId)
+    parameters:
+    - id: gameId
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task{SeaBattle.Models.Game}
+    content.vb: Function GetGame(gameId As String) As Task(Of Game)
+  overload: SeaBattle.Services.IGameService.GetGame*
+  nameWithType.vb: IGameService.GetGame(String)
+  fullName.vb: SeaBattle.Services.IGameService.GetGame(String)
+  name.vb: GetGame(String)
+- uid: SeaBattle.Services.IGameService.GetOpenLobbies
+  commentId: M:SeaBattle.Services.IGameService.GetOpenLobbies
+  id: GetOpenLobbies
+  parent: SeaBattle.Services.IGameService
+  langs:
+  - csharp
+  - vb
+  name: GetOpenLobbies()
+  nameWithType: IGameService.GetOpenLobbies()
+  fullName: SeaBattle.Services.IGameService.GetOpenLobbies()
+  type: Method
+  source:
+    remote:
+      path: Server/SeaBattle/Services/IGameService.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: GetOpenLobbies
+    path: Services/IGameService.cs
+    startLine: 10
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Services
+  syntax:
+    content: Task<List<Game>> GetOpenLobbies()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{SeaBattle.Models.Game}}
+    content.vb: Function GetOpenLobbies() As Task(Of List(Of Game))
+  overload: SeaBattle.Services.IGameService.GetOpenLobbies*
+- uid: SeaBattle.Services.IGameService.MakeShot(System.String,System.String,SeaBattle.Models.Position)
+  commentId: M:SeaBattle.Services.IGameService.MakeShot(System.String,System.String,SeaBattle.Models.Position)
+  id: MakeShot(System.String,System.String,SeaBattle.Models.Position)
+  parent: SeaBattle.Services.IGameService
+  langs:
+  - csharp
+  - vb
+  name: MakeShot(string, string, Position)
+  nameWithType: IGameService.MakeShot(string, string, Position)
+  fullName: SeaBattle.Services.IGameService.MakeShot(string, string, SeaBattle.Models.Position)
+  type: Method
+  source:
+    remote:
+      path: Server/SeaBattle/Services/IGameService.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: MakeShot
+    path: Services/IGameService.cs
+    startLine: 11
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Services
+  syntax:
+    content: Task<(Game? game, ShotResult result)> MakeShot(string gameId, string playerName, Position position)
+    parameters:
+    - id: gameId
+      type: System.String
+    - id: playerName
+      type: System.String
+    - id: position
+      type: SeaBattle.Models.Position
+    return:
+      type: System.Threading.Tasks.Task{System.ValueTuple{SeaBattle.Models.Game,SeaBattle.Models.ShotResult}}
+    content.vb: Function MakeShot(gameId As String, playerName As String, position As Position) As Task(Of (game As Game, result As ShotResult))
+  overload: SeaBattle.Services.IGameService.MakeShot*
+  nameWithType.vb: IGameService.MakeShot(String, String, Position)
+  fullName.vb: SeaBattle.Services.IGameService.MakeShot(String, String, SeaBattle.Models.Position)
+  name.vb: MakeShot(String, String, Position)
+- uid: SeaBattle.Services.IGameService.GetPlayerGameHistory(System.String,System.Int32)
+  commentId: M:SeaBattle.Services.IGameService.GetPlayerGameHistory(System.String,System.Int32)
+  id: GetPlayerGameHistory(System.String,System.Int32)
+  parent: SeaBattle.Services.IGameService
+  langs:
+  - csharp
+  - vb
+  name: GetPlayerGameHistory(string, int)
+  nameWithType: IGameService.GetPlayerGameHistory(string, int)
+  fullName: SeaBattle.Services.IGameService.GetPlayerGameHistory(string, int)
+  type: Method
+  source:
+    remote:
+      path: Server/SeaBattle/Services/IGameService.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: GetPlayerGameHistory
+    path: Services/IGameService.cs
+    startLine: 12
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Services
+  syntax:
+    content: Task<List<GameHistory>> GetPlayerGameHistory(string playerName, int count = 10)
+    parameters:
+    - id: playerName
+      type: System.String
+    - id: count
+      type: System.Int32
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{SeaBattle.Models.GameHistory}}
+    content.vb: Function GetPlayerGameHistory(playerName As String, count As Integer = 10) As Task(Of List(Of GameHistory))
+  overload: SeaBattle.Services.IGameService.GetPlayerGameHistory*
+  nameWithType.vb: IGameService.GetPlayerGameHistory(String, Integer)
+  fullName.vb: SeaBattle.Services.IGameService.GetPlayerGameHistory(String, Integer)
+  name.vb: GetPlayerGameHistory(String, Integer)
+- uid: SeaBattle.Services.IGameService.GetLeaderboardAsync(System.Int32)
+  commentId: M:SeaBattle.Services.IGameService.GetLeaderboardAsync(System.Int32)
+  id: GetLeaderboardAsync(System.Int32)
+  parent: SeaBattle.Services.IGameService
+  langs:
+  - csharp
+  - vb
+  name: GetLeaderboardAsync(int)
+  nameWithType: IGameService.GetLeaderboardAsync(int)
+  fullName: SeaBattle.Services.IGameService.GetLeaderboardAsync(int)
+  type: Method
+  source:
+    remote:
+      path: Server/SeaBattle/Services/IGameService.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: GetLeaderboardAsync
+    path: Services/IGameService.cs
+    startLine: 13
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Services
+  syntax:
+    content: Task<List<PlayerRanking>> GetLeaderboardAsync(int topN)
+    parameters:
+    - id: topN
+      type: System.Int32
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{SeaBattle.Models.PlayerRanking}}
+    content.vb: Function GetLeaderboardAsync(topN As Integer) As Task(Of List(Of PlayerRanking))
+  overload: SeaBattle.Services.IGameService.GetLeaderboardAsync*
+  nameWithType.vb: IGameService.GetLeaderboardAsync(Integer)
+  fullName.vb: SeaBattle.Services.IGameService.GetLeaderboardAsync(Integer)
+  name.vb: GetLeaderboardAsync(Integer)
+- uid: SeaBattle.Services.IGameService.PlaceShipsAsync(System.String,System.String,SeaBattle.Models.CellState[0:,0:])
+  commentId: M:SeaBattle.Services.IGameService.PlaceShipsAsync(System.String,System.String,SeaBattle.Models.CellState[0:,0:])
+  id: PlaceShipsAsync(System.String,System.String,SeaBattle.Models.CellState[0:,0:])
+  parent: SeaBattle.Services.IGameService
+  langs:
+  - csharp
+  - vb
+  name: PlaceShipsAsync(string, string, CellState[,])
+  nameWithType: IGameService.PlaceShipsAsync(string, string, CellState[,])
+  fullName: SeaBattle.Services.IGameService.PlaceShipsAsync(string, string, SeaBattle.Models.CellState[,])
+  type: Method
+  source:
+    remote:
+      path: Server/SeaBattle/Services/IGameService.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: PlaceShipsAsync
+    path: Services/IGameService.cs
+    startLine: 14
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Services
+  syntax:
+    content: Task<Game?> PlaceShipsAsync(string gameId, string playerName, CellState[,] clientBoard)
+    parameters:
+    - id: gameId
+      type: System.String
+    - id: playerName
+      type: System.String
+    - id: clientBoard
+      type: SeaBattle.Models.CellState[,]
+    return:
+      type: System.Threading.Tasks.Task{SeaBattle.Models.Game}
+    content.vb: Function PlaceShipsAsync(gameId As String, playerName As String, clientBoard As CellState(,)) As Task(Of Game)
+  overload: SeaBattle.Services.IGameService.PlaceShipsAsync*
+  nameWithType.vb: IGameService.PlaceShipsAsync(String, String, CellState(,))
+  fullName.vb: SeaBattle.Services.IGameService.PlaceShipsAsync(String, String, SeaBattle.Models.CellState(,))
+  name.vb: PlaceShipsAsync(String, String, CellState(,))
+references:
+- uid: SeaBattle.Services
+  commentId: N:SeaBattle.Services
+  href: SeaBattle.html
+  name: SeaBattle.Services
+  nameWithType: SeaBattle.Services
+  fullName: SeaBattle.Services
+  spec.csharp:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Services
+    name: Services
+    href: SeaBattle.Services.html
+  spec.vb:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Services
+    name: Services
+    href: SeaBattle.Services.html
+- uid: SeaBattle.Services.IGameService.CreateGame*
+  commentId: Overload:SeaBattle.Services.IGameService.CreateGame
+  href: SeaBattle.Services.IGameService.html#SeaBattle_Services_IGameService_CreateGame_System_String_System_Boolean_
+  name: CreateGame
+  nameWithType: IGameService.CreateGame
+  fullName: SeaBattle.Services.IGameService.CreateGame
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Threading.Tasks.Task{SeaBattle.Models.Game}
+  commentId: T:System.Threading.Tasks.Task{SeaBattle.Models.Game}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Game>
+  nameWithType: Task<Game>
+  fullName: System.Threading.Tasks.Task<SeaBattle.Models.Game>
+  nameWithType.vb: Task(Of Game)
+  fullName.vb: System.Threading.Tasks.Task(Of SeaBattle.Models.Game)
+  name.vb: Task(Of Game)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: SeaBattle.Models.Game
+    name: Game
+    href: SeaBattle.Models.Game.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SeaBattle.Models.Game
+    name: Game
+    href: SeaBattle.Models.Game.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: SeaBattle.Services.IGameService.JoinGame*
+  commentId: Overload:SeaBattle.Services.IGameService.JoinGame
+  href: SeaBattle.Services.IGameService.html#SeaBattle_Services_IGameService_JoinGame_System_String_System_String_
+  name: JoinGame
+  nameWithType: IGameService.JoinGame
+  fullName: SeaBattle.Services.IGameService.JoinGame
+- uid: SeaBattle.Services.IGameService.SetReady*
+  commentId: Overload:SeaBattle.Services.IGameService.SetReady
+  href: SeaBattle.Services.IGameService.html#SeaBattle_Services_IGameService_SetReady_System_String_System_String_
+  name: SetReady
+  nameWithType: IGameService.SetReady
+  fullName: SeaBattle.Services.IGameService.SetReady
+- uid: SeaBattle.Services.IGameService.GetGame*
+  commentId: Overload:SeaBattle.Services.IGameService.GetGame
+  href: SeaBattle.Services.IGameService.html#SeaBattle_Services_IGameService_GetGame_System_String_
+  name: GetGame
+  nameWithType: IGameService.GetGame
+  fullName: SeaBattle.Services.IGameService.GetGame
+- uid: SeaBattle.Services.IGameService.GetOpenLobbies*
+  commentId: Overload:SeaBattle.Services.IGameService.GetOpenLobbies
+  href: SeaBattle.Services.IGameService.html#SeaBattle_Services_IGameService_GetOpenLobbies
+  name: GetOpenLobbies
+  nameWithType: IGameService.GetOpenLobbies
+  fullName: SeaBattle.Services.IGameService.GetOpenLobbies
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{SeaBattle.Models.Game}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{SeaBattle.Models.Game}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<Game>>
+  nameWithType: Task<List<Game>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<SeaBattle.Models.Game>>
+  nameWithType.vb: Task(Of List(Of Game))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of SeaBattle.Models.Game))
+  name.vb: Task(Of List(Of Game))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SeaBattle.Models.Game
+    name: Game
+    href: SeaBattle.Models.Game.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SeaBattle.Models.Game
+    name: Game
+    href: SeaBattle.Models.Game.html
+  - name: )
+  - name: )
+- uid: SeaBattle.Services.IGameService.MakeShot*
+  commentId: Overload:SeaBattle.Services.IGameService.MakeShot
+  href: SeaBattle.Services.IGameService.html#SeaBattle_Services_IGameService_MakeShot_System_String_System_String_SeaBattle_Models_Position_
+  name: MakeShot
+  nameWithType: IGameService.MakeShot
+  fullName: SeaBattle.Services.IGameService.MakeShot
+- uid: SeaBattle.Models.Position
+  commentId: T:SeaBattle.Models.Position
+  parent: SeaBattle.Models
+  href: SeaBattle.Models.Position.html
+  name: Position
+  nameWithType: Position
+  fullName: SeaBattle.Models.Position
+- uid: System.Threading.Tasks.Task{System.ValueTuple{SeaBattle.Models.Game,SeaBattle.Models.ShotResult}}
+  commentId: T:System.Threading.Tasks.Task{System.ValueTuple{SeaBattle.Models.Game,SeaBattle.Models.ShotResult}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<(Game game, ShotResult result)>
+  nameWithType: Task<(Game game, ShotResult result)>
+  fullName: System.Threading.Tasks.Task<(SeaBattle.Models.Game game, SeaBattle.Models.ShotResult result)>
+  nameWithType.vb: Task(Of (game As Game, result As ShotResult))
+  fullName.vb: System.Threading.Tasks.Task(Of (game As SeaBattle.Models.Game, result As SeaBattle.Models.ShotResult))
+  name.vb: Task(Of (game As Game, result As ShotResult))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: (
+  - uid: SeaBattle.Models.Game
+    name: Game
+    href: SeaBattle.Models.Game.html
+  - name: " "
+  - uid: System.ValueTuple{SeaBattle.Models.Game,SeaBattle.Models.ShotResult}.game
+    name: game
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-seabattle.models.game,seabattle.models.shotresult-.game
+  - name: ','
+  - name: " "
+  - uid: SeaBattle.Models.ShotResult
+    name: ShotResult
+    href: SeaBattle.Models.ShotResult.html
+  - name: " "
+  - uid: System.ValueTuple{SeaBattle.Models.Game,SeaBattle.Models.ShotResult}.result
+    name: result
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-seabattle.models.game,seabattle.models.shotresult-.result
+  - name: )
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: (
+  - uid: System.ValueTuple{SeaBattle.Models.Game,SeaBattle.Models.ShotResult}.game
+    name: game
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-seabattle.models.game,seabattle.models.shotresult-.game
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: SeaBattle.Models.Game
+    name: Game
+    href: SeaBattle.Models.Game.html
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{SeaBattle.Models.Game,SeaBattle.Models.ShotResult}.result
+    name: result
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-seabattle.models.game,seabattle.models.shotresult-.result
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: SeaBattle.Models.ShotResult
+    name: ShotResult
+    href: SeaBattle.Models.ShotResult.html
+  - name: )
+  - name: )
+- uid: SeaBattle.Models
+  commentId: N:SeaBattle.Models
+  href: SeaBattle.html
+  name: SeaBattle.Models
+  nameWithType: SeaBattle.Models
+  fullName: SeaBattle.Models
+  spec.csharp:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Models
+    name: Models
+    href: SeaBattle.Models.html
+  spec.vb:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Models
+    name: Models
+    href: SeaBattle.Models.html
+- uid: SeaBattle.Services.IGameService.GetPlayerGameHistory*
+  commentId: Overload:SeaBattle.Services.IGameService.GetPlayerGameHistory
+  href: SeaBattle.Services.IGameService.html#SeaBattle_Services_IGameService_GetPlayerGameHistory_System_String_System_Int32_
+  name: GetPlayerGameHistory
+  nameWithType: IGameService.GetPlayerGameHistory
+  fullName: SeaBattle.Services.IGameService.GetPlayerGameHistory
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{SeaBattle.Models.GameHistory}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{SeaBattle.Models.GameHistory}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<GameHistory>>
+  nameWithType: Task<List<GameHistory>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<SeaBattle.Models.GameHistory>>
+  nameWithType.vb: Task(Of List(Of GameHistory))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of SeaBattle.Models.GameHistory))
+  name.vb: Task(Of List(Of GameHistory))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SeaBattle.Models.GameHistory
+    name: GameHistory
+    href: SeaBattle.Models.GameHistory.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SeaBattle.Models.GameHistory
+    name: GameHistory
+    href: SeaBattle.Models.GameHistory.html
+  - name: )
+  - name: )
+- uid: SeaBattle.Services.IGameService.GetLeaderboardAsync*
+  commentId: Overload:SeaBattle.Services.IGameService.GetLeaderboardAsync
+  href: SeaBattle.Services.IGameService.html#SeaBattle_Services_IGameService_GetLeaderboardAsync_System_Int32_
+  name: GetLeaderboardAsync
+  nameWithType: IGameService.GetLeaderboardAsync
+  fullName: SeaBattle.Services.IGameService.GetLeaderboardAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{SeaBattle.Models.PlayerRanking}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{SeaBattle.Models.PlayerRanking}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<PlayerRanking>>
+  nameWithType: Task<List<PlayerRanking>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<SeaBattle.Models.PlayerRanking>>
+  nameWithType.vb: Task(Of List(Of PlayerRanking))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of SeaBattle.Models.PlayerRanking))
+  name.vb: Task(Of List(Of PlayerRanking))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: SeaBattle.Models.PlayerRanking
+    name: PlayerRanking
+    href: SeaBattle.Models.PlayerRanking.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SeaBattle.Models.PlayerRanking
+    name: PlayerRanking
+    href: SeaBattle.Models.PlayerRanking.html
+  - name: )
+  - name: )
+- uid: SeaBattle.Services.IGameService.PlaceShipsAsync*
+  commentId: Overload:SeaBattle.Services.IGameService.PlaceShipsAsync
+  href: SeaBattle.Services.IGameService.html#SeaBattle_Services_IGameService_PlaceShipsAsync_System_String_System_String_SeaBattle_Models_CellState_0
+  name: PlaceShipsAsync
+  nameWithType: IGameService.PlaceShipsAsync
+  fullName: SeaBattle.Services.IGameService.PlaceShipsAsync
+- uid: SeaBattle.Models.CellState[,]
+  isExternal: true
+  href: SeaBattle.Models.CellState.html
+  name: CellState[,]
+  nameWithType: CellState[,]
+  fullName: SeaBattle.Models.CellState[,]
+  nameWithType.vb: CellState(,)
+  fullName.vb: SeaBattle.Models.CellState(,)
+  name.vb: CellState(,)
+  spec.csharp:
+  - uid: SeaBattle.Models.CellState
+    name: CellState
+    href: SeaBattle.Models.CellState.html
+  - name: '['
+  - name: ','
+  - name: ']'
+  spec.vb:
+  - uid: SeaBattle.Models.CellState
+    name: CellState
+    href: SeaBattle.Models.CellState.html
+  - name: (
+  - name: ','
+  - name: )

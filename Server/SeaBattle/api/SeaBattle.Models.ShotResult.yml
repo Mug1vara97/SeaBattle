@@ -1,0 +1,205 @@
+### YamlMime:ManagedReference
+items:
+- uid: SeaBattle.Models.ShotResult
+  commentId: T:SeaBattle.Models.ShotResult
+  id: ShotResult
+  parent: SeaBattle.Models
+  children:
+  - SeaBattle.Models.ShotResult.Destroyed
+  - SeaBattle.Models.ShotResult.Error
+  - SeaBattle.Models.ShotResult.Hit
+  - SeaBattle.Models.ShotResult.Miss
+  - SeaBattle.Models.ShotResult.Win
+  langs:
+  - csharp
+  - vb
+  name: ShotResult
+  nameWithType: ShotResult
+  fullName: SeaBattle.Models.ShotResult
+  type: Enum
+  source:
+    remote:
+      path: Server/SeaBattle/Models/ShotResult.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: ShotResult
+    path: Models/ShotResult.cs
+    startLine: 5
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Перечисление возможных результатов выстрела
+  example: []
+  syntax:
+    content: public enum ShotResult
+    content.vb: Public Enum ShotResult
+- uid: SeaBattle.Models.ShotResult.Error
+  commentId: F:SeaBattle.Models.ShotResult.Error
+  id: Error
+  parent: SeaBattle.Models.ShotResult
+  langs:
+  - csharp
+  - vb
+  name: Error
+  nameWithType: ShotResult.Error
+  fullName: SeaBattle.Models.ShotResult.Error
+  type: Field
+  source:
+    remote:
+      path: Server/SeaBattle/Models/ShotResult.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: Error
+    path: Models/ShotResult.cs
+    startLine: 10
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Промах
+  example: []
+  syntax:
+    content: Error = 0
+    return:
+      type: SeaBattle.Models.ShotResult
+- uid: SeaBattle.Models.ShotResult.Miss
+  commentId: F:SeaBattle.Models.ShotResult.Miss
+  id: Miss
+  parent: SeaBattle.Models.ShotResult
+  langs:
+  - csharp
+  - vb
+  name: Miss
+  nameWithType: ShotResult.Miss
+  fullName: SeaBattle.Models.ShotResult.Miss
+  type: Field
+  source:
+    remote:
+      path: Server/SeaBattle/Models/ShotResult.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: Miss
+    path: Models/ShotResult.cs
+    startLine: 15
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Попадание
+  example: []
+  syntax:
+    content: Miss = 1
+    return:
+      type: SeaBattle.Models.ShotResult
+- uid: SeaBattle.Models.ShotResult.Hit
+  commentId: F:SeaBattle.Models.ShotResult.Hit
+  id: Hit
+  parent: SeaBattle.Models.ShotResult
+  langs:
+  - csharp
+  - vb
+  name: Hit
+  nameWithType: ShotResult.Hit
+  fullName: SeaBattle.Models.ShotResult.Hit
+  type: Field
+  source:
+    remote:
+      path: Server/SeaBattle/Models/ShotResult.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: Hit
+    path: Models/ShotResult.cs
+    startLine: 20
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Корабль уничтожен
+  example: []
+  syntax:
+    content: Hit = 2
+    return:
+      type: SeaBattle.Models.ShotResult
+- uid: SeaBattle.Models.ShotResult.Destroyed
+  commentId: F:SeaBattle.Models.ShotResult.Destroyed
+  id: Destroyed
+  parent: SeaBattle.Models.ShotResult
+  langs:
+  - csharp
+  - vb
+  name: Destroyed
+  nameWithType: ShotResult.Destroyed
+  fullName: SeaBattle.Models.ShotResult.Destroyed
+  type: Field
+  source:
+    remote:
+      path: Server/SeaBattle/Models/ShotResult.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: Destroyed
+    path: Models/ShotResult.cs
+    startLine: 25
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Корабль уничтожен
+  example: []
+  syntax:
+    content: Destroyed = 3
+    return:
+      type: SeaBattle.Models.ShotResult
+- uid: SeaBattle.Models.ShotResult.Win
+  commentId: F:SeaBattle.Models.ShotResult.Win
+  id: Win
+  parent: SeaBattle.Models.ShotResult
+  langs:
+  - csharp
+  - vb
+  name: Win
+  nameWithType: ShotResult.Win
+  fullName: SeaBattle.Models.ShotResult.Win
+  type: Field
+  source:
+    remote:
+      path: Server/SeaBattle/Models/ShotResult.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: Win
+    path: Models/ShotResult.cs
+    startLine: 30
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Победа (последний корабль уничтожен)
+  example: []
+  syntax:
+    content: Win = 4
+    return:
+      type: SeaBattle.Models.ShotResult
+references:
+- uid: SeaBattle.Models
+  commentId: N:SeaBattle.Models
+  href: SeaBattle.html
+  name: SeaBattle.Models
+  nameWithType: SeaBattle.Models
+  fullName: SeaBattle.Models
+  spec.csharp:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Models
+    name: Models
+    href: SeaBattle.Models.html
+  spec.vb:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Models
+    name: Models
+    href: SeaBattle.Models.html
+- uid: SeaBattle.Models.ShotResult
+  commentId: T:SeaBattle.Models.ShotResult
+  parent: SeaBattle.Models
+  href: SeaBattle.Models.ShotResult.html
+  name: ShotResult
+  nameWithType: ShotResult
+  fullName: SeaBattle.Models.ShotResult

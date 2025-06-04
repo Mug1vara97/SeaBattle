@@ -1,0 +1,775 @@
+### YamlMime:ManagedReference
+items:
+- uid: SeaBattle.Services.UserService
+  commentId: T:SeaBattle.Services.UserService
+  id: UserService
+  parent: SeaBattle.Services
+  children:
+  - SeaBattle.Services.UserService.#ctor(SeaBattle.Data.ApplicationDbContext)
+  - SeaBattle.Services.UserService.CreateUser(System.String,System.String)
+  - SeaBattle.Services.UserService.GetUserByUsername(System.String)
+  - SeaBattle.Services.UserService.ValidateUser(System.String,System.String)
+  langs:
+  - csharp
+  - vb
+  name: UserService
+  nameWithType: UserService
+  fullName: SeaBattle.Services.UserService
+  type: Class
+  source:
+    remote:
+      path: Server/SeaBattle/Services/UserService.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: UserService
+    path: Services/UserService.cs
+    startLine: 8
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Services
+  syntax:
+    content: 'public class UserService : IUserService'
+    content.vb: Public Class UserService Implements IUserService
+  inheritance:
+  - System.Object
+  implements:
+  - SeaBattle.Services.IUserService
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: SeaBattle.Services.UserService.#ctor(SeaBattle.Data.ApplicationDbContext)
+  commentId: M:SeaBattle.Services.UserService.#ctor(SeaBattle.Data.ApplicationDbContext)
+  id: '#ctor(SeaBattle.Data.ApplicationDbContext)'
+  parent: SeaBattle.Services.UserService
+  langs:
+  - csharp
+  - vb
+  name: UserService(ApplicationDbContext)
+  nameWithType: UserService.UserService(ApplicationDbContext)
+  fullName: SeaBattle.Services.UserService.UserService(SeaBattle.Data.ApplicationDbContext)
+  type: Constructor
+  source:
+    remote:
+      path: Server/SeaBattle/Services/UserService.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: .ctor
+    path: Services/UserService.cs
+    startLine: 12
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Services
+  syntax:
+    content: public UserService(ApplicationDbContext context)
+    parameters:
+    - id: context
+      type: SeaBattle.Data.ApplicationDbContext
+    content.vb: Public Sub New(context As ApplicationDbContext)
+  overload: SeaBattle.Services.UserService.#ctor*
+  nameWithType.vb: UserService.New(ApplicationDbContext)
+  fullName.vb: SeaBattle.Services.UserService.New(SeaBattle.Data.ApplicationDbContext)
+  name.vb: New(ApplicationDbContext)
+- uid: SeaBattle.Services.UserService.GetUserByUsername(System.String)
+  commentId: M:SeaBattle.Services.UserService.GetUserByUsername(System.String)
+  id: GetUserByUsername(System.String)
+  parent: SeaBattle.Services.UserService
+  langs:
+  - csharp
+  - vb
+  name: GetUserByUsername(string)
+  nameWithType: UserService.GetUserByUsername(string)
+  fullName: SeaBattle.Services.UserService.GetUserByUsername(string)
+  type: Method
+  source:
+    remote:
+      path: Server/SeaBattle/Services/UserService.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: GetUserByUsername
+    path: Services/UserService.cs
+    startLine: 17
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Services
+  example: []
+  syntax:
+    content: public Task<User?> GetUserByUsername(string username)
+    parameters:
+    - id: username
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task{SeaBattle.Models.User}
+    content.vb: Public Function GetUserByUsername(username As String) As Task(Of User)
+  overload: SeaBattle.Services.UserService.GetUserByUsername*
+  implements:
+  - SeaBattle.Services.IUserService.GetUserByUsername(System.String)
+  nameWithType.vb: UserService.GetUserByUsername(String)
+  fullName.vb: SeaBattle.Services.UserService.GetUserByUsername(String)
+  name.vb: GetUserByUsername(String)
+- uid: SeaBattle.Services.UserService.CreateUser(System.String,System.String)
+  commentId: M:SeaBattle.Services.UserService.CreateUser(System.String,System.String)
+  id: CreateUser(System.String,System.String)
+  parent: SeaBattle.Services.UserService
+  langs:
+  - csharp
+  - vb
+  name: CreateUser(string, string)
+  nameWithType: UserService.CreateUser(string, string)
+  fullName: SeaBattle.Services.UserService.CreateUser(string, string)
+  type: Method
+  source:
+    remote:
+      path: Server/SeaBattle/Services/UserService.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: CreateUser
+    path: Services/UserService.cs
+    startLine: 22
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Services
+  example: []
+  syntax:
+    content: public Task<User> CreateUser(string username, string password)
+    parameters:
+    - id: username
+      type: System.String
+    - id: password
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task{SeaBattle.Models.User}
+    content.vb: Public Function CreateUser(username As String, password As String) As Task(Of User)
+  overload: SeaBattle.Services.UserService.CreateUser*
+  implements:
+  - SeaBattle.Services.IUserService.CreateUser(System.String,System.String)
+  nameWithType.vb: UserService.CreateUser(String, String)
+  fullName.vb: SeaBattle.Services.UserService.CreateUser(String, String)
+  name.vb: CreateUser(String, String)
+- uid: SeaBattle.Services.UserService.ValidateUser(System.String,System.String)
+  commentId: M:SeaBattle.Services.UserService.ValidateUser(System.String,System.String)
+  id: ValidateUser(System.String,System.String)
+  parent: SeaBattle.Services.UserService
+  langs:
+  - csharp
+  - vb
+  name: ValidateUser(string, string)
+  nameWithType: UserService.ValidateUser(string, string)
+  fullName: SeaBattle.Services.UserService.ValidateUser(string, string)
+  type: Method
+  source:
+    remote:
+      path: Server/SeaBattle/Services/UserService.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: ValidateUser
+    path: Services/UserService.cs
+    startLine: 36
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Services
+  example: []
+  syntax:
+    content: public Task<bool> ValidateUser(string username, string password)
+    parameters:
+    - id: username
+      type: System.String
+    - id: password
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+    content.vb: Public Function ValidateUser(username As String, password As String) As Task(Of Boolean)
+  overload: SeaBattle.Services.UserService.ValidateUser*
+  implements:
+  - SeaBattle.Services.IUserService.ValidateUser(System.String,System.String)
+  nameWithType.vb: UserService.ValidateUser(String, String)
+  fullName.vb: SeaBattle.Services.UserService.ValidateUser(String, String)
+  name.vb: ValidateUser(String, String)
+references:
+- uid: SeaBattle.Services
+  commentId: N:SeaBattle.Services
+  href: SeaBattle.html
+  name: SeaBattle.Services
+  nameWithType: SeaBattle.Services
+  fullName: SeaBattle.Services
+  spec.csharp:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Services
+    name: Services
+    href: SeaBattle.Services.html
+  spec.vb:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Services
+    name: Services
+    href: SeaBattle.Services.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: SeaBattle.Services.IUserService
+  commentId: T:SeaBattle.Services.IUserService
+  parent: SeaBattle.Services
+  href: SeaBattle.Services.IUserService.html
+  name: IUserService
+  nameWithType: IUserService
+  fullName: SeaBattle.Services.IUserService
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SeaBattle.Services.UserService.#ctor*
+  commentId: Overload:SeaBattle.Services.UserService.#ctor
+  href: SeaBattle.Services.UserService.html#SeaBattle_Services_UserService__ctor_SeaBattle_Data_ApplicationDbContext_
+  name: UserService
+  nameWithType: UserService.UserService
+  fullName: SeaBattle.Services.UserService.UserService
+  nameWithType.vb: UserService.New
+  fullName.vb: SeaBattle.Services.UserService.New
+  name.vb: New
+- uid: SeaBattle.Data.ApplicationDbContext
+  commentId: T:SeaBattle.Data.ApplicationDbContext
+  parent: SeaBattle.Data
+  href: SeaBattle.Data.ApplicationDbContext.html
+  name: ApplicationDbContext
+  nameWithType: ApplicationDbContext
+  fullName: SeaBattle.Data.ApplicationDbContext
+- uid: SeaBattle.Data
+  commentId: N:SeaBattle.Data
+  href: SeaBattle.html
+  name: SeaBattle.Data
+  nameWithType: SeaBattle.Data
+  fullName: SeaBattle.Data
+  spec.csharp:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Data
+    name: Data
+    href: SeaBattle.Data.html
+  spec.vb:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Data
+    name: Data
+    href: SeaBattle.Data.html
+- uid: SeaBattle.Services.UserService.GetUserByUsername*
+  commentId: Overload:SeaBattle.Services.UserService.GetUserByUsername
+  href: SeaBattle.Services.UserService.html#SeaBattle_Services_UserService_GetUserByUsername_System_String_
+  name: GetUserByUsername
+  nameWithType: UserService.GetUserByUsername
+  fullName: SeaBattle.Services.UserService.GetUserByUsername
+- uid: SeaBattle.Services.IUserService.GetUserByUsername(System.String)
+  commentId: M:SeaBattle.Services.IUserService.GetUserByUsername(System.String)
+  parent: SeaBattle.Services.IUserService
+  isExternal: true
+  href: SeaBattle.Services.IUserService.html#SeaBattle_Services_IUserService_GetUserByUsername_System_String_
+  name: GetUserByUsername(string)
+  nameWithType: IUserService.GetUserByUsername(string)
+  fullName: SeaBattle.Services.IUserService.GetUserByUsername(string)
+  nameWithType.vb: IUserService.GetUserByUsername(String)
+  fullName.vb: SeaBattle.Services.IUserService.GetUserByUsername(String)
+  name.vb: GetUserByUsername(String)
+  spec.csharp:
+  - uid: SeaBattle.Services.IUserService.GetUserByUsername(System.String)
+    name: GetUserByUsername
+    href: SeaBattle.Services.IUserService.html#SeaBattle_Services_IUserService_GetUserByUsername_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: SeaBattle.Services.IUserService.GetUserByUsername(System.String)
+    name: GetUserByUsername
+    href: SeaBattle.Services.IUserService.html#SeaBattle_Services_IUserService_GetUserByUsername_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task{SeaBattle.Models.User}
+  commentId: T:System.Threading.Tasks.Task{SeaBattle.Models.User}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<User>
+  nameWithType: Task<User>
+  fullName: System.Threading.Tasks.Task<SeaBattle.Models.User>
+  nameWithType.vb: Task(Of User)
+  fullName.vb: System.Threading.Tasks.Task(Of SeaBattle.Models.User)
+  name.vb: Task(Of User)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: SeaBattle.Models.User
+    name: User
+    href: SeaBattle.Models.User.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SeaBattle.Models.User
+    name: User
+    href: SeaBattle.Models.User.html
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: SeaBattle.Services.UserService.CreateUser*
+  commentId: Overload:SeaBattle.Services.UserService.CreateUser
+  href: SeaBattle.Services.UserService.html#SeaBattle_Services_UserService_CreateUser_System_String_System_String_
+  name: CreateUser
+  nameWithType: UserService.CreateUser
+  fullName: SeaBattle.Services.UserService.CreateUser
+- uid: SeaBattle.Services.IUserService.CreateUser(System.String,System.String)
+  commentId: M:SeaBattle.Services.IUserService.CreateUser(System.String,System.String)
+  parent: SeaBattle.Services.IUserService
+  isExternal: true
+  href: SeaBattle.Services.IUserService.html#SeaBattle_Services_IUserService_CreateUser_System_String_System_String_
+  name: CreateUser(string, string)
+  nameWithType: IUserService.CreateUser(string, string)
+  fullName: SeaBattle.Services.IUserService.CreateUser(string, string)
+  nameWithType.vb: IUserService.CreateUser(String, String)
+  fullName.vb: SeaBattle.Services.IUserService.CreateUser(String, String)
+  name.vb: CreateUser(String, String)
+  spec.csharp:
+  - uid: SeaBattle.Services.IUserService.CreateUser(System.String,System.String)
+    name: CreateUser
+    href: SeaBattle.Services.IUserService.html#SeaBattle_Services_IUserService_CreateUser_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: SeaBattle.Services.IUserService.CreateUser(System.String,System.String)
+    name: CreateUser
+    href: SeaBattle.Services.IUserService.html#SeaBattle_Services_IUserService_CreateUser_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: SeaBattle.Services.UserService.ValidateUser*
+  commentId: Overload:SeaBattle.Services.UserService.ValidateUser
+  href: SeaBattle.Services.UserService.html#SeaBattle_Services_UserService_ValidateUser_System_String_System_String_
+  name: ValidateUser
+  nameWithType: UserService.ValidateUser
+  fullName: SeaBattle.Services.UserService.ValidateUser
+- uid: SeaBattle.Services.IUserService.ValidateUser(System.String,System.String)
+  commentId: M:SeaBattle.Services.IUserService.ValidateUser(System.String,System.String)
+  parent: SeaBattle.Services.IUserService
+  isExternal: true
+  href: SeaBattle.Services.IUserService.html#SeaBattle_Services_IUserService_ValidateUser_System_String_System_String_
+  name: ValidateUser(string, string)
+  nameWithType: IUserService.ValidateUser(string, string)
+  fullName: SeaBattle.Services.IUserService.ValidateUser(string, string)
+  nameWithType.vb: IUserService.ValidateUser(String, String)
+  fullName.vb: SeaBattle.Services.IUserService.ValidateUser(String, String)
+  name.vb: ValidateUser(String, String)
+  spec.csharp:
+  - uid: SeaBattle.Services.IUserService.ValidateUser(System.String,System.String)
+    name: ValidateUser
+    href: SeaBattle.Services.IUserService.html#SeaBattle_Services_IUserService_ValidateUser_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: SeaBattle.Services.IUserService.ValidateUser(System.String,System.String)
+    name: ValidateUser
+    href: SeaBattle.Services.IUserService.html#SeaBattle_Services_IUserService_ValidateUser_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )

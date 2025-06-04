@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: SeaBattle.Hubs
+  commentId: N:SeaBattle.Hubs
+  id: SeaBattle.Hubs
+  children:
+  - SeaBattle.Hubs.GameHub
+  - SeaBattle.Hubs.LobbyHub
+  langs:
+  - csharp
+  - vb
+  name: SeaBattle.Hubs
+  nameWithType: SeaBattle.Hubs
+  fullName: SeaBattle.Hubs
+  type: Namespace
+  assemblies:
+  - SeaBattle
+references:
+- uid: SeaBattle.Hubs.GameHub
+  commentId: T:SeaBattle.Hubs.GameHub
+  href: SeaBattle.Hubs.GameHub.html
+  name: GameHub
+  nameWithType: GameHub
+  fullName: SeaBattle.Hubs.GameHub
+- uid: SeaBattle.Hubs.LobbyHub
+  commentId: T:SeaBattle.Hubs.LobbyHub
+  href: SeaBattle.Hubs.LobbyHub.html
+  name: LobbyHub
+  nameWithType: LobbyHub
+  fullName: SeaBattle.Hubs.LobbyHub

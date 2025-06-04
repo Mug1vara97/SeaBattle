@@ -11,25 +11,36 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace SeaBattle.Hubs
 {
+    /// <summary>
+    /// SignalR хаб для обработки real-time взаимодействия в игре морской бой
+    /// </summary>
     public class GameHub : Hub
     {
         private readonly IGameService _gameService;
         private readonly ILogger<GameHub> _logger;
         private static readonly ConcurrentDictionary<string, (string GameId, string PlayerName)> _playerConnections = new();
 
+        /// <summary>
+        /// Инициализирует новый экземпляр хаба игры
+        /// </summary>
+        /// <param name="gameService">Сервис для управления игровым процессом</param>
+        /// <param name="logger">Логгер для записи событий</param>
         public GameHub(IGameService gameService, ILogger<GameHub> logger)
         {
             _gameService = gameService;
             _logger = logger;
         }
 
+        /// <summary>
+        /// Обрабатывает подключение клиента к хабу
+        /// </summary>
         public override async Task OnConnectedAsync()
         {
             try
-        {
-            _logger.LogInformation($"Client connected: {Context.ConnectionId}");
-            await base.OnConnectedAsync();
-            await Clients.Caller.SendAsync("ReceiveMessage", "Подключено к серверу");
+            {
+                _logger.LogInformation($"Client connected: {Context.ConnectionId}");
+                await base.OnConnectedAsync();
+                await Clients.Caller.SendAsync("ReceiveMessage", "Подключено к серверу");
             }
             catch (Exception ex)
             {
@@ -38,6 +49,10 @@ namespace SeaBattle.Hubs
             }
         }
 
+        /// <summary>
+        /// Обрабатывает отключение клиента от хаба
+        /// </summary>
+        /// <param name="exception">Исключение, если оно возникло при отключении</param>
         public override async Task OnDisconnectedAsync(Exception? exception)
         {
             try
@@ -60,6 +75,10 @@ namespace SeaBattle.Hubs
             }
         }
 
+        /// <summary>
+        /// Получает список открытых лобби
+        /// </summary>
+        /// <returns>Список доступных игр</returns>
         public async Task<List<Game>> GetOpenLobbies()
         {
             try
@@ -77,6 +96,12 @@ namespace SeaBattle.Hubs
             }
         }
 
+        /// <summary>
+        /// Создает новую игру
+        /// </summary>
+        /// <param name="creatorName">Имя создателя игры</param>
+        /// <param name="isOpenLobby">Флаг, указывающий является ли лобби открытым</param>
+        /// <returns>Идентификатор созданной игры</returns>
         public async Task<string> CreateGame(string creatorName, bool isOpenLobby = false)
         {
             try
@@ -108,6 +133,54 @@ namespace SeaBattle.Hubs
             }
         }
 
+        /// <summary>
+        /// Присоединяет игрока к существующей игре
+        /// </summary>
+        /// <param name="gameId">Идентификатор игры</param>
+        /// <param name="joinerName">Имя присоединяющегося игрока</param>
+        /// <returns>Информация об игре или null, если присоединиться не удалось</returns>
+        public async Task<Game?> JoinGame(string gameId, string joinerName)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(gameId)) throw new ArgumentNullException(nameof(gameId));
+                if (string.IsNullOrEmpty(joinerName)) throw new ArgumentNullException(nameof(joinerName));
+
+                _logger.LogInformation($"Player {joinerName} attempting to join game: {gameId}");
+                var game = await _gameService.JoinGame(gameId, joinerName);
+                
+                if (game == null)
+                {
+                    _logger.LogWarning($"Failed to join game {gameId} for player {joinerName}. Game service returned null or conditions not met.");
+                    await Clients.Caller.SendAsync("Error", "Не удалось присоединиться к игре. Возможно, игра уже занята или не существует.");
+                    return null;
+                }
+
+                _playerConnections[Context.ConnectionId] = (game.Id, joinerName);
+                await Groups.AddToGroupAsync(Context.ConnectionId, game.Id);
+                
+                _logger.LogInformation($"Player {joinerName} (C:{Context.ConnectionId}) joined game: {game.Id}. Notifying players.");
+
+                await SendPersonalizedDataToGroup(game, "GameUpdated", CreateBasePersonalizedDto);
+                
+                await SendPersonalizedDataToGroup(game, "SecondPlayerJoined", CreateBasePersonalizedDto); 
+                
+                var openLobbies = await _gameService.GetOpenLobbies();
+                await Clients.All.SendAsync("LobbiesUpdated", openLobbies);
+                
+                return game;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Error joining game {gameId} for player {joinerName}");
+                await Clients.Caller.SendAsync("Error", "Ошибка при присоединении к игре: " + ex.Message);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Отправляет персонализированные данные группе игроков
+        /// </summary>
         private async Task SendPersonalizedDataToGroup(Game game, string eventName, Func<Game, string, object> dtoFactory)
         {
             if (game == null) return;
@@ -128,11 +201,13 @@ namespace SeaBattle.Hubs
                 }
                 
                 var personalizedDto = dtoFactory(game, playerNameForThisConnection);
-                _logger.LogInformation($"Sending {eventName} to P:{playerNameForThisConnection} (C:{connectionId}) for G:{game.Id}. IsCreator: {((dynamic)personalizedDto).isCreator}");
                 await Clients.Client(connectionId).SendAsync(eventName, personalizedDto);
             }
         }
         
+        /// <summary>
+        /// Создает базовый DTO с персонализированными данными для игрока
+        /// </summary>
         private object CreateBasePersonalizedDto(Game game, string playerNameForThisConnection)
         {
             bool isPlayerTheCreator = playerNameForThisConnection == game.CreatorName;
@@ -170,45 +245,12 @@ namespace SeaBattle.Hubs
             };
         }
 
-        public async Task<Game?> JoinGame(string gameId, string joinerName)
-        {
-            try
-            {
-                if (string.IsNullOrEmpty(gameId)) throw new ArgumentNullException(nameof(gameId));
-                if (string.IsNullOrEmpty(joinerName)) throw new ArgumentNullException(nameof(joinerName));
-
-                _logger.LogInformation($"Player {joinerName} attempting to join game: {gameId}");
-                var game = await _gameService.JoinGame(gameId, joinerName);
-                
-                if (game == null)
-                {
-                    _logger.LogWarning($"Failed to join game {gameId} for player {joinerName}. Game service returned null or conditions not met.");
-                    await Clients.Caller.SendAsync("Error", "Не удалось присоединиться к игре. Возможно, игра уже занята или не существует.");
-                    return null;
-                }
-
-                _playerConnections[Context.ConnectionId] = (game.Id, joinerName);
-                await Groups.AddToGroupAsync(Context.ConnectionId, game.Id);
-                
-                _logger.LogInformation($"Player {joinerName} (C:{Context.ConnectionId}) joined game: {game.Id}. Notifying players.");
-
-                await SendPersonalizedDataToGroup(game, "GameUpdated", CreateBasePersonalizedDto);
-                
-                await SendPersonalizedDataToGroup(game, "SecondPlayerJoined", CreateBasePersonalizedDto); 
-                
-                var openLobbies = await _gameService.GetOpenLobbies();
-                await Clients.All.SendAsync("LobbiesUpdated", openLobbies);
-
-                return game;
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, $"Error in JoinGame for G:{gameId}, P:{joinerName}");
-                await Clients.Caller.SendAsync("Error", "Ошибка при присоединении к игре: " + ex.Message);
-                return null;
-            }
-        }
-
+        /// <summary>
+        /// Устанавливает готовность игрока к началу игры
+        /// </summary>
+        /// <param name="gameId">Идентификатор игры</param>
+        /// <param name="playerName">Имя игрока</param>
+        /// <returns>Обновленная информация об игре или null в случае ошибки</returns>
         public async Task<Game?> SetReady(string gameId, string playerName)
         {
             try
@@ -247,6 +289,13 @@ namespace SeaBattle.Hubs
             }
         }
 
+        /// <summary>
+        /// Выполняет выстрел по указанной позиции
+        /// </summary>
+        /// <param name="gameId">Идентификатор игры</param>
+        /// <param name="playerName">Имя игрока, выполняющего выстрел</param>
+        /// <param name="position">Позиция выстрела</param>
+        /// <returns>Результат выстрела</returns>
         public async Task<ShotResultResponse> MakeShot(string gameId, string playerName, Position position)
         {
             var serviceResult = await _gameService.MakeShot(gameId, playerName, position);
@@ -310,7 +359,14 @@ namespace SeaBattle.Hubs
             };
         }
 
-        public async Task SubmitBoardPlacement(string gameId, string playerName, int[][] clientBoard)
+        /// <summary>
+        /// Отправляет расстановку кораблей на игровом поле
+        /// </summary>
+        /// <param name="gameId">Идентификатор игры</param>
+        /// <param name="playerName">Имя игрока</param>
+        /// <param name="clientBoard">Массив с расстановкой кораблей</param>
+        /// <returns>Обновленная информация об игре или null в случае ошибки</returns>
+        public async Task<Game?> SubmitBoardPlacement(string gameId, string playerName, int[][] clientBoard)
         {
             try
             {
@@ -320,7 +376,7 @@ namespace SeaBattle.Hubs
                 {
                     _logger.LogError($"SubmitBoardPlacement: Invalid board data received for G:{gameId}, P:{playerName}.");
                     await Clients.Caller.SendAsync("Error", "Некорректные данные доски.");
-                    return;
+                    return null;
                 }
 
                 _logger.LogInformation($"Player {playerName} attempting to submit board for game: {gameId}");
@@ -345,7 +401,7 @@ namespace SeaBattle.Hubs
                     {
                          await SendPersonalizedDataToGroup(currentGame, "GameUpdated", CreateBasePersonalizedDto);
                     }
-                    return;
+                    return null;
                 }
 
                 _logger.LogInformation($"P:{playerName} successfully placed ships for G:{game.Id}. Notifying group.");
@@ -365,14 +421,21 @@ namespace SeaBattle.Hubs
                     _logger.LogInformation($"One player in game {game.Id} has placed ships. Waiting for the other.");
                 }
 
+                return game;
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, $"Error in SubmitBoardPlacement for G:{gameId}, P:{playerName}");
                 await Clients.Caller.SendAsync("Error", "Ошибка на сервере при размещении кораблей: " + ex.Message);
+                return null;
             }
         }
 
+        /// <summary>
+        /// Получает текущее состояние игры
+        /// </summary>
+        /// <param name="gameId">Идентификатор игры</param>
+        /// <param name="playerName">Имя игрока</param>
         public async Task GetGameState(string gameId, string playerName)
         {
             try
@@ -410,6 +473,11 @@ namespace SeaBattle.Hubs
             }
         }
 
+        /// <summary>
+        /// Получает историю игр пользователя
+        /// </summary>
+        /// <param name="playerName">Имя игрока</param>
+        /// <param name="count">Количество записей для отображения</param>
         public async Task GetMyGameHistory(string playerName, int count = 10)
         {
             if (string.IsNullOrEmpty(playerName))

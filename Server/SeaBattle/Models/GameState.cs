@@ -5,13 +5,45 @@ using System.Linq;
 
 namespace SeaBattle.Models
 {
+    /// <summary>
+    /// Перечисление возможных состояний игры
+    /// </summary>
     public enum GameState
     {
-        WaitingForOpponent,
-        WaitingForReady,
-        InProgress,
-        Finished,
-        Unknown
+        /// <summary>
+        /// Неизвестное состояние
+        /// </summary>
+        Unknown = 0,
+
+        /// <summary>
+        /// Ожидание второго игрока
+        /// </summary>
+        WaitingForOpponent = 1,
+
+        /// <summary>
+        /// Ожидание расстановки кораблей
+        /// </summary>
+        WaitingForShips = 2,
+
+        /// <summary>
+        /// Ожидание готовности игроков
+        /// </summary>
+        WaitingForReady = 3,
+
+        /// <summary>
+        /// Игра в процессе
+        /// </summary>
+        InProgress = 4,
+
+        /// <summary>
+        /// Игра завершена
+        /// </summary>
+        Finished = 5,
+
+        /// <summary>
+        /// Игра отменена
+        /// </summary>
+        Cancelled = 6
     }
 
     public class GameStateInfo

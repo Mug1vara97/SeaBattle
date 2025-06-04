@@ -1,0 +1,818 @@
+### YamlMime:ManagedReference
+items:
+- uid: SeaBattle.Hubs.LobbyHub
+  commentId: T:SeaBattle.Hubs.LobbyHub
+  id: LobbyHub
+  parent: SeaBattle.Hubs
+  children:
+  - SeaBattle.Hubs.LobbyHub.#ctor(SeaBattle.Services.IGameService)
+  - SeaBattle.Hubs.LobbyHub.CreateLobby(System.String,System.Boolean)
+  - SeaBattle.Hubs.LobbyHub.JoinLobby(System.String,System.String)
+  - SeaBattle.Hubs.LobbyHub.OnConnectedAsync
+  - SeaBattle.Hubs.LobbyHub.OnDisconnectedAsync(System.Exception)
+  langs:
+  - csharp
+  - vb
+  name: LobbyHub
+  nameWithType: LobbyHub
+  fullName: SeaBattle.Hubs.LobbyHub
+  type: Class
+  source:
+    remote:
+      path: Server/SeaBattle/Hubs/LobbyHub.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: LobbyHub
+    path: Hubs/LobbyHub.cs
+    startLine: 9
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Hubs
+  summary: SignalR хаб для управления игровыми лобби
+  example: []
+  syntax:
+    content: 'public class LobbyHub : Hub, IDisposable'
+    content.vb: Public Class LobbyHub Inherits Hub Implements IDisposable
+  inheritance:
+  - System.Object
+  - Microsoft.AspNetCore.SignalR.Hub
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - Microsoft.AspNetCore.SignalR.Hub.Dispose(System.Boolean)
+  - Microsoft.AspNetCore.SignalR.Hub.Dispose
+  - Microsoft.AspNetCore.SignalR.Hub.Clients
+  - Microsoft.AspNetCore.SignalR.Hub.Context
+  - Microsoft.AspNetCore.SignalR.Hub.Groups
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: SeaBattle.Hubs.LobbyHub.#ctor(SeaBattle.Services.IGameService)
+  commentId: M:SeaBattle.Hubs.LobbyHub.#ctor(SeaBattle.Services.IGameService)
+  id: '#ctor(SeaBattle.Services.IGameService)'
+  parent: SeaBattle.Hubs.LobbyHub
+  langs:
+  - csharp
+  - vb
+  name: LobbyHub(IGameService)
+  nameWithType: LobbyHub.LobbyHub(IGameService)
+  fullName: SeaBattle.Hubs.LobbyHub.LobbyHub(SeaBattle.Services.IGameService)
+  type: Constructor
+  source:
+    remote:
+      path: Server/SeaBattle/Hubs/LobbyHub.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: .ctor
+    path: Hubs/LobbyHub.cs
+    startLine: 17
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Hubs
+  summary: Инициализирует новый экземпляр хаба лобби
+  example: []
+  syntax:
+    content: public LobbyHub(IGameService gameService)
+    parameters:
+    - id: gameService
+      type: SeaBattle.Services.IGameService
+      description: Сервис для управления игровым процессом
+    content.vb: Public Sub New(gameService As IGameService)
+  overload: SeaBattle.Hubs.LobbyHub.#ctor*
+  nameWithType.vb: LobbyHub.New(IGameService)
+  fullName.vb: SeaBattle.Hubs.LobbyHub.New(SeaBattle.Services.IGameService)
+  name.vb: New(IGameService)
+- uid: SeaBattle.Hubs.LobbyHub.OnConnectedAsync
+  commentId: M:SeaBattle.Hubs.LobbyHub.OnConnectedAsync
+  id: OnConnectedAsync
+  parent: SeaBattle.Hubs.LobbyHub
+  langs:
+  - csharp
+  - vb
+  name: OnConnectedAsync()
+  nameWithType: LobbyHub.OnConnectedAsync()
+  fullName: SeaBattle.Hubs.LobbyHub.OnConnectedAsync()
+  type: Method
+  source:
+    remote:
+      path: Server/SeaBattle/Hubs/LobbyHub.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: OnConnectedAsync
+    path: Hubs/LobbyHub.cs
+    startLine: 25
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Hubs
+  summary: Обрабатывает подключение клиента к хабу и отправляет список открытых лобби
+  example: []
+  syntax:
+    content: public override Task OnConnectedAsync()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Overrides Function OnConnectedAsync() As Task
+  overridden: Microsoft.AspNetCore.SignalR.Hub.OnConnectedAsync
+  overload: SeaBattle.Hubs.LobbyHub.OnConnectedAsync*
+- uid: SeaBattle.Hubs.LobbyHub.OnDisconnectedAsync(System.Exception)
+  commentId: M:SeaBattle.Hubs.LobbyHub.OnDisconnectedAsync(System.Exception)
+  id: OnDisconnectedAsync(System.Exception)
+  parent: SeaBattle.Hubs.LobbyHub
+  langs:
+  - csharp
+  - vb
+  name: OnDisconnectedAsync(Exception?)
+  nameWithType: LobbyHub.OnDisconnectedAsync(Exception?)
+  fullName: SeaBattle.Hubs.LobbyHub.OnDisconnectedAsync(System.Exception?)
+  type: Method
+  source:
+    remote:
+      path: Server/SeaBattle/Hubs/LobbyHub.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: OnDisconnectedAsync
+    path: Hubs/LobbyHub.cs
+    startLine: 35
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Hubs
+  summary: Обрабатывает отключение клиента от хаба и обновляет список открытых лобби
+  example: []
+  syntax:
+    content: public override Task OnDisconnectedAsync(Exception? exception)
+    parameters:
+    - id: exception
+      type: System.Exception
+      description: Исключение, если оно возникло при отключении
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Overrides Function OnDisconnectedAsync(exception As Exception) As Task
+  overridden: Microsoft.AspNetCore.SignalR.Hub.OnDisconnectedAsync(System.Exception)
+  overload: SeaBattle.Hubs.LobbyHub.OnDisconnectedAsync*
+  nameWithType.vb: LobbyHub.OnDisconnectedAsync(Exception)
+  fullName.vb: SeaBattle.Hubs.LobbyHub.OnDisconnectedAsync(System.Exception)
+  name.vb: OnDisconnectedAsync(Exception)
+- uid: SeaBattle.Hubs.LobbyHub.CreateLobby(System.String,System.Boolean)
+  commentId: M:SeaBattle.Hubs.LobbyHub.CreateLobby(System.String,System.Boolean)
+  id: CreateLobby(System.String,System.Boolean)
+  parent: SeaBattle.Hubs.LobbyHub
+  langs:
+  - csharp
+  - vb
+  name: CreateLobby(string, bool)
+  nameWithType: LobbyHub.CreateLobby(string, bool)
+  fullName: SeaBattle.Hubs.LobbyHub.CreateLobby(string, bool)
+  type: Method
+  source:
+    remote:
+      path: Server/SeaBattle/Hubs/LobbyHub.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: CreateLobby
+    path: Hubs/LobbyHub.cs
+    startLine: 46
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Hubs
+  summary: Создает новое лобби для игры
+  example: []
+  syntax:
+    content: public Task CreateLobby(string creatorName, bool isOpenLobby)
+    parameters:
+    - id: creatorName
+      type: System.String
+      description: Имя создателя лобби
+    - id: isOpenLobby
+      type: System.Boolean
+      description: Флаг, указывающий является ли лобби открытым
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function CreateLobby(creatorName As String, isOpenLobby As Boolean) As Task
+  overload: SeaBattle.Hubs.LobbyHub.CreateLobby*
+  nameWithType.vb: LobbyHub.CreateLobby(String, Boolean)
+  fullName.vb: SeaBattle.Hubs.LobbyHub.CreateLobby(String, Boolean)
+  name.vb: CreateLobby(String, Boolean)
+- uid: SeaBattle.Hubs.LobbyHub.JoinLobby(System.String,System.String)
+  commentId: M:SeaBattle.Hubs.LobbyHub.JoinLobby(System.String,System.String)
+  id: JoinLobby(System.String,System.String)
+  parent: SeaBattle.Hubs.LobbyHub
+  langs:
+  - csharp
+  - vb
+  name: JoinLobby(string, string)
+  nameWithType: LobbyHub.JoinLobby(string, string)
+  fullName: SeaBattle.Hubs.LobbyHub.JoinLobby(string, string)
+  type: Method
+  source:
+    remote:
+      path: Server/SeaBattle/Hubs/LobbyHub.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: JoinLobby
+    path: Hubs/LobbyHub.cs
+    startLine: 57
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Hubs
+  summary: Присоединяет игрока к существующему лобби
+  example: []
+  syntax:
+    content: public Task JoinLobby(string gameId, string opponentName)
+    parameters:
+    - id: gameId
+      type: System.String
+      description: Идентификатор игры
+    - id: opponentName
+      type: System.String
+      description: Имя присоединяющегося игрока
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function JoinLobby(gameId As String, opponentName As String) As Task
+  overload: SeaBattle.Hubs.LobbyHub.JoinLobby*
+  nameWithType.vb: LobbyHub.JoinLobby(String, String)
+  fullName.vb: SeaBattle.Hubs.LobbyHub.JoinLobby(String, String)
+  name.vb: JoinLobby(String, String)
+references:
+- uid: SeaBattle.Hubs
+  commentId: N:SeaBattle.Hubs
+  href: SeaBattle.html
+  name: SeaBattle.Hubs
+  nameWithType: SeaBattle.Hubs
+  fullName: SeaBattle.Hubs
+  spec.csharp:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Hubs
+    name: Hubs
+    href: SeaBattle.Hubs.html
+  spec.vb:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Hubs
+    name: Hubs
+    href: SeaBattle.Hubs.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Microsoft.AspNetCore.SignalR.Hub
+  commentId: T:Microsoft.AspNetCore.SignalR.Hub
+  parent: Microsoft.AspNetCore.SignalR
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub
+  name: Hub
+  nameWithType: Hub
+  fullName: Microsoft.AspNetCore.SignalR.Hub
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: Microsoft.AspNetCore.SignalR.Hub.Dispose(System.Boolean)
+  commentId: M:Microsoft.AspNetCore.SignalR.Hub.Dispose(System.Boolean)
+  parent: Microsoft.AspNetCore.SignalR.Hub
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.dispose#microsoft-aspnetcore-signalr-hub-dispose(system-boolean)
+  name: Dispose(bool)
+  nameWithType: Hub.Dispose(bool)
+  fullName: Microsoft.AspNetCore.SignalR.Hub.Dispose(bool)
+  nameWithType.vb: Hub.Dispose(Boolean)
+  fullName.vb: Microsoft.AspNetCore.SignalR.Hub.Dispose(Boolean)
+  name.vb: Dispose(Boolean)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.SignalR.Hub.Dispose(System.Boolean)
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.dispose#microsoft-aspnetcore-signalr-hub-dispose(system-boolean)
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.SignalR.Hub.Dispose(System.Boolean)
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.dispose#microsoft-aspnetcore-signalr-hub-dispose(system-boolean)
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Microsoft.AspNetCore.SignalR.Hub.Dispose
+  commentId: M:Microsoft.AspNetCore.SignalR.Hub.Dispose
+  parent: Microsoft.AspNetCore.SignalR.Hub
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.dispose#microsoft-aspnetcore-signalr-hub-dispose
+  name: Dispose()
+  nameWithType: Hub.Dispose()
+  fullName: Microsoft.AspNetCore.SignalR.Hub.Dispose()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.SignalR.Hub.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.dispose#microsoft-aspnetcore-signalr-hub-dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.SignalR.Hub.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.dispose#microsoft-aspnetcore-signalr-hub-dispose
+  - name: (
+  - name: )
+- uid: Microsoft.AspNetCore.SignalR.Hub.Clients
+  commentId: P:Microsoft.AspNetCore.SignalR.Hub.Clients
+  parent: Microsoft.AspNetCore.SignalR.Hub
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.clients
+  name: Clients
+  nameWithType: Hub.Clients
+  fullName: Microsoft.AspNetCore.SignalR.Hub.Clients
+- uid: Microsoft.AspNetCore.SignalR.Hub.Context
+  commentId: P:Microsoft.AspNetCore.SignalR.Hub.Context
+  parent: Microsoft.AspNetCore.SignalR.Hub
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.context
+  name: Context
+  nameWithType: Hub.Context
+  fullName: Microsoft.AspNetCore.SignalR.Hub.Context
+- uid: Microsoft.AspNetCore.SignalR.Hub.Groups
+  commentId: P:Microsoft.AspNetCore.SignalR.Hub.Groups
+  parent: Microsoft.AspNetCore.SignalR.Hub
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.groups
+  name: Groups
+  nameWithType: Hub.Groups
+  fullName: Microsoft.AspNetCore.SignalR.Hub.Groups
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.AspNetCore.SignalR
+  commentId: N:Microsoft.AspNetCore.SignalR
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.AspNetCore.SignalR
+  nameWithType: Microsoft.AspNetCore.SignalR
+  fullName: Microsoft.AspNetCore.SignalR
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.SignalR
+    name: SignalR
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.SignalR
+    name: SignalR
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr
+- uid: SeaBattle.Hubs.LobbyHub.#ctor*
+  commentId: Overload:SeaBattle.Hubs.LobbyHub.#ctor
+  href: SeaBattle.Hubs.LobbyHub.html#SeaBattle_Hubs_LobbyHub__ctor_SeaBattle_Services_IGameService_
+  name: LobbyHub
+  nameWithType: LobbyHub.LobbyHub
+  fullName: SeaBattle.Hubs.LobbyHub.LobbyHub
+  nameWithType.vb: LobbyHub.New
+  fullName.vb: SeaBattle.Hubs.LobbyHub.New
+  name.vb: New
+- uid: SeaBattle.Services.IGameService
+  commentId: T:SeaBattle.Services.IGameService
+  parent: SeaBattle.Services
+  href: SeaBattle.Services.IGameService.html
+  name: IGameService
+  nameWithType: IGameService
+  fullName: SeaBattle.Services.IGameService
+- uid: SeaBattle.Services
+  commentId: N:SeaBattle.Services
+  href: SeaBattle.html
+  name: SeaBattle.Services
+  nameWithType: SeaBattle.Services
+  fullName: SeaBattle.Services
+  spec.csharp:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Services
+    name: Services
+    href: SeaBattle.Services.html
+  spec.vb:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Services
+    name: Services
+    href: SeaBattle.Services.html
+- uid: Microsoft.AspNetCore.SignalR.Hub.OnConnectedAsync
+  commentId: M:Microsoft.AspNetCore.SignalR.Hub.OnConnectedAsync
+  parent: Microsoft.AspNetCore.SignalR.Hub
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.onconnectedasync
+  name: OnConnectedAsync()
+  nameWithType: Hub.OnConnectedAsync()
+  fullName: Microsoft.AspNetCore.SignalR.Hub.OnConnectedAsync()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.SignalR.Hub.OnConnectedAsync
+    name: OnConnectedAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.onconnectedasync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.SignalR.Hub.OnConnectedAsync
+    name: OnConnectedAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.onconnectedasync
+  - name: (
+  - name: )
+- uid: SeaBattle.Hubs.LobbyHub.OnConnectedAsync*
+  commentId: Overload:SeaBattle.Hubs.LobbyHub.OnConnectedAsync
+  href: SeaBattle.Hubs.LobbyHub.html#SeaBattle_Hubs_LobbyHub_OnConnectedAsync
+  name: OnConnectedAsync
+  nameWithType: LobbyHub.OnConnectedAsync
+  fullName: SeaBattle.Hubs.LobbyHub.OnConnectedAsync
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Microsoft.AspNetCore.SignalR.Hub.OnDisconnectedAsync(System.Exception)
+  commentId: M:Microsoft.AspNetCore.SignalR.Hub.OnDisconnectedAsync(System.Exception)
+  parent: Microsoft.AspNetCore.SignalR.Hub
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.ondisconnectedasync
+  name: OnDisconnectedAsync(Exception)
+  nameWithType: Hub.OnDisconnectedAsync(Exception)
+  fullName: Microsoft.AspNetCore.SignalR.Hub.OnDisconnectedAsync(System.Exception)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.SignalR.Hub.OnDisconnectedAsync(System.Exception)
+    name: OnDisconnectedAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.ondisconnectedasync
+  - name: (
+  - uid: System.Exception
+    name: Exception
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.SignalR.Hub.OnDisconnectedAsync(System.Exception)
+    name: OnDisconnectedAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.ondisconnectedasync
+  - name: (
+  - uid: System.Exception
+    name: Exception
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception
+  - name: )
+- uid: SeaBattle.Hubs.LobbyHub.OnDisconnectedAsync*
+  commentId: Overload:SeaBattle.Hubs.LobbyHub.OnDisconnectedAsync
+  href: SeaBattle.Hubs.LobbyHub.html#SeaBattle_Hubs_LobbyHub_OnDisconnectedAsync_System_Exception_
+  name: OnDisconnectedAsync
+  nameWithType: LobbyHub.OnDisconnectedAsync
+  fullName: SeaBattle.Hubs.LobbyHub.OnDisconnectedAsync
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: SeaBattle.Hubs.LobbyHub.CreateLobby*
+  commentId: Overload:SeaBattle.Hubs.LobbyHub.CreateLobby
+  href: SeaBattle.Hubs.LobbyHub.html#SeaBattle_Hubs_LobbyHub_CreateLobby_System_String_System_Boolean_
+  name: CreateLobby
+  nameWithType: LobbyHub.CreateLobby
+  fullName: SeaBattle.Hubs.LobbyHub.CreateLobby
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: SeaBattle.Hubs.LobbyHub.JoinLobby*
+  commentId: Overload:SeaBattle.Hubs.LobbyHub.JoinLobby
+  href: SeaBattle.Hubs.LobbyHub.html#SeaBattle_Hubs_LobbyHub_JoinLobby_System_String_System_String_
+  name: JoinLobby
+  nameWithType: LobbyHub.JoinLobby
+  fullName: SeaBattle.Hubs.LobbyHub.JoinLobby

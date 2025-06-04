@@ -1,0 +1,583 @@
+### YamlMime:ManagedReference
+items:
+- uid: SeaBattle.Models.GameStateManager
+  commentId: T:SeaBattle.Models.GameStateManager
+  id: GameStateManager
+  parent: SeaBattle.Models
+  children:
+  - SeaBattle.Models.GameStateManager.CreateGame(System.String,System.Boolean)
+  - SeaBattle.Models.GameStateManager.GetGame(System.String)
+  - SeaBattle.Models.GameStateManager.GetOpenLobbies
+  - SeaBattle.Models.GameStateManager.RemoveGame(System.String)
+  langs:
+  - csharp
+  - vb
+  name: GameStateManager
+  nameWithType: GameStateManager
+  fullName: SeaBattle.Models.GameStateManager
+  type: Class
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameState.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: GameStateManager
+    path: Models/GameState.cs
+    startLine: 67
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  syntax:
+    content: public static class GameStateManager
+    content.vb: Public Module GameStateManager
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: SeaBattle.Models.GameStateManager.CreateGame(System.String,System.Boolean)
+  commentId: M:SeaBattle.Models.GameStateManager.CreateGame(System.String,System.Boolean)
+  id: CreateGame(System.String,System.Boolean)
+  parent: SeaBattle.Models.GameStateManager
+  langs:
+  - csharp
+  - vb
+  name: CreateGame(string, bool)
+  nameWithType: GameStateManager.CreateGame(string, bool)
+  fullName: SeaBattle.Models.GameStateManager.CreateGame(string, bool)
+  type: Method
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameState.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: CreateGame
+    path: Models/GameState.cs
+    startLine: 71
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  syntax:
+    content: public static GameStateInfo CreateGame(string creatorName, bool isOpenLobby = false)
+    parameters:
+    - id: creatorName
+      type: System.String
+    - id: isOpenLobby
+      type: System.Boolean
+    return:
+      type: SeaBattle.Models.GameStateInfo
+    content.vb: Public Shared Function CreateGame(creatorName As String, isOpenLobby As Boolean = False) As GameStateInfo
+  overload: SeaBattle.Models.GameStateManager.CreateGame*
+  nameWithType.vb: GameStateManager.CreateGame(String, Boolean)
+  fullName.vb: SeaBattle.Models.GameStateManager.CreateGame(String, Boolean)
+  name.vb: CreateGame(String, Boolean)
+- uid: SeaBattle.Models.GameStateManager.GetGame(System.String)
+  commentId: M:SeaBattle.Models.GameStateManager.GetGame(System.String)
+  id: GetGame(System.String)
+  parent: SeaBattle.Models.GameStateManager
+  langs:
+  - csharp
+  - vb
+  name: GetGame(string)
+  nameWithType: GameStateManager.GetGame(string)
+  fullName: SeaBattle.Models.GameStateManager.GetGame(string)
+  type: Method
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameState.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: GetGame
+    path: Models/GameState.cs
+    startLine: 95
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  syntax:
+    content: public static GameStateInfo? GetGame(string gameId)
+    parameters:
+    - id: gameId
+      type: System.String
+    return:
+      type: SeaBattle.Models.GameStateInfo
+    content.vb: Public Shared Function GetGame(gameId As String) As GameStateInfo
+  overload: SeaBattle.Models.GameStateManager.GetGame*
+  nameWithType.vb: GameStateManager.GetGame(String)
+  fullName.vb: SeaBattle.Models.GameStateManager.GetGame(String)
+  name.vb: GetGame(String)
+- uid: SeaBattle.Models.GameStateManager.GetOpenLobbies
+  commentId: M:SeaBattle.Models.GameStateManager.GetOpenLobbies
+  id: GetOpenLobbies
+  parent: SeaBattle.Models.GameStateManager
+  langs:
+  - csharp
+  - vb
+  name: GetOpenLobbies()
+  nameWithType: GameStateManager.GetOpenLobbies()
+  fullName: SeaBattle.Models.GameStateManager.GetOpenLobbies()
+  type: Method
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameState.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: GetOpenLobbies
+    path: Models/GameState.cs
+    startLine: 101
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  syntax:
+    content: public static IEnumerable<GameStateInfo> GetOpenLobbies()
+    return:
+      type: System.Collections.Generic.IEnumerable{SeaBattle.Models.GameStateInfo}
+    content.vb: Public Shared Function GetOpenLobbies() As IEnumerable(Of GameStateInfo)
+  overload: SeaBattle.Models.GameStateManager.GetOpenLobbies*
+- uid: SeaBattle.Models.GameStateManager.RemoveGame(System.String)
+  commentId: M:SeaBattle.Models.GameStateManager.RemoveGame(System.String)
+  id: RemoveGame(System.String)
+  parent: SeaBattle.Models.GameStateManager
+  langs:
+  - csharp
+  - vb
+  name: RemoveGame(string)
+  nameWithType: GameStateManager.RemoveGame(string)
+  fullName: SeaBattle.Models.GameStateManager.RemoveGame(string)
+  type: Method
+  source:
+    remote:
+      path: Server/SeaBattle/Models/GameState.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: RemoveGame
+    path: Models/GameState.cs
+    startLine: 108
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  syntax:
+    content: public static void RemoveGame(string gameId)
+    parameters:
+    - id: gameId
+      type: System.String
+    content.vb: Public Shared Sub RemoveGame(gameId As String)
+  overload: SeaBattle.Models.GameStateManager.RemoveGame*
+  nameWithType.vb: GameStateManager.RemoveGame(String)
+  fullName.vb: SeaBattle.Models.GameStateManager.RemoveGame(String)
+  name.vb: RemoveGame(String)
+references:
+- uid: SeaBattle.Models
+  commentId: N:SeaBattle.Models
+  href: SeaBattle.html
+  name: SeaBattle.Models
+  nameWithType: SeaBattle.Models
+  fullName: SeaBattle.Models
+  spec.csharp:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Models
+    name: Models
+    href: SeaBattle.Models.html
+  spec.vb:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Models
+    name: Models
+    href: SeaBattle.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: SeaBattle.Models.GameStateManager.CreateGame*
+  commentId: Overload:SeaBattle.Models.GameStateManager.CreateGame
+  href: SeaBattle.Models.GameStateManager.html#SeaBattle_Models_GameStateManager_CreateGame_System_String_System_Boolean_
+  name: CreateGame
+  nameWithType: GameStateManager.CreateGame
+  fullName: SeaBattle.Models.GameStateManager.CreateGame
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: SeaBattle.Models.GameStateInfo
+  commentId: T:SeaBattle.Models.GameStateInfo
+  parent: SeaBattle.Models
+  href: SeaBattle.Models.GameStateInfo.html
+  name: GameStateInfo
+  nameWithType: GameStateInfo
+  fullName: SeaBattle.Models.GameStateInfo
+- uid: SeaBattle.Models.GameStateManager.GetGame*
+  commentId: Overload:SeaBattle.Models.GameStateManager.GetGame
+  href: SeaBattle.Models.GameStateManager.html#SeaBattle_Models_GameStateManager_GetGame_System_String_
+  name: GetGame
+  nameWithType: GameStateManager.GetGame
+  fullName: SeaBattle.Models.GameStateManager.GetGame
+- uid: SeaBattle.Models.GameStateManager.GetOpenLobbies*
+  commentId: Overload:SeaBattle.Models.GameStateManager.GetOpenLobbies
+  href: SeaBattle.Models.GameStateManager.html#SeaBattle_Models_GameStateManager_GetOpenLobbies
+  name: GetOpenLobbies
+  nameWithType: GameStateManager.GetOpenLobbies
+  fullName: SeaBattle.Models.GameStateManager.GetOpenLobbies
+- uid: System.Collections.Generic.IEnumerable{SeaBattle.Models.GameStateInfo}
+  commentId: T:System.Collections.Generic.IEnumerable{SeaBattle.Models.GameStateInfo}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<GameStateInfo>
+  nameWithType: IEnumerable<GameStateInfo>
+  fullName: System.Collections.Generic.IEnumerable<SeaBattle.Models.GameStateInfo>
+  nameWithType.vb: IEnumerable(Of GameStateInfo)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of SeaBattle.Models.GameStateInfo)
+  name.vb: IEnumerable(Of GameStateInfo)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: SeaBattle.Models.GameStateInfo
+    name: GameStateInfo
+    href: SeaBattle.Models.GameStateInfo.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: SeaBattle.Models.GameStateInfo
+    name: GameStateInfo
+    href: SeaBattle.Models.GameStateInfo.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: SeaBattle.Models.GameStateManager.RemoveGame*
+  commentId: Overload:SeaBattle.Models.GameStateManager.RemoveGame
+  href: SeaBattle.Models.GameStateManager.html#SeaBattle_Models_GameStateManager_RemoveGame_System_String_
+  name: RemoveGame
+  nameWithType: GameStateManager.RemoveGame
+  fullName: SeaBattle.Models.GameStateManager.RemoveGame

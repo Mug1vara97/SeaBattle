@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: SeaBattle.Models.Converters
+  commentId: N:SeaBattle.Models.Converters
+  id: SeaBattle.Models.Converters
+  children:
+  - SeaBattle.Models.Converters.BoardConverter
+  langs:
+  - csharp
+  - vb
+  name: SeaBattle.Models.Converters
+  nameWithType: SeaBattle.Models.Converters
+  fullName: SeaBattle.Models.Converters
+  type: Namespace
+  assemblies:
+  - SeaBattle
+references:
+- uid: SeaBattle.Models.Converters.BoardConverter
+  commentId: T:SeaBattle.Models.Converters.BoardConverter
+  parent: SeaBattle.Models.Converters
+  href: SeaBattle.Models.Converters.BoardConverter.html
+  name: BoardConverter
+  nameWithType: BoardConverter
+  fullName: SeaBattle.Models.Converters.BoardConverter
+- uid: SeaBattle.Models.Converters
+  commentId: N:SeaBattle.Models.Converters
+  href: SeaBattle.html
+  name: SeaBattle.Models.Converters
+  nameWithType: SeaBattle.Models.Converters
+  fullName: SeaBattle.Models.Converters
+  spec.csharp:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Models
+    name: Models
+    href: SeaBattle.Models.html
+  - name: .
+  - uid: SeaBattle.Models.Converters
+    name: Converters
+    href: SeaBattle.Models.Converters.html
+  spec.vb:
+  - uid: SeaBattle
+    name: SeaBattle
+    href: SeaBattle.html
+  - name: .
+  - uid: SeaBattle.Models
+    name: Models
+    href: SeaBattle.Models.html
+  - name: .
+  - uid: SeaBattle.Models.Converters
+    name: Converters
+    href: SeaBattle.Models.Converters.html
