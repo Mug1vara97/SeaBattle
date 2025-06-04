@@ -33,12 +33,12 @@ jobs:
       run: dotnet tool update -g docfx
 
     - name: Build Documentation
-      run: docfx docfx.json
+      run: docfx Server/SeaBattle/docfx.json
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: '_site'
+        path: 'Server/SeaBattle/_site'
 
     - name: Deploy to GitHub Pages
       id: deployment
