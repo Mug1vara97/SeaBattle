@@ -6,7 +6,11 @@
         {
           "src": ".",
           "files": [
-            "SeaBattle.csproj"
+            "*.csproj"
+          ],
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**"
           ]
         }
       ],
@@ -16,7 +20,7 @@
       "disableDefaultFilter": false,
       "noRestore": false,
       "properties": {
-        "TargetFramework": "net7.0"
+        "TargetFramework": "net8.0"
       }
     }
   ],
@@ -58,7 +62,7 @@
       "_appName": "SeaBattle",
       "_appTitle": "SeaBattle Documentation",
       "_enableSearch": true,
-      "pdf": true
+      "pdf": false
     }
   }
 }
