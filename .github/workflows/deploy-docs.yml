@@ -20,6 +20,9 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Server/SeaBattle
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -32,8 +35,14 @@ jobs:
     - name: Install DocFX
       run: dotnet tool update -g docfx
 
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build project
+      run: dotnet build --no-restore
+
     - name: Build Documentation
-      run: docfx Server/SeaBattle/docfx.json
+      run: docfx docfx.json
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
@@ -42,4 +51,4 @@ jobs:
 
     - name: Deploy to GitHub Pages
       id: deployment
-      uses: actions/deploy-pages@v4 
+      uses: actions/deploy-pages@v4
