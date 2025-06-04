@@ -18,9 +18,9 @@
 
 По умолчанию в appSettings.development.json (в каждом проекте свои настройки) содержатся строки подключения со следующими данными (при необходимости исправить или прокинуть свои):
 
-- PostgreSQL: пользователь - postgres, пароль - 1000-7, база данных - seabattle, порт - 5432
+- PostgreSQL: пользователь - postgres, пароль - 1000-7, база данных - seabattle, порт - 5433
 
-Дальше необходимо перейти в папку Backend/TekkenStats (команды вводятся по очереди из корня проекта)
+Дальше необходимо перейти в папку SeaBattle (команды вводятся по очереди из корня проекта)
 
 > $ cd Server
 
@@ -31,4 +31,10 @@
 > $ npm i
 
 > $ npm run dev
+
+> docker pull mug1vara/seabattle:client-latest
+
+> docker pull mug1vara/seabattle:server-latest
+
+> docker pull mug1vara/seabattle:db-latest
 
