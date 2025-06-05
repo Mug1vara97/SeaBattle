@@ -2,12 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class GameService | SeaBattle Documentation </title>
+      <title>Class GameService </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class GameService | SeaBattle Documentation ">
+      <meta name="title" content="Class GameService ">
       
-      
-      <link rel="icon" href="../favicon.ico">
+      <meta name="description" content="Реализация сервиса для управления игровыми сессиями морского боя. Предоставляет функционал для создания, управления и завершения игровых сессий, а также обработки игровой механики и ведения статистики.">
+      <link rel="icon" href="../images/favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -44,7 +44,7 @@
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
           <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../logo.svg" alt="SeaBattle">
+            <img id="logo" class="svg" src="../images/logo.png" alt="SeaBattle">
             SeaBattle
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,7 +81,6 @@
             <i class="bi bi-list"></i>
           </button>
 
-          <nav id="breadcrumb"></nav>
         </div>
 
         <article data-uid="SeaBattle.Services.GameService">
@@ -89,7 +88,7 @@
 
 
   <h1 id="SeaBattle_Services_GameService" data-uid="SeaBattle.Services.GameService" class="text-break">
-Class GameService  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Services/GameService.cs/#L12"><i class="bi bi-code-slash"></i></a>
+Class GameService  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Services/GameService.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +96,10 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
   <dl><dt>Assembly</dt><dd>SeaBattle.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Реализация сервиса для управления игровыми сессиями морского боя.
+Предоставляет функционал для создания, управления и завершения игровых сессий,
+а также обработки игровой механики и ведения статистики.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -152,6 +154,25 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
 
 
 
+  <h2 id="SeaBattle_Services_GameService_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Сервис обеспечивает:</p>
+<ul><li>Управление жизненным циклом игры (создание, присоединение, начало, завершение)</li><li>Обработку игровой механики (размещение кораблей, выстрелы, определение попаданий)</li><li>Ведение статистики и рейтинга игроков</li><li>Хранение истории игр</li></ul>
+<p>Пример использования:</p>
+<pre><code class="lang-csharp">var gameService = new GameService(logger, dbContext);
+
+// Создание новой игры
+var game = await gameService.CreateGame("Player1", true);
+
+// Присоединение второго игрока
+await gameService.JoinGame(game.Id, "Player2");
+
+// Размещение кораблей
+await gameService.PlaceShipsAsync(game.Id, "Player1", board1);
+await gameService.PlaceShipsAsync(game.Id, "Player2", board2);
+
+// Выполнение хода
+var (updatedGame, result) = await gameService.MakeShot(game.Id, "Player1", new Position(0, 0));</code></pre>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -162,10 +183,11 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="SeaBattle_Services_GameService__ctor_Microsoft_Extensions_Logging_ILogger_SeaBattle_Services_GameService__SeaBattle_Data_ApplicationDbContext_" data-uid="SeaBattle.Services.GameService.#ctor(Microsoft.Extensions.Logging.ILogger{SeaBattle.Services.GameService},SeaBattle.Data.ApplicationDbContext)">
   GameService(ILogger&lt;GameService&gt;, ApplicationDbContext)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Services/GameService.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Services/GameService.cs/#L65"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Инициализирует новый экземпляр сервиса игры.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -175,9 +197,11 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>logger</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1">ILogger</a>&lt;<a class="xref" href="SeaBattle.Services.GameService.html">GameService</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>Сервис логирования для записи событий игры</p>
+</dd>
     <dt><code>dbContext</code> <a class="xref" href="SeaBattle.Data.ApplicationDbContext.html">ApplicationDbContext</a></dt>
-    <dd></dd>
+    <dd><p>Контекст базы данных для сохранения состояния игры и статистики</p>
+</dd>
   </dl>
 
 
@@ -187,6 +211,10 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
 
 
 
+  <h4 class="section" id="SeaBattle_Services_GameService__ctor_Microsoft_Extensions_Logging_ILogger_SeaBattle_Services_GameService__SeaBattle_Data_ApplicationDbContext__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>При инициализации сервис настраивает:</p>
+<ul><li>Систему логирования для отслеживания игровых событий</li><li>Подключение к базе данных для сохранения статистики</li></ul>
+</div>
 
 
 
@@ -199,10 +227,11 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="SeaBattle_Services_GameService_AddGameToHistory_SeaBattle_Models_Game_System_String_System_String_" data-uid="SeaBattle.Services.GameService.AddGameToHistory(SeaBattle.Models.Game,System.String,System.String)">
   AddGameToHistory(Game, string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Services/GameService.cs/#L199"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Services/GameService.cs/#L301"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Добавляет запись об игре в историю</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -212,11 +241,14 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>game</code> <a class="xref" href="SeaBattle.Models.Game.html">Game</a></dt>
-    <dd></dd>
+    <dd><p>Игровая сессия</p>
+</dd>
     <dt><code>winnerUsername</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>Имя победителя</p>
+</dd>
     <dt><code>loserUsername</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>Имя проигравшего</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
@@ -239,10 +271,11 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="SeaBattle_Services_GameService_CreateGame_System_String_System_Boolean_" data-uid="SeaBattle.Services.GameService.CreateGame(System.String,System.Boolean)">
   CreateGame(string, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Services/GameService.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Services/GameService.cs/#L92"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Создает новую игровую сессию с указанным создателем.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -252,15 +285,18 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>creatorName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>Имя создателя игры</p>
+</dd>
     <dt><code>isOpenLobby</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>Флаг, указывающий, является ли лобби открытым для присоединения</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="SeaBattle.Models.Game.html">Game</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>Созданная игровая сессия</p>
+</dd>
   </dl>
 
 
@@ -269,6 +305,12 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
 
 
 
+  <h4 class="section" id="SeaBattle_Services_GameService_CreateGame_System_String_System_Boolean__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Метод выполняет следующие действия:</p>
+<ol><li>Генерирует уникальный идентификатор игры</li><li>Инициализирует начальное состояние игры</li><li>Добавляет игру в словарь активных игр</li></ol>
+<p>Начальное состояние игры включает:</p>
+<ul><li>Пустые игровые поля для обоих игроков</li><li>Статус ожидания второго игрока</li><li>Пустые списки выстрелов</li></ul>
+</div>
 
 
 
@@ -277,10 +319,11 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="SeaBattle_Services_GameService_GetGame_System_String_" data-uid="SeaBattle.Services.GameService.GetGame(System.String)">
   GetGame(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Services/GameService.cs/#L147"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Services/GameService.cs/#L237"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Получает информацию об игровой сессии</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -290,13 +333,15 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>gameId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>Идентификатор игры</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="SeaBattle.Models.Game.html">Game</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>Игровая сессия или null, если игра не найдена</p>
+</dd>
   </dl>
 
 
@@ -313,10 +358,11 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="SeaBattle_Services_GameService_GetLeaderboardAsync_System_Int32_" data-uid="SeaBattle.Services.GameService.GetLeaderboardAsync(System.Int32)">
   GetLeaderboardAsync(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Services/GameService.cs/#L381"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Services/GameService.cs/#L528"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Получает таблицу лидеров</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -326,13 +372,15 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>topN</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>Количество лучших игроков</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SeaBattle.Models.PlayerRanking.html">PlayerRanking</a>&gt;&gt;</dt>
-    <dd></dd>
+    <dd><p>Список рейтингов игроков</p>
+</dd>
   </dl>
 
 
@@ -349,10 +397,11 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="SeaBattle_Services_GameService_GetOpenLobbies" data-uid="SeaBattle.Services.GameService.GetOpenLobbies">
   GetOpenLobbies()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Services/GameService.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Services/GameService.cs/#L243"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Получает список открытых лобби</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -363,7 +412,8 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SeaBattle.Models.Game.html">Game</a>&gt;&gt;</dt>
-    <dd></dd>
+    <dd><p>Список доступных игровых сессий</p>
+</dd>
   </dl>
 
 
@@ -380,10 +430,11 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="SeaBattle_Services_GameService_GetPlayerGameHistory_System_String_System_Int32_" data-uid="SeaBattle.Services.GameService.GetPlayerGameHistory(System.String,System.Int32)">
   GetPlayerGameHistory(string, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Services/GameService.cs/#L367"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Services/GameService.cs/#L513"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Получает историю игр пользователя</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -393,15 +444,18 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>playerName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>Имя игрока</p>
+</dd>
     <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>Количество последних игр</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SeaBattle.Models.GameHistory.html">GameHistory</a>&gt;&gt;</dt>
-    <dd></dd>
+    <dd><p>Список записей истории игр</p>
+</dd>
   </dl>
 
 
@@ -418,10 +472,11 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="SeaBattle_Services_GameService_JoinGame_System_String_System_String_" data-uid="SeaBattle.Services.GameService.JoinGame(System.String,System.String)">
   JoinGame(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Services/GameService.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Services/GameService.cs/#L189"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Присоединяет игрока к существующей игре</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -431,15 +486,18 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>gameId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>Идентификатор игры</p>
+</dd>
     <dt><code>joinerName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>Имя присоединяющегося игрока</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="SeaBattle.Models.Game.html">Game</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>Обновленная игровая сессия или null, если присоединение невозможно</p>
+</dd>
   </dl>
 
 
@@ -456,10 +514,11 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="SeaBattle_Services_GameService_MakeShot_System_String_System_String_SeaBattle_Models_Position_" data-uid="SeaBattle.Services.GameService.MakeShot(System.String,System.String,SeaBattle.Models.Position)">
   MakeShot(string, string, Position)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Services/GameService.cs/#L235"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Services/GameService.cs/#L369"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Выполняет выстрел в указанную позицию на поле противника.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -469,17 +528,21 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>gameId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>Идентификатор игры</p>
+</dd>
     <dt><code>playerName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>Имя стреляющего игрока</p>
+</dd>
     <dt><code>position</code> <a class="xref" href="SeaBattle.Models.Position.html">Position</a></dt>
-    <dd></dd>
+    <dd><p>Координаты выстрела</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;(<a class="xref" href="SeaBattle.Models.Game.html">Game</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-seabattle.models.game,seabattle.models.shotresult-.game">game</a>, <a class="xref" href="SeaBattle.Models.ShotResult.html">ShotResult</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-seabattle.models.game,seabattle.models.shotresult-.result">result</a>)&gt;</dt>
-    <dd></dd>
+    <dd><p>Кортеж, содержащий обновленную игру и результат выстрела</p>
+</dd>
   </dl>
 
 
@@ -488,6 +551,14 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
 
 
 
+  <h4 class="section" id="SeaBattle_Services_GameService_MakeShot_System_String_System_String_SeaBattle_Models_Position__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Процесс обработки выстрела:</p>
+<ol><li>Проверка валидности хода (очередь игрока, корректность координат)</li><li>Определение результата выстрела (промах/попадание/уничтожение)</li><li>Обновление состояния игры</li><li>Проверка условий победы</li></ol>
+<p>Возможные результаты:</p>
+<ul><li>Miss - промах</li><li>Hit - попадание</li><li>Destroyed - корабль уничтожен</li><li>Win - победа (все корабли уничтожены)</li><li>Error - ошибка</li></ul>
+<p>При победе:</p>
+<ul><li>Обновляется рейтинг игроков</li><li>Сохраняется запись в истории игр</li><li>Игра переходит в состояние Finished</li></ul>
+</div>
 
 
 
@@ -496,10 +567,11 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="SeaBattle_Services_GameService_PlaceShipsAsync_System_String_System_String_SeaBattle_Models_CellState_0__0___" data-uid="SeaBattle.Services.GameService.PlaceShipsAsync(System.String,System.String,SeaBattle.Models.CellState[0:,0:])">
   PlaceShipsAsync(string, string, CellState[,])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Services/GameService.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Services/GameService.cs/#L144"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Размещает корабли на игровом поле указанного игрока.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -509,17 +581,21 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>gameId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>Идентификатор игры</p>
+</dd>
     <dt><code>playerName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>Имя игрока</p>
+</dd>
     <dt><code>clientBoard</code> <a class="xref" href="SeaBattle.Models.CellState.html">CellState</a>[,]</dt>
-    <dd></dd>
+    <dd><p>Расстановка кораблей на поле</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="SeaBattle.Models.Game.html">Game</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>Обновленная игровая сессия или null при ошибке</p>
+</dd>
   </dl>
 
 
@@ -528,6 +604,12 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
 
 
 
+  <h4 class="section" id="SeaBattle_Services_GameService_PlaceShipsAsync_System_String_System_String_SeaBattle_Models_CellState_0__0____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Процесс размещения кораблей:</p>
+<ol><li>Проверка существования игры и прав игрока</li><li>Валидация расстановки кораблей</li><li>Сохранение расстановки в игровой сессии</li></ol>
+<p>Возможные ошибки:</p>
+<ul><li>Игра не найдена</li><li>Игрок не является участником игры</li><li>Корабли уже размещены</li></ul>
+</div>
 
 
 
@@ -536,10 +618,11 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
 
   <h3 id="SeaBattle_Services_GameService_SetReady_System_String_System_String_" data-uid="SeaBattle.Services.GameService.SetReady(System.String,System.String)">
   SetReady(string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Services/GameService.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Services/GameService.cs/#L207"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Устанавливает готовность игрока к началу игры</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -549,15 +632,18 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>gameId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>Идентификатор игры</p>
+</dd>
     <dt><code>playerName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>Имя игрока</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="SeaBattle.Models.Game.html">Game</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>Обновленная игровая сессия или null при ошибке</p>
+</dd>
   </dl>
 
 
@@ -573,9 +659,6 @@ Class GameService  <a class="header-action link-secondary" title="View source" h
 
 </article>
 
-        <div class="contribution d-print-none">
-          <a href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Services/GameService.cs/#L12" class="edit-link">Edit this page</a>
-        </div>
 
 
       </div>

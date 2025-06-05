@@ -2,12 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class Game | SeaBattle Documentation </title>
+      <title>Class Game </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class Game | SeaBattle Documentation ">
+      <meta name="title" content="Class Game ">
       
       <meta name="description" content="Представляет игровую сессию морского боя">
-      <link rel="icon" href="../favicon.ico">
+      <link rel="icon" href="../images/favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -44,7 +44,7 @@
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
           <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../logo.svg" alt="SeaBattle">
+            <img id="logo" class="svg" src="../images/logo.png" alt="SeaBattle">
             SeaBattle
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,7 +81,6 @@
             <i class="bi bi-list"></i>
           </button>
 
-          <nav id="breadcrumb"></nav>
         </div>
 
         <article data-uid="SeaBattle.Models.Game">
@@ -153,11 +152,43 @@ Class Game  <a class="header-action link-secondary" title="View source" href="ht
 </h2>
 
 
+  <a id="SeaBattle_Models_Game_CreatedAt_" data-uid="SeaBattle.Models.Game.CreatedAt*"></a>
+
+  <h3 id="SeaBattle_Models_Game_CreatedAt" data-uid="SeaBattle.Models.Game.CreatedAt">
+  CreatedAt
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Дата и время создания игровой сессии</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime CreatedAt { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetime">DateTime</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="SeaBattle_Models_Game_CreatorBoard_" data-uid="SeaBattle.Models.Game.CreatorBoard*"></a>
 
   <h3 id="SeaBattle_Models_Game_CreatorBoard" data-uid="SeaBattle.Models.Game.CreatorBoard">
   CreatorBoard
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L54"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Игровое поле создателя игры</p>
@@ -190,10 +221,10 @@ public CellState[,]? CreatorBoard { get; set; }</code></pre>
 
   <h3 id="SeaBattle_Models_Game_CreatorBoardSet" data-uid="SeaBattle.Models.Game.CreatorBoardSet">
   CreatorBoardSet
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L76"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Флаг, указывающий установлены ли корабли создателем</p>
+  <div class="markdown level1 summary"><p>Флаг, указывающий, расставил ли создатель игры свои корабли</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -225,7 +256,7 @@ public CellState[,]? CreatorBoard { get; set; }</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Имя создателя игры</p>
+  <div class="markdown level1 summary"><p>Имя игрока, создавшего игровую сессию</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -254,10 +285,10 @@ public CellState[,]? CreatorBoard { get; set; }</code></pre>
 
   <h3 id="SeaBattle_Models_Game_CreatorReady" data-uid="SeaBattle.Models.Game.CreatorReady">
   CreatorReady
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L66"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Флаг готовности создателя игры</p>
+  <div class="markdown level1 summary"><p>Флаг готовности создателя игры к началу</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -286,7 +317,7 @@ public CellState[,]? CreatorBoard { get; set; }</code></pre>
 
   <h3 id="SeaBattle_Models_Game_CreatorShots" data-uid="SeaBattle.Models.Game.CreatorShots">
   CreatorShots
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L86"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Список выстрелов создателя игры</p>
@@ -318,10 +349,10 @@ public CellState[,]? CreatorBoard { get; set; }</code></pre>
 
   <h3 id="SeaBattle_Models_Game_CurrentTurn" data-uid="SeaBattle.Models.Game.CurrentTurn">
   CurrentTurn
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Имя игрока, чей ход сейчас</p>
+  <div class="markdown level1 summary"><p>Имя игрока, чей ход в данный момент</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -353,7 +384,7 @@ public CellState[,]? CreatorBoard { get; set; }</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Уникальный идентификатор игры</p>
+  <div class="markdown level1 summary"><p>Уникальный идентификатор игровой сессии</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -382,10 +413,11 @@ public CellState[,]? CreatorBoard { get; set; }</code></pre>
 
   <h3 id="SeaBattle_Models_Game_IsGameEnded" data-uid="SeaBattle.Models.Game.IsGameEnded">
   IsGameEnded
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L88"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L96"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Флаг, указывающий, завершена ли игра</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -413,10 +445,10 @@ public CellState[,]? CreatorBoard { get; set; }</code></pre>
 
   <h3 id="SeaBattle_Models_Game_IsOpenLobby" data-uid="SeaBattle.Models.Game.IsOpenLobby">
   IsOpenLobby
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L29"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Флаг, указывающий является ли лобби открытым для присоединения</p>
+  <div class="markdown level1 summary"><p>Флаг, указывающий, является ли лобби открытым для присоединения</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -445,7 +477,7 @@ public CellState[,]? CreatorBoard { get; set; }</code></pre>
 
   <h3 id="SeaBattle_Models_Game_JoinerBoard" data-uid="SeaBattle.Models.Game.JoinerBoard">
   JoinerBoard
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L60"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Игровое поле присоединившегося игрока</p>
@@ -478,10 +510,10 @@ public CellState[,]? JoinerBoard { get; set; }</code></pre>
 
   <h3 id="SeaBattle_Models_Game_JoinerBoardSet" data-uid="SeaBattle.Models.Game.JoinerBoardSet">
   JoinerBoardSet
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L81"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Флаг, указывающий установлены ли корабли присоединившимся игроком</p>
+  <div class="markdown level1 summary"><p>Флаг, указывающий, расставил ли присоединившийся игрок свои корабли</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -513,7 +545,7 @@ public CellState[,]? JoinerBoard { get; set; }</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Имя присоединившегося игрока</p>
+  <div class="markdown level1 summary"><p>Имя игрока, присоединившегося к игровой сессии</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -542,10 +574,10 @@ public CellState[,]? JoinerBoard { get; set; }</code></pre>
 
   <h3 id="SeaBattle_Models_Game_JoinerReady" data-uid="SeaBattle.Models.Game.JoinerReady">
   JoinerReady
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L71"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Флаг готовности присоединившегося игрока</p>
+  <div class="markdown level1 summary"><p>Флаг готовности присоединившегося игрока к началу</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -574,7 +606,7 @@ public CellState[,]? JoinerBoard { get; set; }</code></pre>
 
   <h3 id="SeaBattle_Models_Game_JoinerShots" data-uid="SeaBattle.Models.Game.JoinerShots">
   JoinerShots
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L91"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Список выстрелов присоединившегося игрока</p>
@@ -606,7 +638,7 @@ public CellState[,]? JoinerBoard { get; set; }</code></pre>
 
   <h3 id="SeaBattle_Models_Game_State" data-uid="SeaBattle.Models.Game.State">
   State
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Текущее состояние игры</p>
@@ -638,7 +670,7 @@ public CellState[,]? JoinerBoard { get; set; }</code></pre>
 
   <h3 id="SeaBattle_Models_Game_Winner" data-uid="SeaBattle.Models.Game.Winner">
   Winner
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L49"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Имя победителя игры</p>
@@ -669,9 +701,6 @@ public CellState[,]? JoinerBoard { get; set; }</code></pre>
 
 </article>
 
-        <div class="contribution d-print-none">
-          <a href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/Game.cs/#L9" class="edit-link">Edit this page</a>
-        </div>
 
 
       </div>

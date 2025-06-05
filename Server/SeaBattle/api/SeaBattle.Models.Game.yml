@@ -5,6 +5,7 @@ items:
   id: Game
   parent: SeaBattle.Models
   children:
+  - SeaBattle.Models.Game.CreatedAt
   - SeaBattle.Models.Game.CreatorBoard
   - SeaBattle.Models.Game.CreatorBoardSet
   - SeaBattle.Models.Game.CreatorName
@@ -76,7 +77,7 @@ items:
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Уникальный идентификатор игры
+  summary: Уникальный идентификатор игровой сессии
   example: []
   syntax:
     content: public string Id { get; set; }
@@ -107,7 +108,7 @@ items:
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Имя создателя игры
+  summary: Имя игрока, создавшего игровую сессию
   example: []
   syntax:
     content: public string CreatorName { get; set; }
@@ -138,7 +139,7 @@ items:
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Имя присоединившегося игрока
+  summary: Имя игрока, присоединившегося к игровой сессии
   example: []
   syntax:
     content: public string? JoinerName { get; set; }
@@ -147,6 +148,161 @@ items:
       type: System.String
     content.vb: Public Property JoinerName As String
   overload: SeaBattle.Models.Game.JoinerName*
+- uid: SeaBattle.Models.Game.IsOpenLobby
+  commentId: P:SeaBattle.Models.Game.IsOpenLobby
+  id: IsOpenLobby
+  parent: SeaBattle.Models.Game
+  langs:
+  - csharp
+  - vb
+  name: IsOpenLobby
+  nameWithType: Game.IsOpenLobby
+  fullName: SeaBattle.Models.Game.IsOpenLobby
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/Game.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: IsOpenLobby
+    path: Models/Game.cs
+    startLine: 28
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Флаг, указывающий, является ли лобби открытым для присоединения
+  example: []
+  syntax:
+    content: public bool IsOpenLobby { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsOpenLobby As Boolean
+  overload: SeaBattle.Models.Game.IsOpenLobby*
+- uid: SeaBattle.Models.Game.State
+  commentId: P:SeaBattle.Models.Game.State
+  id: State
+  parent: SeaBattle.Models.Game
+  langs:
+  - csharp
+  - vb
+  name: State
+  nameWithType: Game.State
+  fullName: SeaBattle.Models.Game.State
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/Game.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: State
+    path: Models/Game.cs
+    startLine: 33
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Текущее состояние игры
+  example: []
+  syntax:
+    content: public GameState State { get; set; }
+    parameters: []
+    return:
+      type: SeaBattle.Models.GameState
+    content.vb: Public Property State As GameState
+  overload: SeaBattle.Models.Game.State*
+- uid: SeaBattle.Models.Game.CreatedAt
+  commentId: P:SeaBattle.Models.Game.CreatedAt
+  id: CreatedAt
+  parent: SeaBattle.Models.Game
+  langs:
+  - csharp
+  - vb
+  name: CreatedAt
+  nameWithType: Game.CreatedAt
+  fullName: SeaBattle.Models.Game.CreatedAt
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/Game.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: CreatedAt
+    path: Models/Game.cs
+    startLine: 38
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Дата и время создания игровой сессии
+  example: []
+  syntax:
+    content: public DateTime CreatedAt { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property CreatedAt As Date
+  overload: SeaBattle.Models.Game.CreatedAt*
+- uid: SeaBattle.Models.Game.CurrentTurn
+  commentId: P:SeaBattle.Models.Game.CurrentTurn
+  id: CurrentTurn
+  parent: SeaBattle.Models.Game
+  langs:
+  - csharp
+  - vb
+  name: CurrentTurn
+  nameWithType: Game.CurrentTurn
+  fullName: SeaBattle.Models.Game.CurrentTurn
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/Game.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: CurrentTurn
+    path: Models/Game.cs
+    startLine: 43
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Имя игрока, чей ход в данный момент
+  example: []
+  syntax:
+    content: public string? CurrentTurn { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CurrentTurn As String
+  overload: SeaBattle.Models.Game.CurrentTurn*
+- uid: SeaBattle.Models.Game.Winner
+  commentId: P:SeaBattle.Models.Game.Winner
+  id: Winner
+  parent: SeaBattle.Models.Game
+  langs:
+  - csharp
+  - vb
+  name: Winner
+  nameWithType: Game.Winner
+  fullName: SeaBattle.Models.Game.Winner
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/Game.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: Winner
+    path: Models/Game.cs
+    startLine: 48
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Имя победителя игры
+  example: []
+  syntax:
+    content: public string? Winner { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Winner As String
+  overload: SeaBattle.Models.Game.Winner*
 - uid: SeaBattle.Models.Game.CreatorBoard
   commentId: P:SeaBattle.Models.Game.CreatorBoard
   id: CreatorBoard
@@ -165,7 +321,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: CreatorBoard
     path: Models/Game.cs
-    startLine: 28
+    startLine: 53
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -208,7 +364,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: JoinerBoard
     path: Models/Game.cs
-    startLine: 34
+    startLine: 59
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -233,130 +389,6 @@ items:
     arguments:
     - type: System.Type
       value: SeaBattle.Models.Converters.BoardConverter
-- uid: SeaBattle.Models.Game.State
-  commentId: P:SeaBattle.Models.Game.State
-  id: State
-  parent: SeaBattle.Models.Game
-  langs:
-  - csharp
-  - vb
-  name: State
-  nameWithType: Game.State
-  fullName: SeaBattle.Models.Game.State
-  type: Property
-  source:
-    remote:
-      path: Server/SeaBattle/Models/Game.cs
-      branch: master
-      repo: https://github.com/Mug1vara97/SeaBattle.git
-    id: State
-    path: Models/Game.cs
-    startLine: 40
-  assemblies:
-  - SeaBattle
-  namespace: SeaBattle.Models
-  summary: Текущее состояние игры
-  example: []
-  syntax:
-    content: public GameState State { get; set; }
-    parameters: []
-    return:
-      type: SeaBattle.Models.GameState
-    content.vb: Public Property State As GameState
-  overload: SeaBattle.Models.Game.State*
-- uid: SeaBattle.Models.Game.CurrentTurn
-  commentId: P:SeaBattle.Models.Game.CurrentTurn
-  id: CurrentTurn
-  parent: SeaBattle.Models.Game
-  langs:
-  - csharp
-  - vb
-  name: CurrentTurn
-  nameWithType: Game.CurrentTurn
-  fullName: SeaBattle.Models.Game.CurrentTurn
-  type: Property
-  source:
-    remote:
-      path: Server/SeaBattle/Models/Game.cs
-      branch: master
-      repo: https://github.com/Mug1vara97/SeaBattle.git
-    id: CurrentTurn
-    path: Models/Game.cs
-    startLine: 45
-  assemblies:
-  - SeaBattle
-  namespace: SeaBattle.Models
-  summary: Имя игрока, чей ход сейчас
-  example: []
-  syntax:
-    content: public string? CurrentTurn { get; set; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public Property CurrentTurn As String
-  overload: SeaBattle.Models.Game.CurrentTurn*
-- uid: SeaBattle.Models.Game.Winner
-  commentId: P:SeaBattle.Models.Game.Winner
-  id: Winner
-  parent: SeaBattle.Models.Game
-  langs:
-  - csharp
-  - vb
-  name: Winner
-  nameWithType: Game.Winner
-  fullName: SeaBattle.Models.Game.Winner
-  type: Property
-  source:
-    remote:
-      path: Server/SeaBattle/Models/Game.cs
-      branch: master
-      repo: https://github.com/Mug1vara97/SeaBattle.git
-    id: Winner
-    path: Models/Game.cs
-    startLine: 50
-  assemblies:
-  - SeaBattle
-  namespace: SeaBattle.Models
-  summary: Имя победителя игры
-  example: []
-  syntax:
-    content: public string? Winner { get; set; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public Property Winner As String
-  overload: SeaBattle.Models.Game.Winner*
-- uid: SeaBattle.Models.Game.IsOpenLobby
-  commentId: P:SeaBattle.Models.Game.IsOpenLobby
-  id: IsOpenLobby
-  parent: SeaBattle.Models.Game
-  langs:
-  - csharp
-  - vb
-  name: IsOpenLobby
-  nameWithType: Game.IsOpenLobby
-  fullName: SeaBattle.Models.Game.IsOpenLobby
-  type: Property
-  source:
-    remote:
-      path: Server/SeaBattle/Models/Game.cs
-      branch: master
-      repo: https://github.com/Mug1vara97/SeaBattle.git
-    id: IsOpenLobby
-    path: Models/Game.cs
-    startLine: 55
-  assemblies:
-  - SeaBattle
-  namespace: SeaBattle.Models
-  summary: Флаг, указывающий является ли лобби открытым для присоединения
-  example: []
-  syntax:
-    content: public bool IsOpenLobby { get; set; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: Public Property IsOpenLobby As Boolean
-  overload: SeaBattle.Models.Game.IsOpenLobby*
 - uid: SeaBattle.Models.Game.CreatorReady
   commentId: P:SeaBattle.Models.Game.CreatorReady
   id: CreatorReady
@@ -375,11 +407,11 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: CreatorReady
     path: Models/Game.cs
-    startLine: 60
+    startLine: 65
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Флаг готовности создателя игры
+  summary: Флаг готовности создателя игры к началу
   example: []
   syntax:
     content: public bool CreatorReady { get; set; }
@@ -406,11 +438,11 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: JoinerReady
     path: Models/Game.cs
-    startLine: 65
+    startLine: 70
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Флаг готовности присоединившегося игрока
+  summary: Флаг готовности присоединившегося игрока к началу
   example: []
   syntax:
     content: public bool JoinerReady { get; set; }
@@ -437,11 +469,11 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: CreatorBoardSet
     path: Models/Game.cs
-    startLine: 70
+    startLine: 75
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Флаг, указывающий установлены ли корабли создателем
+  summary: Флаг, указывающий, расставил ли создатель игры свои корабли
   example: []
   syntax:
     content: public bool CreatorBoardSet { get; set; }
@@ -468,11 +500,11 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: JoinerBoardSet
     path: Models/Game.cs
-    startLine: 75
+    startLine: 80
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Флаг, указывающий установлены ли корабли присоединившимся игроком
+  summary: Флаг, указывающий, расставил ли присоединившийся игрок свои корабли
   example: []
   syntax:
     content: public bool JoinerBoardSet { get; set; }
@@ -499,7 +531,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: CreatorShots
     path: Models/Game.cs
-    startLine: 80
+    startLine: 85
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -530,7 +562,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: JoinerShots
     path: Models/Game.cs
-    startLine: 85
+    startLine: 90
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -561,10 +593,12 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: IsGameEnded
     path: Models/Game.cs
-    startLine: 87
+    startLine: 95
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
+  summary: Флаг, указывающий, завершена ли игра
+  example: []
   syntax:
     content: public bool IsGameEnded { get; }
     parameters: []
@@ -861,6 +895,65 @@ references:
   name: JoinerName
   nameWithType: Game.JoinerName
   fullName: SeaBattle.Models.Game.JoinerName
+- uid: SeaBattle.Models.Game.IsOpenLobby*
+  commentId: Overload:SeaBattle.Models.Game.IsOpenLobby
+  href: SeaBattle.Models.Game.html#SeaBattle_Models_Game_IsOpenLobby
+  name: IsOpenLobby
+  nameWithType: Game.IsOpenLobby
+  fullName: SeaBattle.Models.Game.IsOpenLobby
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: SeaBattle.Models.Game.State*
+  commentId: Overload:SeaBattle.Models.Game.State
+  href: SeaBattle.Models.Game.html#SeaBattle_Models_Game_State
+  name: State
+  nameWithType: Game.State
+  fullName: SeaBattle.Models.Game.State
+- uid: SeaBattle.Models.GameState
+  commentId: T:SeaBattle.Models.GameState
+  parent: SeaBattle.Models
+  href: SeaBattle.Models.GameState.html
+  name: GameState
+  nameWithType: GameState
+  fullName: SeaBattle.Models.GameState
+- uid: SeaBattle.Models.Game.CreatedAt*
+  commentId: Overload:SeaBattle.Models.Game.CreatedAt
+  href: SeaBattle.Models.Game.html#SeaBattle_Models_Game_CreatedAt
+  name: CreatedAt
+  nameWithType: Game.CreatedAt
+  fullName: SeaBattle.Models.Game.CreatedAt
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: SeaBattle.Models.Game.CurrentTurn*
+  commentId: Overload:SeaBattle.Models.Game.CurrentTurn
+  href: SeaBattle.Models.Game.html#SeaBattle_Models_Game_CurrentTurn
+  name: CurrentTurn
+  nameWithType: Game.CurrentTurn
+  fullName: SeaBattle.Models.Game.CurrentTurn
+- uid: SeaBattle.Models.Game.Winner*
+  commentId: Overload:SeaBattle.Models.Game.Winner
+  href: SeaBattle.Models.Game.html#SeaBattle_Models_Game_Winner
+  name: Winner
+  nameWithType: Game.Winner
+  fullName: SeaBattle.Models.Game.Winner
 - uid: SeaBattle.Models.Game.CreatorBoard*
   commentId: Overload:SeaBattle.Models.Game.CreatorBoard
   href: SeaBattle.Models.Game.html#SeaBattle_Models_Game_CreatorBoard
@@ -896,48 +989,6 @@ references:
   name: JoinerBoard
   nameWithType: Game.JoinerBoard
   fullName: SeaBattle.Models.Game.JoinerBoard
-- uid: SeaBattle.Models.Game.State*
-  commentId: Overload:SeaBattle.Models.Game.State
-  href: SeaBattle.Models.Game.html#SeaBattle_Models_Game_State
-  name: State
-  nameWithType: Game.State
-  fullName: SeaBattle.Models.Game.State
-- uid: SeaBattle.Models.GameState
-  commentId: T:SeaBattle.Models.GameState
-  parent: SeaBattle.Models
-  href: SeaBattle.Models.GameState.html
-  name: GameState
-  nameWithType: GameState
-  fullName: SeaBattle.Models.GameState
-- uid: SeaBattle.Models.Game.CurrentTurn*
-  commentId: Overload:SeaBattle.Models.Game.CurrentTurn
-  href: SeaBattle.Models.Game.html#SeaBattle_Models_Game_CurrentTurn
-  name: CurrentTurn
-  nameWithType: Game.CurrentTurn
-  fullName: SeaBattle.Models.Game.CurrentTurn
-- uid: SeaBattle.Models.Game.Winner*
-  commentId: Overload:SeaBattle.Models.Game.Winner
-  href: SeaBattle.Models.Game.html#SeaBattle_Models_Game_Winner
-  name: Winner
-  nameWithType: Game.Winner
-  fullName: SeaBattle.Models.Game.Winner
-- uid: SeaBattle.Models.Game.IsOpenLobby*
-  commentId: Overload:SeaBattle.Models.Game.IsOpenLobby
-  href: SeaBattle.Models.Game.html#SeaBattle_Models_Game_IsOpenLobby
-  name: IsOpenLobby
-  nameWithType: Game.IsOpenLobby
-  fullName: SeaBattle.Models.Game.IsOpenLobby
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: SeaBattle.Models.Game.CreatorReady*
   commentId: Overload:SeaBattle.Models.Game.CreatorReady
   href: SeaBattle.Models.Game.html#SeaBattle_Models_Game_CreatorReady

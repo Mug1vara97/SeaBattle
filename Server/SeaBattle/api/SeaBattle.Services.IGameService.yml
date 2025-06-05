@@ -28,10 +28,12 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: IGameService
     path: Services/IGameService.cs
-    startLine: 4
+    startLine: 7
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Services
+  summary: Интерфейс сервиса для управления игровыми сессиями морского боя
+  example: []
   syntax:
     content: public interface IGameService
     content.vb: Public Interface IGameService
@@ -53,19 +55,24 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: CreateGame
     path: Services/IGameService.cs
-    startLine: 6
+    startLine: 15
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Services
+  summary: Создает новую игровую сессию
+  example: []
   syntax:
     content: Task<Game> CreateGame(string creatorName, bool isOpenLobby)
     parameters:
     - id: creatorName
       type: System.String
+      description: Имя создателя игры
     - id: isOpenLobby
       type: System.Boolean
+      description: Флаг открытого лобби
     return:
       type: System.Threading.Tasks.Task{SeaBattle.Models.Game}
+      description: Созданная игровая сессия
     content.vb: Function CreateGame(creatorName As String, isOpenLobby As Boolean) As Task(Of Game)
   overload: SeaBattle.Services.IGameService.CreateGame*
   nameWithType.vb: IGameService.CreateGame(String, Boolean)
@@ -89,19 +96,24 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: JoinGame
     path: Services/IGameService.cs
-    startLine: 7
+    startLine: 23
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Services
+  summary: Присоединяет игрока к существующей игре
+  example: []
   syntax:
     content: Task<Game?> JoinGame(string gameId, string joinerName)
     parameters:
     - id: gameId
       type: System.String
+      description: Идентификатор игры
     - id: joinerName
       type: System.String
+      description: Имя присоединяющегося игрока
     return:
       type: System.Threading.Tasks.Task{SeaBattle.Models.Game}
+      description: Обновленная игровая сессия или null, если присоединение невозможно
     content.vb: Function JoinGame(gameId As String, joinerName As String) As Task(Of Game)
   overload: SeaBattle.Services.IGameService.JoinGame*
   nameWithType.vb: IGameService.JoinGame(String, String)
@@ -125,19 +137,24 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: SetReady
     path: Services/IGameService.cs
-    startLine: 8
+    startLine: 31
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Services
+  summary: Устанавливает готовность игрока к началу игры
+  example: []
   syntax:
     content: Task<Game?> SetReady(string gameId, string playerName)
     parameters:
     - id: gameId
       type: System.String
+      description: Идентификатор игры
     - id: playerName
       type: System.String
+      description: Имя игрока
     return:
       type: System.Threading.Tasks.Task{SeaBattle.Models.Game}
+      description: Обновленная игровая сессия или null при ошибке
     content.vb: Function SetReady(gameId As String, playerName As String) As Task(Of Game)
   overload: SeaBattle.Services.IGameService.SetReady*
   nameWithType.vb: IGameService.SetReady(String, String)
@@ -161,17 +178,21 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: GetGame
     path: Services/IGameService.cs
-    startLine: 9
+    startLine: 38
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Services
+  summary: Получает информацию об игровой сессии
+  example: []
   syntax:
     content: Task<Game?> GetGame(string gameId)
     parameters:
     - id: gameId
       type: System.String
+      description: Идентификатор игры
     return:
       type: System.Threading.Tasks.Task{SeaBattle.Models.Game}
+      description: Игровая сессия или null, если игра не найдена
     content.vb: Function GetGame(gameId As String) As Task(Of Game)
   overload: SeaBattle.Services.IGameService.GetGame*
   nameWithType.vb: IGameService.GetGame(String)
@@ -195,14 +216,17 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: GetOpenLobbies
     path: Services/IGameService.cs
-    startLine: 10
+    startLine: 44
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Services
+  summary: Получает список открытых лобби
+  example: []
   syntax:
     content: Task<List<Game>> GetOpenLobbies()
     return:
       type: System.Threading.Tasks.Task{System.Collections.Generic.List{SeaBattle.Models.Game}}
+      description: Список доступных игровых сессий
     content.vb: Function GetOpenLobbies() As Task(Of List(Of Game))
   overload: SeaBattle.Services.IGameService.GetOpenLobbies*
 - uid: SeaBattle.Services.IGameService.MakeShot(System.String,System.String,SeaBattle.Models.Position)
@@ -223,21 +247,27 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: MakeShot
     path: Services/IGameService.cs
-    startLine: 11
+    startLine: 53
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Services
+  summary: Выполняет выстрел в указанную позицию
+  example: []
   syntax:
     content: Task<(Game? game, ShotResult result)> MakeShot(string gameId, string playerName, Position position)
     parameters:
     - id: gameId
       type: System.String
+      description: Идентификатор игры
     - id: playerName
       type: System.String
+      description: Имя стреляющего игрока
     - id: position
       type: SeaBattle.Models.Position
+      description: Позиция выстрела
     return:
       type: System.Threading.Tasks.Task{System.ValueTuple{SeaBattle.Models.Game,SeaBattle.Models.ShotResult}}
+      description: Кортеж с обновленной игрой и результатом выстрела
     content.vb: Function MakeShot(gameId As String, playerName As String, position As Position) As Task(Of (game As Game, result As ShotResult))
   overload: SeaBattle.Services.IGameService.MakeShot*
   nameWithType.vb: IGameService.MakeShot(String, String, Position)
@@ -261,19 +291,24 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: GetPlayerGameHistory
     path: Services/IGameService.cs
-    startLine: 12
+    startLine: 61
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Services
+  summary: Получает историю игр пользователя
+  example: []
   syntax:
     content: Task<List<GameHistory>> GetPlayerGameHistory(string playerName, int count = 10)
     parameters:
     - id: playerName
       type: System.String
+      description: Имя игрока
     - id: count
       type: System.Int32
+      description: Количество последних игр
     return:
       type: System.Threading.Tasks.Task{System.Collections.Generic.List{SeaBattle.Models.GameHistory}}
+      description: Список записей истории игр
     content.vb: Function GetPlayerGameHistory(playerName As String, count As Integer = 10) As Task(Of List(Of GameHistory))
   overload: SeaBattle.Services.IGameService.GetPlayerGameHistory*
   nameWithType.vb: IGameService.GetPlayerGameHistory(String, Integer)
@@ -297,17 +332,21 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: GetLeaderboardAsync
     path: Services/IGameService.cs
-    startLine: 13
+    startLine: 68
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Services
+  summary: Получает таблицу лидеров
+  example: []
   syntax:
     content: Task<List<PlayerRanking>> GetLeaderboardAsync(int topN)
     parameters:
     - id: topN
       type: System.Int32
+      description: Количество лучших игроков
     return:
       type: System.Threading.Tasks.Task{System.Collections.Generic.List{SeaBattle.Models.PlayerRanking}}
+      description: Список рейтингов игроков
     content.vb: Function GetLeaderboardAsync(topN As Integer) As Task(Of List(Of PlayerRanking))
   overload: SeaBattle.Services.IGameService.GetLeaderboardAsync*
   nameWithType.vb: IGameService.GetLeaderboardAsync(Integer)
@@ -331,21 +370,27 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: PlaceShipsAsync
     path: Services/IGameService.cs
-    startLine: 14
+    startLine: 77
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Services
+  summary: Размещает корабли на игровом поле
+  example: []
   syntax:
     content: Task<Game?> PlaceShipsAsync(string gameId, string playerName, CellState[,] clientBoard)
     parameters:
     - id: gameId
       type: System.String
+      description: Идентификатор игры
     - id: playerName
       type: System.String
+      description: Имя игрока
     - id: clientBoard
       type: SeaBattle.Models.CellState[,]
+      description: Расстановка кораблей
     return:
       type: System.Threading.Tasks.Task{SeaBattle.Models.Game}
+      description: Обновленная игровая сессия или null при ошибке
     content.vb: Function PlaceShipsAsync(gameId As String, playerName As String, clientBoard As CellState(,)) As Task(Of Game)
   overload: SeaBattle.Services.IGameService.PlaceShipsAsync*
   nameWithType.vb: IGameService.PlaceShipsAsync(String, String, CellState(,))

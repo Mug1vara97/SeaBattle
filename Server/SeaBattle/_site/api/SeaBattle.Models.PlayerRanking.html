@@ -2,12 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class PlayerRanking | SeaBattle Documentation </title>
+      <title>Class PlayerRanking </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class PlayerRanking | SeaBattle Documentation ">
+      <meta name="title" content="Class PlayerRanking ">
       
-      <meta name="description" content="Представляет рейтинг игрока в таблице лидеров">
-      <link rel="icon" href="../favicon.ico">
+      <meta name="description" content="Представляет рейтинг игрока в системе морского боя">
+      <link rel="icon" href="../images/favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -44,7 +44,7 @@
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
           <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../logo.svg" alt="SeaBattle">
+            <img id="logo" class="svg" src="../images/logo.png" alt="SeaBattle">
             SeaBattle
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,7 +81,6 @@
             <i class="bi bi-list"></i>
           </button>
 
-          <nav id="breadcrumb"></nav>
         </div>
 
         <article data-uid="SeaBattle.Models.PlayerRanking">
@@ -97,7 +96,7 @@ Class PlayerRanking  <a class="header-action link-secondary" title="View source"
   <dl><dt>Assembly</dt><dd>SeaBattle.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Представляет рейтинг игрока в таблице лидеров</p>
+  <div class="markdown summary"><p>Представляет рейтинг игрока в системе морского боя</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -157,10 +156,10 @@ Class PlayerRanking  <a class="header-action link-secondary" title="View source"
 
   <h3 id="SeaBattle_Models_PlayerRanking_Losses" data-uid="SeaBattle.Models.PlayerRanking.Losses">
   Losses
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/PlayerRanking.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/PlayerRanking.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Количество поражений</p>
+  <div class="markdown level1 summary"><p>Количество поражений игрока</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -192,7 +191,7 @@ Class PlayerRanking  <a class="header-action link-secondary" title="View source"
   <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/PlayerRanking.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Имя игрока</p>
+  <div class="markdown level1 summary"><p>Уникальный идентификатор записи рейтинга</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -253,15 +252,15 @@ public string PlayerUsername { get; set; }</code></pre>
 
   <h3 id="SeaBattle_Models_PlayerRanking_TotalGames" data-uid="SeaBattle.Models.PlayerRanking.TotalGames">
   TotalGames
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/PlayerRanking.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/PlayerRanking.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Общее количество игр</p>
+  <div class="markdown level1 summary"><p>Общее количество сыгранных игр</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int TotalGames { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int TotalGames { get; set; }</code></pre>
   </div>
 
 
@@ -281,46 +280,14 @@ public string PlayerUsername { get; set; }</code></pre>
 
 
 
-  <a id="SeaBattle_Models_PlayerRanking_WinRate_" data-uid="SeaBattle.Models.PlayerRanking.WinRate*"></a>
-
-  <h3 id="SeaBattle_Models_PlayerRanking_WinRate" data-uid="SeaBattle.Models.PlayerRanking.WinRate">
-  WinRate
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/PlayerRanking.cs/#L36"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Процент побед</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public double WinRate { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
   <a id="SeaBattle_Models_PlayerRanking_Wins_" data-uid="SeaBattle.Models.PlayerRanking.Wins*"></a>
 
   <h3 id="SeaBattle_Models_PlayerRanking_Wins" data-uid="SeaBattle.Models.PlayerRanking.Wins">
   Wins
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/PlayerRanking.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/PlayerRanking.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Количество побед</p>
+  <div class="markdown level1 summary"><p>Количество побед игрока</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -348,9 +315,6 @@ public string PlayerUsername { get; set; }</code></pre>
 
 </article>
 
-        <div class="contribution d-print-none">
-          <a href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/PlayerRanking.cs/#L8" class="edit-link">Edit this page</a>
-        </div>
 
 
       </div>

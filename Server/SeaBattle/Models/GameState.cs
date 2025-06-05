@@ -5,15 +5,38 @@ using System.Linq;
 
 namespace SeaBattle.Models
 {
+    /// <summary>
+    /// Перечисление возможных состояний игры
+    /// </summary>
     public enum GameState
     {
+        /// <summary>
+        /// Ожидание присоединения второго игрока
+        /// </summary>
         WaitingForOpponent,
+
+        /// <summary>
+        /// Ожидание готовности обоих игроков
+        /// </summary>
         WaitingForReady,
+
+        /// <summary>
+        /// Игра в процессе
+        /// </summary>
         InProgress,
+
+        /// <summary>
+        /// Игра завершена
+        /// </summary>
         Finished,
+
+        /// <summary>
+        /// Неизвестное состояние
+        /// </summary>
         Unknown
     }
 
+    /// <summary>
     public class GameStateInfo
     {
         public required string GameId { get; set; }

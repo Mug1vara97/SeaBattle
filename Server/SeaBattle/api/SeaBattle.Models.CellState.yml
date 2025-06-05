@@ -27,8 +27,6 @@ items:
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Перечисление возможных состояний клетки игрового поля
-  example: []
   syntax:
     content: public enum CellState
     content.vb: Public Enum CellState
@@ -82,38 +80,10 @@ items:
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Клетка с кораблем
+  summary: Клетка содержит корабль
   example: []
   syntax:
     content: Ship = 1
-    return:
-      type: SeaBattle.Models.CellState
-- uid: SeaBattle.Models.CellState.Hit
-  commentId: F:SeaBattle.Models.CellState.Hit
-  id: Hit
-  parent: SeaBattle.Models.CellState
-  langs:
-  - csharp
-  - vb
-  name: Hit
-  nameWithType: CellState.Hit
-  fullName: SeaBattle.Models.CellState.Hit
-  type: Field
-  source:
-    remote:
-      path: Server/SeaBattle/Models/CellState.cs
-      branch: master
-      repo: https://github.com/Mug1vara97/SeaBattle.git
-    id: Hit
-    path: Models/CellState.cs
-    startLine: 20
-  assemblies:
-  - SeaBattle
-  namespace: SeaBattle.Models
-  summary: Клетка с попаданием
-  example: []
-  syntax:
-    content: Hit = 2
     return:
       type: SeaBattle.Models.CellState
 - uid: SeaBattle.Models.CellState.Miss
@@ -134,14 +104,42 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: Miss
     path: Models/CellState.cs
+    startLine: 20
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Клетка, в которую был произведен выстрел (промах)
+  example: []
+  syntax:
+    content: Miss = 2
+    return:
+      type: SeaBattle.Models.CellState
+- uid: SeaBattle.Models.CellState.Hit
+  commentId: F:SeaBattle.Models.CellState.Hit
+  id: Hit
+  parent: SeaBattle.Models.CellState
+  langs:
+  - csharp
+  - vb
+  name: Hit
+  nameWithType: CellState.Hit
+  fullName: SeaBattle.Models.CellState.Hit
+  type: Field
+  source:
+    remote:
+      path: Server/SeaBattle/Models/CellState.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: Hit
+    path: Models/CellState.cs
     startLine: 25
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Клетка с промахом
+  summary: Клетка с подбитым кораблем
   example: []
   syntax:
-    content: Miss = 3
+    content: Hit = 3
     return:
       type: SeaBattle.Models.CellState
 references:

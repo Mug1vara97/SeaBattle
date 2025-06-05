@@ -7,11 +7,8 @@ items:
   children:
   - SeaBattle.Models.User.CreatedAt
   - SeaBattle.Models.User.Id
-  - SeaBattle.Models.User.Losses
   - SeaBattle.Models.User.PasswordHash
-  - SeaBattle.Models.User.TotalGames
   - SeaBattle.Models.User.Username
-  - SeaBattle.Models.User.Wins
   langs:
   - csharp
   - vb
@@ -30,7 +27,7 @@ items:
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Представляет пользователя в системе
+  summary: Представляет пользователя в системе морского боя
   example: []
   syntax:
     content: public class User
@@ -98,7 +95,7 @@ items:
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Имя пользователя
+  summary: Имя пользователя, используемое для входа и отображения в игре
   example: []
   syntax:
     content: >-
@@ -148,7 +145,7 @@ items:
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Хэш пароля пользователя
+  summary: Хэшированный пароль пользователя для аутентификации
   example: []
   syntax:
     content: >-
@@ -167,99 +164,6 @@ items:
   - type: System.ComponentModel.DataAnnotations.RequiredAttribute
     ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
     arguments: []
-- uid: SeaBattle.Models.User.Wins
-  commentId: P:SeaBattle.Models.User.Wins
-  id: Wins
-  parent: SeaBattle.Models.User
-  langs:
-  - csharp
-  - vb
-  name: Wins
-  nameWithType: User.Wins
-  fullName: SeaBattle.Models.User.Wins
-  type: Property
-  source:
-    remote:
-      path: Server/SeaBattle/Models/User.cs
-      branch: master
-      repo: https://github.com/Mug1vara97/SeaBattle.git
-    id: Wins
-    path: Models/User.cs
-    startLine: 30
-  assemblies:
-  - SeaBattle
-  namespace: SeaBattle.Models
-  summary: Количество побед
-  example: []
-  syntax:
-    content: public int Wins { get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public Property Wins As Integer
-  overload: SeaBattle.Models.User.Wins*
-- uid: SeaBattle.Models.User.Losses
-  commentId: P:SeaBattle.Models.User.Losses
-  id: Losses
-  parent: SeaBattle.Models.User
-  langs:
-  - csharp
-  - vb
-  name: Losses
-  nameWithType: User.Losses
-  fullName: SeaBattle.Models.User.Losses
-  type: Property
-  source:
-    remote:
-      path: Server/SeaBattle/Models/User.cs
-      branch: master
-      repo: https://github.com/Mug1vara97/SeaBattle.git
-    id: Losses
-    path: Models/User.cs
-    startLine: 35
-  assemblies:
-  - SeaBattle
-  namespace: SeaBattle.Models
-  summary: Количество поражений
-  example: []
-  syntax:
-    content: public int Losses { get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public Property Losses As Integer
-  overload: SeaBattle.Models.User.Losses*
-- uid: SeaBattle.Models.User.TotalGames
-  commentId: P:SeaBattle.Models.User.TotalGames
-  id: TotalGames
-  parent: SeaBattle.Models.User
-  langs:
-  - csharp
-  - vb
-  name: TotalGames
-  nameWithType: User.TotalGames
-  fullName: SeaBattle.Models.User.TotalGames
-  type: Property
-  source:
-    remote:
-      path: Server/SeaBattle/Models/User.cs
-      branch: master
-      repo: https://github.com/Mug1vara97/SeaBattle.git
-    id: TotalGames
-    path: Models/User.cs
-    startLine: 40
-  assemblies:
-  - SeaBattle
-  namespace: SeaBattle.Models
-  summary: Общее количество игр
-  example: []
-  syntax:
-    content: public int TotalGames { get; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public ReadOnly Property TotalGames As Integer
-  overload: SeaBattle.Models.User.TotalGames*
 - uid: SeaBattle.Models.User.CreatedAt
   commentId: P:SeaBattle.Models.User.CreatedAt
   id: CreatedAt
@@ -278,7 +182,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: CreatedAt
     path: Models/User.cs
-    startLine: 42
+    startLine: 27
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -589,24 +493,6 @@ references:
   name: PasswordHash
   nameWithType: User.PasswordHash
   fullName: SeaBattle.Models.User.PasswordHash
-- uid: SeaBattle.Models.User.Wins*
-  commentId: Overload:SeaBattle.Models.User.Wins
-  href: SeaBattle.Models.User.html#SeaBattle_Models_User_Wins
-  name: Wins
-  nameWithType: User.Wins
-  fullName: SeaBattle.Models.User.Wins
-- uid: SeaBattle.Models.User.Losses*
-  commentId: Overload:SeaBattle.Models.User.Losses
-  href: SeaBattle.Models.User.html#SeaBattle_Models_User_Losses
-  name: Losses
-  nameWithType: User.Losses
-  fullName: SeaBattle.Models.User.Losses
-- uid: SeaBattle.Models.User.TotalGames*
-  commentId: Overload:SeaBattle.Models.User.TotalGames
-  href: SeaBattle.Models.User.html#SeaBattle_Models_User_TotalGames
-  name: TotalGames
-  nameWithType: User.TotalGames
-  fullName: SeaBattle.Models.User.TotalGames
 - uid: SeaBattle.Models.User.CreatedAt*
   commentId: Overload:SeaBattle.Models.User.CreatedAt
   href: SeaBattle.Models.User.html#SeaBattle_Models_User_CreatedAt

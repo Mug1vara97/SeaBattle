@@ -2,12 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>This is the HOMEPAGE. | SeaBattle Documentation </title>
+      <title> </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="This is the HOMEPAGE. | SeaBattle Documentation ">
+      <meta name="title" content=" ">
       
       
-      <link rel="icon" href="favicon.ico">
+      <link rel="icon" href="images/favicon.ico">
       <link rel="stylesheet" href="public/docfx.min.css">
       <link rel="stylesheet" href="public/main.css">
       <meta name="docfx:navrel" content="toc.html">
@@ -44,7 +44,7 @@
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
           <a class="navbar-brand" href="index.html">
-            <img id="logo" class="svg" src="logo.svg" alt="SeaBattle">
+            <img id="logo" class="svg" src="images/logo.png" alt="SeaBattle">
             SeaBattle
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,31 +67,70 @@
       <div class="content">
         <div class="actionbar">
 
-          <nav id="breadcrumb"></nav>
         </div>
 
         <article data-uid="">
-<h1 id="this-is-the-homepage">This is the <strong>HOMEPAGE</strong>.</h1>
 
-<p>Refer to <a href="http://daringfireball.net/projects/markdown/">Markdown</a> for how to write markdown files.</p>
-<h2 id="quick-start-notes">Quick Start Notes:</h2>
-<ol>
-<li>Add images to the <em>images</em> folder if the file is referencing an image.</li>
-</ol>
-<h1 id="seabattle-documentation">SeaBattle Documentation</h1>
-<p>Добро пожаловать в документацию проекта SeaBattle!</p>
-<h2 id="содержание">Содержание</h2>
+
+<p>Добро пожаловать в документацию проекта SeaBattle - многопользовательской игры в морской бой!</p>
+<h2 id="быстрая-навигация">Быстрая навигация</h2>
+<div class="card-deck">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Начало работы</h5>
+      <p class="card-text">Узнайте больше о проекте и его возможностях.</p>
+      <a href="docs/getting-started.html" class="btn btn-primary">Начать</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Игровой процесс</h5>
+      <p class="card-text">Изучите правила игры и механики.</p>
+      <a href="docs/gameplay.html" class="btn btn-primary">Изучить</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">API</h5>
+      <p class="card-text">Техническая документация по API проекта.</p>
+      <a href="api/index.html" class="btn btn-primary">Документация</a>
+    </div>
+  </div>
+</div>
+<h2 id="основные-разделы">Основные разделы</h2>
+<h3 id="модели">Модели</h3>
+<p>Основные модели данных, используемые в проекте:</p>
 <ul>
-<li><a href="docs/introduction.html">Введение</a></li>
-<li><a href="docs/getting-started.html">Начало работы</a></li>
-<li><a href="api/">API документация</a></li>
+<li><a href="api/SeaBattle.Models.Game.html">Game</a> - игровая сессия</li>
+<li><a href="api/SeaBattle.Models.User.html">User</a> - пользователь</li>
+<li><a href="api/SeaBattle.Models.PlayerRanking.html">PlayerRanking</a> - рейтинг игрока</li>
+</ul>
+<h3 id="сервисы">Сервисы</h3>
+<p>Основная бизнес-логика:</p>
+<ul>
+<li><a href="api/SeaBattle.Services.GameService.html">GameService</a> - управление играми</li>
+<li><a href="api/SeaBattle.Services.UserService.html">UserService</a> - управление пользователями</li>
+</ul>
+<h3 id="api">API</h3>
+<p>REST API и real-time взаимодействие:</p>
+<ul>
+<li><a href="api/SeaBattle.Controllers.GameController.html">GameController</a> - игровые операции</li>
+<li><a href="api/SeaBattle.Hubs.GameHub.html">GameHub</a> - real-time обновления</li>
+</ul>
+<h3 id="данные">Данные</h3>
+<p>Работа с базой данных:</p>
+<ul>
+<li><a href="api/SeaBattle.Data.ApplicationDbContext.html">ApplicationDbContext</a> - контекст БД</li>
+</ul>
+<h2 id="дополнительная-информация">Дополнительная информация</h2>
+<ul>
+<li><a href="https://github.com/yourusername/SeaBattle">Исходный код на GitHub</a></li>
+<li><a href="https://github.com/yourusername/SeaBattle/issues">Отчеты об ошибках</a></li>
+<li><a href="docs/contributing.html">Руководство по контрибьютингу</a></li>
 </ul>
 
 </article>
 
-        <div class="contribution d-print-none">
-          <a href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/index.md/#L1" class="edit-link">Edit this page</a>
-        </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
 

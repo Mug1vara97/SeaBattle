@@ -35,9 +35,13 @@
       {
         "files": [
           "docs/**.md",
-          "docs/**/toc.yml",
+          "docs/toc.yml",
           "toc.yml",
           "*.md"
+        ],
+        "exclude": [
+          "obj/**",
+          "_site/**"
         ]
       }
     ],
@@ -60,9 +64,31 @@
     "disableGitFeatures": false,
     "globalMetadata": {
       "_appName": "SeaBattle",
-      "_appTitle": "SeaBattle Documentation",
       "_enableSearch": true,
-      "pdf": false
+      "_enableNewTab": true,
+      "pdf": false,
+      "_appLogoPath": "images/logo.png",
+      "_appFaviconPath": "images/favicon.ico",
+      "_navbarPath": "toc.yml",
+      "_homepage": "/index.html",
+      "_topicHref": "/index.html",
+      "_navbarPosition": "top",
+      "_disableBreadcrumb": true,
+      "_disableContribution": true,
+      "_navbar": [
+        {
+          "title": "Начало",
+          "href": "/index.html"
+        },
+        {
+          "title": "Введение",
+          "href": "/docs/getting-started.html"
+        },
+        {
+          "title": "API",
+          "href": "/api"
+        }
+      ]
     }
   }
 }

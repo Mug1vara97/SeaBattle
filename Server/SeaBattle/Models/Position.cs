@@ -14,6 +14,10 @@ namespace SeaBattle.Models
         /// Координата столбца (0-9)
         /// </summary>
         public int Col { get; set; }
+
+        /// <summary>
+        /// Флаг, указывающий, было ли попадание
+        /// </summary>
         public bool IsHit { get; set; }
     }
 } 

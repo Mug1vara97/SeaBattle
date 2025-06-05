@@ -2,12 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class ApplicationDbContext | SeaBattle Documentation </title>
+      <title>Class ApplicationDbContext </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class ApplicationDbContext | SeaBattle Documentation ">
+      <meta name="title" content="Class ApplicationDbContext ">
       
-      
-      <link rel="icon" href="../favicon.ico">
+      <meta name="description" content="Контекст базы данных приложения SeaBattle. Обеспечивает доступ к таблицам и управление данными игры.">
+      <link rel="icon" href="../images/favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -44,7 +44,7 @@
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
           <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../logo.svg" alt="SeaBattle">
+            <img id="logo" class="svg" src="../images/logo.png" alt="SeaBattle">
             SeaBattle
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,7 +81,6 @@
             <i class="bi bi-list"></i>
           </button>
 
-          <nav id="breadcrumb"></nav>
         </div>
 
         <article data-uid="SeaBattle.Data.ApplicationDbContext">
@@ -89,7 +88,7 @@
 
 
   <h1 id="SeaBattle_Data_ApplicationDbContext" data-uid="SeaBattle.Data.ApplicationDbContext" class="text-break">
-Class ApplicationDbContext  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Data/ApplicationDbContext.cs/#L6"><i class="bi bi-code-slash"></i></a>
+Class ApplicationDbContext  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Data/ApplicationDbContext.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +96,9 @@ Class ApplicationDbContext  <a class="header-action link-secondary" title="View 
   <dl><dt>Assembly</dt><dd>SeaBattle.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Контекст базы данных приложения SeaBattle.
+Обеспечивает доступ к таблицам и управление данными игры.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -297,6 +298,21 @@ Class ApplicationDbContext  <a class="header-action link-secondary" title="View 
 
 
 
+  <h2 id="SeaBattle_Data_ApplicationDbContext_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Контекст включает следующие сущности:</p>
+<ul><li>Users - информация о пользователях</li><li>GameHistories - история игр</li><li>PlayerRankings - рейтинги игроков</li></ul>
+<p>Пример использования:</p>
+<pre><code class="lang-csharp">using (var context = new ApplicationDbContext(options))
+{
+    // Получение пользователя
+    var user = await context.Users.FindAsync(userId);
+
+    // Получение истории игр
+    var history = await context.GameHistories
+        .Where(h =&gt; h.PlayerUsername == username)
+        .ToListAsync();
+}</code></pre>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -307,10 +323,11 @@ Class ApplicationDbContext  <a class="header-action link-secondary" title="View 
 
   <h3 id="SeaBattle_Data_ApplicationDbContext__ctor_Microsoft_EntityFrameworkCore_DbContextOptions_SeaBattle_Data_ApplicationDbContext__" data-uid="SeaBattle.Data.ApplicationDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{SeaBattle.Data.ApplicationDbContext})">
   ApplicationDbContext(DbContextOptions&lt;ApplicationDbContext&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Data/ApplicationDbContext.cs/#L8"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Data/ApplicationDbContext.cs/#L38"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Инициализирует новый экземпляр контекста базы данных.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -320,7 +337,8 @@ Class ApplicationDbContext  <a class="header-action link-secondary" title="View 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>options</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions-1">DbContextOptions</a>&lt;<a class="xref" href="SeaBattle.Data.ApplicationDbContext.html">ApplicationDbContext</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>Параметры конфигурации контекста</p>
+</dd>
   </dl>
 
 
@@ -342,10 +360,11 @@ Class ApplicationDbContext  <a class="header-action link-secondary" title="View 
 
   <h3 id="SeaBattle_Data_ApplicationDbContext_GameHistories" data-uid="SeaBattle.Data.ApplicationDbContext.GameHistories">
   GameHistories
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Data/ApplicationDbContext.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Data/ApplicationDbContext.cs/#L63"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Получает или устанавливает набор записей истории игр.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -365,6 +384,10 @@ Class ApplicationDbContext  <a class="header-action link-secondary" title="View 
 
 
 
+  <h4 class="section" id="SeaBattle_Data_ApplicationDbContext_GameHistories_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Хранит информацию о завершенных играх, включая:</p>
+<ul><li>Участников игры</li><li>Результат игры</li><li>Время завершения</li></ul>
+</div>
 
 
 
@@ -373,10 +396,11 @@ Class ApplicationDbContext  <a class="header-action link-secondary" title="View 
 
   <h3 id="SeaBattle_Data_ApplicationDbContext_PlayerRankings" data-uid="SeaBattle.Data.ApplicationDbContext.PlayerRankings">
   PlayerRankings
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Data/ApplicationDbContext.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Data/ApplicationDbContext.cs/#L76"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Получает или устанавливает набор рейтингов игроков.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -396,6 +420,10 @@ Class ApplicationDbContext  <a class="header-action link-secondary" title="View 
 
 
 
+  <h4 class="section" id="SeaBattle_Data_ApplicationDbContext_PlayerRankings_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Содержит статистику игроков:</p>
+<ul><li>Текущий рейтинг</li><li>Количество побед и поражений</li><li>Общее количество игр</li></ul>
+</div>
 
 
 
@@ -404,10 +432,11 @@ Class ApplicationDbContext  <a class="header-action link-secondary" title="View 
 
   <h3 id="SeaBattle_Data_ApplicationDbContext_Users" data-uid="SeaBattle.Data.ApplicationDbContext.Users">
   Users
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Data/ApplicationDbContext.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Data/ApplicationDbContext.cs/#L50"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Получает или устанавливает набор пользователей в базе данных.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -427,6 +456,10 @@ Class ApplicationDbContext  <a class="header-action link-secondary" title="View 
 
 
 
+  <h4 class="section" id="SeaBattle_Data_ApplicationDbContext_Users_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Содержит основную информацию о зарегистрированных пользователях,
+включая учетные данные и настройки профиля.</p>
+</div>
 
 
 
@@ -439,7 +472,7 @@ Class ApplicationDbContext  <a class="header-action link-secondary" title="View 
 
   <h3 id="SeaBattle_Data_ApplicationDbContext_OnModelCreating_Microsoft_EntityFrameworkCore_ModelBuilder_" data-uid="SeaBattle.Data.ApplicationDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
   OnModelCreating(ModelBuilder)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Data/ApplicationDbContext.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Data/ApplicationDbContext.cs/#L78"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Override this method to further configure the model that was discovered by convention from the entity types
@@ -485,9 +518,6 @@ to a given database.</p>
 
 </article>
 
-        <div class="contribution d-print-none">
-          <a href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Data/ApplicationDbContext.cs/#L6" class="edit-link">Edit this page</a>
-        </div>
 
 
       </div>

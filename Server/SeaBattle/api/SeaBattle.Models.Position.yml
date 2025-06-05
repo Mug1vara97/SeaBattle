@@ -121,10 +121,12 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: IsHit
     path: Models/Position.cs
-    startLine: 16
+    startLine: 20
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
+  summary: Флаг, указывающий, было ли попадание
+  example: []
   syntax:
     content: public bool IsHit { get; set; }
     parameters: []

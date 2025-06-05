@@ -23,7 +23,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: GameState
     path: Models/GameState.cs
-    startLine: 113
+    startLine: 104
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -48,7 +48,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: WaitingForOpponent
     path: Models/GameState.cs
-    startLine: 115
+    startLine: 106
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -74,7 +74,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: WaitingForReady
     path: Models/GameState.cs
-    startLine: 116
+    startLine: 107
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -100,7 +100,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: InProgress
     path: Models/GameState.cs
-    startLine: 117
+    startLine: 108
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -126,7 +126,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: Finished
     path: Models/GameState.cs
-    startLine: 118
+    startLine: 109
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models

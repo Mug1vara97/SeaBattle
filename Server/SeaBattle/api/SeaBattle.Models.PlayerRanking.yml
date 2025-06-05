@@ -9,7 +9,6 @@ items:
   - SeaBattle.Models.PlayerRanking.PlayerUsername
   - SeaBattle.Models.PlayerRanking.Rating
   - SeaBattle.Models.PlayerRanking.TotalGames
-  - SeaBattle.Models.PlayerRanking.WinRate
   - SeaBattle.Models.PlayerRanking.Wins
   langs:
   - csharp
@@ -29,7 +28,7 @@ items:
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Представляет рейтинг игрока в таблице лидеров
+  summary: Представляет рейтинг игрока в системе морского боя
   example: []
   syntax:
     content: public class PlayerRanking
@@ -66,7 +65,7 @@ items:
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Имя игрока
+  summary: Уникальный идентификатор записи рейтинга
   example: []
   syntax:
     content: >-
@@ -132,11 +131,11 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: Wins
     path: Models/PlayerRanking.cs
-    startLine: 20
+    startLine: 19
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Количество побед
+  summary: Количество побед игрока
   example: []
   syntax:
     content: public int Wins { get; set; }
@@ -163,11 +162,11 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: Losses
     path: Models/PlayerRanking.cs
-    startLine: 25
+    startLine: 23
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Количество поражений
+  summary: Количество поражений игрока
   example: []
   syntax:
     content: public int Losses { get; set; }
@@ -194,50 +193,19 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: TotalGames
     path: Models/PlayerRanking.cs
-    startLine: 30
+    startLine: 27
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Общее количество игр
+  summary: Общее количество сыгранных игр
   example: []
   syntax:
-    content: public int TotalGames { get; }
+    content: public int TotalGames { get; set; }
     parameters: []
     return:
       type: System.Int32
-    content.vb: Public ReadOnly Property TotalGames As Integer
+    content.vb: Public Property TotalGames As Integer
   overload: SeaBattle.Models.PlayerRanking.TotalGames*
-- uid: SeaBattle.Models.PlayerRanking.WinRate
-  commentId: P:SeaBattle.Models.PlayerRanking.WinRate
-  id: WinRate
-  parent: SeaBattle.Models.PlayerRanking
-  langs:
-  - csharp
-  - vb
-  name: WinRate
-  nameWithType: PlayerRanking.WinRate
-  fullName: SeaBattle.Models.PlayerRanking.WinRate
-  type: Property
-  source:
-    remote:
-      path: Server/SeaBattle/Models/PlayerRanking.cs
-      branch: master
-      repo: https://github.com/Mug1vara97/SeaBattle.git
-    id: WinRate
-    path: Models/PlayerRanking.cs
-    startLine: 35
-  assemblies:
-  - SeaBattle
-  namespace: SeaBattle.Models
-  summary: Процент побед
-  example: []
-  syntax:
-    content: public double WinRate { get; }
-    parameters: []
-    return:
-      type: System.Double
-    content.vb: Public ReadOnly Property WinRate As Double
-  overload: SeaBattle.Models.PlayerRanking.WinRate*
 references:
 - uid: SeaBattle.Models
   commentId: N:SeaBattle.Models
@@ -550,20 +518,3 @@ references:
   name: TotalGames
   nameWithType: PlayerRanking.TotalGames
   fullName: SeaBattle.Models.PlayerRanking.TotalGames
-- uid: SeaBattle.Models.PlayerRanking.WinRate*
-  commentId: Overload:SeaBattle.Models.PlayerRanking.WinRate
-  href: SeaBattle.Models.PlayerRanking.html#SeaBattle_Models_PlayerRanking_WinRate
-  name: WinRate
-  nameWithType: PlayerRanking.WinRate
-  fullName: SeaBattle.Models.PlayerRanking.WinRate
-- uid: System.Double
-  commentId: T:System.Double
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.double
-  name: double
-  nameWithType: double
-  fullName: double
-  nameWithType.vb: Double
-  fullName.vb: Double
-  name.vb: Double

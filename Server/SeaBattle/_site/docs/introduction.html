@@ -2,12 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Введение в SeaBattle | SeaBattle Documentation </title>
+      <title>Документация SeaBattle </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Введение в SeaBattle | SeaBattle Documentation ">
+      <meta name="title" content="Документация SeaBattle ">
       
       
-      <link rel="icon" href="../favicon.ico">
+      <link rel="icon" href="../images/favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -44,7 +44,7 @@
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
           <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../logo.svg" alt="SeaBattle">
+            <img id="logo" class="svg" src="../images/logo.png" alt="SeaBattle">
             SeaBattle
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,58 +81,52 @@
             <i class="bi bi-list"></i>
           </button>
 
-          <nav id="breadcrumb"></nav>
         </div>
 
         <article data-uid="">
-<h1 id="введение-в-seabattle">Введение в SeaBattle</h1>
+<h1 id="документация-seabattle">Документация SeaBattle</h1>
 
-<p>SeaBattle - это многопользовательская онлайн-игра &quot;Морской бой&quot;, разработанная с использованием современных технологий.</p>
-<h2 id="особенности-проекта">Особенности проекта</h2>
+<p>Добро пожаловать в документацию игры Морской Бой. Этот документ содержит подробное описание всех моделей, используемых в проекте.</p>
+<h2 id="структура-моделей">Структура моделей</h2>
+<h3 id="основные-игровые-модели">Основные игровые модели</h3>
+<p>Этот раздел содержит основные модели, необходимые для функционирования игры:</p>
 <ul>
-<li>Многопользовательский режим с использованием SignalR для real-time коммуникации</li>
-<li>Современный веб-интерфейс</li>
-<li>Система рейтинга игроков</li>
-<li>История игр и статистика</li>
-<li>REST API для интеграции</li>
+<li><code>Game</code> - основная модель игровой сессии</li>
+<li><code>Position</code> - модель для представления координат на игровом поле</li>
+<li><code>CellState</code> - состояния клеток игрового поля</li>
 </ul>
-<h2 id="технологии">Технологии</h2>
+<h3 id="модели-состояний-и-статусов">Модели состояний и статусов</h3>
+<p>Здесь описаны модели, отвечающие за управление состоянием игры:</p>
 <ul>
-<li><strong>Backend</strong>: ASP.NET Core 8.0</li>
-<li><strong>Real-time коммуникации</strong>: SignalR</li>
-<li><strong>База данных</strong>: PostgreSQL с Entity Framework Core</li>
-<li><strong>API документация</strong>: Swagger/OpenAPI</li>
-<li><strong>Контейнеризация</strong>: Docker</li>
+<li><code>GameState</code> - состояния игровой сессии</li>
+<li><code>GameStatus</code> - статусы для отображения в интерфейсе</li>
+<li><code>ShotResult</code> - результаты выстрелов</li>
+<li><code>ShotResultResponse</code> - ответы на действия игроков</li>
 </ul>
-<h2 id="структура-проекта">Структура проекта</h2>
+<h3 id="модели-пользователей-и-рейтинга">Модели пользователей и рейтинга</h3>
+<p>Модели для работы с пользователями и их статистикой:</p>
 <ul>
-<li><code>Controllers/</code> - REST API контроллеры</li>
-<li><code>Models/</code> - Модели данных с XML-документацией</li>
-<li><code>Services/</code> - Бизнес-логика</li>
-<li><code>Hubs/</code> - SignalR хабы для real-time взаимодействия</li>
-<li><code>Data/</code> - Контекст базы данных и миграции</li>
+<li><code>User</code> - информация о пользователе</li>
+<li><code>PlayerRanking</code> - рейтинг и статистика игрока</li>
+<li><code>GameHistory</code> - история игр</li>
 </ul>
-<h2 id="документация-моделей">Документация моделей</h2>
-<p>В проекте используются следующие основные модели:</p>
-<ol>
-<li><code>Game</code> - основная модель игры с полями для состояния игры, игроков и игрового поля</li>
-<li><code>GameHistory</code> - модель для хранения истории игр</li>
-<li><code>GameState</code> - перечисление состояний игры</li>
-<li><code>Position</code> - модель позиции на игровом поле</li>
-<li><code>ShotResult</code> - перечисление результатов выстрела</li>
-<li><code>ShotResultResponse</code> - модель ответа на выстрел</li>
-<li><code>User</code> - модель пользователя</li>
-<li><code>PlayerRanking</code> - модель рейтинга игрока</li>
-<li><code>LobbyInfo</code> - модель информации о лобби</li>
-<li><code>CellState</code> - перечисление состояний клетки</li>
-</ol>
-<p>Все модели содержат подробную XML-документацию на русском языке.</p>
+<h3 id="вспомогательные-модели">Вспомогательные модели</h3>
+<p>Дополнительные модели для обеспечения функциональности:</p>
+<ul>
+<li><code>LobbyInfo</code> - информация о доступных играх</li>
+</ul>
+<h2 id="использование-документации">Использование документации</h2>
+<p>Каждая модель содержит подробное описание:</p>
+<ul>
+<li>Назначение и роль в системе</li>
+<li>Свойства и их описание</li>
+<li>Примеры использования (где применимо)</li>
+<li>Связи с другими моделями</li>
+</ul>
+<p>Для начала работы рекомендуется ознакомиться с разделом &quot;Начало работы&quot;, а затем переходить к конкретным моделям по мере необходимости.</p>
 
 </article>
 
-        <div class="contribution d-print-none">
-          <a href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/docs/introduction.md/#L1" class="edit-link">Edit this page</a>
-        </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
 

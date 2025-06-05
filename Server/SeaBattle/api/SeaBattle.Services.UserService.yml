@@ -23,10 +23,12 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: UserService
     path: Services/UserService.cs
-    startLine: 8
+    startLine: 11
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Services
+  summary: Реализация сервиса для управления пользователями
+  example: []
   syntax:
     content: 'public class UserService : IUserService'
     content.vb: Public Class UserService Implements IUserService
@@ -60,15 +62,18 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: .ctor
     path: Services/UserService.cs
-    startLine: 12
+    startLine: 19
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Services
+  summary: Инициализирует новый экземпляр сервиса пользователей
+  example: []
   syntax:
     content: public UserService(ApplicationDbContext context)
     parameters:
     - id: context
       type: SeaBattle.Data.ApplicationDbContext
+      description: Контекст базы данных
     content.vb: Public Sub New(context As ApplicationDbContext)
   overload: SeaBattle.Services.UserService.#ctor*
   nameWithType.vb: UserService.New(ApplicationDbContext)
@@ -92,18 +97,21 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: GetUserByUsername
     path: Services/UserService.cs
-    startLine: 17
+    startLine: 25
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Services
+  summary: Получает пользователя по имени пользователя
   example: []
   syntax:
     content: public Task<User?> GetUserByUsername(string username)
     parameters:
     - id: username
       type: System.String
+      description: Имя пользователя
     return:
       type: System.Threading.Tasks.Task{SeaBattle.Models.User}
+      description: Объект пользователя или null, если пользователь не найден
     content.vb: Public Function GetUserByUsername(username As String) As Task(Of User)
   overload: SeaBattle.Services.UserService.GetUserByUsername*
   implements:
@@ -129,20 +137,24 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: CreateUser
     path: Services/UserService.cs
-    startLine: 22
+    startLine: 31
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Services
+  summary: Создает нового пользователя
   example: []
   syntax:
     content: public Task<User> CreateUser(string username, string password)
     parameters:
     - id: username
       type: System.String
+      description: Имя пользователя
     - id: password
       type: System.String
+      description: Пароль пользователя
     return:
       type: System.Threading.Tasks.Task{SeaBattle.Models.User}
+      description: Созданный объект пользователя
     content.vb: Public Function CreateUser(username As String, password As String) As Task(Of User)
   overload: SeaBattle.Services.UserService.CreateUser*
   implements:
@@ -168,20 +180,24 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: ValidateUser
     path: Services/UserService.cs
-    startLine: 36
+    startLine: 46
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Services
+  summary: Проверяет учетные данные пользователя
   example: []
   syntax:
     content: public Task<bool> ValidateUser(string username, string password)
     parameters:
     - id: username
       type: System.String
+      description: Имя пользователя
     - id: password
       type: System.String
+      description: Пароль пользователя
     return:
       type: System.Threading.Tasks.Task{System.Boolean}
+      description: true, если учетные данные верны, иначе false
     content.vb: Public Function ValidateUser(username As String, password As String) As Task(Of Boolean)
   overload: SeaBattle.Services.UserService.ValidateUser*
   implements:

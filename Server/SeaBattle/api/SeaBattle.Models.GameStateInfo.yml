@@ -34,7 +34,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: GameStateInfo
     path: Models/GameState.cs
-    startLine: 48
+    startLine: 39
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -69,7 +69,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: GameId
     path: Models/GameState.cs
-    startLine: 50
+    startLine: 41
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -98,7 +98,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: CreatorName
     path: Models/GameState.cs
-    startLine: 51
+    startLine: 42
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -127,7 +127,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: OpponentName
     path: Models/GameState.cs
-    startLine: 52
+    startLine: 43
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -156,7 +156,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: IsCreatorReady
     path: Models/GameState.cs
-    startLine: 53
+    startLine: 44
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -185,7 +185,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: IsOpponentReady
     path: Models/GameState.cs
-    startLine: 54
+    startLine: 45
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -214,7 +214,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: IsCreatorTurn
     path: Models/GameState.cs
-    startLine: 55
+    startLine: 46
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -243,7 +243,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: IsGameStarted
     path: Models/GameState.cs
-    startLine: 56
+    startLine: 47
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -272,7 +272,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: IsGameEnded
     path: Models/GameState.cs
-    startLine: 57
+    startLine: 48
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -301,7 +301,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: Winner
     path: Models/GameState.cs
-    startLine: 58
+    startLine: 49
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -330,7 +330,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: IsOpenLobby
     path: Models/GameState.cs
-    startLine: 59
+    startLine: 50
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -359,7 +359,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: CreatedAt
     path: Models/GameState.cs
-    startLine: 60
+    startLine: 51
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -388,7 +388,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: CreatorBoard
     path: Models/GameState.cs
-    startLine: 61
+    startLine: 52
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -417,7 +417,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: OpponentBoard
     path: Models/GameState.cs
-    startLine: 62
+    startLine: 53
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -446,7 +446,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: CreatorShots
     path: Models/GameState.cs
-    startLine: 63
+    startLine: 54
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -475,7 +475,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: OpponentShots
     path: Models/GameState.cs
-    startLine: 64
+    startLine: 55
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models

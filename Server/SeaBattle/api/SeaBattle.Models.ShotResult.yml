@@ -55,7 +55,7 @@ items:
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Промах
+  summary: Ошибка при выполнении выстрела
   example: []
   syntax:
     content: Error = 0
@@ -83,7 +83,7 @@ items:
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Попадание
+  summary: Промах - выстрел в пустую клетку
   example: []
   syntax:
     content: Miss = 1
@@ -111,7 +111,7 @@ items:
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Корабль уничтожен
+  summary: Попадание - выстрел в корабль
   example: []
   syntax:
     content: Hit = 2
@@ -139,7 +139,7 @@ items:
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Корабль уничтожен
+  summary: Уничтожение - корабль полностью уничтожен
   example: []
   syntax:
     content: Destroyed = 3
@@ -167,7 +167,7 @@ items:
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Победа (последний корабль уничтожен)
+  summary: Победа - последний корабль противника уничтожен
   example: []
   syntax:
     content: Win = 4

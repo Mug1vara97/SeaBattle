@@ -1017,6 +1017,19 @@ references:
   commentId: T:SeaBattle.Models.Game
   fullName: SeaBattle.Models.Game
   nameWithType: Game
+- uid: SeaBattle.Models.Game.CreatedAt
+  name: CreatedAt
+  href: api/SeaBattle.Models.Game.html#SeaBattle_Models_Game_CreatedAt
+  commentId: P:SeaBattle.Models.Game.CreatedAt
+  fullName: SeaBattle.Models.Game.CreatedAt
+  nameWithType: Game.CreatedAt
+- uid: SeaBattle.Models.Game.CreatedAt*
+  name: CreatedAt
+  href: api/SeaBattle.Models.Game.html#SeaBattle_Models_Game_CreatedAt_
+  commentId: Overload:SeaBattle.Models.Game.CreatedAt
+  isSpec: "True"
+  fullName: SeaBattle.Models.Game.CreatedAt
+  nameWithType: Game.CreatedAt
 - uid: SeaBattle.Models.Game.CreatorBoard
   name: CreatorBoard
   href: api/SeaBattle.Models.Game.html#SeaBattle_Models_Game_CreatorBoard
@@ -1250,32 +1263,6 @@ references:
   fullName.vb: SeaBattle.Models.GameHistory.New
   nameWithType: GameHistory.GameHistory
   nameWithType.vb: GameHistory.New
-- uid: SeaBattle.Models.GameHistory.CreatorName
-  name: CreatorName
-  href: api/SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_CreatorName
-  commentId: P:SeaBattle.Models.GameHistory.CreatorName
-  fullName: SeaBattle.Models.GameHistory.CreatorName
-  nameWithType: GameHistory.CreatorName
-- uid: SeaBattle.Models.GameHistory.CreatorName*
-  name: CreatorName
-  href: api/SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_CreatorName_
-  commentId: Overload:SeaBattle.Models.GameHistory.CreatorName
-  isSpec: "True"
-  fullName: SeaBattle.Models.GameHistory.CreatorName
-  nameWithType: GameHistory.CreatorName
-- uid: SeaBattle.Models.GameHistory.DurationMinutes
-  name: DurationMinutes
-  href: api/SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_DurationMinutes
-  commentId: P:SeaBattle.Models.GameHistory.DurationMinutes
-  fullName: SeaBattle.Models.GameHistory.DurationMinutes
-  nameWithType: GameHistory.DurationMinutes
-- uid: SeaBattle.Models.GameHistory.DurationMinutes*
-  name: DurationMinutes
-  href: api/SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_DurationMinutes_
-  commentId: Overload:SeaBattle.Models.GameHistory.DurationMinutes
-  isSpec: "True"
-  fullName: SeaBattle.Models.GameHistory.DurationMinutes
-  nameWithType: GameHistory.DurationMinutes
 - uid: SeaBattle.Models.GameHistory.GameFinishedAt
   name: GameFinishedAt
   href: api/SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_GameFinishedAt
@@ -1315,19 +1302,6 @@ references:
   isSpec: "True"
   fullName: SeaBattle.Models.GameHistory.Id
   nameWithType: GameHistory.Id
-- uid: SeaBattle.Models.GameHistory.JoinerName
-  name: JoinerName
-  href: api/SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_JoinerName
-  commentId: P:SeaBattle.Models.GameHistory.JoinerName
-  fullName: SeaBattle.Models.GameHistory.JoinerName
-  nameWithType: GameHistory.JoinerName
-- uid: SeaBattle.Models.GameHistory.JoinerName*
-  name: JoinerName
-  href: api/SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_JoinerName_
-  commentId: Overload:SeaBattle.Models.GameHistory.JoinerName
-  isSpec: "True"
-  fullName: SeaBattle.Models.GameHistory.JoinerName
-  nameWithType: GameHistory.JoinerName
 - uid: SeaBattle.Models.GameHistory.OpponentUsername
   name: OpponentUsername
   href: api/SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_OpponentUsername
@@ -1367,57 +1341,12 @@ references:
   isSpec: "True"
   fullName: SeaBattle.Models.GameHistory.Result
   nameWithType: GameHistory.Result
-- uid: SeaBattle.Models.GameHistory.StartedAt
-  name: StartedAt
-  href: api/SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_StartedAt
-  commentId: P:SeaBattle.Models.GameHistory.StartedAt
-  fullName: SeaBattle.Models.GameHistory.StartedAt
-  nameWithType: GameHistory.StartedAt
-- uid: SeaBattle.Models.GameHistory.StartedAt*
-  name: StartedAt
-  href: api/SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_StartedAt_
-  commentId: Overload:SeaBattle.Models.GameHistory.StartedAt
-  isSpec: "True"
-  fullName: SeaBattle.Models.GameHistory.StartedAt
-  nameWithType: GameHistory.StartedAt
-- uid: SeaBattle.Models.GameHistory.TotalMoves
-  name: TotalMoves
-  href: api/SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_TotalMoves
-  commentId: P:SeaBattle.Models.GameHistory.TotalMoves
-  fullName: SeaBattle.Models.GameHistory.TotalMoves
-  nameWithType: GameHistory.TotalMoves
-- uid: SeaBattle.Models.GameHistory.TotalMoves*
-  name: TotalMoves
-  href: api/SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_TotalMoves_
-  commentId: Overload:SeaBattle.Models.GameHistory.TotalMoves
-  isSpec: "True"
-  fullName: SeaBattle.Models.GameHistory.TotalMoves
-  nameWithType: GameHistory.TotalMoves
-- uid: SeaBattle.Models.GameHistory.Winner
-  name: Winner
-  href: api/SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_Winner
-  commentId: P:SeaBattle.Models.GameHistory.Winner
-  fullName: SeaBattle.Models.GameHistory.Winner
-  nameWithType: GameHistory.Winner
-- uid: SeaBattle.Models.GameHistory.Winner*
-  name: Winner
-  href: api/SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_Winner_
-  commentId: Overload:SeaBattle.Models.GameHistory.Winner
-  isSpec: "True"
-  fullName: SeaBattle.Models.GameHistory.Winner
-  nameWithType: GameHistory.Winner
 - uid: SeaBattle.Models.GameState
   name: GameState
   href: api/SeaBattle.Models.GameState.html
   commentId: T:SeaBattle.Models.GameState
   fullName: SeaBattle.Models.GameState
   nameWithType: GameState
-- uid: SeaBattle.Models.GameState.Cancelled
-  name: Cancelled
-  href: api/SeaBattle.Models.GameState.html#SeaBattle_Models_GameState_Cancelled
-  commentId: F:SeaBattle.Models.GameState.Cancelled
-  fullName: SeaBattle.Models.GameState.Cancelled
-  nameWithType: GameState.Cancelled
 - uid: SeaBattle.Models.GameState.Finished
   name: Finished
   href: api/SeaBattle.Models.GameState.html#SeaBattle_Models_GameState_Finished
@@ -1448,12 +1377,6 @@ references:
   commentId: F:SeaBattle.Models.GameState.WaitingForReady
   fullName: SeaBattle.Models.GameState.WaitingForReady
   nameWithType: GameState.WaitingForReady
-- uid: SeaBattle.Models.GameState.WaitingForShips
-  name: WaitingForShips
-  href: api/SeaBattle.Models.GameState.html#SeaBattle_Models_GameState_WaitingForShips
-  commentId: F:SeaBattle.Models.GameState.WaitingForShips
-  fullName: SeaBattle.Models.GameState.WaitingForShips
-  nameWithType: GameState.WaitingForShips
 - uid: SeaBattle.Models.GameStateInfo
   name: GameStateInfo
   href: api/SeaBattle.Models.GameStateInfo.html
@@ -1814,32 +1737,32 @@ references:
   isSpec: "True"
   fullName: SeaBattle.Models.LobbyInfo.CreatorName
   nameWithType: LobbyInfo.CreatorName
-- uid: SeaBattle.Models.LobbyInfo.GameId
-  name: GameId
-  href: api/SeaBattle.Models.LobbyInfo.html#SeaBattle_Models_LobbyInfo_GameId
-  commentId: P:SeaBattle.Models.LobbyInfo.GameId
-  fullName: SeaBattle.Models.LobbyInfo.GameId
-  nameWithType: LobbyInfo.GameId
-- uid: SeaBattle.Models.LobbyInfo.GameId*
-  name: GameId
-  href: api/SeaBattle.Models.LobbyInfo.html#SeaBattle_Models_LobbyInfo_GameId_
-  commentId: Overload:SeaBattle.Models.LobbyInfo.GameId
+- uid: SeaBattle.Models.LobbyInfo.Id
+  name: Id
+  href: api/SeaBattle.Models.LobbyInfo.html#SeaBattle_Models_LobbyInfo_Id
+  commentId: P:SeaBattle.Models.LobbyInfo.Id
+  fullName: SeaBattle.Models.LobbyInfo.Id
+  nameWithType: LobbyInfo.Id
+- uid: SeaBattle.Models.LobbyInfo.Id*
+  name: Id
+  href: api/SeaBattle.Models.LobbyInfo.html#SeaBattle_Models_LobbyInfo_Id_
+  commentId: Overload:SeaBattle.Models.LobbyInfo.Id
   isSpec: "True"
-  fullName: SeaBattle.Models.LobbyInfo.GameId
-  nameWithType: LobbyInfo.GameId
-- uid: SeaBattle.Models.LobbyInfo.IsOpenLobby
-  name: IsOpenLobby
-  href: api/SeaBattle.Models.LobbyInfo.html#SeaBattle_Models_LobbyInfo_IsOpenLobby
-  commentId: P:SeaBattle.Models.LobbyInfo.IsOpenLobby
-  fullName: SeaBattle.Models.LobbyInfo.IsOpenLobby
-  nameWithType: LobbyInfo.IsOpenLobby
-- uid: SeaBattle.Models.LobbyInfo.IsOpenLobby*
-  name: IsOpenLobby
-  href: api/SeaBattle.Models.LobbyInfo.html#SeaBattle_Models_LobbyInfo_IsOpenLobby_
-  commentId: Overload:SeaBattle.Models.LobbyInfo.IsOpenLobby
+  fullName: SeaBattle.Models.LobbyInfo.Id
+  nameWithType: LobbyInfo.Id
+- uid: SeaBattle.Models.LobbyInfo.Status
+  name: Status
+  href: api/SeaBattle.Models.LobbyInfo.html#SeaBattle_Models_LobbyInfo_Status
+  commentId: P:SeaBattle.Models.LobbyInfo.Status
+  fullName: SeaBattle.Models.LobbyInfo.Status
+  nameWithType: LobbyInfo.Status
+- uid: SeaBattle.Models.LobbyInfo.Status*
+  name: Status
+  href: api/SeaBattle.Models.LobbyInfo.html#SeaBattle_Models_LobbyInfo_Status_
+  commentId: Overload:SeaBattle.Models.LobbyInfo.Status
   isSpec: "True"
-  fullName: SeaBattle.Models.LobbyInfo.IsOpenLobby
-  nameWithType: LobbyInfo.IsOpenLobby
+  fullName: SeaBattle.Models.LobbyInfo.Status
+  nameWithType: LobbyInfo.Status
 - uid: SeaBattle.Models.PlayerRanking
   name: PlayerRanking
   href: api/SeaBattle.Models.PlayerRanking.html
@@ -1898,19 +1821,6 @@ references:
   isSpec: "True"
   fullName: SeaBattle.Models.PlayerRanking.TotalGames
   nameWithType: PlayerRanking.TotalGames
-- uid: SeaBattle.Models.PlayerRanking.WinRate
-  name: WinRate
-  href: api/SeaBattle.Models.PlayerRanking.html#SeaBattle_Models_PlayerRanking_WinRate
-  commentId: P:SeaBattle.Models.PlayerRanking.WinRate
-  fullName: SeaBattle.Models.PlayerRanking.WinRate
-  nameWithType: PlayerRanking.WinRate
-- uid: SeaBattle.Models.PlayerRanking.WinRate*
-  name: WinRate
-  href: api/SeaBattle.Models.PlayerRanking.html#SeaBattle_Models_PlayerRanking_WinRate_
-  commentId: Overload:SeaBattle.Models.PlayerRanking.WinRate
-  isSpec: "True"
-  fullName: SeaBattle.Models.PlayerRanking.WinRate
-  nameWithType: PlayerRanking.WinRate
 - uid: SeaBattle.Models.PlayerRanking.Wins
   name: Wins
   href: api/SeaBattle.Models.PlayerRanking.html#SeaBattle_Models_PlayerRanking_Wins
@@ -2024,19 +1934,19 @@ references:
   isSpec: "True"
   fullName: SeaBattle.Models.ShotResultResponse.CurrentTurn
   nameWithType: ShotResultResponse.CurrentTurn
-- uid: SeaBattle.Models.ShotResultResponse.ErrorMessage
-  name: ErrorMessage
-  href: api/SeaBattle.Models.ShotResultResponse.html#SeaBattle_Models_ShotResultResponse_ErrorMessage
-  commentId: P:SeaBattle.Models.ShotResultResponse.ErrorMessage
-  fullName: SeaBattle.Models.ShotResultResponse.ErrorMessage
-  nameWithType: ShotResultResponse.ErrorMessage
-- uid: SeaBattle.Models.ShotResultResponse.ErrorMessage*
-  name: ErrorMessage
-  href: api/SeaBattle.Models.ShotResultResponse.html#SeaBattle_Models_ShotResultResponse_ErrorMessage_
-  commentId: Overload:SeaBattle.Models.ShotResultResponse.ErrorMessage
+- uid: SeaBattle.Models.ShotResultResponse.Game
+  name: Game
+  href: api/SeaBattle.Models.ShotResultResponse.html#SeaBattle_Models_ShotResultResponse_Game
+  commentId: P:SeaBattle.Models.ShotResultResponse.Game
+  fullName: SeaBattle.Models.ShotResultResponse.Game
+  nameWithType: ShotResultResponse.Game
+- uid: SeaBattle.Models.ShotResultResponse.Game*
+  name: Game
+  href: api/SeaBattle.Models.ShotResultResponse.html#SeaBattle_Models_ShotResultResponse_Game_
+  commentId: Overload:SeaBattle.Models.ShotResultResponse.Game
   isSpec: "True"
-  fullName: SeaBattle.Models.ShotResultResponse.ErrorMessage
-  nameWithType: ShotResultResponse.ErrorMessage
+  fullName: SeaBattle.Models.ShotResultResponse.Game
+  nameWithType: ShotResultResponse.Game
 - uid: SeaBattle.Models.ShotResultResponse.GameState
   name: GameState
   href: api/SeaBattle.Models.ShotResultResponse.html#SeaBattle_Models_ShotResultResponse_GameState
@@ -2089,19 +1999,6 @@ references:
   isSpec: "True"
   fullName: SeaBattle.Models.ShotResultResponse.Result
   nameWithType: ShotResultResponse.Result
-- uid: SeaBattle.Models.ShotResultResponse.Success
-  name: Success
-  href: api/SeaBattle.Models.ShotResultResponse.html#SeaBattle_Models_ShotResultResponse_Success
-  commentId: P:SeaBattle.Models.ShotResultResponse.Success
-  fullName: SeaBattle.Models.ShotResultResponse.Success
-  nameWithType: ShotResultResponse.Success
-- uid: SeaBattle.Models.ShotResultResponse.Success*
-  name: Success
-  href: api/SeaBattle.Models.ShotResultResponse.html#SeaBattle_Models_ShotResultResponse_Success_
-  commentId: Overload:SeaBattle.Models.ShotResultResponse.Success
-  isSpec: "True"
-  fullName: SeaBattle.Models.ShotResultResponse.Success
-  nameWithType: ShotResultResponse.Success
 - uid: SeaBattle.Models.User
   name: User
   href: api/SeaBattle.Models.User.html
@@ -2134,19 +2031,6 @@ references:
   isSpec: "True"
   fullName: SeaBattle.Models.User.Id
   nameWithType: User.Id
-- uid: SeaBattle.Models.User.Losses
-  name: Losses
-  href: api/SeaBattle.Models.User.html#SeaBattle_Models_User_Losses
-  commentId: P:SeaBattle.Models.User.Losses
-  fullName: SeaBattle.Models.User.Losses
-  nameWithType: User.Losses
-- uid: SeaBattle.Models.User.Losses*
-  name: Losses
-  href: api/SeaBattle.Models.User.html#SeaBattle_Models_User_Losses_
-  commentId: Overload:SeaBattle.Models.User.Losses
-  isSpec: "True"
-  fullName: SeaBattle.Models.User.Losses
-  nameWithType: User.Losses
 - uid: SeaBattle.Models.User.PasswordHash
   name: PasswordHash
   href: api/SeaBattle.Models.User.html#SeaBattle_Models_User_PasswordHash
@@ -2160,19 +2044,6 @@ references:
   isSpec: "True"
   fullName: SeaBattle.Models.User.PasswordHash
   nameWithType: User.PasswordHash
-- uid: SeaBattle.Models.User.TotalGames
-  name: TotalGames
-  href: api/SeaBattle.Models.User.html#SeaBattle_Models_User_TotalGames
-  commentId: P:SeaBattle.Models.User.TotalGames
-  fullName: SeaBattle.Models.User.TotalGames
-  nameWithType: User.TotalGames
-- uid: SeaBattle.Models.User.TotalGames*
-  name: TotalGames
-  href: api/SeaBattle.Models.User.html#SeaBattle_Models_User_TotalGames_
-  commentId: Overload:SeaBattle.Models.User.TotalGames
-  isSpec: "True"
-  fullName: SeaBattle.Models.User.TotalGames
-  nameWithType: User.TotalGames
 - uid: SeaBattle.Models.User.Username
   name: Username
   href: api/SeaBattle.Models.User.html#SeaBattle_Models_User_Username
@@ -2186,19 +2057,6 @@ references:
   isSpec: "True"
   fullName: SeaBattle.Models.User.Username
   nameWithType: User.Username
-- uid: SeaBattle.Models.User.Wins
-  name: Wins
-  href: api/SeaBattle.Models.User.html#SeaBattle_Models_User_Wins
-  commentId: P:SeaBattle.Models.User.Wins
-  fullName: SeaBattle.Models.User.Wins
-  nameWithType: User.Wins
-- uid: SeaBattle.Models.User.Wins*
-  name: Wins
-  href: api/SeaBattle.Models.User.html#SeaBattle_Models_User_Wins_
-  commentId: Overload:SeaBattle.Models.User.Wins
-  isSpec: "True"
-  fullName: SeaBattle.Models.User.Wins
-  nameWithType: User.Wins
 - uid: SeaBattle.Services
   name: SeaBattle.Services
   href: api/SeaBattle.Services.html

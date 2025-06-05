@@ -2,12 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class DesignTimeDbContextFactory | SeaBattle Documentation </title>
+      <title>Class DesignTimeDbContextFactory </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class DesignTimeDbContextFactory | SeaBattle Documentation ">
+      <meta name="title" content="Class DesignTimeDbContextFactory ">
       
-      
-      <link rel="icon" href="../favicon.ico">
+      <meta name="description" content="Фабрика для создания контекста базы данных во время разработки. Используется инструментами Entity Framework Core для миграций и обновления базы данных.">
+      <link rel="icon" href="../images/favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -44,7 +44,7 @@
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
           <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../logo.svg" alt="SeaBattle">
+            <img id="logo" class="svg" src="../images/logo.png" alt="SeaBattle">
             SeaBattle
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,7 +81,6 @@
             <i class="bi bi-list"></i>
           </button>
 
-          <nav id="breadcrumb"></nav>
         </div>
 
         <article data-uid="SeaBattle.Data.DesignTimeDbContextFactory">
@@ -89,7 +88,7 @@
 
 
   <h1 id="SeaBattle_Data_DesignTimeDbContextFactory" data-uid="SeaBattle.Data.DesignTimeDbContextFactory" class="text-break">
-Class DesignTimeDbContextFactory  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Data/DesignTimeDbContextFactory.cs/#L9"><i class="bi bi-code-slash"></i></a>
+Class DesignTimeDbContextFactory  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Data/DesignTimeDbContextFactory.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +96,9 @@ Class DesignTimeDbContextFactory  <a class="header-action link-secondary" title=
   <dl><dt>Assembly</dt><dd>SeaBattle.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Фабрика для создания контекста базы данных во время разработки.
+Используется инструментами Entity Framework Core для миграций и обновления базы данных.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -152,6 +153,13 @@ Class DesignTimeDbContextFactory  <a class="header-action link-secondary" title=
 
 
 
+  <h2 id="SeaBattle_Data_DesignTimeDbContextFactory_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Фабрика обеспечивает:</p>
+<ul><li>Создание контекста БД вне среды выполнения приложения</li><li>Загрузку конфигурации подключения к БД из appsettings.json</li><li>Поддержку инструментов командной строки EF Core</li></ul>
+<p>Используется при выполнении команд:</p>
+<pre><code class="lang-csharp">dotnet ef migrations add InitialCreate
+dotnet ef database update</code></pre>
+</div>
 
 
   <h2 class="section" id="methods">Methods
@@ -162,10 +170,10 @@ Class DesignTimeDbContextFactory  <a class="header-action link-secondary" title=
 
   <h3 id="SeaBattle_Data_DesignTimeDbContextFactory_CreateDbContext_System_String___" data-uid="SeaBattle.Data.DesignTimeDbContextFactory.CreateDbContext(System.String[])">
   CreateDbContext(string[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Data/DesignTimeDbContextFactory.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Data/DesignTimeDbContextFactory.cs/#L43"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Creates a new instance of a derived context.</p>
+  <div class="markdown level1 summary"><p>Создает новый экземпляр контекста базы данных для использования во время разработки.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -176,14 +184,14 @@ Class DesignTimeDbContextFactory  <a class="header-action link-secondary" title=
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</dt>
-    <dd><p>Arguments provided by the design-time service.</p>
+    <dd><p>Аргументы командной строки (не используются)</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SeaBattle.Data.ApplicationDbContext.html">ApplicationDbContext</a></dt>
-    <dd><p>An instance of <a class="xref" href="SeaBattle.Data.ApplicationDbContext.html">ApplicationDbContext</a>.</p>
+    <dd><p>Настроенный экземпляр контекста базы данных</p>
 </dd>
   </dl>
 
@@ -193,6 +201,10 @@ Class DesignTimeDbContextFactory  <a class="header-action link-secondary" title=
 
 
 
+  <h4 class="section" id="SeaBattle_Data_DesignTimeDbContextFactory_CreateDbContext_System_String____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Метод выполняет:</p>
+<ol><li>Определение текущей директории проекта</li><li>Загрузку конфигурации из appsettings.json</li><li>Настройку подключения к базе данных</li><li>Создание и возврат контекста с настроенными параметрами</li></ol>
+</div>
 
 
 
@@ -200,9 +212,6 @@ Class DesignTimeDbContextFactory  <a class="header-action link-secondary" title=
 
 </article>
 
-        <div class="contribution d-print-none">
-          <a href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Data/DesignTimeDbContextFactory.cs/#L9" class="edit-link">Edit this page</a>
-        </div>
 
 
       </div>

@@ -6,18 +6,12 @@ items:
   parent: SeaBattle.Models
   children:
   - SeaBattle.Models.GameHistory.#ctor
-  - SeaBattle.Models.GameHistory.CreatorName
-  - SeaBattle.Models.GameHistory.DurationMinutes
   - SeaBattle.Models.GameHistory.GameFinishedAt
   - SeaBattle.Models.GameHistory.GameId
   - SeaBattle.Models.GameHistory.Id
-  - SeaBattle.Models.GameHistory.JoinerName
   - SeaBattle.Models.GameHistory.OpponentUsername
   - SeaBattle.Models.GameHistory.PlayerUsername
   - SeaBattle.Models.GameHistory.Result
-  - SeaBattle.Models.GameHistory.StartedAt
-  - SeaBattle.Models.GameHistory.TotalMoves
-  - SeaBattle.Models.GameHistory.Winner
   langs:
   - csharp
   - vb
@@ -36,7 +30,7 @@ items:
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Представляет историю игры морского боя
+  summary: Представляет историю завершенной игры в морской бой
   example: []
   syntax:
     content: public class GameHistory
@@ -73,7 +67,7 @@ items:
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Уникальный идентификатор записи истории
+  summary: Уникальный идентификатор записи в истории игр
   example: []
   syntax:
     content: >-
@@ -110,10 +104,12 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: PlayerUsername
     path: Models/GameHistory.cs
-    startLine: 17
+    startLine: 20
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
+  summary: Имя игрока, создавшего игру
+  example: []
   syntax:
     content: >-
       [Required]
@@ -149,11 +145,11 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: GameId
     path: Models/GameHistory.cs
-    startLine: 23
+    startLine: 26
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Идентификатор игры
+  summary: Идентификатор игровой сессии
   example: []
   syntax:
     content: >-
@@ -190,10 +186,12 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: OpponentUsername
     path: Models/GameHistory.cs
-    startLine: 26
+    startLine: 32
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
+  summary: Имя игрока, присоединившегося к игре
+  example: []
   syntax:
     content: public string? OpponentUsername { get; set; }
     parameters: []
@@ -219,7 +217,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: GameFinishedAt
     path: Models/GameHistory.cs
-    startLine: 31
+    startLine: 37
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -250,10 +248,12 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: Result
     path: Models/GameHistory.cs
-    startLine: 33
+    startLine: 42
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
+  summary: Имя победителя игры
+  example: []
   syntax:
     content: >-
       [Required]
@@ -271,192 +271,6 @@ items:
   - type: System.ComponentModel.DataAnnotations.RequiredAttribute
     ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
     arguments: []
-- uid: SeaBattle.Models.GameHistory.CreatorName
-  commentId: P:SeaBattle.Models.GameHistory.CreatorName
-  id: CreatorName
-  parent: SeaBattle.Models.GameHistory
-  langs:
-  - csharp
-  - vb
-  name: CreatorName
-  nameWithType: GameHistory.CreatorName
-  fullName: SeaBattle.Models.GameHistory.CreatorName
-  type: Property
-  source:
-    remote:
-      path: Server/SeaBattle/Models/GameHistory.cs
-      branch: master
-      repo: https://github.com/Mug1vara97/SeaBattle.git
-    id: CreatorName
-    path: Models/GameHistory.cs
-    startLine: 39
-  assemblies:
-  - SeaBattle
-  namespace: SeaBattle.Models
-  summary: Имя создателя игры
-  example: []
-  syntax:
-    content: public string CreatorName { get; set; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public Property CreatorName As String
-  overload: SeaBattle.Models.GameHistory.CreatorName*
-- uid: SeaBattle.Models.GameHistory.JoinerName
-  commentId: P:SeaBattle.Models.GameHistory.JoinerName
-  id: JoinerName
-  parent: SeaBattle.Models.GameHistory
-  langs:
-  - csharp
-  - vb
-  name: JoinerName
-  nameWithType: GameHistory.JoinerName
-  fullName: SeaBattle.Models.GameHistory.JoinerName
-  type: Property
-  source:
-    remote:
-      path: Server/SeaBattle/Models/GameHistory.cs
-      branch: master
-      repo: https://github.com/Mug1vara97/SeaBattle.git
-    id: JoinerName
-    path: Models/GameHistory.cs
-    startLine: 44
-  assemblies:
-  - SeaBattle
-  namespace: SeaBattle.Models
-  summary: Имя присоединившегося игрока
-  example: []
-  syntax:
-    content: public string JoinerName { get; set; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public Property JoinerName As String
-  overload: SeaBattle.Models.GameHistory.JoinerName*
-- uid: SeaBattle.Models.GameHistory.Winner
-  commentId: P:SeaBattle.Models.GameHistory.Winner
-  id: Winner
-  parent: SeaBattle.Models.GameHistory
-  langs:
-  - csharp
-  - vb
-  name: Winner
-  nameWithType: GameHistory.Winner
-  fullName: SeaBattle.Models.GameHistory.Winner
-  type: Property
-  source:
-    remote:
-      path: Server/SeaBattle/Models/GameHistory.cs
-      branch: master
-      repo: https://github.com/Mug1vara97/SeaBattle.git
-    id: Winner
-    path: Models/GameHistory.cs
-    startLine: 49
-  assemblies:
-  - SeaBattle
-  namespace: SeaBattle.Models
-  summary: Имя победителя игры
-  example: []
-  syntax:
-    content: public string Winner { get; set; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public Property Winner As String
-  overload: SeaBattle.Models.GameHistory.Winner*
-- uid: SeaBattle.Models.GameHistory.TotalMoves
-  commentId: P:SeaBattle.Models.GameHistory.TotalMoves
-  id: TotalMoves
-  parent: SeaBattle.Models.GameHistory
-  langs:
-  - csharp
-  - vb
-  name: TotalMoves
-  nameWithType: GameHistory.TotalMoves
-  fullName: SeaBattle.Models.GameHistory.TotalMoves
-  type: Property
-  source:
-    remote:
-      path: Server/SeaBattle/Models/GameHistory.cs
-      branch: master
-      repo: https://github.com/Mug1vara97/SeaBattle.git
-    id: TotalMoves
-    path: Models/GameHistory.cs
-    startLine: 54
-  assemblies:
-  - SeaBattle
-  namespace: SeaBattle.Models
-  summary: Количество ходов в игре
-  example: []
-  syntax:
-    content: public int TotalMoves { get; set; }
-    parameters: []
-    return:
-      type: System.Int32
-    content.vb: Public Property TotalMoves As Integer
-  overload: SeaBattle.Models.GameHistory.TotalMoves*
-- uid: SeaBattle.Models.GameHistory.StartedAt
-  commentId: P:SeaBattle.Models.GameHistory.StartedAt
-  id: StartedAt
-  parent: SeaBattle.Models.GameHistory
-  langs:
-  - csharp
-  - vb
-  name: StartedAt
-  nameWithType: GameHistory.StartedAt
-  fullName: SeaBattle.Models.GameHistory.StartedAt
-  type: Property
-  source:
-    remote:
-      path: Server/SeaBattle/Models/GameHistory.cs
-      branch: master
-      repo: https://github.com/Mug1vara97/SeaBattle.git
-    id: StartedAt
-    path: Models/GameHistory.cs
-    startLine: 59
-  assemblies:
-  - SeaBattle
-  namespace: SeaBattle.Models
-  summary: Дата и время начала игры
-  example: []
-  syntax:
-    content: public DateTime StartedAt { get; set; }
-    parameters: []
-    return:
-      type: System.DateTime
-    content.vb: Public Property StartedAt As Date
-  overload: SeaBattle.Models.GameHistory.StartedAt*
-- uid: SeaBattle.Models.GameHistory.DurationMinutes
-  commentId: P:SeaBattle.Models.GameHistory.DurationMinutes
-  id: DurationMinutes
-  parent: SeaBattle.Models.GameHistory
-  langs:
-  - csharp
-  - vb
-  name: DurationMinutes
-  nameWithType: GameHistory.DurationMinutes
-  fullName: SeaBattle.Models.GameHistory.DurationMinutes
-  type: Property
-  source:
-    remote:
-      path: Server/SeaBattle/Models/GameHistory.cs
-      branch: master
-      repo: https://github.com/Mug1vara97/SeaBattle.git
-    id: DurationMinutes
-    path: Models/GameHistory.cs
-    startLine: 64
-  assemblies:
-  - SeaBattle
-  namespace: SeaBattle.Models
-  summary: Продолжительность игры в минутах
-  example: []
-  syntax:
-    content: public double DurationMinutes { get; }
-    parameters: []
-    return:
-      type: System.Double
-    content.vb: Public ReadOnly Property DurationMinutes As Double
-  overload: SeaBattle.Models.GameHistory.DurationMinutes*
 - uid: SeaBattle.Models.GameHistory.#ctor
   commentId: M:SeaBattle.Models.GameHistory.#ctor
   id: '#ctor'
@@ -475,7 +289,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: .ctor
     path: Models/GameHistory.cs
-    startLine: 66
+    startLine: 45
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -812,64 +626,6 @@ references:
   name: Result
   nameWithType: GameHistory.Result
   fullName: SeaBattle.Models.GameHistory.Result
-- uid: SeaBattle.Models.GameHistory.CreatorName*
-  commentId: Overload:SeaBattle.Models.GameHistory.CreatorName
-  href: SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_CreatorName
-  name: CreatorName
-  nameWithType: GameHistory.CreatorName
-  fullName: SeaBattle.Models.GameHistory.CreatorName
-- uid: SeaBattle.Models.GameHistory.JoinerName*
-  commentId: Overload:SeaBattle.Models.GameHistory.JoinerName
-  href: SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_JoinerName
-  name: JoinerName
-  nameWithType: GameHistory.JoinerName
-  fullName: SeaBattle.Models.GameHistory.JoinerName
-- uid: SeaBattle.Models.GameHistory.Winner*
-  commentId: Overload:SeaBattle.Models.GameHistory.Winner
-  href: SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_Winner
-  name: Winner
-  nameWithType: GameHistory.Winner
-  fullName: SeaBattle.Models.GameHistory.Winner
-- uid: SeaBattle.Models.GameHistory.TotalMoves*
-  commentId: Overload:SeaBattle.Models.GameHistory.TotalMoves
-  href: SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_TotalMoves
-  name: TotalMoves
-  nameWithType: GameHistory.TotalMoves
-  fullName: SeaBattle.Models.GameHistory.TotalMoves
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
-- uid: SeaBattle.Models.GameHistory.StartedAt*
-  commentId: Overload:SeaBattle.Models.GameHistory.StartedAt
-  href: SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_StartedAt
-  name: StartedAt
-  nameWithType: GameHistory.StartedAt
-  fullName: SeaBattle.Models.GameHistory.StartedAt
-- uid: SeaBattle.Models.GameHistory.DurationMinutes*
-  commentId: Overload:SeaBattle.Models.GameHistory.DurationMinutes
-  href: SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory_DurationMinutes
-  name: DurationMinutes
-  nameWithType: GameHistory.DurationMinutes
-  fullName: SeaBattle.Models.GameHistory.DurationMinutes
-- uid: System.Double
-  commentId: T:System.Double
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.double
-  name: double
-  nameWithType: double
-  fullName: double
-  nameWithType.vb: Double
-  fullName.vb: Double
-  name.vb: Double
 - uid: SeaBattle.Models.GameHistory.#ctor*
   commentId: Overload:SeaBattle.Models.GameHistory.#ctor
   href: SeaBattle.Models.GameHistory.html#SeaBattle_Models_GameHistory__ctor

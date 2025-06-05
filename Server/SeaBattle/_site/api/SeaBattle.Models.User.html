@@ -2,12 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class User | SeaBattle Documentation </title>
+      <title>Class User </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class User | SeaBattle Documentation ">
+      <meta name="title" content="Class User ">
       
-      <meta name="description" content="Представляет пользователя в системе">
-      <link rel="icon" href="../favicon.ico">
+      <meta name="description" content="Представляет пользователя в системе морского боя">
+      <link rel="icon" href="../images/favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -44,7 +44,7 @@
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
           <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../logo.svg" alt="SeaBattle">
+            <img id="logo" class="svg" src="../images/logo.png" alt="SeaBattle">
             SeaBattle
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,7 +81,6 @@
             <i class="bi bi-list"></i>
           </button>
 
-          <nav id="breadcrumb"></nav>
         </div>
 
         <article data-uid="SeaBattle.Models.User">
@@ -97,7 +96,7 @@ Class User  <a class="header-action link-secondary" title="View source" href="ht
   <dl><dt>Assembly</dt><dd>SeaBattle.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Представляет пользователя в системе</p>
+  <div class="markdown summary"><p>Представляет пользователя в системе морского боя</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -157,7 +156,7 @@ Class User  <a class="header-action link-secondary" title="View source" href="ht
 
   <h3 id="SeaBattle_Models_User_CreatedAt" data-uid="SeaBattle.Models.User.CreatedAt">
   CreatedAt
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/User.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/User.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -216,38 +215,6 @@ Class User  <a class="header-action link-secondary" title="View source" href="ht
 
 
 
-  <a id="SeaBattle_Models_User_Losses_" data-uid="SeaBattle.Models.User.Losses*"></a>
-
-  <h3 id="SeaBattle_Models_User_Losses" data-uid="SeaBattle.Models.User.Losses">
-  Losses
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/User.cs/#L36"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Количество поражений</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int Losses { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
   <a id="SeaBattle_Models_User_PasswordHash_" data-uid="SeaBattle.Models.User.PasswordHash*"></a>
 
   <h3 id="SeaBattle_Models_User_PasswordHash" data-uid="SeaBattle.Models.User.PasswordHash">
@@ -255,7 +222,7 @@ Class User  <a class="header-action link-secondary" title="View source" href="ht
   <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/User.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Хэш пароля пользователя</p>
+  <div class="markdown level1 summary"><p>Хэшированный пароль пользователя для аутентификации</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -281,38 +248,6 @@ public required string PasswordHash { get; set; }</code></pre>
 
 
 
-  <a id="SeaBattle_Models_User_TotalGames_" data-uid="SeaBattle.Models.User.TotalGames*"></a>
-
-  <h3 id="SeaBattle_Models_User_TotalGames" data-uid="SeaBattle.Models.User.TotalGames">
-  TotalGames
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/User.cs/#L41"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Общее количество игр</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int TotalGames { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
   <a id="SeaBattle_Models_User_Username_" data-uid="SeaBattle.Models.User.Username*"></a>
 
   <h3 id="SeaBattle_Models_User_Username" data-uid="SeaBattle.Models.User.Username">
@@ -320,7 +255,7 @@ public required string PasswordHash { get; set; }</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/User.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Имя пользователя</p>
+  <div class="markdown level1 summary"><p>Имя пользователя, используемое для входа и отображения в игре</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -347,44 +282,9 @@ public required string Username { get; set; }</code></pre>
 
 
 
-  <a id="SeaBattle_Models_User_Wins_" data-uid="SeaBattle.Models.User.Wins*"></a>
-
-  <h3 id="SeaBattle_Models_User_Wins" data-uid="SeaBattle.Models.User.Wins">
-  Wins
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/User.cs/#L31"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Количество побед</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int Wins { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
 
 </article>
 
-        <div class="contribution d-print-none">
-          <a href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/User.cs/#L8" class="edit-link">Edit this page</a>
-        </div>
 
 
       </div>

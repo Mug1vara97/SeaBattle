@@ -1,4 +1,85 @@
-- name: Introduction
+- name: Введение
   href: introduction.md
-- name: Getting Started
+- name: Начало работы
   href: getting-started.md
+- name: API Documentation
+  href: ../api/index.md 
+  items:
+    - name: Основные игровые модели
+      items:
+        - name: Game
+          href: ../api/SeaBattle.Models.Game.yml
+        - name: Position
+          href: ../api/SeaBattle.Models.Position.yml
+        - name: CellState
+          href: ../api/SeaBattle.Models.CellState.yml
+    - name: Модели состояний и статусов
+      items:
+        - name: GameState
+          href: ../api/SeaBattle.Models.GameState.yml
+        - name: GameStateInfo
+          href: ../api/SeaBattle.Models.GameStateInfo.yml
+        - name: GameStateManager
+          href: ../api/SeaBattle.Models.GameStateManager.yml
+        - name: GameStatus
+          href: ../api/SeaBattle.Models.GameStatus.yml
+        - name: ShotResult
+          href: ../api/SeaBattle.Models.ShotResult.yml
+        - name: ShotResultResponse
+          href: ../api/SeaBattle.Models.ShotResultResponse.yml
+    - name: Модели пользователей и рейтинга
+      items:
+        - name: User
+          href: ../api/SeaBattle.Models.User.yml
+        - name: PlayerRanking
+          href: ../api/SeaBattle.Models.PlayerRanking.yml
+        - name: GameHistory
+          href: ../api/SeaBattle.Models.GameHistory.yml
+    - name: Вспомогательные модели
+      items:
+        - name: LobbyInfo
+          href: ../api/SeaBattle.Models.LobbyInfo.yml
+        - name: BoardConverter
+          href: ../api/SeaBattle.Models.Converters.BoardConverter.yml
+- name: Сервисы
+  items:
+    - name: IGameService
+      href: ../api/SeaBattle.Services.IGameService.yml
+    - name: GameService
+      href: ../api/SeaBattle.Services.GameService.yml
+    - name: IUserService
+      href: ../api/SeaBattle.Services.IUserService.yml
+    - name: UserService
+      href: ../api/SeaBattle.Services.UserService.yml
+- name: Контроллеры
+  items:
+    - name: GameController
+      href: ../api/SeaBattle.Controllers.GameController.yml
+      items:
+        - name: CreateGameRequest
+          href: ../api/SeaBattle.Controllers.CreateGameRequest.yml
+        - name: JoinGameRequest
+          href: ../api/SeaBattle.Controllers.JoinGameRequest.yml
+        - name: ReadyRequest
+          href: ../api/SeaBattle.Controllers.ReadyRequest.yml
+        - name: ShotRequest
+          href: ../api/SeaBattle.Controllers.ShotRequest.yml
+    - name: AuthController
+      href: ../api/SeaBattle.Controllers.AuthController.yml
+      items:
+        - name: LoginRequest
+          href: ../api/SeaBattle.Controllers.LoginRequest.yml
+        - name: RegisterRequest
+          href: ../api/SeaBattle.Controllers.RegisterRequest.yml
+- name: Real-time взаимодействие
+  items:
+    - name: GameHub
+      href: ../api/SeaBattle.Hubs.GameHub.yml
+    - name: LobbyHub
+      href: ../api/SeaBattle.Hubs.LobbyHub.yml
+- name: Работа с данными
+  items:
+    - name: ApplicationDbContext
+      href: ../api/SeaBattle.Data.ApplicationDbContext.yml
+    - name: DesignTimeDbContextFactory
+      href: ../api/SeaBattle.Data.DesignTimeDbContextFactory.yml

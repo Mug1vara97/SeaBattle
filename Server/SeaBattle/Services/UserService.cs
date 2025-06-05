@@ -6,20 +6,29 @@ using System.Text;
 
 namespace SeaBattle.Services
 {
+    /// <summary>
+    /// Реализация сервиса для управления пользователями
+    /// </summary>
     public class UserService : IUserService
     {
         private readonly ApplicationDbContext _context;
 
+        /// <summary>
+        /// Инициализирует новый экземпляр сервиса пользователей
+        /// </summary>
+        /// <param name="context">Контекст базы данных</param>
         public UserService(ApplicationDbContext context)
         {
             _context = context;
         }
 
+        /// <inheritdoc/>
         public async Task<User?> GetUserByUsername(string username)
         {
             return await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
-            }
+        }
 
+        /// <inheritdoc/>
         public async Task<User> CreateUser(string username, string password)
         {
             var passwordHash = HashPassword(password);
@@ -34,6 +43,7 @@ namespace SeaBattle.Services
             return user;
         }
 
+        /// <inheritdoc/>
         public async Task<bool> ValidateUser(string username, string password)
         {
             var user = await GetUserByUsername(username);
@@ -42,6 +52,11 @@ namespace SeaBattle.Services
             return HashPassword(password) == user.PasswordHash;
         }
 
+        /// <summary>
+        /// Хеширует пароль пользователя с использованием SHA256
+        /// </summary>
+        /// <param name="password">Исходный пароль</param>
+        /// <returns>Хешированный пароль в формате Base64</returns>
         private string HashPassword(string password)
         {
             using var sha256 = SHA256.Create();

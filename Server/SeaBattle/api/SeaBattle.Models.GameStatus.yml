@@ -23,10 +23,12 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: GameStatus
     path: Models/GameStatus.cs
-    startLine: 2
+    startLine: 5
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
+  summary: Перечисление статусов игры для отображения в интерфейсе
+  example: []
   syntax:
     content: public enum GameStatus
     content.vb: Public Enum GameStatus
@@ -48,10 +50,12 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: WaitingForOpponent
     path: Models/GameStatus.cs
-    startLine: 4
+    startLine: 10
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
+  summary: ООжидание готовности игрока
+  example: []
   syntax:
     content: WaitingForOpponent = 0
     return:
@@ -74,10 +78,12 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: WaitingForReady
     path: Models/GameStatus.cs
-    startLine: 5
+    startLine: 15
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
+  summary: Ожидание готовности игрока
+  example: []
   syntax:
     content: WaitingForReady = 1
     return:
@@ -100,10 +106,12 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: InProgress
     path: Models/GameStatus.cs
-    startLine: 6
+    startLine: 20
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
+  summary: Игра в процессе
+  example: []
   syntax:
     content: InProgress = 2
     return:
@@ -126,10 +134,12 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: Finished
     path: Models/GameStatus.cs
-    startLine: 7
+    startLine: 25
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
+  summary: Игра завершена
+  example: []
   syntax:
     content: Finished = 3
     return:

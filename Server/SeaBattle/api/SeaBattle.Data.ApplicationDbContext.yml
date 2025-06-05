@@ -24,10 +24,34 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: ApplicationDbContext
     path: Data/ApplicationDbContext.cs
-    startLine: 5
+    startLine: 31
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Data
+  summary: >-
+    Контекст базы данных приложения SeaBattle.
+
+    Обеспечивает доступ к таблицам и управление данными игры.
+  remarks: >-
+    Контекст включает следующие сущности:
+
+    <ul><li>Users - информация о пользователях</li><li>GameHistories - история игр</li><li>PlayerRankings - рейтинги игроков</li></ul>
+
+
+    Пример использования:
+
+    <pre><code class="lang-csharp">using (var context = new ApplicationDbContext(options))
+
+    {
+        // Получение пользователя
+        var user = await context.Users.FindAsync(userId);
+
+        // Получение истории игр
+        var history = await context.GameHistories
+            .Where(h =&gt; h.PlayerUsername == username)
+            .ToListAsync();
+    }</code></pre>
+  example: []
   syntax:
     content: 'public class ApplicationDbContext : DbContext, IInfrastructure<IServiceProvider>, IDbContextDependencies, IDbSetCache, IDbContextPoolable, IResettableService, IDisposable, IAsyncDisposable'
     content.vb: Public Class ApplicationDbContext Inherits DbContext Implements IInfrastructure(Of IServiceProvider), IDbContextDependencies, IDbSetCache, IDbContextPoolable, IResettableService, IDisposable, IAsyncDisposable
@@ -114,15 +138,18 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: .ctor
     path: Data/ApplicationDbContext.cs
-    startLine: 7
+    startLine: 37
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Data
+  summary: Инициализирует новый экземпляр контекста базы данных.
+  example: []
   syntax:
     content: public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
     parameters:
     - id: options
       type: Microsoft.EntityFrameworkCore.DbContextOptions{SeaBattle.Data.ApplicationDbContext}
+      description: Параметры конфигурации контекста
     content.vb: Public Sub New(options As DbContextOptions(Of ApplicationDbContext))
   overload: SeaBattle.Data.ApplicationDbContext.#ctor*
   nameWithType.vb: ApplicationDbContext.New(DbContextOptions(Of ApplicationDbContext))
@@ -146,10 +173,16 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: Users
     path: Data/ApplicationDbContext.cs
-    startLine: 12
+    startLine: 49
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Data
+  summary: Получает или устанавливает набор пользователей в базе данных.
+  remarks: >-
+    Содержит основную информацию о зарегистрированных пользователях,
+
+    включая учетные данные и настройки профиля.
+  example: []
   syntax:
     content: public virtual DbSet<User> Users { get; set; }
     parameters: []
@@ -175,10 +208,16 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: GameHistories
     path: Data/ApplicationDbContext.cs
-    startLine: 13
+    startLine: 62
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Data
+  summary: Получает или устанавливает набор записей истории игр.
+  remarks: >-
+    Хранит информацию о завершенных играх, включая:
+
+    <ul><li>Участников игры</li><li>Результат игры</li><li>Время завершения</li></ul>
+  example: []
   syntax:
     content: public virtual DbSet<GameHistory> GameHistories { get; set; }
     parameters: []
@@ -204,10 +243,16 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: PlayerRankings
     path: Data/ApplicationDbContext.cs
-    startLine: 14
+    startLine: 75
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Data
+  summary: Получает или устанавливает набор рейтингов игроков.
+  remarks: >-
+    Содержит статистику игроков:
+
+    <ul><li>Текущий рейтинг</li><li>Количество побед и поражений</li><li>Общее количество игр</li></ul>
+  example: []
   syntax:
     content: public virtual DbSet<PlayerRanking> PlayerRankings { get; set; }
     parameters: []
@@ -233,7 +278,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: OnModelCreating
     path: Data/ApplicationDbContext.cs
-    startLine: 16
+    startLine: 77
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Data

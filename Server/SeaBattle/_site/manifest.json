@@ -148,7 +148,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SeaBattle.Data.ApplicationDbContext",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/SeaBattle.Data.ApplicationDbContext.yml\" sourcestartlinenumber=\"1\">Контекст базы данных приложения SeaBattle.\nОбеспечивает доступ к таблицам и управление данными игры.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -162,7 +162,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SeaBattle.Data.DesignTimeDbContextFactory",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/SeaBattle.Data.DesignTimeDbContextFactory.yml\" sourcestartlinenumber=\"1\">Фабрика для создания контекста базы данных во время разработки.\nИспользуется инструментами Entity Framework Core для миграций и обновления базы данных.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -302,7 +302,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SeaBattle.Models.CellState",
-      "Summary": "<p sourcefile=\"api/SeaBattle.Models.CellState.yml\" sourcestartlinenumber=\"1\">Перечисление возможных состояний клетки игрового поля</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -358,7 +358,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SeaBattle.Models.GameHistory",
-      "Summary": "<p sourcefile=\"api/SeaBattle.Models.GameHistory.yml\" sourcestartlinenumber=\"1\">Представляет историю игры морского боя</p>\n"
+      "Summary": "<p sourcefile=\"api/SeaBattle.Models.GameHistory.yml\" sourcestartlinenumber=\"1\">Представляет историю завершенной игры в морской бой</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -428,7 +428,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SeaBattle.Models.GameStatus",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/SeaBattle.Models.GameStatus.yml\" sourcestartlinenumber=\"1\">Перечисление статусов игры для отображения в интерфейсе</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -442,7 +442,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SeaBattle.Models.LobbyInfo",
-      "Summary": "<p sourcefile=\"api/SeaBattle.Models.LobbyInfo.yml\" sourcestartlinenumber=\"1\">Представляет информацию о игровом лобби</p>\n"
+      "Summary": "<p sourcefile=\"api/SeaBattle.Models.LobbyInfo.yml\" sourcestartlinenumber=\"1\">Класс, представляющий информацию о лобби игры</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -456,7 +456,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SeaBattle.Models.PlayerRanking",
-      "Summary": "<p sourcefile=\"api/SeaBattle.Models.PlayerRanking.yml\" sourcestartlinenumber=\"1\">Представляет рейтинг игрока в таблице лидеров</p>\n"
+      "Summary": "<p sourcefile=\"api/SeaBattle.Models.PlayerRanking.yml\" sourcestartlinenumber=\"1\">Представляет рейтинг игрока в системе морского боя</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -498,7 +498,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SeaBattle.Models.ShotResultResponse",
-      "Summary": "<p sourcefile=\"api/SeaBattle.Models.ShotResultResponse.yml\" sourcestartlinenumber=\"1\">Представляет ответ на выполненный выстрел</p>\n"
+      "Summary": "<p sourcefile=\"api/SeaBattle.Models.ShotResultResponse.yml\" sourcestartlinenumber=\"1\">Класс, представляющий ответ на выстрел игрока</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -512,7 +512,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SeaBattle.Models.User",
-      "Summary": "<p sourcefile=\"api/SeaBattle.Models.User.yml\" sourcestartlinenumber=\"1\">Представляет пользователя в системе</p>\n"
+      "Summary": "<p sourcefile=\"api/SeaBattle.Models.User.yml\" sourcestartlinenumber=\"1\">Представляет пользователя в системе морского боя</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -540,7 +540,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SeaBattle.Services.GameService",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/SeaBattle.Services.GameService.yml\" sourcestartlinenumber=\"1\">Реализация сервиса для управления игровыми сессиями морского боя.\nПредоставляет функционал для создания, управления и завершения игровых сессий,\nа также обработки игровой механики и ведения статистики.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -554,7 +554,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SeaBattle.Services.IGameService",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/SeaBattle.Services.IGameService.yml\" sourcestartlinenumber=\"1\">Интерфейс сервиса для управления игровыми сессиями морского боя</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -568,7 +568,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SeaBattle.Services.IUserService",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/SeaBattle.Services.IUserService.yml\" sourcestartlinenumber=\"1\">Интерфейс сервиса для управления пользователями</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -582,7 +582,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SeaBattle.Services.UserService",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/SeaBattle.Services.UserService.yml\" sourcestartlinenumber=\"1\">Реализация сервиса для управления пользователями</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -597,6 +597,16 @@
       "IsMRef": true,
       "Title": "SeaBattle.Services",
       "Summary": null
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
     },
     {
       "type": "Toc",

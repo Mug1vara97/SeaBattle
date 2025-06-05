@@ -20,10 +20,26 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: DesignTimeDbContextFactory
     path: Data/DesignTimeDbContextFactory.cs
-    startLine: 8
+    startLine: 26
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Data
+  summary: >-
+    Фабрика для создания контекста базы данных во время разработки.
+
+    Используется инструментами Entity Framework Core для миграций и обновления базы данных.
+  remarks: >-
+    Фабрика обеспечивает:
+
+    <ul><li>Создание контекста БД вне среды выполнения приложения</li><li>Загрузку конфигурации подключения к БД из appsettings.json</li><li>Поддержку инструментов командной строки EF Core</li></ul>
+
+
+    Используется при выполнении команд:
+
+    <pre><code class="lang-csharp">dotnet ef migrations add InitialCreate
+
+    dotnet ef database update</code></pre>
+  example: []
   syntax:
     content: 'public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>'
     content.vb: Public Class DesignTimeDbContextFactory Implements IDesignTimeDbContextFactory(Of ApplicationDbContext)
@@ -57,21 +73,25 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: CreateDbContext
     path: Data/DesignTimeDbContextFactory.cs
-    startLine: 10
+    startLine: 42
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Data
-  summary: Creates a new instance of a derived context.
+  summary: Создает новый экземпляр контекста базы данных для использования во время разработки.
+  remarks: >-
+    Метод выполняет:
+
+    <ol><li>Определение текущей директории проекта</li><li>Загрузку конфигурации из appsettings.json</li><li>Настройку подключения к базе данных</li><li>Создание и возврат контекста с настроенными параметрами</li></ol>
   example: []
   syntax:
     content: public ApplicationDbContext CreateDbContext(string[] args)
     parameters:
     - id: args
       type: System.String[]
-      description: Arguments provided by the design-time service.
+      description: Аргументы командной строки (не используются)
     return:
       type: SeaBattle.Data.ApplicationDbContext
-      description: An instance of <xref href="SeaBattle.Data.ApplicationDbContext" data-throw-if-not-resolved="false"></xref>.
+      description: Настроенный экземпляр контекста базы данных
     content.vb: Public Function CreateDbContext(args As String()) As ApplicationDbContext
   overload: SeaBattle.Data.DesignTimeDbContextFactory.CreateDbContext*
   implements:
@@ -437,13 +457,6 @@ references:
     name: Design
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.design
-- uid: SeaBattle.Data.ApplicationDbContext
-  commentId: T:SeaBattle.Data.ApplicationDbContext
-  parent: SeaBattle.Data
-  href: SeaBattle.Data.ApplicationDbContext.html
-  name: ApplicationDbContext
-  nameWithType: ApplicationDbContext
-  fullName: SeaBattle.Data.ApplicationDbContext
 - uid: SeaBattle.Data.DesignTimeDbContextFactory.CreateDbContext*
   commentId: Overload:SeaBattle.Data.DesignTimeDbContextFactory.CreateDbContext
   href: SeaBattle.Data.DesignTimeDbContextFactory.html#SeaBattle_Data_DesignTimeDbContextFactory_CreateDbContext_System_String___
@@ -510,6 +523,13 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.string
   - name: (
   - name: )
+- uid: SeaBattle.Data.ApplicationDbContext
+  commentId: T:SeaBattle.Data.ApplicationDbContext
+  parent: SeaBattle.Data
+  href: SeaBattle.Data.ApplicationDbContext.html
+  name: ApplicationDbContext
+  nameWithType: ApplicationDbContext
+  fullName: SeaBattle.Data.ApplicationDbContext
 - uid: Microsoft.EntityFrameworkCore.Design.IDesignTimeDbContextFactory`1.CreateDbContext(System.String[])
   commentId: M:Microsoft.EntityFrameworkCore.Design.IDesignTimeDbContextFactory`1.CreateDbContext(System.String[])
   isExternal: true

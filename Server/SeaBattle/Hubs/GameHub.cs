@@ -37,10 +37,10 @@ namespace SeaBattle.Hubs
         public override async Task OnConnectedAsync()
         {
             try
-            {
-                _logger.LogInformation($"Client connected: {Context.ConnectionId}");
-                await base.OnConnectedAsync();
-                await Clients.Caller.SendAsync("ReceiveMessage", "Подключено к серверу");
+        {
+            _logger.LogInformation($"Client connected: {Context.ConnectionId}");
+            await base.OnConnectedAsync();
+            await Clients.Caller.SendAsync("ReceiveMessage", "Подключено к серверу");
             }
             catch (Exception ex)
             {

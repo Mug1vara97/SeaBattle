@@ -6,12 +6,11 @@ items:
   parent: SeaBattle.Models
   children:
   - SeaBattle.Models.ShotResultResponse.CurrentTurn
-  - SeaBattle.Models.ShotResultResponse.ErrorMessage
+  - SeaBattle.Models.ShotResultResponse.Game
   - SeaBattle.Models.ShotResultResponse.GameState
   - SeaBattle.Models.ShotResultResponse.IsHit
   - SeaBattle.Models.ShotResultResponse.Position
   - SeaBattle.Models.ShotResultResponse.Result
-  - SeaBattle.Models.ShotResultResponse.Success
   langs:
   - csharp
   - vb
@@ -30,7 +29,7 @@ items:
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Представляет ответ на выполненный выстрел
+  summary: Класс, представляющий ответ на выстрел игрока
   example: []
   syntax:
     content: public class ShotResultResponse
@@ -45,6 +44,37 @@ items:
   - System.Object.MemberwiseClone
   - System.Object.ReferenceEquals(System.Object,System.Object)
   - System.Object.ToString
+- uid: SeaBattle.Models.ShotResultResponse.Game
+  commentId: P:SeaBattle.Models.ShotResultResponse.Game
+  id: Game
+  parent: SeaBattle.Models.ShotResultResponse
+  langs:
+  - csharp
+  - vb
+  name: Game
+  nameWithType: ShotResultResponse.Game
+  fullName: SeaBattle.Models.ShotResultResponse.Game
+  type: Property
+  source:
+    remote:
+      path: Server/SeaBattle/Models/ShotResultResponse.cs
+      branch: master
+      repo: https://github.com/Mug1vara97/SeaBattle.git
+    id: Game
+    path: Models/ShotResultResponse.cs
+    startLine: 12
+  assemblies:
+  - SeaBattle
+  namespace: SeaBattle.Models
+  summary: Текущее состояние игры после выстрела
+  example: []
+  syntax:
+    content: public Game? Game { get; set; }
+    parameters: []
+    return:
+      type: SeaBattle.Models.Game
+    content.vb: Public Property Game As Game
+  overload: SeaBattle.Models.ShotResultResponse.Game*
 - uid: SeaBattle.Models.ShotResultResponse.Result
   commentId: P:SeaBattle.Models.ShotResultResponse.Result
   id: Result
@@ -63,7 +93,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: Result
     path: Models/ShotResultResponse.cs
-    startLine: 12
+    startLine: 17
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -94,14 +124,14 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: Position
     path: Models/ShotResultResponse.cs
-    startLine: 17
+    startLine: 22
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Позиция выстрела
+  summary: Позиция выстрела на игровом поле
   example: []
   syntax:
-    content: public Position Position { get; set; }
+    content: public Position? Position { get; set; }
     parameters: []
     return:
       type: SeaBattle.Models.Position
@@ -125,11 +155,11 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: IsHit
     path: Models/ShotResultResponse.cs
-    startLine: 22
+    startLine: 27
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Флаг успешности попадания
+  summary: Флаг, указывающий, было ли попадание
   example: []
   syntax:
     content: public bool IsHit { get; set; }
@@ -156,11 +186,11 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: CurrentTurn
     path: Models/ShotResultResponse.cs
-    startLine: 27
+    startLine: 32
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Имя игрока, чей следующий ход
+  summary: Имя игрока, чей ход следующий
   example: []
   syntax:
     content: public string? CurrentTurn { get; set; }
@@ -187,7 +217,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: GameState
     path: Models/ShotResultResponse.cs
-    startLine: 32
+    startLine: 37
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -200,68 +230,6 @@ items:
       type: SeaBattle.Models.GameState
     content.vb: Public Property GameState As GameState
   overload: SeaBattle.Models.ShotResultResponse.GameState*
-- uid: SeaBattle.Models.ShotResultResponse.ErrorMessage
-  commentId: P:SeaBattle.Models.ShotResultResponse.ErrorMessage
-  id: ErrorMessage
-  parent: SeaBattle.Models.ShotResultResponse
-  langs:
-  - csharp
-  - vb
-  name: ErrorMessage
-  nameWithType: ShotResultResponse.ErrorMessage
-  fullName: SeaBattle.Models.ShotResultResponse.ErrorMessage
-  type: Property
-  source:
-    remote:
-      path: Server/SeaBattle/Models/ShotResultResponse.cs
-      branch: master
-      repo: https://github.com/Mug1vara97/SeaBattle.git
-    id: ErrorMessage
-    path: Models/ShotResultResponse.cs
-    startLine: 37
-  assemblies:
-  - SeaBattle
-  namespace: SeaBattle.Models
-  summary: Сообщение об ошибке, если она произошла
-  example: []
-  syntax:
-    content: public string? ErrorMessage { get; set; }
-    parameters: []
-    return:
-      type: System.String
-    content.vb: Public Property ErrorMessage As String
-  overload: SeaBattle.Models.ShotResultResponse.ErrorMessage*
-- uid: SeaBattle.Models.ShotResultResponse.Success
-  commentId: P:SeaBattle.Models.ShotResultResponse.Success
-  id: Success
-  parent: SeaBattle.Models.ShotResultResponse
-  langs:
-  - csharp
-  - vb
-  name: Success
-  nameWithType: ShotResultResponse.Success
-  fullName: SeaBattle.Models.ShotResultResponse.Success
-  type: Property
-  source:
-    remote:
-      path: Server/SeaBattle/Models/ShotResultResponse.cs
-      branch: master
-      repo: https://github.com/Mug1vara97/SeaBattle.git
-    id: Success
-    path: Models/ShotResultResponse.cs
-    startLine: 42
-  assemblies:
-  - SeaBattle
-  namespace: SeaBattle.Models
-  summary: Флаг успешности выполнения операции
-  example: []
-  syntax:
-    content: public bool Success { get; set; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: Public Property Success As Boolean
-  overload: SeaBattle.Models.ShotResultResponse.Success*
 references:
 - uid: SeaBattle.Models
   commentId: N:SeaBattle.Models
@@ -522,6 +490,19 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: SeaBattle.Models.ShotResultResponse.Game*
+  commentId: Overload:SeaBattle.Models.ShotResultResponse.Game
+  href: SeaBattle.Models.ShotResultResponse.html#SeaBattle_Models_ShotResultResponse_Game
+  name: Game
+  nameWithType: ShotResultResponse.Game
+  fullName: SeaBattle.Models.ShotResultResponse.Game
+- uid: SeaBattle.Models.Game
+  commentId: T:SeaBattle.Models.Game
+  parent: SeaBattle.Models
+  href: SeaBattle.Models.Game.html
+  name: Game
+  nameWithType: Game
+  fullName: SeaBattle.Models.Game
 - uid: SeaBattle.Models.ShotResultResponse.Result*
   commentId: Overload:SeaBattle.Models.ShotResultResponse.Result
   href: SeaBattle.Models.ShotResultResponse.html#SeaBattle_Models_ShotResultResponse_Result
@@ -595,15 +576,3 @@ references:
   name: GameState
   nameWithType: GameState
   fullName: SeaBattle.Models.GameState
-- uid: SeaBattle.Models.ShotResultResponse.ErrorMessage*
-  commentId: Overload:SeaBattle.Models.ShotResultResponse.ErrorMessage
-  href: SeaBattle.Models.ShotResultResponse.html#SeaBattle_Models_ShotResultResponse_ErrorMessage
-  name: ErrorMessage
-  nameWithType: ShotResultResponse.ErrorMessage
-  fullName: SeaBattle.Models.ShotResultResponse.ErrorMessage
-- uid: SeaBattle.Models.ShotResultResponse.Success*
-  commentId: Overload:SeaBattle.Models.ShotResultResponse.Success
-  href: SeaBattle.Models.ShotResultResponse.html#SeaBattle_Models_ShotResultResponse_Success
-  name: Success
-  nameWithType: ShotResultResponse.Success
-  fullName: SeaBattle.Models.ShotResultResponse.Success

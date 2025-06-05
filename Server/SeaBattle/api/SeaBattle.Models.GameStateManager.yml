@@ -23,7 +23,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: GameStateManager
     path: Models/GameState.cs
-    startLine: 67
+    startLine: 58
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -58,7 +58,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: CreateGame
     path: Models/GameState.cs
-    startLine: 71
+    startLine: 62
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -94,7 +94,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: GetGame
     path: Models/GameState.cs
-    startLine: 95
+    startLine: 86
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -128,7 +128,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: GetOpenLobbies
     path: Models/GameState.cs
-    startLine: 101
+    startLine: 92
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
@@ -156,7 +156,7 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: RemoveGame
     path: Models/GameState.cs
-    startLine: 108
+    startLine: 99
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models

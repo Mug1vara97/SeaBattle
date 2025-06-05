@@ -5,13 +5,11 @@ items:
   id: GameState
   parent: SeaBattle.Models
   children:
-  - SeaBattle.Models.GameState.Cancelled
   - SeaBattle.Models.GameState.Finished
   - SeaBattle.Models.GameState.InProgress
   - SeaBattle.Models.GameState.Unknown
   - SeaBattle.Models.GameState.WaitingForOpponent
   - SeaBattle.Models.GameState.WaitingForReady
-  - SeaBattle.Models.GameState.WaitingForShips
   langs:
   - csharp
   - vb
@@ -35,34 +33,6 @@ items:
   syntax:
     content: public enum GameState
     content.vb: Public Enum GameState
-- uid: SeaBattle.Models.GameState.Unknown
-  commentId: F:SeaBattle.Models.GameState.Unknown
-  id: Unknown
-  parent: SeaBattle.Models.GameState
-  langs:
-  - csharp
-  - vb
-  name: Unknown
-  nameWithType: GameState.Unknown
-  fullName: SeaBattle.Models.GameState.Unknown
-  type: Field
-  source:
-    remote:
-      path: Server/SeaBattle/Models/GameState.cs
-      branch: master
-      repo: https://github.com/Mug1vara97/SeaBattle.git
-    id: Unknown
-    path: Models/GameState.cs
-    startLine: 15
-  assemblies:
-  - SeaBattle
-  namespace: SeaBattle.Models
-  summary: Неизвестное состояние
-  example: []
-  syntax:
-    content: Unknown = 0
-    return:
-      type: SeaBattle.Models.GameState
 - uid: SeaBattle.Models.GameState.WaitingForOpponent
   commentId: F:SeaBattle.Models.GameState.WaitingForOpponent
   id: WaitingForOpponent
@@ -81,42 +51,14 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: WaitingForOpponent
     path: Models/GameState.cs
-    startLine: 20
+    startLine: 15
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Ожидание второго игрока
+  summary: Ожидание присоединения второго игрока
   example: []
   syntax:
-    content: WaitingForOpponent = 1
-    return:
-      type: SeaBattle.Models.GameState
-- uid: SeaBattle.Models.GameState.WaitingForShips
-  commentId: F:SeaBattle.Models.GameState.WaitingForShips
-  id: WaitingForShips
-  parent: SeaBattle.Models.GameState
-  langs:
-  - csharp
-  - vb
-  name: WaitingForShips
-  nameWithType: GameState.WaitingForShips
-  fullName: SeaBattle.Models.GameState.WaitingForShips
-  type: Field
-  source:
-    remote:
-      path: Server/SeaBattle/Models/GameState.cs
-      branch: master
-      repo: https://github.com/Mug1vara97/SeaBattle.git
-    id: WaitingForShips
-    path: Models/GameState.cs
-    startLine: 25
-  assemblies:
-  - SeaBattle
-  namespace: SeaBattle.Models
-  summary: Ожидание расстановки кораблей
-  example: []
-  syntax:
-    content: WaitingForShips = 2
+    content: WaitingForOpponent = 0
     return:
       type: SeaBattle.Models.GameState
 - uid: SeaBattle.Models.GameState.WaitingForReady
@@ -137,14 +79,14 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: WaitingForReady
     path: Models/GameState.cs
-    startLine: 30
+    startLine: 20
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Ожидание готовности игроков
+  summary: Ожидание готовности обоих игроков
   example: []
   syntax:
-    content: WaitingForReady = 3
+    content: WaitingForReady = 1
     return:
       type: SeaBattle.Models.GameState
 - uid: SeaBattle.Models.GameState.InProgress
@@ -165,14 +107,14 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: InProgress
     path: Models/GameState.cs
-    startLine: 35
+    startLine: 25
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
   summary: Игра в процессе
   example: []
   syntax:
-    content: InProgress = 4
+    content: InProgress = 2
     return:
       type: SeaBattle.Models.GameState
 - uid: SeaBattle.Models.GameState.Finished
@@ -193,42 +135,42 @@ items:
       repo: https://github.com/Mug1vara97/SeaBattle.git
     id: Finished
     path: Models/GameState.cs
-    startLine: 40
+    startLine: 30
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
   summary: Игра завершена
   example: []
   syntax:
-    content: Finished = 5
+    content: Finished = 3
     return:
       type: SeaBattle.Models.GameState
-- uid: SeaBattle.Models.GameState.Cancelled
-  commentId: F:SeaBattle.Models.GameState.Cancelled
-  id: Cancelled
+- uid: SeaBattle.Models.GameState.Unknown
+  commentId: F:SeaBattle.Models.GameState.Unknown
+  id: Unknown
   parent: SeaBattle.Models.GameState
   langs:
   - csharp
   - vb
-  name: Cancelled
-  nameWithType: GameState.Cancelled
-  fullName: SeaBattle.Models.GameState.Cancelled
+  name: Unknown
+  nameWithType: GameState.Unknown
+  fullName: SeaBattle.Models.GameState.Unknown
   type: Field
   source:
     remote:
       path: Server/SeaBattle/Models/GameState.cs
       branch: master
       repo: https://github.com/Mug1vara97/SeaBattle.git
-    id: Cancelled
+    id: Unknown
     path: Models/GameState.cs
-    startLine: 45
+    startLine: 35
   assemblies:
   - SeaBattle
   namespace: SeaBattle.Models
-  summary: Игра отменена
+  summary: Неизвестное состояние
   example: []
   syntax:
-    content: Cancelled = 6
+    content: Unknown = 4
     return:
       type: SeaBattle.Models.GameState
 references:

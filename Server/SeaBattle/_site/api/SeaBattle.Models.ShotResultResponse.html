@@ -2,12 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class ShotResultResponse | SeaBattle Documentation </title>
+      <title>Class ShotResultResponse </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class ShotResultResponse | SeaBattle Documentation ">
+      <meta name="title" content="Class ShotResultResponse ">
       
-      <meta name="description" content="Представляет ответ на выполненный выстрел">
-      <link rel="icon" href="../favicon.ico">
+      <meta name="description" content="Класс, представляющий ответ на выстрел игрока">
+      <link rel="icon" href="../images/favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
@@ -44,7 +44,7 @@
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
           <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../logo.svg" alt="SeaBattle">
+            <img id="logo" class="svg" src="../images/logo.png" alt="SeaBattle">
             SeaBattle
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,7 +81,6 @@
             <i class="bi bi-list"></i>
           </button>
 
-          <nav id="breadcrumb"></nav>
         </div>
 
         <article data-uid="SeaBattle.Models.ShotResultResponse">
@@ -97,7 +96,7 @@ Class ShotResultResponse  <a class="header-action link-secondary" title="View so
   <dl><dt>Assembly</dt><dd>SeaBattle.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Представляет ответ на выполненный выстрел</p>
+  <div class="markdown summary"><p>Класс, представляющий ответ на выстрел игрока</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -157,10 +156,10 @@ Class ShotResultResponse  <a class="header-action link-secondary" title="View so
 
   <h3 id="SeaBattle_Models_ShotResultResponse_CurrentTurn" data-uid="SeaBattle.Models.ShotResultResponse.CurrentTurn">
   CurrentTurn
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/ShotResultResponse.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/ShotResultResponse.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Имя игрока, чей следующий ход</p>
+  <div class="markdown level1 summary"><p>Имя игрока, чей ход следующий</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -185,19 +184,19 @@ Class ShotResultResponse  <a class="header-action link-secondary" title="View so
 
 
 
-  <a id="SeaBattle_Models_ShotResultResponse_ErrorMessage_" data-uid="SeaBattle.Models.ShotResultResponse.ErrorMessage*"></a>
+  <a id="SeaBattle_Models_ShotResultResponse_Game_" data-uid="SeaBattle.Models.ShotResultResponse.Game*"></a>
 
-  <h3 id="SeaBattle_Models_ShotResultResponse_ErrorMessage" data-uid="SeaBattle.Models.ShotResultResponse.ErrorMessage">
-  ErrorMessage
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/ShotResultResponse.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SeaBattle_Models_ShotResultResponse_Game" data-uid="SeaBattle.Models.ShotResultResponse.Game">
+  Game
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/ShotResultResponse.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Сообщение об ошибке, если она произошла</p>
+  <div class="markdown level1 summary"><p>Текущее состояние игры после выстрела</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string? ErrorMessage { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Game? Game { get; set; }</code></pre>
   </div>
 
 
@@ -206,7 +205,7 @@ Class ShotResultResponse  <a class="header-action link-secondary" title="View so
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dt><a class="xref" href="SeaBattle.Models.Game.html">Game</a></dt>
     <dd></dd>
   </dl>
 
@@ -221,7 +220,7 @@ Class ShotResultResponse  <a class="header-action link-secondary" title="View so
 
   <h3 id="SeaBattle_Models_ShotResultResponse_GameState" data-uid="SeaBattle.Models.ShotResultResponse.GameState">
   GameState
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/ShotResultResponse.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/ShotResultResponse.cs/#L38"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Текущее состояние игры</p>
@@ -253,10 +252,10 @@ Class ShotResultResponse  <a class="header-action link-secondary" title="View so
 
   <h3 id="SeaBattle_Models_ShotResultResponse_IsHit" data-uid="SeaBattle.Models.ShotResultResponse.IsHit">
   IsHit
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/ShotResultResponse.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/ShotResultResponse.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Флаг успешности попадания</p>
+  <div class="markdown level1 summary"><p>Флаг, указывающий, было ли попадание</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -285,15 +284,15 @@ Class ShotResultResponse  <a class="header-action link-secondary" title="View so
 
   <h3 id="SeaBattle_Models_ShotResultResponse_Position" data-uid="SeaBattle.Models.ShotResultResponse.Position">
   Position
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/ShotResultResponse.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/ShotResultResponse.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Позиция выстрела</p>
+  <div class="markdown level1 summary"><p>Позиция выстрела на игровом поле</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Position Position { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Position? Position { get; set; }</code></pre>
   </div>
 
 
@@ -317,7 +316,7 @@ Class ShotResultResponse  <a class="header-action link-secondary" title="View so
 
   <h3 id="SeaBattle_Models_ShotResultResponse_Result" data-uid="SeaBattle.Models.ShotResultResponse.Result">
   Result
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/ShotResultResponse.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/ShotResultResponse.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Результат выстрела</p>
@@ -345,44 +344,9 @@ Class ShotResultResponse  <a class="header-action link-secondary" title="View so
 
 
 
-  <a id="SeaBattle_Models_ShotResultResponse_Success_" data-uid="SeaBattle.Models.ShotResultResponse.Success*"></a>
-
-  <h3 id="SeaBattle_Models_ShotResultResponse_Success" data-uid="SeaBattle.Models.ShotResultResponse.Success">
-  Success
-  <a class="header-action link-secondary" title="View source" href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/ShotResultResponse.cs/#L43"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Флаг успешности выполнения операции</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool Success { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
 
 </article>
 
-        <div class="contribution d-print-none">
-          <a href="https://github.com/Mug1vara97/SeaBattle/blob/master/Server/SeaBattle/Models/ShotResultResponse.cs/#L8" class="edit-link">Edit this page</a>
-        </div>
 
 
       </div>
