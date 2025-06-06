@@ -25,9 +25,6 @@
 - [Изображения](img/)
 - [Диаграммы](diagrams/)
 
-## UML Diagrams
-
-### Controllers
 
 ![Controllers](diagrams/generated/Controllers.png)
 
@@ -50,4 +47,11 @@
 ### full-project
 
 ![full-project](diagrams/generated/full-project.png)
+
+
+## UML Diagrams
+
+### *
+
+![*](diagrams/generated/*.png)
 
