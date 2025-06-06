@@ -1,0 +1,7 @@
+# Игнорировать временные файлы PlantUML
+*.puml.bak
+*.puml.tmp
+
+# Не игнорировать сгенерированные диаграммы
+!generated/*.png
+!generated/*.puml 
