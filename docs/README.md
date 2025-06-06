@@ -26,6 +26,7 @@
 - [Диаграммы](diagrams/)
 
 
+
 ## UML Diagrams
 
 ### ClassDiagram
