@@ -49,9 +49,26 @@
 ![full-project](diagrams/generated/full-project.png)
 
 
+
 ## UML Diagrams
 
-### *
+### ClassDiagram
 
-![*](diagrams/generated/*.png)
+![ClassDiagram](diagrams/generated/ClassDiagram.png)
+
+### ComponentOverview
+
+![ComponentOverview](diagrams/generated/ComponentOverview.png)
+
+### SequenceCreateGame
+
+![SequenceCreateGame](diagrams/generated/SequenceCreateGame.png)
+
+### SequenceGameStart
+
+![SequenceGameStart](diagrams/generated/SequenceGameStart.png)
+
+### UseCaseDiagram
+
+![UseCaseDiagram](diagrams/generated/UseCaseDiagram.png)
 
