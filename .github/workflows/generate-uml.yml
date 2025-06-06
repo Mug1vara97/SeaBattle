@@ -32,56 +32,92 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y graphviz
         wget -O plantuml.jar https://github.com/plantuml/plantuml/releases/download/v1.2024.0/plantuml-1.2024.0.jar
+        echo "PlantUML version:"
+        java -jar plantuml.jar -version
+
+    - name: Setup directories
+      run: |
+        echo "Creating directories..."
+        mkdir -p docs/diagrams/generated
+        chmod -R 755 docs/diagrams
+        ls -la docs/diagrams
 
     - name: Convert PlantUML to PNG
       run: |
-        mkdir -p docs/diagrams/generated
-        echo "Found .puml files:"
-        ls -la docs/diagrams/*.puml
+        echo "Starting PlantUML conversion..."
+        cd docs/diagrams
         
-        for puml_file in docs/diagrams/*.puml; do
+        # Check for PUML files
+        puml_files=(*.puml)
+        echo "Found ${#puml_files[@]} .puml files:"
+        ls -la *.puml
+        
+        for puml_file in *.puml; do
           if [ -f "$puml_file" ]; then
-            echo "Processing $puml_file"
+            echo "==== Processing $puml_file ===="
             filename=$(basename "$puml_file" .puml)
             echo "Generating PNG for $filename"
-            echo "Content of $puml_file:"
-            cat "$puml_file"
-            java -jar plantuml.jar -verbose -tpng "$puml_file" -o "$(pwd)/docs/diagrams/generated"
             
-            if [ -f "docs/diagrams/generated/$filename.png" ]; then
-              echo "Successfully generated $filename.png"
+            # Run PlantUML with detailed output
+            java -jar ../../plantuml.jar -verbose -tpng "$puml_file" -o "generated"
+            
+            # Check if generation was successful
+            if [ -f "generated/$filename.png" ]; then
+              echo "✅ Successfully generated generated/$filename.png"
+              ls -la "generated/$filename.png"
             else
-              echo "Failed to generate $filename.png"
+              echo "❌ Failed to generate $filename.png"
+              echo "Debugging information:"
+              echo "Current directory: $(pwd)"
+              echo "Content of generated directory:"
+              ls -la generated/
+              echo "Content of PUML file:"
+              cat "$puml_file"
             fi
+            echo "==== Finished processing $puml_file ===="
+            echo
           fi
         done
         
-        echo "Contents of generated directory:"
-        ls -la docs/diagrams/generated/
+        echo "Final contents of generated directory:"
+        ls -la generated/
 
     - name: Update README with diagrams
       run: |
-        if [ ! -d "docs/diagrams/generated" ] || [ -z "$(ls -A docs/diagrams/generated/*.png 2>/dev/null)" ]; then
-          echo "No generated diagrams found!"
-          echo "Contents of docs/diagrams/generated:"
-          ls -la docs/diagrams/generated/
+        cd docs
+        echo "Checking for generated diagrams..."
+        if [ ! -d "diagrams/generated" ]; then
+          echo "❌ Generated directory doesn't exist!"
           exit 1
         fi
         
-        if [ -f "docs/README.md" ]; then
+        png_count=$(ls -1 diagrams/generated/*.png 2>/dev/null | wc -l)
+        echo "Found $png_count PNG files"
+        
+        if [ "$png_count" -eq 0 ]; then
+          echo "❌ No generated diagrams found!"
+          echo "Contents of diagrams/generated:"
+          ls -la diagrams/generated/
+          exit 1
+        fi
+        
+        if [ -f "README.md" ]; then
+          echo "Updating README.md..."
           tmp_file=$(mktemp)
-          sed '/## UML Diagrams/,$d' docs/README.md > "$tmp_file" 2>/dev/null || cp docs/README.md "$tmp_file"
+          sed '/## UML Diagrams/,$d' README.md > "$tmp_file" 2>/dev/null || cp README.md "$tmp_file"
           echo -e "\n## UML Diagrams\n" >> "$tmp_file"
           
-          for png in docs/diagrams/generated/*.png; do
+          for png in diagrams/generated/*.png; do
             if [ -f "$png" ]; then
               name=$(basename "$png" .png)
+              echo "Adding $name to README..."
               echo -e "### $name\n" >> "$tmp_file"
               echo -e "![${name}](diagrams/generated/${name}.png)\n" >> "$tmp_file"
             fi
           done
           
-          mv "$tmp_file" docs/README.md
+          mv "$tmp_file" README.md
+          echo "✅ README.md updated successfully"
         fi
 
     - name: Configure Git
@@ -91,10 +127,15 @@ jobs:
 
     - name: Commit and push if changed
       run: |
-        rm -rf docs/diagrams/generated/*.png
-        git add docs/diagrams/generated/
+        echo "Adding changes to git..."
+        git add -f docs/diagrams/generated/*.png || echo "No PNGs to add"
         git add docs/README.md
+        
         if ! git diff --cached --quiet; then
+          echo "Changes detected, committing..."
           git commit -m "Update UML diagrams [skip ci]"
           git push
+          echo "✅ Changes pushed successfully"
+        else
+          echo "No changes to commit"
         fi 
