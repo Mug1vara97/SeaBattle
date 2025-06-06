@@ -2,12 +2,13 @@ name: Generate UML Diagrams
 
 on:
   push:
-    branches:
-      - main
-      - master
-    paths:
-      - 'docs/diagrams/**/*.puml'
-      - '.github/workflows/generate-uml.yml'
+  workflow_dispatch:
+    inputs:
+      force_regenerate:
+        description: 'Force regenerate all diagrams'
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   generate-uml:
@@ -90,6 +91,7 @@ jobs:
 
     - name: Commit and push if changed
       run: |
+        rm -rf docs/diagrams/generated/*.png
         git add docs/diagrams/generated/
         git add docs/README.md
         if ! git diff --cached --quiet; then
