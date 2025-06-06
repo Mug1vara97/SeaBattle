@@ -34,29 +34,48 @@ jobs:
 
     - name: Convert PlantUML to PNG
       run: |
-        # Создаем директорию для изображений, если её нет
+        # Создаем директорию для изображений
         mkdir -p docs/diagrams/generated
         
-        # Конвертируем все .puml файлы в PNG
+        # Выводим список .puml файлов для отладки
+        echo "Found .puml files:"
+        ls -la docs/diagrams/*.puml
+        
+        # Конвертируем каждый .puml файл отдельно
         for puml_file in docs/diagrams/*.puml; do
           if [ -f "$puml_file" ]; then
-            echo "Converting $puml_file to PNG"
+            echo "Processing $puml_file"
             # Получаем имя файла без пути и расширения
             filename=$(basename "$puml_file" .puml)
-            # Генерируем PNG в директории generated
-            java -jar plantuml.jar -tpng "$puml_file" -o "docs/diagrams/generated"
+            echo "Generating PNG for $filename"
+            
+            # Проверяем содержимое .puml файла
+            echo "Content of $puml_file:"
+            cat "$puml_file"
+            
+            # Генерируем PNG
+            java -jar plantuml.jar -verbose -tpng "$puml_file" -o "$(pwd)/docs/diagrams/generated"
+            
+            # Проверяем, был ли создан файл
+            if [ -f "docs/diagrams/generated/$filename.png" ]; then
+              echo "Successfully generated $filename.png"
+            else
+              echo "Failed to generate $filename.png"
+            fi
           fi
         done
         
-        # Проверяем, что файлы созданы
-        echo "Generated files:"
+        # Выводим список сгенерированных файлов
+        echo "Contents of generated directory:"
         ls -la docs/diagrams/generated/
 
     - name: Update README with diagrams
       run: |
         # Проверяем наличие сгенерированных файлов
-        if [ ! -d "docs/diagrams/generated" ] || [ -z "$(ls -A docs/diagrams/generated)" ]; then
+        if [ ! -d "docs/diagrams/generated" ] || [ -z "$(ls -A docs/diagrams/generated/*.png 2>/dev/null)" ]; then
           echo "No generated diagrams found!"
+          echo "Contents of docs/diagrams/generated:"
+          ls -la docs/diagrams/generated/
           exit 1
         fi
         
