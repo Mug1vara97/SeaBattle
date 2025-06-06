@@ -12,46 +12,140 @@ on:
 jobs:
   generate-uml:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
     - uses: actions/checkout@v3
       with:
         fetch-depth: 0
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+    - name: Install Java
+      uses: actions/setup-java@v3
       with:
-        dotnet-version: '7.0.x'
+        distribution: 'temurin'
+        java-version: '17'
 
-    - name: Install PlantUML
+    - name: Install PlantUML and dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y plantuml graphviz
-
-    - name: Install dotnet-uml tool
-      run: |
-        dotnet tool install --global dotnet-uml
+        sudo apt-get install -y graphviz
+        wget -O plantuml.jar https://github.com/plantuml/plantuml/releases/download/v1.2024.0/plantuml-1.2024.0.jar
 
     - name: Generate UML diagrams
       run: |
         mkdir -p docs/diagrams/generated
         
-        # Генерация диаграмм для основных компонентов
-        for dir in Controllers Models Services Hubs; do
+        # Функция для создания PlantUML диаграммы
+        generate_uml() {
+          local dir=$1
+          local name=$2
+          local output_puml="docs/diagrams/generated/${name}.puml"
+          local output_png="docs/diagrams/generated/${name}.png"
+          
+          echo "@startuml" > "$output_puml"
+          echo "skinparam backgroundColor transparent" >> "$output_puml"
+          echo "skinparam classAttributeIconSize 0" >> "$output_puml"
+          echo "skinparam class {" >> "$output_puml"
+          echo "  BackgroundColor white" >> "$output_puml"
+          echo "  ArrowColor black" >> "$output_puml"
+          echo "  BorderColor black" >> "$output_puml"
+          echo "}" >> "$output_puml"
+          
+          # Поиск всех C# файлов
+          find "$dir" -name "*.cs" | while read -r file; do
+            # Пропускаем файлы миграций и автогенерированные
+            if [[ $file == *"/Migrations/"* ]] || [[ $file == *".Designer.cs" ]]; then
+              continue
+            fi
+            
+            # Читаем содержимое файла
+            while IFS= read -r line; do
+              # Ищем namespace
+              if [[ $line =~ namespace[[:space:]]+([[:alnum:].]+) ]]; then
+                namespace="${BASH_REMATCH[1]}"
+              fi
+              
+              # Ищем определения классов и интерфейсов
+              if [[ $line =~ class[[:space:]]+([[:alnum:]]+)|interface[[:space:]]+([[:alnum:]]+) ]]; then
+                type_name="${BASH_REMATCH[1]}${BASH_REMATCH[2]}"
+                echo "class $type_name {" >> "$output_puml"
+                
+                # Ищем наследование и интерфейсы
+                if [[ $line =~ :[[:space:]]*([[:alnum:],[:space:]]+) ]]; then
+                  IFS=',' read -ra INHERITANCE <<< "${BASH_REMATCH[1]}"
+                  for parent in "${INHERITANCE[@]}"; do
+                    parent=$(echo "$parent" | xargs)
+                    echo "$type_name --|> $parent" >> "$output_puml"
+                  done
+                fi
+              fi
+              
+              # Ищем публичные свойства
+              if [[ $line =~ public[[:space:]]+([[:alnum:]<>]+)[[:space:]]+([[:alnum:]]+)[[:space:]]*\{[[:space:]]*get ]]; then
+                prop_type="${BASH_REMATCH[1]}"
+                prop_name="${BASH_REMATCH[2]}"
+                echo "  + $prop_name: $prop_type" >> "$output_puml"
+              fi
+              
+              # Ищем публичные методы
+              if [[ $line =~ public[[:space:]]+([[:alnum:]<>]+)[[:space:]]+([[:alnum:]]+)[[:space:]]*\([^)]*\) ]]; then
+                method_type="${BASH_REMATCH[1]}"
+                method_name="${BASH_REMATCH[2]}"
+                if [[ $method_name != "get" && $method_name != "set" ]]; then
+                  echo "  + $method_name(): $method_type" >> "$output_puml"
+                fi
+              fi
+              
+              # Закрываем определение класса
+              if [[ $line =~ \}$ ]]; then
+                echo "}" >> "$output_puml"
+              fi
+            done < "$file"
+          done
+          
+          echo "@enduml" >> "$output_puml"
+          
+          # Генерируем PNG
+          java -jar plantuml.jar "$output_puml"
+        }
+        
+        # Генерируем диаграммы для каждой директории
+        for dir in Controllers Models Services Hubs Data; do
           if [ -d "Server/SeaBattle/$dir" ]; then
             echo "Generating diagram for $dir"
-            dotnet uml class Server/SeaBattle/$dir --output docs/diagrams/generated/$dir.puml
-            plantuml docs/diagrams/generated/$dir.puml
+            generate_uml "Server/SeaBattle/$dir" "$dir"
           fi
         done
         
-        # Генерация общей диаграммы проекта
-        dotnet uml class Server/SeaBattle --output docs/diagrams/generated/full-project.puml
-        plantuml docs/diagrams/generated/full-project.puml
+        # Генерируем общую диаграмму
+        generate_uml "Server/SeaBattle" "full-project"
 
-    - name: Commit and push if changed
+    - name: Update README with diagrams
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        # Создаем или обновляем секцию с диаграммами в README.md
+        if [ -f "docs/README.md" ]; then
+          # Удаляем старую секцию с диаграммами
+          sed -i '/## UML Diagrams/,/## /d' docs/README.md
+          
+          # Добавляем новую секцию
+          echo -e "\n## UML Diagrams\n" >> docs/README.md
+          for png in docs/diagrams/generated/*.png; do
+            name=$(basename "$png" .png)
+            echo -e "### $name\n" >> docs/README.md
+            echo -e "![${name}](diagrams/generated/${name}.png)\n" >> docs/README.md
+          done
+        fi
+
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
         git add docs/diagrams/generated/
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Update UML diagrams" && git push) 
+        git add docs/README.md
+        
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Update UML diagrams [skip ci]"
+          git push 
