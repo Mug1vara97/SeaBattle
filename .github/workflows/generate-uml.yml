@@ -38,28 +38,50 @@ jobs:
         mkdir -p docs/diagrams/generated
         
         # Конвертируем все .puml файлы в PNG
-        find docs/diagrams -name "*.puml" -type f | while read -r puml_file; do
-          echo "Converting $puml_file to PNG"
-          # Получаем имя файла без пути и расширения
-          filename=$(basename "$puml_file" .puml)
-          # Генерируем PNG в директории generated
-          java -jar plantuml.jar -tpng "$puml_file" -o "$(dirname "$puml_file")/generated"
+        for puml_file in docs/diagrams/*.puml; do
+          if [ -f "$puml_file" ]; then
+            echo "Converting $puml_file to PNG"
+            # Получаем имя файла без пути и расширения
+            filename=$(basename "$puml_file" .puml)
+            # Генерируем PNG в директории generated
+            java -jar plantuml.jar -tpng "$puml_file" -o "docs/diagrams/generated"
+          fi
         done
+        
+        # Проверяем, что файлы созданы
+        echo "Generated files:"
+        ls -la docs/diagrams/generated/
 
     - name: Update README with diagrams
       run: |
-        # Создаем или обновляем секцию с диаграммами в README.md
+        # Проверяем наличие сгенерированных файлов
+        if [ ! -d "docs/diagrams/generated" ] || [ -z "$(ls -A docs/diagrams/generated)" ]; then
+          echo "No generated diagrams found!"
+          exit 1
+        fi
+        
+        # Обновляем README.md
         if [ -f "docs/README.md" ]; then
-          # Удаляем старую секцию с диаграммами
-          sed -i '/## UML Diagrams/,/## /d' docs/README.md
+          # Создаем временный файл
+          tmp_file=$(mktemp)
           
-          # Добавляем новую секцию
-          echo -e "\n## UML Diagrams\n" >> docs/README.md
+          # Копируем содержимое до секции UML Diagrams
+          sed '/## UML Diagrams/,$d' docs/README.md > "$tmp_file" 2>/dev/null || cp docs/README.md "$tmp_file"
+          
+          # Добавляем секцию с диаграммами
+          echo -e "\n## UML Diagrams\n" >> "$tmp_file"
+          
+          # Добавляем каждую диаграмму
           for png in docs/diagrams/generated/*.png; do
-            name=$(basename "$png" .png)
-            echo -e "### $name\n" >> docs/README.md
-            echo -e "![${name}](diagrams/generated/${name}.png)\n" >> docs/README.md
+            if [ -f "$png" ]; then
+              name=$(basename "$png" .png)
+              echo -e "### $name\n" >> "$tmp_file"
+              echo -e "![${name}](diagrams/generated/${name}.png)\n" >> "$tmp_file"
+            fi
           done
+          
+          # Заменяем оригинальный файл
+          mv "$tmp_file" docs/README.md
         fi
 
     - name: Configure Git
