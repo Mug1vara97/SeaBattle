@@ -55,53 +55,48 @@ jobs:
           # Поиск всех C# файлов
           find "$dir" -name "*.cs" | while read -r file; do
             # Пропускаем файлы миграций и автогенерированные
-            if [[ $file == *"/Migrations/"* ]] || [[ $file == *".Designer.cs" ]]; then
+            if [[ "$file" == *"/Migrations/"* ]] || [[ "$file" == *".Designer.cs" ]]; then
               continue
             fi
             
-            # Читаем содержимое файла
-            while IFS= read -r line; do
-              # Ищем namespace
-              if [[ $line =~ namespace[[:space:]]+([[:alnum:].]+) ]]; then
-                namespace="${BASH_REMATCH[1]}"
-              fi
+            # Извлекаем namespace
+            namespace=$(grep -oP 'namespace\s+\K[a-zA-Z0-9.]+' "$file" | head -n1)
+            
+            # Извлекаем определения классов и интерфейсов
+            grep -oP '(public\s+)?(class|interface)\s+[a-zA-Z0-9]+(\s*:\s*[a-zA-Z0-9,\s]+)?' "$file" | while read -r type_def; do
+              # Получаем имя типа
+              type_name=$(echo "$type_def" | grep -oP '(?:class|interface)\s+\K[a-zA-Z0-9]+')
+              echo "class $type_name {" >> "$output_puml"
               
-              # Ищем определения классов и интерфейсов
-              if [[ $line =~ class[[:space:]]+([[:alnum:]]+)|interface[[:space:]]+([[:alnum:]]+) ]]; then
-                type_name="${BASH_REMATCH[1]}${BASH_REMATCH[2]}"
-                echo "class $type_name {" >> "$output_puml"
-                
-                # Ищем наследование и интерфейсы
-                if [[ $line =~ :[[:space:]]*([[:alnum:],[:space:]]+) ]]; then
-                  IFS=',' read -ra INHERITANCE <<< "${BASH_REMATCH[1]}"
-                  for parent in "${INHERITANCE[@]}"; do
-                    parent=$(echo "$parent" | xargs)
+              # Проверяем наследование
+              if [[ "$type_def" =~ :[[:space:]]*([a-zA-Z0-9,[:space:]]+) ]]; then
+                parents=${BASH_REMATCH[1]}
+                echo "$parents" | tr ',' '\n' | while read -r parent; do
+                  parent=$(echo "$parent" | xargs)
+                  if [ ! -z "$parent" ]; then
                     echo "$type_name --|> $parent" >> "$output_puml"
-                  done
-                fi
+                  fi
+                done
               fi
               
-              # Ищем публичные свойства
-              if [[ $line =~ public[[:space:]]+([[:alnum:]<>]+)[[:space:]]+([[:alnum:]]+)[[:space:]]*\{[[:space:]]*get ]]; then
-                prop_type="${BASH_REMATCH[1]}"
-                prop_name="${BASH_REMATCH[2]}"
+              # Извлекаем публичные свойства
+              grep -oP 'public\s+[a-zA-Z0-9<>]+\s+[a-zA-Z0-9]+\s*{\s*get' "$file" | while read -r prop; do
+                prop_type=$(echo "$prop" | grep -oP 'public\s+\K[a-zA-Z0-9<>]+')
+                prop_name=$(echo "$prop" | grep -oP '[a-zA-Z0-9]+\s*{' | sed 's/{//')
                 echo "  + $prop_name: $prop_type" >> "$output_puml"
-              fi
+              done
               
-              # Ищем публичные методы
-              if [[ $line =~ public[[:space:]]+([[:alnum:]<>]+)[[:space:]]+([[:alnum:]]+)[[:space:]]*\([^)]*\) ]]; then
-                method_type="${BASH_REMATCH[1]}"
-                method_name="${BASH_REMATCH[2]}"
-                if [[ $method_name != "get" && $method_name != "set" ]]; then
+              # Извлекаем публичные методы
+              grep -oP 'public\s+[a-zA-Z0-9<>]+\s+[a-zA-Z0-9]+\s*\([^)]*\)' "$file" | while read -r method; do
+                method_type=$(echo "$method" | grep -oP 'public\s+\K[a-zA-Z0-9<>]+')
+                method_name=$(echo "$method" | grep -oP '[a-zA-Z0-9]+\s*\(' | sed 's/(//')
+                if [[ "$method_name" != "get" ]] && [[ "$method_name" != "set" ]]; then
                   echo "  + $method_name(): $method_type" >> "$output_puml"
                 fi
-              fi
+              done
               
-              # Закрываем определение класса
-              if [[ $line =~ \}$ ]]; then
-                echo "}" >> "$output_puml"
-              fi
-            done < "$file"
+              echo "}" >> "$output_puml"
+            done
           done
           
           echo "@enduml" >> "$output_puml"
