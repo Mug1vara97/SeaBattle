@@ -34,29 +34,19 @@ jobs:
 
     - name: Convert PlantUML to PNG
       run: |
-        # Создаем директорию для изображений
         mkdir -p docs/diagrams/generated
-        
-        # Выводим список .puml файлов для отладки
         echo "Found .puml files:"
         ls -la docs/diagrams/*.puml
         
-        # Конвертируем каждый .puml файл отдельно
         for puml_file in docs/diagrams/*.puml; do
           if [ -f "$puml_file" ]; then
             echo "Processing $puml_file"
-            # Получаем имя файла без пути и расширения
             filename=$(basename "$puml_file" .puml)
             echo "Generating PNG for $filename"
-            
-            # Проверяем содержимое .puml файла
             echo "Content of $puml_file:"
             cat "$puml_file"
-            
-            # Генерируем PNG
             java -jar plantuml.jar -verbose -tpng "$puml_file" -o "$(pwd)/docs/diagrams/generated"
             
-            # Проверяем, был ли создан файл
             if [ -f "docs/diagrams/generated/$filename.png" ]; then
               echo "Successfully generated $filename.png"
             else
@@ -65,13 +55,11 @@ jobs:
           fi
         done
         
-        # Выводим список сгенерированных файлов
         echo "Contents of generated directory:"
         ls -la docs/diagrams/generated/
 
     - name: Update README with diagrams
       run: |
-        # Проверяем наличие сгенерированных файлов
         if [ ! -d "docs/diagrams/generated" ] || [ -z "$(ls -A docs/diagrams/generated/*.png 2>/dev/null)" ]; then
           echo "No generated diagrams found!"
           echo "Contents of docs/diagrams/generated:"
@@ -79,18 +67,11 @@ jobs:
           exit 1
         fi
         
-        # Обновляем README.md
         if [ -f "docs/README.md" ]; then
-          # Создаем временный файл
           tmp_file=$(mktemp)
-          
-          # Копируем содержимое до секции UML Diagrams
           sed '/## UML Diagrams/,$d' docs/README.md > "$tmp_file" 2>/dev/null || cp docs/README.md "$tmp_file"
-          
-          # Добавляем секцию с диаграммами
           echo -e "\n## UML Diagrams\n" >> "$tmp_file"
           
-          # Добавляем каждую диаграмму
           for png in docs/diagrams/generated/*.png; do
             if [ -f "$png" ]; then
               name=$(basename "$png" .png)
@@ -99,7 +80,6 @@ jobs:
             fi
           done
           
-          # Заменяем оригинальный файл
           mv "$tmp_file" docs/README.md
         fi
 
