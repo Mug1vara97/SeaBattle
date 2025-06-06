@@ -24,3 +24,30 @@
 ### 4. Дополнительные материалы
 - [Изображения](img/)
 - [Диаграммы](diagrams/)
+
+## UML Diagrams
+
+### Controllers
+
+![Controllers](diagrams/generated/Controllers.png)
+
+### Data
+
+![Data](diagrams/generated/Data.png)
+
+### Hubs
+
+![Hubs](diagrams/generated/Hubs.png)
+
+### Models
+
+![Models](diagrams/generated/Models.png)
+
+### Services
+
+![Services](diagrams/generated/Services.png)
+
+### full-project
+
+![full-project](diagrams/generated/full-project.png)
+

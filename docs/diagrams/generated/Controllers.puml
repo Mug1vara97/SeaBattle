@@ -1,0 +1,72 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam classAttributeIconSize 0
+skinparam class {
+  BackgroundColor white
+  ArrowColor black
+  BorderColor black
+}
+class AuthController {
+AuthController --|> ControllerBase
+}
+class RegisterRequest {
+}
+class LoginRequest {
+}
+class GameController {
+GameController --|> ControllerBase
+  + CreatorName : string
+  + IsOpenLobby : bool
+  + GameId : string
+  + OpponentName : string
+  + GameId : string
+  + PlayerName : string
+  + GameId : string
+  + PlayerName : string
+  + Position : Position
+}
+class CreateGameRequest {
+  + CreatorName : string
+  + IsOpenLobby : bool
+  + GameId : string
+  + OpponentName : string
+  + GameId : string
+  + PlayerName : string
+  + GameId : string
+  + PlayerName : string
+  + Position : Position
+}
+class JoinGameRequest {
+  + CreatorName : string
+  + IsOpenLobby : bool
+  + GameId : string
+  + OpponentName : string
+  + GameId : string
+  + PlayerName : string
+  + GameId : string
+  + PlayerName : string
+  + Position : Position
+}
+class ReadyRequest {
+  + CreatorName : string
+  + IsOpenLobby : bool
+  + GameId : string
+  + OpponentName : string
+  + GameId : string
+  + PlayerName : string
+  + GameId : string
+  + PlayerName : string
+  + Position : Position
+}
+class ShotRequest {
+  + CreatorName : string
+  + IsOpenLobby : bool
+  + GameId : string
+  + OpponentName : string
+  + GameId : string
+  + PlayerName : string
+  + GameId : string
+  + PlayerName : string
+  + Position : Position
+}
+@enduml

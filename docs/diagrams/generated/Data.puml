@@ -1,0 +1,16 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam classAttributeIconSize 0
+skinparam class {
+  BackgroundColor white
+  ArrowColor black
+  BorderColor black
+}
+class ApplicationDbContext {
+ApplicationDbContext --|> DbContext
+}
+class DesignTimeDbContextFactory {
+DesignTimeDbContextFactory --|> IDesignTimeDbContextFactory
+  + CreateDbContext(): ApplicationDbContext
+}
+@enduml

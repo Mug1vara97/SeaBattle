@@ -1,0 +1,165 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam classAttributeIconSize 0
+skinparam class {
+  BackgroundColor white
+  ArrowColor black
+  BorderColor black
+}
+class GameHub {
+GameHub --|> Hub
+}
+class LobbyHub {
+LobbyHub --|> Hub
+}
+class UserService {
+UserService --|> IUserService
+}
+class IGameService {
+}
+class GameService {
+GameService --|> IGameService
+  + CreateGame(): Task<Game>
+  + GetOpenLobbies(): Task<List<Game>>
+}
+class IUserService {
+}
+class AuthController {
+AuthController --|> ControllerBase
+}
+class RegisterRequest {
+}
+class LoginRequest {
+}
+class GameController {
+GameController --|> ControllerBase
+  + CreatorName : string
+  + IsOpenLobby : bool
+  + GameId : string
+  + OpponentName : string
+  + GameId : string
+  + PlayerName : string
+  + GameId : string
+  + PlayerName : string
+  + Position : Position
+}
+class CreateGameRequest {
+  + CreatorName : string
+  + IsOpenLobby : bool
+  + GameId : string
+  + OpponentName : string
+  + GameId : string
+  + PlayerName : string
+  + GameId : string
+  + PlayerName : string
+  + Position : Position
+}
+class JoinGameRequest {
+  + CreatorName : string
+  + IsOpenLobby : bool
+  + GameId : string
+  + OpponentName : string
+  + GameId : string
+  + PlayerName : string
+  + GameId : string
+  + PlayerName : string
+  + Position : Position
+}
+class ReadyRequest {
+  + CreatorName : string
+  + IsOpenLobby : bool
+  + GameId : string
+  + OpponentName : string
+  + GameId : string
+  + PlayerName : string
+  + GameId : string
+  + PlayerName : string
+  + Position : Position
+}
+class ShotRequest {
+  + CreatorName : string
+  + IsOpenLobby : bool
+  + GameId : string
+  + OpponentName : string
+  + GameId : string
+  + PlayerName : string
+  + GameId : string
+  + PlayerName : string
+  + Position : Position
+}
+class ApplicationDbContext {
+ApplicationDbContext --|> DbContext
+}
+class DesignTimeDbContextFactory {
+DesignTimeDbContextFactory --|> IDesignTimeDbContextFactory
+  + CreateDbContext(): ApplicationDbContext
+}
+class BoardConverter {
+BoardConverter --|> JsonConverter
+}
+class GameHistory {
+  + Id : Guid
+  + PlayerUsername : string
+  + GameId : string
+  + GameFinishedAt : DateTime
+  + Result : string
+}
+class GameStateInfo {
+  + IsCreatorReady : bool
+  + IsOpponentReady : bool
+  + IsCreatorTurn : bool
+  + IsGameStarted : bool
+  + IsGameEnded : bool
+  + IsOpenLobby : bool
+  + CreatedAt : DateTime
+}
+class GameStateManager {
+  + IsCreatorReady : bool
+  + IsOpponentReady : bool
+  + IsCreatorTurn : bool
+  + IsGameStarted : bool
+  + IsGameEnded : bool
+  + IsOpenLobby : bool
+  + CreatedAt : DateTime
+}
+class Position {
+  + Row : int
+  + Col : int
+  + IsHit : bool
+}
+class LobbyInfo {
+  + Id : string
+  + CreatorName : string
+  + Status : string
+  + CreatedAt : DateTime
+}
+class PlayerRanking {
+  + PlayerUsername : string
+  + Rating : int
+  + Wins : int
+  + Losses : int
+  + TotalGames : int
+}
+class Game {
+  + Id : string
+  + CreatorName : string
+  + IsOpenLobby : bool
+  + State : GameState
+  + CreatedAt : DateTime
+  + CreatorReady : bool
+  + JoinerReady : bool
+  + CreatorBoardSet : bool
+  + JoinerBoardSet : bool
+  + CreatorShots : List<Position>
+  + JoinerShots : List<Position>
+}
+class ShotResultResponse {
+  + Result : ShotResult
+  + IsHit : bool
+  + GameState : GameState
+}
+class User {
+  + Id : int
+  + CreatedAt : DateTime
+}
+@enduml
