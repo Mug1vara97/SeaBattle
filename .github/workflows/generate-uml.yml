@@ -6,7 +6,7 @@ on:
       - main
       - master
     paths:
-      - 'Server/SeaBattle/**/*.cs'
+      - 'docs/diagrams/**/*.puml'
       - '.github/workflows/generate-uml.yml'
 
 jobs:
@@ -32,89 +32,19 @@ jobs:
         sudo apt-get install -y graphviz
         wget -O plantuml.jar https://github.com/plantuml/plantuml/releases/download/v1.2024.0/plantuml-1.2024.0.jar
 
-    - name: Generate UML diagrams
+    - name: Convert PlantUML to PNG
       run: |
+        # Создаем директорию для изображений, если её нет
         mkdir -p docs/diagrams/generated
         
-        # Функция для создания PlantUML диаграммы
-        generate_uml() {
-          local dir=$1
-          local name=$2
-          local output_puml="docs/diagrams/generated/${name}.puml"
-          local output_png="docs/diagrams/generated/${name}.png"
-          
-          echo "@startuml" > "$output_puml"
-          echo "skinparam backgroundColor transparent" >> "$output_puml"
-          echo "skinparam classAttributeIconSize 0" >> "$output_puml"
-          echo "skinparam class {" >> "$output_puml"
-          echo "  BackgroundColor white" >> "$output_puml"
-          echo "  ArrowColor black" >> "$output_puml"
-          echo "  BorderColor black" >> "$output_puml"
-          echo "}" >> "$output_puml"
-          
-          # Поиск всех C# файлов
-          find "$dir" -name "*.cs" | while read -r file; do
-            # Пропускаем файлы миграций и автогенерированные
-            if [[ "$file" == *"/Migrations/"* ]] || [[ "$file" == *".Designer.cs" ]]; then
-              continue
-            fi
-            
-            # Извлекаем namespace
-            namespace=$(grep -oP 'namespace\s+\K[a-zA-Z0-9.]+' "$file" | head -n1)
-            
-            # Извлекаем определения классов и интерфейсов
-            grep -oP '(public\s+)?(class|interface)\s+[a-zA-Z0-9]+(\s*:\s*[a-zA-Z0-9,\s]+)?' "$file" | while read -r type_def; do
-              # Получаем имя типа
-              type_name=$(echo "$type_def" | grep -oP '(?:class|interface)\s+\K[a-zA-Z0-9]+')
-              echo "class $type_name {" >> "$output_puml"
-              
-              # Проверяем наследование
-              if [[ "$type_def" =~ :[[:space:]]*([a-zA-Z0-9,[:space:]]+) ]]; then
-                parents=${BASH_REMATCH[1]}
-                echo "$parents" | tr ',' '\n' | while read -r parent; do
-                  parent=$(echo "$parent" | xargs)
-                  if [ ! -z "$parent" ]; then
-                    echo "$type_name --|> $parent" >> "$output_puml"
-                  fi
-                done
-              fi
-              
-              # Извлекаем публичные свойства
-              grep -oP 'public\s+[a-zA-Z0-9<>]+\s+[a-zA-Z0-9]+\s*{\s*get' "$file" | while read -r prop; do
-                prop_type=$(echo "$prop" | grep -oP 'public\s+\K[a-zA-Z0-9<>]+')
-                prop_name=$(echo "$prop" | grep -oP '[a-zA-Z0-9]+\s*{' | sed 's/{//')
-                echo "  + $prop_name: $prop_type" >> "$output_puml"
-              done
-              
-              # Извлекаем публичные методы
-              grep -oP 'public\s+[a-zA-Z0-9<>]+\s+[a-zA-Z0-9]+\s*\([^)]*\)' "$file" | while read -r method; do
-                method_type=$(echo "$method" | grep -oP 'public\s+\K[a-zA-Z0-9<>]+')
-                method_name=$(echo "$method" | grep -oP '[a-zA-Z0-9]+\s*\(' | sed 's/(//')
-                if [[ "$method_name" != "get" ]] && [[ "$method_name" != "set" ]]; then
-                  echo "  + $method_name(): $method_type" >> "$output_puml"
-                fi
-              done
-              
-              echo "}" >> "$output_puml"
-            done
-          done
-          
-          echo "@enduml" >> "$output_puml"
-          
-          # Генерируем PNG
-          java -jar plantuml.jar "$output_puml"
-        }
-        
-        # Генерируем диаграммы для каждой директории
-        for dir in Controllers Models Services Hubs Data; do
-          if [ -d "Server/SeaBattle/$dir" ]; then
-            echo "Generating diagram for $dir"
-            generate_uml "Server/SeaBattle/$dir" "$dir"
-          fi
+        # Конвертируем все .puml файлы в PNG
+        find docs/diagrams -name "*.puml" -type f | while read -r puml_file; do
+          echo "Converting $puml_file to PNG"
+          # Получаем имя файла без пути и расширения
+          filename=$(basename "$puml_file" .puml)
+          # Генерируем PNG в директории generated
+          java -jar plantuml.jar -tpng "$puml_file" -o "$(dirname "$puml_file")/generated"
         done
-        
-        # Генерируем общую диаграмму
-        generate_uml "Server/SeaBattle" "full-project"
 
     - name: Update README with diagrams
       run: |
